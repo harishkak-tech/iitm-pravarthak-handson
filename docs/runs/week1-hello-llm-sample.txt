@@ -1,0 +1,3 @@
+$ python practice_examples/week01/hello_llm.py "What is RAG in one sentence?"
+Retrieval-Augmented Generation (RAG) is a technique that fetches relevant documents and
+gives them to a language model so its answer is grounded in real, current sources.
