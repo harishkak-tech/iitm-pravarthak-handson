@@ -206,6 +206,3 @@ if __name__ == "__main__":
         run_id = write_run(con, summary)
         n      = write_answers(con, run_id, answers)
     log.info(f"persisted run {run_id} with {n} answers to {settings.results_db}")
-
-
-https://github.com/Mohdwajtech/AIRAG_delivery_batch1.git
