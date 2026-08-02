@@ -77,7 +77,7 @@ def write_answers(
     """Bulk-insert all answers for a given run. Returns the number of rows inserted."""
     ts = time.time()
     rows = [
-        (run_id, a.question, a.text, a.cost_usd, a.retries, ts)
+        (run_id, a.question, a.text, a.cost_usd, a.retries, a.finish_reason, ts)
         for a in answers
     ]
     con.executemany(

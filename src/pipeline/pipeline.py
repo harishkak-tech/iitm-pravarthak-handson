@@ -40,7 +40,10 @@ if _settings_for_import.use_fake:
 else:
     from dotenv import load_dotenv
     from openai import AsyncOpenAI
+    from openai.types import CompletionUsage
     from pydantic import BaseModel
+    import tiktoken
+
 
     load_dotenv()
     _client = AsyncOpenAI()
@@ -50,9 +53,13 @@ else:
 
     class Answer(BaseModel):
         question: str
-        text:     str
+        content:     str
         cost_usd: float
         retries:  int = 0
+        finish_reason: str
+        usage: CompletionUsage
+
+
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -80,7 +87,9 @@ async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
         ans = Answer(
             question=q.text,
             text=resp.choices[0].message.content,
-            cost_usd=0.0001,                  # real cost-from-usage lands in W25
+            cost_usd=compute_cost(_settings_for_import.model, count_tokens(q.text, _settings_for_import.model), count_tokens(resp.choices[0].message.content, _settings_for_import.model)), # real cost-from-usage lands in W25
+            finish_reason=resp.choices[0].finish_reason,
+            usage=resp.usage                              
         )
     log.info(f"asked: {q.text[:40]}")
     return ans
@@ -158,6 +167,15 @@ def summarise_run(
         use_fake        = use_fake,
     )
 
+def compute_cost(model: str, in_tokens: int, out_tokens: int) -> float:
+    """cost = (input_tokens * input_rate + output_tokens * output_rate) / 1e6."""
+    in_rate, out_rate = RATES[model]
+    return (in_tokens * in_rate + out_tokens * out_rate) / 1_000_000
+
+def count_tokens(text: str, model: str) -> int:
+    print(f"{text}")
+    enc = tiktoken.encoding_for_model(model)
+    return len(enc.encode(text))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Entrypoint
