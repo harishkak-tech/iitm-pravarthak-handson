@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS answers (
     answer    TEXT    NOT NULL,
     cost_usd  REAL    NOT NULL,
     retries   INTEGER NOT NULL DEFAULT 0,
+    finish_reason TEXT NOT NULL,
     ts        REAL    NOT NULL,
     FOREIGN KEY (run_id) REFERENCES runs(id)
 );
@@ -81,7 +82,7 @@ def write_answers(
         for a in answers
     ]
     con.executemany(
-        "INSERT INTO answers (run_id, question, answer, cost_usd, retries, ts) "
+        "INSERT INTO answers (run_id, question, answer, cost_usd, retries, finish_reason, ts) "
         "VALUES (?, ?, ?, ?, ?, ?)",
         rows,
     )

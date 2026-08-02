@@ -29,7 +29,10 @@ from .settings import Settings, RunSummary
 # ─────────────────────────────────────────────────────────────────────────────
 log = get_logger()
 
-
+RATES = {
+    "gpt-4o-mini": (0.15, 0.60),     # cheap
+    "gpt-4o":      (2.50, 10.00),    # ~15x mini
+}
 # ─────────────────────────────────────────────────────────────────────────────
 # LLM client setup — branches on Settings.use_fake at module-load time
 # ─────────────────────────────────────────────────────────────────────────────
@@ -53,7 +56,7 @@ else:
 
     class Answer(BaseModel):
         question: str
-        content:     str
+        text:     str
         cost_usd: float
         retries:  int = 0
         finish_reason: str
@@ -92,6 +95,7 @@ async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
             usage=resp.usage                              
         )
     log.info(f"asked: {q.text[:40]}")
+    print(f"Usage: {ans.usage}")
     return ans
 
 
