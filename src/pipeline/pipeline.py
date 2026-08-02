@@ -60,7 +60,7 @@ else:
 # ─────────────────────────────────────────────────────────────────────────────
 def load_questions(path: str | Path = "data/questions.csv") -> list[Question]:
     """Read questions from a CSV with a `text` column."""
-    with open(path, newline="", encoding="utf-8") as f:
+    with open(path, newline="", encoding="utf-8") as f: 
         rows = list(csv.DictReader(f))
     return [Question(text=row["text"]) for row in rows if row.get("text")]
 
