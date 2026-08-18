@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS runs (
     n_retries_total  INTEGER NOT NULL,
     total_cost_usd   REAL    NOT NULL,
     fail_rate        REAL    NOT NULL,
-    use_fake         INTEGER NOT NULL                       -- 0 / 1 (SQLite has no native bool)
+    use_fake         INTEGER NOT NULL                     -- 0 / 1 (SQLite has no native bool)
 );
 
 CREATE TABLE IF NOT EXISTS answers (
@@ -35,6 +35,9 @@ CREATE TABLE IF NOT EXISTS answers (
     cost_usd  REAL    NOT NULL,
     retries   INTEGER NOT NULL DEFAULT 0,
     finish_reason TEXT NOT NULL,
+    completion_tokens INTEGER NOT NULL,
+    prompt_tokens    INTEGER NOT NULL,
+    total_tokens      INTEGER NOT NULL,  
     ts        REAL    NOT NULL,
     FOREIGN KEY (run_id) REFERENCES runs(id)
 );
@@ -63,7 +66,7 @@ def write_run(con: sqlite3.Connection, summary: RunSummary) -> int:
             summary.n_retries_total,
             summary.total_cost_usd,
             summary.fail_rate,
-            1 if summary.use_fake else 0,
+            1 if summary.use_fake else 0
         ),
     )
     con.commit()
@@ -78,12 +81,12 @@ def write_answers(
     """Bulk-insert all answers for a given run. Returns the number of rows inserted."""
     ts = time.time()
     rows = [
-        (run_id, a.question, a.text, a.cost_usd, a.retries, a.finish_reason, ts)
+        (run_id, a.question, a.text, a.cost_usd, a.retries, a.finish_reason, a.usage.completion_tokens, a.usage.prompt_tokens, a.usage.total_tokens, ts)
         for a in answers
     ]
     con.executemany(
-        "INSERT INTO answers (run_id, question, answer, cost_usd, retries, finish_reason, ts) "
-        "VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO answers (run_id, question, answer, cost_usd, retries, finish_reason,  completion_tokens, prompt_tokens, total_tokens, ts) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         rows,
     )
     con.commit()

@@ -14,6 +14,7 @@ Hit with curl:
 """
 import asyncio
 import logging
+import streamlit as st
 
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse

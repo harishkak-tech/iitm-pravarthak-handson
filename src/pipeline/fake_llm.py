@@ -25,6 +25,7 @@ from __future__ import annotations
 import asyncio
 import random
 
+from openai.types import CompletionUsage
 from pydantic import BaseModel
 
 
@@ -37,6 +38,8 @@ class Answer(BaseModel):
     text: str
     cost_usd: float
     retries: int = 0
+    finish_reason: str
+    usage: CompletionUsage
 
 
 class FakeLLMError(Exception):
@@ -166,6 +169,14 @@ async def fake_ask_llm(
         question=q.text,
         text=_pick(q.text),
         cost_usd=0.0001,
+        finish_reason='end',
+        usage = CompletionUsage(
+                   prompt_tokens=15,
+                   completion_tokens=32,
+                   total_tokens=47,
+                   prompt_tokens_details={'cached_tokens': 0},      # Optional: present in newer OpenAI models
+                   completion_tokens_details={'reasoning_tokens': 0} # Optional: present in reasoning models (like o1/o3)
+                )
     )
 
 
