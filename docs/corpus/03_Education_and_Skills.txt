@@ -1,0 +1,48 @@
+Government Policies: Education and Skill Development
+====================================================
+
+Policy Objectives
+-----------------
+Education policy addresses access, quality, equity, learning outcomes, teacher development, higher education, vocational learning and the relationship between education and employability.
+
+National Education Policy
+-------------------------
+The National Education Policy provides a broad policy direction for reforms across school and higher education. It emphasizes changes in curriculum, learning approaches, flexibility, multidisciplinary education and the development of foundational and other competencies.
+
+School Education
+----------------
+School-sector programmes seek to improve enrolment, infrastructure, teacher capacity and learning. Samagra Shiksha is an important framework supporting integrated school education through cooperation between the Union and State governments.
+
+Higher Education
+----------------
+Higher education policy focuses on access, quality, research, institutional improvement and greater flexibility across disciplines. Universities and colleges operate under a range of regulatory and institutional arrangements.
+
+Skill Development
+-----------------
+Skill policies support vocational training, apprenticeships and programmes intended to improve employability. Effective skills policy requires alignment between training content and actual labour-market needs.
+
+Digital Learning
+----------------
+Digital platforms and educational content can expand access, especially where physical resources are limited. However, unequal access to devices, connectivity and language-appropriate content can create a digital divide if implementation does not address these issues.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

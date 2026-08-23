@@ -1,0 +1,48 @@
+Government Policies: Digital India and Digital Public Services
+==============================================================
+
+Policy Objectives
+-----------------
+Digital policy aims to improve connectivity, digital service delivery, inclusion, innovation and access to government services. Digital public infrastructure can provide common foundations used by multiple programmes.
+
+Digital Service Delivery
+------------------------
+Government portals and digital platforms can reduce paperwork and make services easier to access. myScheme, for example, is designed as a platform that helps citizens discover government schemes across categories.
+
+Digital Public Infrastructure
+-----------------------------
+Shared digital systems can support identity, payments, document exchange and service delivery. Their value increases when institutions can build services using common standards and trusted interfaces.
+
+Financial and Social Services
+-----------------------------
+Digital platforms can support benefit delivery, banking access, pension services and other citizen-facing programmes. Direct benefit delivery requires accurate beneficiary information and effective mechanisms for resolving errors.
+
+Connectivity and Inclusion
+--------------------------
+Digital services depend on connectivity, devices and digital skills. Policy must therefore consider rural connectivity, affordability, accessibility and language diversity, rather than assuming that all citizens have equal access.
+
+Governance Challenges
+---------------------
+Digital governance must balance convenience with cybersecurity, privacy, reliability and accountability. Large public systems need clear rules for access, data handling, grievance redressal and continuity during outages.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

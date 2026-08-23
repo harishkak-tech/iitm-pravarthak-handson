@@ -77,6 +77,15 @@ python practice_examples/week02/pydantic_demo.py bad
 # The application (fake mode — no API key needed):
 python -m src.pipeline.pipeline
 
+# The Streamlit UI:
+streamlit run api/main.py --server.port 8501
+
+# Run the local golden-set evaluation:
+python scripts/run_golden_set.py
+
+# The judge runs locally by default. To use the live gpt-4o judge:
+# set JUDGE_USE_FAKE=0 and OPENAI_API_KEY=...
+
 # The application against the REAL API: set use_fake=False (see src/pipeline/settings.py)
 # and put your key in a .env file:  OPENAI_API_KEY=sk-...
 ```

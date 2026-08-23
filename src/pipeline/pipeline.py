@@ -80,6 +80,7 @@ def load_questions(path: str | Path = "data/questions.csv") -> list[Question]:
 # ─────────────────────────────────────────────────────────────────────────────
 async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
     """One LLM call. Branches on Settings.use_fake."""
+    print("Asking LLM")
     if _settings_for_import.use_fake:
         ans = await fake_ask_llm(q, fail_rate=fail_rate)
     else:
@@ -95,7 +96,6 @@ async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
             usage=resp.usage                              
         )
     log.info(f"asked: {q.text[:40]}")
-    print(f"Usage: {ans.usage}")
     return ans
 
 
@@ -148,6 +148,10 @@ async def run_in_batches(
     return out
 
 
+
+
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Run summariser
 # ─────────────────────────────────────────────────────────────────────────────
@@ -177,7 +181,6 @@ def compute_cost(model: str, in_tokens: int, out_tokens: int) -> float:
     return (in_tokens * in_rate + out_tokens * out_rate) / 1_000_000
 
 def count_tokens(text: str, model: str) -> int:
-    print(f"{text}")
     enc = tiktoken.encoding_for_model(model)
     return len(enc.encode(text))
 

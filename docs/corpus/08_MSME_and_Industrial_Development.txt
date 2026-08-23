@@ -1,0 +1,48 @@
+Government Policies: MSME and Industrial Development
+====================================================
+
+Policy Objectives
+-----------------
+MSME policy aims to promote entrepreneurship, employment, competitiveness, technology adoption and access to markets and finance. The Union government supplements State-level efforts through schemes and support programmes.
+
+Access to Credit
+----------------
+Small enterprises often face difficulties obtaining formal credit. Government-supported mechanisms include credit guarantees and credit-linked programmes intended to reduce financing constraints for eligible enterprises.
+
+PMEGP
+-----
+The Prime Minister's Employment Generation Programme supports the creation of micro-enterprises and self-employment through its programme framework. It is associated with promoting first-generation entrepreneurship in rural and urban areas.
+
+Technology and Quality
+----------------------
+MSME programmes support modernisation, technology improvement, quality certification and improved production capabilities. Smaller firms may need external support because they have limited capital and specialist capacity.
+
+Market Access
+-------------
+Marketing support, procurement opportunities, trade events and digital channels can help enterprises reach customers. Policy also encourages clusters and collective approaches that can provide shared infrastructure and services.
+
+Industrial Development
+----------------------
+Broader industrial policy considers manufacturing, investment, infrastructure, innovation and employment. The effectiveness of incentives depends on implementation, stable regulations, skilled labour and supporting supply chains.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

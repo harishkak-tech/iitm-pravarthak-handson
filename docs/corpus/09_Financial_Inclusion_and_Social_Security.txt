@@ -1,0 +1,48 @@
+Government Policies: Financial Inclusion and Social Security
+============================================================
+
+Policy Objectives
+-----------------
+Financial inclusion policy aims to increase access to bank accounts, payments, credit, insurance and pensions. Social-security programmes seek to reduce vulnerability caused by income shocks, accidents, illness and old age.
+
+Jan Dhan
+--------
+Pradhan Mantri Jan Dhan Yojana is associated with expanding access to basic banking services. Bank accounts can also support the transfer of eligible benefits through formal financial channels.
+
+Insurance
+---------
+Government-backed social insurance programmes include schemes for accident and life coverage, subject to their applicable terms and eligibility. Affordable insurance can help households manage certain financial shocks.
+
+Pensions
+--------
+Pension and retirement-security programmes provide mechanisms for long-term savings and income support. Policy design must balance affordability, coverage, investment management and the needs of different worker groups.
+
+Credit and Enterprise
+---------------------
+Financial inclusion is linked to entrepreneurship because access to credit can support self-employment and small businesses. Programmes such as Mudra and other credit-linked initiatives operate alongside banks and financial institutions.
+
+Direct Benefit Delivery
+-----------------------
+Digital systems can support the transfer of eligible government benefits to beneficiaries. Accurate records, accessible banking channels and grievance mechanisms are important because exclusion or payment errors can directly affect households.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

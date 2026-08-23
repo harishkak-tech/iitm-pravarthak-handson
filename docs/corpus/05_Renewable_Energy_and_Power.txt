@@ -1,0 +1,48 @@
+Government Policies: Renewable Energy and Power
+===============================================
+
+Policy Objectives
+-----------------
+Energy policy seeks to improve electricity access, reliability, affordability and sustainability. Renewable energy has become increasingly important in planning for long-term energy security and lower-carbon development.
+
+Solar Energy
+------------
+Government initiatives support expansion of solar generation through utility-scale projects and distributed systems. Rooftop solar programmes encourage households and other consumers to generate electricity closer to where it is used.
+
+PM Surya Ghar
+-------------
+PM Surya Ghar: Muft Bijli Yojana is associated with support for rooftop solar adoption by households. Successful implementation depends on consumer awareness, financing, installation capacity, distribution companies and reliable programme processes.
+
+Wind and Other Sources
+----------------------
+Wind, hydropower, biomass and other sources contribute to India's broader electricity mix. A diversified system can reduce dependence on any single source but requires planning for geography, seasonality and transmission.
+
+Grid Integration
+----------------
+Variable renewable generation creates requirements for transmission, forecasting, storage and flexible electricity resources. Energy policy therefore includes not only building generation capacity but also strengthening the wider power system.
+
+Energy Efficiency
+-----------------
+Reducing waste through efficient appliances, buildings and industrial processes can lower energy demand. Efficiency policy is often complementary to renewable-energy policy because avoided demand can reduce pressure on generation and networks.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

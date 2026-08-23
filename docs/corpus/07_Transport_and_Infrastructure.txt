@@ -1,0 +1,48 @@
+Government Policies: Transport and Infrastructure
+=================================================
+
+Policy Objectives
+-----------------
+Transport and infrastructure policy seeks to improve connectivity, reduce logistics costs, increase safety and support economic activity. Roads, railways, airports, ports, waterways and urban transport form an interconnected system.
+
+Integrated Planning
+-------------------
+PM GatiShakti is associated with integrated infrastructure planning and coordination. The objective of integrated planning is to reduce duplication and improve connections between different transport and infrastructure networks.
+
+National Logistics Policy
+-------------------------
+The National Logistics Policy focuses on improving the efficiency of moving goods. Logistics performance is affected by infrastructure, regulation, warehousing, digital systems, last-mile connectivity and coordination among agencies.
+
+Roads and Highways
+------------------
+Highway development can reduce travel times and improve market access. Policy must also address maintenance, road safety, land acquisition, environmental impacts and the connection of highways to local roads.
+
+Railways and Public Transport
+-----------------------------
+Railways support both passenger and freight movement. Urban transport policies also address metros, buses and multimodal systems. Investment decisions must consider demand, affordability and long-term operating requirements.
+
+Ports and Aviation
+------------------
+Ports and airports connect domestic and international markets. Their effectiveness depends not only on terminals but also on surrounding roads, rail links, customs processes, warehousing and other supporting infrastructure.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

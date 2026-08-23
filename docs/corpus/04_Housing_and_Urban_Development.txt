@@ -1,0 +1,48 @@
+Government Policies: Housing and Urban Development
+==================================================
+
+Policy Objectives
+-----------------
+Housing and urban policy addresses affordable housing, water, sanitation, mobility, public spaces, urban infrastructure and the management of rapidly growing cities.
+
+Affordable Housing
+------------------
+Government housing programmes aim to improve access to formal and affordable homes for eligible groups. Policy approaches can include direct support, credit-linked assistance and support for housing infrastructure.
+
+Urban Missions
+--------------
+Urban development programmes support improvements in water supply, sanitation, urban infrastructure and service delivery. Different cities have different fiscal capacity, population density and infrastructure gaps, so implementation often requires local planning.
+
+Sanitation and Waste
+--------------------
+Urban policy includes efforts to improve sanitation and solid-waste management. Effective systems require collection, segregation, transport, processing and disposal, along with citizen participation and municipal capacity.
+
+Urban Transport
+---------------
+Congestion and air pollution make public transport and integrated mobility important policy concerns. Metro systems, buses, walking and cycling infrastructure can complement one another when planning connects land use with transport.
+
+Implementation
+--------------
+Urban development involves the Union government, States, urban local bodies and public agencies. Funding, land availability, municipal capacity and coordination across agencies strongly influence results.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

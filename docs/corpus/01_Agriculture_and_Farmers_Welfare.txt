@@ -1,0 +1,48 @@
+Government Policies: Agriculture and Farmers' Welfare
+=====================================================
+
+Policy Objectives
+-----------------
+Government policy in agriculture focuses on farmer income support, crop risk management, credit, irrigation, infrastructure, markets, technology and sustainable farming. Programmes are delivered through a combination of Central Sector schemes, Centrally Sponsored Schemes and cooperation with State governments.
+
+Income Support and Credit
+-------------------------
+PM-KISAN provides income support to eligible farmer families under its scheme framework. Agricultural credit policies are supported through instruments such as the Kisan Credit Card and interest-support arrangements. Credit is intended to help farmers finance seasonal cultivation and other eligible agricultural activities.
+
+Crop Insurance and Risk
+-----------------------
+Pradhan Mantri Fasal Bima Yojana is designed to address crop-related risks through insurance. Weather, yield loss and other agricultural risks make risk management an important policy area. Implementation requires coordination among governments, insurers and farmers.
+
+Infrastructure and Markets
+--------------------------
+The Agriculture Infrastructure Fund supports investment in eligible agricultural infrastructure. Policy also supports Farmer Producer Organisations, storage, processing, mechanisation and improved market access. These measures aim to strengthen value chains beyond primary cultivation.
+
+Sustainability and Water
+------------------------
+Policies include support for efficient irrigation, soil health, natural farming, crop diversification and related sustainability initiatives. Water availability varies substantially across regions, so agricultural policy must adapt to local conditions and cropping patterns.
+
+Digital Agriculture
+-------------------
+Digital Agriculture initiatives seek to improve the use of data and digital systems in agricultural services. Digital tools may support access to information, records, advisories and programme delivery. Their effectiveness depends on reliable data, local institutions and access for farmers.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.

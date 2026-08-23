@@ -1,0 +1,25 @@
+{
+  "total": 60,
+  "answerable": 50,
+  "unanswerable": 10,
+  "retrieval_hits": 49,
+  "retrieval_hit_rate": 0.98,
+  "abstentions": 21,
+  "abstention_rate": 0.35,
+  "passed": 24,
+  "pass_rate": 0.4,
+  "total_cost_usd": 0.005688600000000001,
+  "total_elapsed_seconds": 61.041880200005835,
+  "by_eval_type": {
+    "document-level retrieval": 10,
+    "targeted retrieval": 4,
+    "retrieval + faithfulness": 36,
+    "hallucination / abstention": 10
+  },
+  "judge_accuracy_avg": 2.0166666666666666,
+  "judge_groundedness_avg": 2.0166666666666666,
+  "judge_format_avg": 3.9,
+  "judge_overall_avg": 2.6441666666666666,
+  "judge_passed": 24,
+  "judge_pass_rate": 0.4
+}

@@ -1,0 +1,48 @@
+Government Policies: Health and Public Health
+=============================================
+
+Policy Objectives
+-----------------
+Health policy aims to improve access to preventive, primary, secondary and tertiary healthcare. Public health programmes also address maternal and child health, infectious diseases, nutrition, medicines, health infrastructure and the healthcare workforce.
+
+Ayushman Bharat
+---------------
+Ayushman Bharat is a major policy framework associated with expanding health coverage. Its components include strengthening primary healthcare through Health and Wellness Centres and financial protection for eligible beneficiaries through the health assurance component.
+
+National Health Mission
+-----------------------
+The National Health Mission supports public health systems and works with States and Union Territories on healthcare delivery. Areas of attention include maternal health, child health, disease control, human resources and strengthening facilities.
+
+Digital Health
+--------------
+Digital health policy promotes interoperable systems and improved access to health services and records. Digital platforms can support telemedicine, appointments, health information and service delivery, while privacy and secure handling of personal information remain important considerations.
+
+Prevention and Primary Care
+---------------------------
+Public policy increasingly emphasizes prevention, screening, immunisation and early diagnosis. Primary healthcare can reduce pressure on higher-level hospitals when common conditions are managed earlier and referral systems function effectively.
+
+Implementation Challenges
+-------------------------
+Health is a large and diverse sector. Outcomes depend on financing, State capacity, availability of doctors and nurses, medicines, infrastructure, geographic access and public awareness. Policy design therefore needs strong implementation and monitoring.
+
+RAG Enhancement Appendix
+========================
+Retrieval concepts
+------------------
+This document can be retrieved using the policy/programme names, objectives,
+implementation mechanisms, beneficiary/eligibility concepts, delivery mechanisms,
+monitoring mechanisms, transparency mechanisms, grievance-redressal concepts,
+and outcomes described above.
+
+Evaluation notes
+----------------
+Questions for this document should distinguish between:
+1. the stated policy objective,
+2. the implementation mechanism,
+3. the intended beneficiary or target group,
+4. the delivery or institutional mechanism,
+5. monitoring/transparency mechanisms, and
+6. implementation challenges or outcomes.
+
+The original document content above remains the primary source for answering
+document-grounded questions.
