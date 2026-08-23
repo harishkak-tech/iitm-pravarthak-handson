@@ -19,6 +19,10 @@ import os
 from pathlib import Path
 import sys
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
@@ -26,11 +30,6 @@ from pydantic import BaseModel, Field
 # RAG pipeline â€” the underlying engine
 from src.rag.pipeline import RagAnswer as _RagAnswer
 from src.rag.pipeline import ask_rag as _ask_rag
-
-
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")
