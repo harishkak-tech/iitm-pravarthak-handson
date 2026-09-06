@@ -28,8 +28,8 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 # RAG pipeline â€” the underlying engine
-from src.rag.pipeline import RagAnswer as _RagAnswer
-from src.rag.pipeline import ask_rag as _ask_rag
+from src.pipeline.pipeline import RagAnswer as _RagAnswer
+from src.pipeline.pipeline import ask_rag as _ask_rag
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")

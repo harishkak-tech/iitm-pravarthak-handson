@@ -25,6 +25,17 @@ Energy Efficiency
 -----------------
 Reducing waste through efficient appliances, buildings and industrial processes can lower energy demand. Efficiency policy is often complementary to renewable-energy policy because avoided demand can reduce pressure on generation and networks.
 
+Capacity, Generation and Household Adoption
+-------------------------------------------
+Installed renewable capacity, electricity actually generated and household
+adoption are different indicators. A rooftop system can be approved before it is
+installed, and an installed system can produce less electricity than its rated
+capacity because of weather, maintenance or grid constraints. Programme reports
+may separately count applications, sanctioned subsidies, commissioned systems
+and active net-metering connections. A claim about renewable capacity should
+therefore identify the technology, measurement unit, reporting date and whether
+the figure is planned, installed or operational.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

@@ -25,6 +25,18 @@ Digital Agriculture
 -------------------
 Digital Agriculture initiatives seek to improve the use of data and digital systems in agricultural services. Digital tools may support access to information, records, advisories and programme delivery. Their effectiveness depends on reliable data, local institutions and access for farmers.
 
+Delivery and Measurement Caveats
+--------------------------------
+Farmer registration, eligibility verification, payment release and actual receipt
+are separate stages. A farmer may appear in a scheme registry without receiving
+a payment if land records, bank details or identity information require correction.
+Crop-insurance reporting also distinguishes an intimation of loss, a surveyed
+claim and a settled claim. Seasonal weather data can support assessment, but the
+presence of a weather event does not by itself establish the final compensation.
+District comparisons should therefore specify the crop, season, scheme and
+indicator being compared rather than treating all registered farmers as
+beneficiaries.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

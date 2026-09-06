@@ -1,0 +1,70 @@
+Integrated District Delivery Casebook
+====================================
+
+Scope and status
+----------------
+The Integrated District Delivery Pilot combines selected rural roads, rooftop
+solar support, and digital benefit payments in the Sundar and Narmada districts.
+It is a planning and monitoring casebook, not a national programme report. The
+figures below are provisional administrative figures for financial year 2024-25
+unless a different period is stated.
+
+Funding and accounting
+----------------------
+The approved pilot envelope was Rs 48 crore. Rs 31 crore had been released by
+31 March 2025 and reported expenditure was Rs 27.4 crore. Approval, release and
+expenditure are different measures and should not be treated as interchangeable.
+The expenditure figure includes district coordination and payment-system costs,
+not only household transfers.
+
+Household registration and verification
+---------------------------------------
+The district offices registered 18,400 households for at least one intervention.
+After duplicate removal and document checks, 15,920 households were verified.
+The monitoring dashboard recorded 12,600 households as having received at least
+one benefit. These counts describe different stages of the process: registered,
+verified and benefit-receiving. They are not three estimates of the same outcome.
+
+Rooftop solar component
+-----------------------
+There were 4,800 solar applications across the two districts. Distribution
+companies had commissioned systems for 3,100 households by the reporting date.
+The remaining applications were not necessarily rejected: 1,050 were awaiting
+technical inspection, 420 were waiting for an applicant contribution, and 230
+were held for documentation or address correction. A commissioned system is
+counted only after installation inspection; an approved application is counted
+earlier.
+
+Rural access works
+------------------
+The pilot schedule listed 86 kilometres of rural access improvements. Engineers
+certified 62 kilometres as complete, while 14 kilometres were under construction
+and 10 kilometres had not started. The completed length is an engineering
+progress measure and does not by itself establish that every target household
+has improved market or health-service access.
+
+Digital payments and exceptions
+-------------------------------
+Benefit payments were routed through bank accounts and assisted service points.
+Of the 12,600 households recorded as receiving a benefit, 1,180 experienced at
+least one failed or delayed transaction. The casebook does not say that all of
+these households permanently lost a benefit. Common exceptions were account
+mapping errors, inactive accounts, name mismatches and intermittent connectivity.
+District teams used a correction queue and a grievance desk, but the casebook
+does not provide a final resolution rate.
+
+Time and target caveats
+-----------------------
+The pilot had a planning target of 25,000 registered households for 2025-26.
+That is a target, not a reported achievement. No final 2025-26 coverage,
+district ranking, ministerial assignment or audit finding is provided here.
+The two districts used the same dashboard, but their local implementation
+capacity and contractor schedules were not identical.
+
+Interpretation note
+-------------------
+When a question asks for "coverage," clarify whether it means registered,
+verified or benefit-receiving households. When it asks for "budget," clarify
+whether it means approved, released or spent funds. When it asks which district
+performed better, identify the metric first; the casebook does not provide a
+single composite performance score.

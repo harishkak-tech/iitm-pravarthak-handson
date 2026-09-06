@@ -25,6 +25,16 @@ Digital Learning
 ----------------
 Digital platforms and educational content can expand access, especially where physical resources are limited. However, unequal access to devices, connectivity and language-appropriate content can create a digital divide if implementation does not address these issues.
 
+Learning and Employment Measures
+--------------------------------
+Enrolment, attendance, course completion and learning outcomes describe different
+parts of the education pathway. A school may report high enrolment while still
+facing irregular attendance or weak reading and numeracy outcomes. In skills
+programmes, trainees enrolled, trainees certified and trainees placed are also
+separate counts. A placement recorded immediately after certification is not
+equivalent to sustained employment, and placement figures should be interpreted
+with the trade, location and reporting period specified.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

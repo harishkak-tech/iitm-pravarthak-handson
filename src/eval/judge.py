@@ -224,10 +224,10 @@ async def judge_answer(
 ) -> JudgeScore:
     """Judge one answer.
 
-    Defaults to a deterministic local judge. Set ``JUDGE_USE_FAKE=0`` and
-    provide ``OPENAI_API_KEY`` to use the real tool-calling judge.
+    Uses the live tool-calling judge by default. Set ``JUDGE_USE_FAKE=1`` to
+    use the deterministic local judge instead.
     """
-    use_fake = os.getenv("JUDGE_USE_FAKE", "1").lower() not in {"0", "false", "no"}
+    use_fake = os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"}
     if use_fake:
         return _fake_judge(
             question,

@@ -25,6 +25,17 @@ Governance Challenges
 ---------------------
 Digital governance must balance convenience with cybersecurity, privacy, reliability and accountability. Large public systems need clear rules for access, data handling, grievance redressal and continuity during outages.
 
+Service Status and Inclusion
+----------------------------
+An application submitted, an application authenticated, a request approved and
+a service successfully delivered are different statuses. Authentication failure
+can result from incorrect records rather than ineligibility, while a successful
+approval may still be delayed by a bank, department or local service provider.
+Dashboard totals can also use different update times. Digital access should be
+measured with attention to assisted-service use, failed transactions, language
+support, accessibility and outage duration, not only the number of registered
+users.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

@@ -25,6 +25,16 @@ Industrial Development
 ----------------------
 Broader industrial policy considers manufacturing, investment, infrastructure, innovation and employment. The effectiveness of incentives depends on implementation, stable regulations, skilled labour and supporting supply chains.
 
+Enterprise Support Stages
+-------------------------
+An enterprise may submit a credit application, receive a sanction, draw down a
+loan and later repay it; these stages should not be reported as one credit
+coverage figure. The same distinction applies to subsidy applications, approvals
+and disbursements. Employment estimates may count direct workers, temporary
+workers or jobs expected from an investment, so the definition and reporting
+period matter. A cluster can have stronger production capacity while individual
+micro-enterprises still face working-capital and market-access constraints.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

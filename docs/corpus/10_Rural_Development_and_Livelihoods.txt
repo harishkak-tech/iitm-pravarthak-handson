@@ -25,6 +25,17 @@ Implementation and Inclusion
 ----------------------------
 Rural programmes require coordination across national, State and local institutions. Good implementation depends on accurate beneficiary identification, transparency, local capacity, timely payments and effective grievance redressal.
 
+Work, Housing and Group Outcomes
+--------------------------------
+For employment programmes, a household demanding work, a work application
+approved, a workday generated and wages paid are separate events. Delayed payment
+does not necessarily mean that work was not provided, but it is an important
+implementation issue. Rural housing reports may distinguish eligible households,
+sanctioned houses, construction stages and completed houses. Under livelihood
+programmes, the number of self-help groups formed does not by itself show whether
+members obtained credit, skills or sustained enterprise income. Local comparisons
+should state the indicator and period being used.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

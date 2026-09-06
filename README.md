@@ -83,8 +83,8 @@ streamlit run api/main.py --server.port 8501
 # Run the local golden-set evaluation:
 python scripts/run_golden_set.py
 
-# The judge runs locally by default. To use the live gpt-4o judge:
-# set JUDGE_USE_FAKE=0 and OPENAI_API_KEY=...
+# The live gpt-4o judge runs by default. To use the local fake judge instead:
+# set JUDGE_USE_FAKE=1
 
 # The application against the REAL API: set use_fake=False (see src/pipeline/settings.py)
 # and put your key in a .env file:  OPENAI_API_KEY=sk-...

@@ -25,6 +25,16 @@ Ports and Aviation
 ------------------
 Ports and airports connect domestic and international markets. Their effectiveness depends not only on terminals but also on surrounding roads, rail links, customs processes, warehousing and other supporting infrastructure.
 
+Project Progress and Performance
+--------------------------------
+Transport projects pass through approval, land acquisition, contracting,
+construction and commissioning stages. A length awarded to a contractor is not
+the same as a length completed or opened to traffic. Similarly, reduced travel
+time, lower freight cost, fewer accidents and higher passenger volume are
+different outcomes. A logistics corridor can improve freight movement while a
+nearby village still lacks a last-mile connection. Claims about project success
+should name the stage, route, mode and measurement period.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

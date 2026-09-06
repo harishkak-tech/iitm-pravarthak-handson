@@ -4,9 +4,9 @@ Examples:
     python scripts/run_golden_set.py
     python scripts/run_golden_set.py --limit 10
 
-By default the judge runs locally and deterministically. Set
-``JUDGE_USE_FAKE=0`` plus ``OPENAI_API_KEY`` if you want the live
-tool-calling judge from the notebook demo.
+By default the live tool-calling judge is used. Set ``JUDGE_USE_FAKE=1`` to
+run the deterministic local judge instead. The live judge requires
+``OPENAI_API_KEY``.
 """
 
 from __future__ import annotations
@@ -46,10 +46,10 @@ async def _run(
     golden_entries = load_golden_set(golden_path)
     corpus_docs = load_corpus_documents(corpus_dir)
 
-    from src.pipeline.pipeline import Question, ask_llm
+    from src.pipeline.pipeline import ask_rag
 
-    async def answer_fn(prompt: str):
-        return await ask_llm(Question(text=prompt))
+    async def answer_fn(question: str):
+        return await ask_rag(question)
 
     rows, summary = await evaluate_golden_set(
         golden_entries,

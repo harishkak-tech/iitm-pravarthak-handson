@@ -25,6 +25,16 @@ Implementation
 --------------
 Urban development involves the Union government, States, urban local bodies and public agencies. Funding, land availability, municipal capacity and coordination across agencies strongly influence results.
 
+Project Status and Service Quality
+----------------------------------
+Housing applications, sanctioned houses, houses under construction and completed
+houses are separate project stages. A completed structure may still lack a water
+connection, electricity connection or occupancy certification. Similarly, a city
+may report waste collected without reporting whether the waste was segregated or
+processed. Urban comparisons should specify whether the indicator concerns
+physical construction, service access, financial utilisation or citizen coverage,
+because a single overall ranking is not implied by any one of these measures.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

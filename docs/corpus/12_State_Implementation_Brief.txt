@@ -1,0 +1,60 @@
+State Implementation Brief: Connected Services
+==============================================
+
+Purpose and reporting period
+----------------------------
+This brief describes a separate connected-services pilot in the Aster and
+Bhagirathi districts during financial year 2024-25. It links assisted digital
+service points with housing referrals, payment correction and clean-energy
+applications. It should not be merged with the Integrated District Delivery
+Pilot in the other casebook.
+
+Financial position
+------------------
+The state approved an allocation of Rs 42 crore for the pilot. By the end of
+2024-25, Rs 25 crore had been released and Rs 23.9 crore had been spent. The
+release number covers funds transferred to implementing agencies; expenditure
+includes operations and training. The brief gives no monthly expenditure series
+and no 2025-26 expenditure figure.
+
+People and service records
+--------------------------
+Service points recorded 22,000 enrolled households. Identity and eligibility
+checks were complete for 17,500 households. A payment or service transaction was
+successfully completed for 14,200 households at least once. Enrolment, verified
+eligibility and successful transaction are separate measures. A household may be
+enrolled without being verified, or verified without having a successful
+transaction during the reporting window.
+
+Clean-energy referrals
+----------------------
+The pilot received 3,600 clean-energy referrals. Of these, 2,400 passed the
+initial eligibility review and 1,760 installations were verified by inspection.
+Some eligible referrals remained pending because of wiring work, vendor capacity
+or an incomplete bank detail. The word "approved" in the local tracker refers to
+the initial eligibility review, not to a completed installation.
+
+Housing and payment support
+---------------------------
+Housing referrals were sent to urban local bodies for local verification. The
+brief reports 1,200 referrals, but does not report how many houses were finally
+completed. Payment corrections were opened for 860 records; 610 were closed by
+the reporting date and the remainder were still in the correction queue. Closure
+of a ticket means that the record was processed, not necessarily that a payment
+was received on the same day.
+
+District comparison
+-------------------
+Aster recorded more enrolled households than Bhagirathi, while Bhagirathi had a
+higher share of verified households among its enrolments. The brief does not
+give the district-level counts needed to calculate either share precisely, and
+it does not define a single overall ranking. It therefore cannot support a claim
+that one district performed best without specifying a metric.
+
+Data quality and missing facts
+------------------------------
+The source systems used different update times, so totals from separate sections
+should not be added together. The brief contains no current minister name, no
+latest audit conclusion, no national rank, and no exact figure for the current
+financial year after 2024-25. Questions asking for those facts should be treated
+as unsupported rather than answered from general knowledge.

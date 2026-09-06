@@ -173,7 +173,7 @@ async def evaluate_golden_set(
     *,
     max_entries: int | None = None,
 ) -> tuple[list[GoldenEvalRow], GoldenEvalSummary]:
-    """Run a golden-set evaluation loop against an async answer function."""
+    """Run a golden-set evaluation loop against an async question-answer function."""
     rows: list[GoldenEvalRow] = []
     entries = golden_entries[:max_entries] if max_entries is not None else golden_entries
     total_elapsed = 0.0
@@ -191,12 +191,11 @@ async def evaluate_golden_set(
         else:
             expected_text = None
 
-        prompt = build_grounded_prompt(entry, selected_text or expected_text)
         started = time.perf_counter()
-        answer = await answer_fn(prompt)
+        answer = await answer_fn(entry.question)
         elapsed = time.perf_counter() - started
 
-        answer_text = getattr(answer, "text", str(answer))
+        answer_text = getattr(answer, "content", getattr(answer, "text", str(answer)))
         cost_usd = float(getattr(answer, "cost_usd", 0.0) or 0.0)
         retries = int(getattr(answer, "retries", 0) or 0)
         abstained = is_abstention(answer_text)

@@ -25,6 +25,17 @@ Direct Benefit Delivery
 -----------------------
 Digital systems can support the transfer of eligible government benefits to beneficiaries. Accurate records, accessible banking channels and grievance mechanisms are important because exclusion or payment errors can directly affect households.
 
+Account and Benefit Status
+--------------------------
+An account opened is not necessarily an account used, and an account linked to a
+benefit programme is not necessarily an account that received a successful
+transfer. Reports may distinguish enrolled households, verified beneficiaries,
+transactions attempted, transactions settled and complaints resolved. Insurance
+enrolment is also different from a claim being filed or a claim being paid.
+Metrics should identify whether they cover individuals, households, accounts or
+transactions, since these units cannot be added together without a defined
+conversion rule.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts

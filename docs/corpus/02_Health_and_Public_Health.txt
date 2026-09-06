@@ -25,6 +25,17 @@ Implementation Challenges
 -------------------------
 Health is a large and diverse sector. Outcomes depend on financing, State capacity, availability of doctors and nurses, medicines, infrastructure, geographic access and public awareness. Policy design therefore needs strong implementation and monitoring.
 
+Service and Outcome Measures
+----------------------------
+Health-system reporting may count facilities opened, facilities functional,
+patients registered, consultations completed or referrals completed. These are
+not interchangeable measures of improved health access. A telemedicine referral
+does not necessarily mean that a specialist consultation occurred, and a person
+covered by an assurance scheme may still face travel, documentation or hospital
+availability barriers. Monitoring also needs to distinguish reported disease
+incidence from improved detection, since expanded screening can temporarily
+increase the number of recorded cases.
+
 RAG Enhancement Appendix
 ========================
 Retrieval concepts
