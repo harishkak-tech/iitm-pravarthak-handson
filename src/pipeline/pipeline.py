@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import asyncio
 import csv
+from collections import Counter
 import hashlib
 import json
 import math
@@ -42,7 +43,9 @@ RATES = {
 DEFAULT_CORPUS_DIR = Path("docs/corpus")
 DEFAULT_CHUNK_SIZE = 500
 DEFAULT_CHUNK_OVERLAP = 50
-DEFAULT_TOP_K = 2
+DEFAULT_TOP_K = 3
+DEFAULT_BM25_WEIGHT = 0.45
+DEFAULT_MAX_CONTEXT_CHARS = 2000
 DEFAULT_MODEL = "gpt-4o-mini"
 
 PRICE_INPUT_PER_1M = {"gpt-4o-mini": 0.15, "gpt-4o": 2.50}
@@ -211,6 +214,52 @@ def _tokenize(text: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", text.lower())
 
 
+def bm25_scores(
+    query: str,
+    index: list[Chunk],
+    *,
+    k1: float = 1.5,
+    b: float = 0.75,
+) -> list[float]:
+    """Return BM25 scores for each chunk, preserving index order."""
+    query_terms = _tokenize(query)
+    if not index or not query_terms:
+        return [0.0] * len(index)
+
+    document_terms = [_tokenize(chunk.text) for chunk in index]
+    document_frequency = Counter(
+        term for terms in document_terms for term in set(terms)
+    )
+    average_length = sum(len(terms) for terms in document_terms) / len(document_terms)
+    scores: list[float] = []
+
+    for terms in document_terms:
+        term_frequency = Counter(terms)
+        length_normalizer = k1 * (1 - b + b * len(terms) / max(average_length, 1.0))
+        score = 0.0
+        for term in set(query_terms):
+            frequency = term_frequency.get(term, 0)
+            if not frequency:
+                continue
+            inverse_frequency = math.log(
+                1 + (len(index) - document_frequency[term] + 0.5) / (document_frequency[term] + 0.5)
+            )
+            score += inverse_frequency * (frequency * (k1 + 1)) / (frequency + length_normalizer)
+        scores.append(score)
+    return scores
+
+
+def _normalize_scores(scores: list[float]) -> list[float]:
+    """Scale scores to [0, 1] so lexical and semantic ranks can be combined."""
+    if not scores:
+        return []
+    low = min(scores)
+    high = max(scores)
+    if math.isclose(low, high):
+        return [1.0 if high else 0.0 for _ in scores]
+    return [(score - low) / (high - low) for score in scores]
+
+
 def _cosine(a: list[float], b: list[float]) -> float:
     dot = 0.0
     norm_a = 0.0
@@ -267,30 +316,78 @@ def retrieve(
     *,
     k: int = DEFAULT_TOP_K,
 ) -> list[dict[str, Any]]:
-    """Embed the query, rank chunks, and return the top matches."""
+    """Rank chunks with a hybrid of semantic similarity and BM25 lexical matching."""
     q_vec = embed(query)
-    scored: list[tuple[float, Chunk]] = []
-    for chunk in index:
-        vec = chunk.vector if chunk.vector is not None else embed(chunk.text)
-        scored.append((_cosine(q_vec, vec), chunk))
-    scored.sort(key=lambda pair: pair[0], reverse=True)
+    semantic_scores = [
+        _cosine(q_vec, chunk.vector if chunk.vector is not None else embed(chunk.text))
+        for chunk in index
+    ]
+    lexical_scores = bm25_scores(query, index)
+    normalized_semantic = _normalize_scores(semantic_scores)
+    normalized_lexical = _normalize_scores(lexical_scores)
+    scored = [
+        (
+            (1 - DEFAULT_BM25_WEIGHT) * semantic + DEFAULT_BM25_WEIGHT * lexical,
+            semantic_scores[position],
+            lexical_scores[position],
+            chunk,
+        )
+        for position, (chunk, semantic, lexical) in enumerate(
+            zip(index, normalized_semantic, normalized_lexical)
+        )
+    ]
+    scored.sort(key=lambda item: item[0], reverse=True)
     return [
         {
             "chunk_id": chunk.chunk_id,
             "source": chunk.source,
             "text": chunk.text,
             "score": score,
+            "semantic_score": semantic_score,
+            "bm25_score": bm25_score,
         }
-        for score, chunk in scored[:k]
+        for score, semantic_score, bm25_score, chunk in scored[:k]
     ]
 
 
-def build_prompt(question: str, retrieved: list[dict[str, Any]], system: str = DEFAULT_SYSTEM) -> tuple[str, str]:
+def format_retrieved_context(
+    retrieved: list[dict[str, Any]],
+    *,
+    max_chars: int = DEFAULT_MAX_CONTEXT_CHARS,
+) -> str:
+    """Format retrieved chunks without allowing a record to flood the prompt."""
+    if max_chars <= 0:
+        raise ValueError("max_chars must be positive")
+
+    sections: list[str] = []
+    remaining = max_chars
+    for hit in retrieved:
+        chunk_id = str(hit.get("chunk_id", "unknown"))
+        text = str(hit.get("text", "")).strip()
+        if not text or remaining <= 0:
+            continue
+
+        separator = "\n\n" if sections else ""
+        available = remaining - len(separator)
+        prefix = f"[{chunk_id}]\n"
+        if len(prefix) >= available:
+            break
+        section = prefix + text[: available - len(prefix)]
+        sections.append(section)
+        remaining -= len(separator) + len(section)
+
+    return "\n\n".join(sections)
+
+
+def build_prompt(
+    question: str,
+    retrieved: list[dict[str, Any]],
+    system: str = DEFAULT_SYSTEM,
+    *,
+    max_context_chars: int = DEFAULT_MAX_CONTEXT_CHARS,
+) -> tuple[str, str]:
     """Return the system and user messages for the generator."""
-    context = "\n\n".join(
-        f"[{hit['chunk_id']}]\n{hit['text']}"
-        for hit in retrieved
-    )
+    context = format_retrieved_context(retrieved, max_chars=max_context_chars)
     user_msg = (
         f"Context:\n{context}\n\n"
         f"---\n\nQuestion: {question}\n"

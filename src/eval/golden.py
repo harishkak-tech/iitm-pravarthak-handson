@@ -24,6 +24,7 @@ class GoldenEntry(BaseModel):
 
     id: str = Field(min_length=1)
     document: str | None = None
+    source_documents: list[str] = Field(default_factory=list)
     question: str = Field(min_length=1)
     expected_behavior: str = Field(min_length=1)
     answerability: Literal["answerable", "unanswerable"]
@@ -35,6 +36,7 @@ class GoldenEvalRow(BaseModel):
 
     id: str
     document: str | None = None
+    source_documents: list[str] = Field(default_factory=list)
     question: str
     expected_behavior: str
     answerability: Literal["answerable", "unanswerable"]
@@ -132,15 +134,40 @@ def select_document(question: str, corpus_docs: dict[str, str]) -> tuple[str | N
     return best_name, corpus_docs[best_name]
 
 
-def build_grounded_prompt(entry: GoldenEntry, document_text: str | None) -> str:
-    """Build a grounded prompt from the selected document and the question."""
-    context = document_text or ""
+def build_grounded_prompt(
+    entry: GoldenEntry,
+    retrieved: list[dict[str, Any]],
+    *,
+    max_context_chars: int = 1000,
+) -> str:
+    """Build an evaluation prompt from retrieved chunks, never a full document."""
+    if max_context_chars <= 0:
+        raise ValueError("max_context_chars must be positive")
+
+    context_parts: list[str] = []
+    remaining = max_context_chars
+    for hit in retrieved:
+        chunk_id = str(hit.get("chunk_id", "unknown"))
+        text = str(hit.get("text", "")).strip()
+        if not text or remaining <= 0:
+            continue
+
+        separator = "\n\n" if context_parts else ""
+        available = remaining - len(separator)
+        prefix = f"[{chunk_id}]\n"
+        if len(prefix) >= available:
+            break
+        part = prefix + text[: available - len(prefix)]
+        context_parts.append(part)
+        remaining -= len(separator) + len(part)
+
+    context = "\n\n".join(context_parts)
     return (
         "You are a careful question-answering system.\n"
         "Use only the document content below. If the answer is not supported by\n"
         "the document, say that the answer is not available in the corpus.\n\n"
         f"Document: {entry.document or 'unknown'}\n\n"
-        f"{context}\n\n"
+        f"Context:\n{context}\n\n"
         f"Question: {entry.question}\n"
         "Answer:"
     )
@@ -199,12 +226,19 @@ async def evaluate_golden_set(
         cost_usd = float(getattr(answer, "cost_usd", 0.0) or 0.0)
         retries = int(getattr(answer, "retries", 0) or 0)
         abstained = is_abstention(answer_text)
-        retrieval_hit = bool(entry.document and selected_name == entry.document)
+        retrieved = getattr(answer, "retrieved", [])
+        expected_sources = entry.source_documents or ([entry.document] if entry.document else [])
+        retrieved_sources = {str(hit.get("source", "")) for hit in retrieved}
+        retrieval_hit = bool(expected_sources) and set(expected_sources).issubset(retrieved_sources)
+        source_context = "\n\n".join(
+            f"[{hit['chunk_id']}]\n{hit['text']}"
+            for hit in retrieved
+        )
 
         judge: JudgeScore = await judge_answer(
             question=entry.question,
             expected_behavior=entry.expected_behavior,
-            source_context=selected_text or expected_text or "",
+            source_context=source_context,
             candidate_answer=answer_text,
             answerability=entry.answerability,
             evaluation_type=entry.evaluation_type,
@@ -221,6 +255,7 @@ async def evaluate_golden_set(
             GoldenEvalRow(
                 id=entry.id,
                 document=entry.document,
+                source_documents=entry.source_documents,
                 question=entry.question,
                 expected_behavior=entry.expected_behavior,
                 answerability=entry.answerability,
