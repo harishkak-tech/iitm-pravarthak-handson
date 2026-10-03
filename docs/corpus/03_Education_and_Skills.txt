@@ -559,3 +559,28 @@ Implementation of review and revision requires coordination between policy autho
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Education and Skills. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
 
+
+
+Government Policies: Gender Equality, Safety and Care Economy
+===========================================================
+
+Policy Purpose
+--------------
+Gender and care policy addresses safety, access to public services, economic participation, unpaid care burdens and responsive support systems. Services must be accessible through confidential, assisted and non-digital channels when needed.
+
+Support Case Lifecycle
+----------------------
+A support contact, risk assessment, referral issued, referral accepted, service accessed and safe-resolution review are separate stages. The Gender Support Case File (GSC-8) records the preferred contact method, confidentiality restriction, referral owner, immediate safety action, follow-up date and consent-based information-sharing limit. A GSC-8 closure needs a documented safe-resolution review; it must not be inferred from a referral alone.
+
+Care and Service Access
+-----------------------
+Care burdens, disability, migration, insecure work and lack of connectivity can prevent a person from using a service even when they are registered. Outreach should therefore record the access barrier, the support offered and the stage reached. An enrolment, cash release or appointment booking does not prove that care, income support or health treatment was received.
+
+Convergence Safeguards
+----------------------
+When health, nutrition, livelihood or legal-aid services coordinate, they should share only the minimum information required for the agreed purpose and preserve the correction trail. A programme should not expose confidential case information in a public dashboard or merge safety-support counts with general beneficiary totals.
+
+Accountability
+--------------
+Monitoring should separately report contacts, risk assessments, referrals, service access, follow-up attempts and safe-resolution reviews. An administrative case closure must retain its reason and should not be counted as a verified safety outcome without the required review.
+

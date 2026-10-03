@@ -311,6 +311,13 @@ The risk and safeguards arrangements for Health and Public Health should be admi
 Implementation of risk and safeguards requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret risk and safeguards in a manner that is evidence-based, inclusive and proportionate to the needs of Health and Public Health. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+Nutrition and Water-Service Convergence Note
+--------------------------------------------
+A child screened for growth faltering at a community nutrition session has been identified for follow-up; screening is not a clinical diagnosis, proof of treatment, or proof that the child completed a referral. Health facilities should record referral acceptance, clinical assessment, treatment and follow-up as separate service stages.
+
+Public-health teams may use water-quality alerts, sanitation conditions and local disease surveillance to prioritise outreach. They must not infer that a household connection, a sanitation certificate, or a nutrition registration by itself establishes safe water use, disease prevention or a completed health outcome.
+
+When a family is referred between a nutrition centre and a health facility, the minimum information needed for continuity of care may be reconciled through approved service processes. Aggregate reporting must distinguish children screened, children referred, children assessed and children who completed follow-up.
 
 Review of risk and safeguards should distinguish administrative activity from actual outcomes. An application, approval, inspection, release, installation, payment or closure may represent an important stage without proving that the intended public benefit has been achieved. Monitoring should record the relevant unit, date, source and status, and should explain unresolved cases. This discipline prevents overstatement and helps the responsible authority improve implementation over time.
 
@@ -559,4 +566,35 @@ The review and revision arrangements for Health and Public Health should be admi
 Implementation of review and revision requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Health and Public Health. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+
+
+
+Government Policies: Nutrition, Early Childhood and Care
+========================================================
+
+Policy Purpose
+--------------
+Nutrition and early-childhood policy supports maternal nutrition, child growth, responsive care, early learning and timely referral to health services. Delivery is designed around the first 1,000 days and continued support for young children, while recognising that a service contact alone does not prove an outcome.
+
+Growth Monitoring and Referral
+------------------------------
+Community nutrition sessions may measure growth and screen children for nutrition risk. The reporting chain must distinguish children screened, children identified for follow-up, referrals issued, referrals accepted by a health facility, children clinically assessed and children completing follow-up. A screening result is not a clinical diagnosis, and a referral is not proof that treatment was received.
+
+The Nutrition Referral Tracker (NTR-7) is used when a nutrition centre hands a child or mother to a health facility. Each NTR-7 record must include the referral reason, issue date, receiving service point, acceptance status, correction status and follow-up due date. NTR-7 measures care coordination; it is not a treatment-completion certificate.
+
+Service Package and Inclusion
+-----------------------------
+Frontline workers may provide counselling on infant and young-child feeding, maternal diets, hygiene and responsive caregiving, alongside age-appropriate supplementary nutrition where the programme provides it. Home visits and centre-based sessions should offer assisted access for families affected by disability, migration, language barriers, care burdens or limited connectivity. Families should have a clear local route to ask for a missed entitlement or correct a record.
+
+Convergence with Health
+----------------------
+Nutrition centres should use an approved referral pathway for children or mothers who require clinical assessment. Health facilities retain responsibility for recording diagnosis, treatment and follow-up. Joint reviews may reconcile the minimum information needed to identify pending referrals, but they must not collapse nutrition screening, health assessment and completed treatment into one beneficiary count.
+
+Responsible Digital Records
+---------------------------
+Digital records should retain the service stage, date, local service point and reason for any pending correction. Assisted entry is valid delivery support, but a successful form submission is not proof that a family received nutrition, health care or cash support. Any reconciliation across services should be purpose-limited, auditable and supported by a correction process that preserves the original discrepancy.
+
+Measurement and Accountability
+------------------------------
+District reporting should identify whether it counts children, visits, food-service days, screenings, referrals, assessments or completed follow-ups. An increase in registrations may reflect outreach or duplicate cleanup rather than improved nutritional status. Outcome claims should use the stated measurement method, reporting period and denominator.
 

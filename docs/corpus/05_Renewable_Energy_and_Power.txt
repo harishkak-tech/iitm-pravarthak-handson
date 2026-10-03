@@ -560,3 +560,28 @@ Implementation of review and revision requires coordination between policy autho
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Renewable Energy and Power. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
 
+
+
+Government Policies: Environment, Air Quality and Circular Economy
+================================================================
+
+Policy Purpose
+--------------
+Environmental policy integrates pollution prevention, climate adaptation, waste management, ecosystem protection and accountable local implementation. It should distinguish an asset installed, a facility operating, a sample collected, a standard met and a verified environmental outcome.
+
+Compliance and Evidence
+-----------------------
+The Environmental Compliance Record (ECR-5) records an inspected site, applicable condition, evidence source, corrective owner, due date and verification result. An ECR-5 marked action-complete means the assigned corrective action was reported complete; it does not prove that a water body, air shed or neighbourhood has met the relevant outcome standard until verification is recorded.
+
+Waste, Water and Urban Services
+-------------------------------
+Solid and liquid waste systems should record segregation, collection, transport, processing and safe disposal as separate stages. A sanitation infrastructure count is not evidence of wastewater treatment, safe water quality or lower disease incidence. Where urban drainage or waste failures affect a water source, local teams should link the ECR-5 evidence with the source record and report the responsible correction path.
+
+Climate and Livelihood Effects
+------------------------------
+Heat, flood and drought plans should identify exposed workers, informal settlements, critical services and ecosystem risks. A resilience asset may reduce future risk, but a project completion report must not be represented as a measured health, income or water-service outcome. Local employment and procurement can support maintenance, provided the activity, payment and service result are recorded separately.
+
+Measurement and Review
+----------------------
+Comparisons should specify the pollutant, site, reporting period, evidence method and threshold. Public dashboards should not rank locations using mixed measures such as inspections, complaints, samples and verified compliance as though they were a single performance indicator.
+

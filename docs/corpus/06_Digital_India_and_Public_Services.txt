@@ -311,6 +311,13 @@ The risk and safeguards arrangements for Digital India and Public Services shoul
 Implementation of risk and safeguards requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret risk and safeguards in a manner that is evidence-based, inclusive and proportionate to the needs of Digital India and Public Services. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+Assisted Digital Delivery and Record Integrity
+----------------------------------------------
+Assisted enrolment, digital identity matching and a successfully submitted application are separate events. A service record should identify the stage reached, the source of verification and any pending correction; it must not treat enrolment as proof of eligibility, payment, installation or receipt of a public benefit.
+
+Service platforms should support assisted and offline channels for people affected by connectivity, language, disability or device barriers. Where programmes reconcile records, they should exchange only the minimum information needed for the stated purpose and preserve an auditable correction trail rather than overwriting an unresolved mismatch.
+
+Dashboard totals should state whether they represent registrations, verified records, approved cases, released payments, completed transactions or sustained service. A shared identifier can help match records, but it does not make measures from different programmes interchangeable.
 
 Review of risk and safeguards should distinguish administrative activity from actual outcomes. An application, approval, inspection, release, installation, payment or closure may represent an important stage without proving that the intended public benefit has been achieved. Monitoring should record the relevant unit, date, source and status, and should explain unresolved cases. This discipline prevents overstatement and helps the responsible authority improve implementation over time.
 
@@ -559,4 +566,29 @@ The review and revision arrangements for Digital India and Public Services shoul
 Implementation of review and revision requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Digital India and Public Services. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+
+
+
+Government Policies: Legal Aid, Citizen Grievances and Administrative Justice
+========================================================================
+
+Policy Purpose
+--------------
+Legal-aid and grievance policy supports accessible redress, reasoned decisions, timely corrections and accountable public administration. People may use in-person, assisted, phone and digital channels; channel choice should not change their right to a recorded response.
+
+Grievance Lifecycle
+-------------------
+A grievance may be filed, acknowledged, assigned, investigated, decision-issued, corrective action completed and remedy verified. The Justice and Grievance Register (JGR-11) records the complainant reference, service concerned, issue category, evidence link, assigned authority, response deadline, decision reason and verification method. An administrative closure is not a verified remedy unless the JGR-11 contains the required verification record.
+
+Cross-Service Corrections
+-------------------------
+A grievance about a ration, benefit transfer, water source, housing service or health referral should identify the underlying source record and correction owner. Agencies may reconcile the minimum information necessary to resolve the case, but should not overwrite the original mismatch or treat a linked identifier as proof that the requested service was delivered.
+
+Legal Aid and Protection
+------------------------
+A referral to legal aid, counselling or another protection service is a coordination step, not proof that legal representation, safety planning or remedy was received. Confidential cases require restricted access and an auditable record of authorised sharing. A person can withdraw or be unreachable; those closure reasons must remain distinct from resolved cases.
+
+Measurement and Public Reporting
+--------------------------------
+Dashboards should separately report grievances filed, acknowledged within the service standard, decisions issued, corrective actions completed and remedies verified. They should state the service, period and denominator before comparing districts or agencies.
 

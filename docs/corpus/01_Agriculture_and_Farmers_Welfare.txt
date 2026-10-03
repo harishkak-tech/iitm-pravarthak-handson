@@ -312,6 +312,13 @@ The risk and safeguards arrangements for Agriculture and Farmers Welfare should 
 Implementation of risk and safeguards requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret risk and safeguards in a manner that is evidence-based, inclusive and proportionate to the needs of Agriculture and Farmers Welfare. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+Cross-Sector Water Resilience Note
+----------------------------------
+In water-stressed blocks, agricultural planning should be aligned with the village water-security plan. Micro-irrigation, crop diversification and soil-moisture measures can reduce farm demand and protect the source, while the local water budget identifies the seasonal availability to which that demand must be matched.
+
+The completion of a farm asset, an enrolled farmer and a reported irrigation advisory are separate measures. They should not be reported as proof that a household received safe drinking water or that a water source remained functional through the dry season. District reviews should retain the scheme, season, source and service indicator for each claim.
+
+Where watershed work is undertaken through a rural employment programme, the implementing agency should document the asset location, community maintenance responsibility and the intended hydrological outcome. A construction record alone is not evidence of recharge, reliable water availability or equitable access.
 
 Review of risk and safeguards should distinguish administrative activity from actual outcomes. An application, approval, inspection, release, installation, payment or closure may represent an important stage without proving that the intended public benefit has been achieved. Monitoring should record the relevant unit, date, source and status, and should explain unresolved cases. This discipline prevents overstatement and helps the responsible authority improve implementation over time.
 
@@ -560,4 +567,39 @@ The review and revision arrangements for Agriculture and Farmers Welfare should 
 Implementation of review and revision requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Agriculture and Farmers Welfare. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+
+
+
+Government Policies: Water, Sanitation and Climate Resilience
+=============================================================
+
+Policy Purpose
+--------------
+Water and sanitation policy aims to secure safe, reliable and equitable services while protecting local sources from drought, contamination, flooding and over-extraction. Delivery combines household-level infrastructure, community institutions, source sustainability, public-health safeguards and climate-risk planning.
+
+Water-Service Lifecycle
+-----------------------
+A household connection, a functional connection, a water-quality test and regular safe use are separate measures. A connection should be counted as functional only when it delivers the prescribed service level at the point of use; a one-time installation record is not evidence of sustained service. Water-quality monitoring should record the sample source, collection date, parameter tested and the action taken when a result is unsafe.
+
+The Source Reliability Register (SRR-12) is the field record for a source that is seasonal, contaminated, or under repair. An SRR-12 entry must state the source identifier, failure category, affected users, fallback supply, responsible authority, and expected restoration date. A closed SRR-12 entry is not proof of restored service until the source is verified functional.
+
+Village Water Security Planning
+-------------------------------
+The Gram Panchayat and Village Water and Sanitation Committee should maintain a village water-security plan that identifies sources, seasonal demand, recharge opportunities, risks and emergency alternatives. The plan should include a seasonal water budget that distinguishes drinking-water needs from irrigation and other uses. Community maintenance responsibilities, tariff or contribution arrangements where applicable, and grievance contacts should be visible to users.
+
+Sanitation and Public Health
+----------------------------
+Sanitation policy covers safe containment, collection, treatment and reuse or disposal of waste, as well as household and community behaviour. A declaration of infrastructure coverage or open-defecation-free status is not, by itself, proof of sustained waste management, safe water quality or lower disease incidence. Local teams should use sanitation observations, water-quality results and disease surveillance to target corrective action without claiming causation that has not been established.
+
+Climate Resilience and Emergency Service
+----------------------------------------
+Drought, flood, heat and contamination risks should be assessed before the season and reviewed after a disruption. Where a source fails, the responsible local authority should document the fallback supply, affected users, expected restoration action and date. Emergency supply may protect immediate access but should not be recorded as restoration of the original source.
+
+Convergence with Agriculture and Rural Works
+--------------------------------------------
+Micro-irrigation, soil-moisture work and watershed assets can reduce agricultural demand and protect a shared source when they are aligned with the village water budget. They do not, by themselves, establish that households receive safe drinking water. Rural employment works should record both the completed asset and the later service or hydrological outcome, with the Gram Sabha able to review the distinction.
+
+Measurement and Accountability
+------------------------------
+District dashboards should separately report households connected, connections functional, sources tested, unsafe results resolved, and communities using an emergency fallback supply. Comparisons must state the reporting period, service definition and source of evidence. A grievance closed in an administrative register should not automatically be treated as a verified restoration of service.
 

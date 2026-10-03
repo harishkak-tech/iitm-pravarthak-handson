@@ -311,6 +311,13 @@ The risk and safeguards arrangements for Financial Inclusion and Social Security
 Implementation of risk and safeguards requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret risk and safeguards in a manner that is evidence-based, inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+Last-Mile Benefit Delivery Note
+------------------------------
+For a benefit delivered through a bank account, assisted enrolment, eligibility verification, account seeding, payment-order generation, payment release and successful credit are distinct stages. A person may be registered in a programme but not receive a benefit while identity, bank, eligibility or transaction exceptions are being corrected.
+
+Financial-service camps and digital assistance should retain a case-level correction trail and provide an accessible route for resolving failed authentication, inactive accounts or rejected transactions. Reporting should separate a released amount from an amount credited to a beneficiary and should not use enrolment totals as a proxy for received support.
+
+When a delivery dashboard is combined with another sector's service data, the programme owner must specify the shared unit, reporting period and status definition. A matched record is useful for follow-up, but it is not evidence that all linked services were delivered.
 
 Review of risk and safeguards should distinguish administrative activity from actual outcomes. An application, approval, inspection, release, installation, payment or closure may represent an important stage without proving that the intended public benefit has been achieved. Monitoring should record the relevant unit, date, source and status, and should explain unresolved cases. This discipline prevents overstatement and helps the responsible authority improve implementation over time.
 

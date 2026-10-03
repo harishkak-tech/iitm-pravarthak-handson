@@ -311,6 +311,13 @@ The risk and safeguards arrangements for Rural Development and Livelihoods shoul
 Implementation of risk and safeguards requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret risk and safeguards in a manner that is evidence-based, inclusive and proportionate to the needs of Rural Development and Livelihoods. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+Water Assets and Livelihood Resilience Note
+-------------------------------------------
+Rural employment works may support water-conservation, recharge and watershed assets when they follow local planning and the village water-security plan. Gram Sabha review and social audit should make the proposed asset, expenditure, work completed and maintenance responsibility visible to the community.
+
+Employment generated, an asset completed, an asset functioning and an improved seasonal water outcome are different measures. A district should not describe an earthwork completion certificate as proof of reliable drinking-water service or increased farm income without the relevant service or outcome evidence.
+
+Convergence with agriculture should identify the intended users, the source or catchment, the seasonal water budget and the responsible maintenance institution. These records make it possible to distinguish a useful common asset from an unverified claim of programme impact.
 
 Review of risk and safeguards should distinguish administrative activity from actual outcomes. An application, approval, inspection, release, installation, payment or closure may represent an important stage without proving that the intended public benefit has been achieved. Monitoring should record the relevant unit, date, source and status, and should explain unresolved cases. This discipline prevents overstatement and helps the responsible authority improve implementation over time.
 
@@ -559,4 +566,27 @@ The review and revision arrangements for Rural Development and Livelihoods shoul
 Implementation of review and revision requires coordination between policy authorities, field offices, local institutions and delivery partners. Each participant should understand its role, the information it must provide and the decision it is authorised to take. A pending dependency should remain visible in the record instead of being absorbed into an unexplained total. This enables officers to resolve delays while preserving accountability for public resources and citizen-facing commitments.
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Rural Development and Livelihoods. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
+
+
+
+Government Policies: Disaster Risk, Climate Adaptation and Relief Operations
+========================================================================
+
+Operating Model
+---------------
+Disaster policy links risk reduction, anticipatory action, response, recovery and transparent relief delivery. A district incident plan should record hazard triggers, exposed settlements, responsible agencies, accessible communication channels and the criteria for closing each operational stage.
+
+Relief Lifecycle
+----------------
+Prepared, triggered, delivered and verified are distinct relief states. Prepared means supplies, staff or transfer lists are ready; triggered means the published threshold has been met; delivered means an item or payment was dispatched; verified means the intended household or site confirmed receipt or functional access. A relief order must not be counted as verified delivery.
+
+The Relief Reconciliation Form (RRF-9) is used when a household record, supply issue, service disruption or payment status is disputed during an incident. An RRF-9 must contain the incident identifier, household or site reference, claimed need, source record, action owner, next review date and verification method. Closing an RRF-9 requires documented verification, not merely a caseworker note.
+
+Water, Health and Cash Convergence
+----------------------------------
+A flood or drought response should distinguish emergency water supply from restoration of the original source. Teams should link an SRR-12 source-reliability record to the incident plan where a water source has failed. Health outreach may prioritise affected locations, but a water alert does not prove illness causation or completed treatment. Cash relief requires the same distinction used for benefit delivery: a released transfer is not a successful credit until the transaction is confirmed.
+
+Recovery and Accountability
+---------------------------
+Recovery plans should name the service baseline, the evidence needed to verify restoration and the group whose access remains constrained. District dashboards should separately report shelters opened, households listed, relief orders issued, deliveries verified, water sources restored and grievances closed. These measures cannot be added into a single coverage total because they describe different units and stages.
 

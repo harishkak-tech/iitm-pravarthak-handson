@@ -559,3 +559,28 @@ Implementation of review and revision requires coordination between policy autho
 
 Authorities should interpret review and revision in a manner that is evidence-based, inclusive and proportionate to the needs of Transport and Infrastructure. Formal eligibility alone may not remove barriers caused by distance, documentation, language, disability, connectivity or cost. Outreach and assisted channels should therefore be planned along with the standard process. Records should distinguish people who were informed, applicants who completed a request and beneficiaries who received a usable service.
 
+
+
+Government Policies: Food Security, Public Distribution and Local Nutrition
+========================================================================
+
+Policy Purpose
+--------------
+Food-security policy combines entitlement delivery, local storage, nutrition support, price resilience and accessible grievance channels. It should distinguish an eligible household, an allocated entitlement, an authenticated transaction, a collected ration and a nutrition or health outcome.
+
+Entitlement and Transaction States
+----------------------------------
+A household may be present in a ration registry before its identity or household composition is corrected. A Fair Price Shop transaction can be authorised, attempted, completed or reversed; these are not interchangeable. The Fair Price Shop Exception Log (FPS-21) records failed authentication, stock variance, portability requests, transaction reversals and correction ownership. An FPS-21 closure requires either a confirmed replacement transaction or a documented reason the entitlement was not due.
+
+Nutrition Convergence
+---------------------
+Commodity distribution can support food access but does not establish dietary adequacy, child growth improvement or completed clinical care. When a nutrition worker identifies a child requiring follow-up, the NTR-7 referral pathway tracks coordination with a health facility. Food-distribution reporting should not merge household ration collection with children screened, referrals accepted or treatment completed.
+
+Digital and Local Safeguards
+----------------------------
+Offline registers and assisted authentication must remain available during connectivity failures. Once service resumes, the system should reconcile the original transaction, the correction action and any duplicate risk without overwriting the audit trail. A dashboard must state whether it reports allocation, attempted authentication, completed collection, or resolved exception.
+
+Storage, Shocks and Accountability
+----------------------------------
+Local plans should record stock condition, last-mile access constraints, community notice arrangements and escalation contacts before a disruption. During a flood, heat event or transport interruption, an emergency issue may protect immediate access but should not be reported as normal monthly collection. Social audit and grievance review should test whether a reported transaction corresponds to an accessible entitlement for the household.
+
