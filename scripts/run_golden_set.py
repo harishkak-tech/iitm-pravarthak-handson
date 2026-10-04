@@ -27,10 +27,11 @@ from src.eval.golden import (
     load_golden_set,
     write_eval_artifacts,
 )
+from src.pipeline.settings import Settings
 
 
 DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set_60.jsonl"
-DEFAULT_CORPUS = ROOT / "docs" / "corpus_pdf_styled"
+DEFAULT_CORPUS = ROOT / Settings().rag.corpus.directory
 DEFAULT_ROWS_OUT = ROOT / "docs" / "runs" / "golden_eval_results.jsonl"
 DEFAULT_SUMMARY_OUT = ROOT / "docs" / "runs" / "golden_eval_summary.json"
 

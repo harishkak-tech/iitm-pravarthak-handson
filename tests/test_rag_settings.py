@@ -10,7 +10,7 @@ from src.pipeline.pipeline import (
     rerank_with_cross_encoder,
     retrieve,
 )
-from src.pipeline.settings import ChunkingSettings, MetadataSettings, Settings
+from src.pipeline.settings import ChunkingSettings, EmbeddingSettings, MetadataSettings, Settings
 
 
 def test_structure_aware_pdf_chunks_include_section_metadata() -> None:
@@ -18,6 +18,8 @@ def test_structure_aware_pdf_chunks_include_section_metadata() -> None:
         "docs/corpus_pdf_styled",
         chunking=ChunkingSettings(strategy="structure_aware"),
         metadata=MetadataSettings(language="en", version="test"),
+        corpus_settings=Settings().rag.corpus,
+        embedding=EmbeddingSettings(),
     )
 
     assert chunks
@@ -43,7 +45,7 @@ def test_semantic_chunking_splits_on_similarity_drop(monkeypatch) -> None:
     monkeypatch.setattr(
         pipeline,
         "embed_batch",
-        lambda _: [[1.0, 0.0], [1.0, 0.0], [0.0, 1.0]],
+        lambda _, **__: [[1.0, 0.0], [1.0, 0.0], [0.0, 1.0]],
     )
 
     chunks = _chunk_semantically(
@@ -83,6 +85,16 @@ def test_cross_encoder_reranking_orders_candidates(monkeypatch) -> None:
 def test_rag_settings_group_strategies() -> None:
     settings = Settings()
 
-    assert settings.rag.chunking.strategy == "fixed"
+    assert settings.rag.chunking.strategy == "structure_aware"
     assert settings.rag.retrieval.strategy == "hybrid"
     assert settings.rag.retrieval.rerank_enabled is True
+
+
+def test_collection_name_changes_only_with_indexing_settings() -> None:
+    base = Settings().rag
+    same = base.model_copy(deep=True)
+    changed = base.model_copy(deep=True)
+    changed.chunking.strategy = "semantic"
+
+    assert base.collection_name() == same.collection_name()
+    assert base.collection_name() != changed.collection_name()

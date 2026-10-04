@@ -33,9 +33,10 @@ from pydantic import BaseModel, Field
 from .logging_config import get_logger
 from .settings import (
     ChunkingSettings,
+    CorpusSettings,
+    EmbeddingSettings,
     MetadataSettings,
     RagSettings,
-    RetrievalSettings,
     RunSummary,
     Settings,
 )
@@ -48,25 +49,22 @@ RATES = {
     "gpt-4o": (2.50, 10.00),
 }
 
-DEFAULT_CORPUS_DIR = Path("docs/corpus_pdf_styled")
-DEFAULT_CHUNK_SIZE = 500
-DEFAULT_CHUNK_OVERLAP = 50
-DEFAULT_TOP_K = 3
-DEFAULT_MAX_CONTEXT_CHARS = 2000
-DEFAULT_MODEL = "gpt-4o-mini"
-DEFAULT_QDRANT_COLLECTION = "public_policy_corpus"
+_settings_for_import = Settings()
+_default_rag_settings = _settings_for_import.rag
+
+# Compatibility aliases derived from the single source of truth in settings.py.
+DEFAULT_CORPUS_DIR = _default_rag_settings.corpus.directory
+DEFAULT_CHUNK_SIZE = _default_rag_settings.chunking.fixed.chunk_size
+DEFAULT_CHUNK_OVERLAP = _default_rag_settings.chunking.fixed.chunk_overlap
+DEFAULT_TOP_K = _default_rag_settings.retrieval.top_k
+DEFAULT_MAX_CONTEXT_CHARS = _default_rag_settings.retrieval.max_context_chars
+DEFAULT_MODEL = _default_rag_settings.generation.model
+DEFAULT_QDRANT_COLLECTION = _default_rag_settings.collection_name()
 
 PRICE_INPUT_PER_1M = {"gpt-4o-mini": 0.15, "gpt-4o": 2.50}
 PRICE_OUTPUT_PER_1M = {"gpt-4o-mini": 0.60, "gpt-4o": 10.00}
 
-DEFAULT_SYSTEM = (
-    "You are a helpful assistant. Answer the user's question using ONLY the "
-    "provided context. If the context does not contain the answer, say so "
-    "plainly. Cite the source id in square brackets after any fact you use."
-)
-
-
-_settings_for_import = Settings()
+DEFAULT_SYSTEM = _default_rag_settings.generation.system_prompt
 
 if _settings_for_import.use_fake:
     from .fake_llm import Answer, FakeLLMError, Question, fake_ask_llm
@@ -162,7 +160,11 @@ def _chunk_recursively(text: str, max_size: int) -> list[str]:
     return chunks
 
 
-def _load_pdf_documents(corpus_dir: str | Path) -> list[dict[str, Any]]:
+def _load_pdf_documents(
+    corpus_dir: str | Path,
+    *,
+    corpus_settings: CorpusSettings,
+) -> list[dict[str, Any]]:
     """Extract styled PDFs with page text plus font-aware line metadata."""
     corpus_dir = Path(corpus_dir)
     try:
@@ -170,9 +172,9 @@ def _load_pdf_documents(corpus_dir: str | Path) -> list[dict[str, Any]]:
     except ImportError as exc:
         raise RuntimeError("PDF corpus ingestion requires PyMuPDF.") from exc
 
-    paths = sorted(corpus_dir.glob("*.pdf"))
+    paths = sorted(corpus_dir.glob(corpus_settings.file_glob))
     if not paths:
-        raise ValueError(f"No styled PDF files found in corpus directory: {corpus_dir}")
+        raise ValueError(f"No PDF files found in corpus directory: {corpus_dir}")
 
     documents: list[dict[str, Any]] = []
     for path in paths:
@@ -198,15 +200,22 @@ def _load_pdf_documents(corpus_dir: str | Path) -> list[dict[str, Any]]:
                 pages.append({"number": page_number, "text": text, "lines": lines})
         if not pages:
             raise ValueError(f"No extractable text found in PDF corpus document: {path}")
-        documents.append({"id": f"{path.stem}.txt", "pages": pages})
+        documents.append({"id": f"{path.stem}{corpus_settings.source_id_extension}", "pages": pages})
     return documents
 
 
-def load_corpus_documents(corpus_dir: str | Path) -> list[dict[str, str]]:
+def load_corpus_documents(
+    corpus_dir: str | Path = DEFAULT_CORPUS_DIR,
+    *,
+    corpus_settings: CorpusSettings | None = None,
+) -> list[dict[str, str]]:
     """Load the styled PDF corpus as text documents for inspection or evaluation."""
     return [
         {"id": str(document["id"]), "text": "\n\n".join(page["text"] for page in document["pages"])}
-        for document in _load_pdf_documents(corpus_dir)
+        for document in _load_pdf_documents(
+            corpus_dir,
+            corpus_settings=corpus_settings or _default_rag_settings.corpus,
+        )
     ]
 
 
@@ -233,10 +242,12 @@ def chunk_corpus(
     *,
     chunking: ChunkingSettings,
     metadata: MetadataSettings,
+    corpus_settings: CorpusSettings,
+    embedding: EmbeddingSettings,
 ) -> list[Chunk]:
-    """Chunk styled PDFs using the selected fixed or heading-aware strategy."""
+    """Chunk configured PDF documents using the selected strategy."""
     chunks: list[Chunk] = []
-    for document in _load_pdf_documents(corpus_dir):
+    for document in _load_pdf_documents(corpus_dir, corpus_settings=corpus_settings):
         source = str(document["id"])
         section_path: list[str] = []
         for page in document["pages"]:
@@ -281,6 +292,8 @@ def chunk_corpus(
                         page["text"],
                         max_size=chunking.semantic.max_chunk_size,
                         similarity_threshold=chunking.semantic.similarity_threshold,
+                        embedding_model=embedding.model_name,
+                        embedding_batch_size=embedding.batch_size,
                     )
                 ]
 
@@ -296,16 +309,15 @@ def chunk_corpus(
     return chunks
 
 
-_embed_model = None
+_embed_models: dict[str, Any] = {}
 _cross_encoder_models: dict[str, Any] = {}
 
 
-@lru_cache(maxsize=1)
-def _get_embed_model():
+def _get_embed_model(model_name: str | None = None) -> Any:
     """Load and cache the required sentence-transformers embedding model."""
-    global _embed_model
-    if _embed_model is not None:
-        return _embed_model
+    model_name = model_name or _default_rag_settings.embedding.model_name
+    if model_name in _embed_models:
+        return _embed_models[model_name]
     try:
         from sentence_transformers import SentenceTransformer
     except ImportError as exc:
@@ -313,23 +325,29 @@ def _get_embed_model():
             "Embedding requires sentence-transformers and the all-MiniLM-L6-v2 model. "
             "Install project dependencies before running ingestion or retrieval."
         ) from exc
-    _embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-    return _embed_model
+    _embed_models[model_name] = SentenceTransformer(model_name)
+    return _embed_models[model_name]
 
 
-def embed(text: str) -> list[float]:
+def embed(text: str, *, model_name: str | None = None) -> list[float]:
     """Embed a single string. Returns a normalized vector."""
-    model = _get_embed_model()
+    model = _get_embed_model(model_name)
     vec = model.encode(text, normalize_embeddings=True)
     return vec.tolist()
 
 
-def embed_batch(texts: list[str], *, batch_size: int = 64) -> list[list[float]]:
+def embed_batch(
+    texts: list[str],
+    *,
+    batch_size: int | None = None,
+    model_name: str | None = None,
+) -> list[list[float]]:
     """Embed texts in bounded batches so large corpus ingestion remains memory-safe."""
+    batch_size = batch_size or _default_rag_settings.embedding.batch_size
     if batch_size <= 0:
         raise ValueError("batch_size must be positive")
 
-    model = _get_embed_model()
+    model = _get_embed_model(model_name)
     vectors: list[list[float]] = []
     for start in range(0, len(texts), batch_size):
         batch = texts[start : start + batch_size]
@@ -393,6 +411,8 @@ def _chunk_semantically(
     *,
     max_size: int,
     similarity_threshold: float,
+    embedding_model: str | None = None,
+    embedding_batch_size: int | None = None,
 ) -> list[str]:
     """Group consecutive sentences until their semantic similarity drops."""
     if max_size <= 0:
@@ -411,7 +431,11 @@ def _chunk_semantically(
     if len(sentences) == 1:
         return chunk_text(sentences[0], size=max_size, overlap=0)
 
-    vectors = embed_batch(sentences)
+    vectors = embed_batch(
+        sentences,
+        batch_size=embedding_batch_size,
+        model_name=embedding_model,
+    )
     chunks: list[str] = []
     current_sentences = [sentences[0]]
     current_length = len(sentences[0])
@@ -438,8 +462,8 @@ def _chunk_semantically(
 
 
 def _use_fake_rag() -> bool:
-    """Default to local offline mode unless explicitly disabled."""
-    return os.getenv("RAG_USE_FAKE", "0").lower() not in {"0", "false", "no"}
+    """Use the configured offline mode for RAG generation."""
+    return _settings_for_import.use_fake
 
 
 def _tokenize(text: str) -> list[str]:
@@ -511,15 +535,25 @@ def build_index(
     *,
     chunking: ChunkingSettings | None = None,
     metadata: MetadataSettings | None = None,
+    corpus_settings: CorpusSettings | None = None,
+    embedding: EmbeddingSettings | None = None,
 ) -> list[Chunk]:
     """Chunk the corpus and attach embeddings to every chunk."""
     rag = _settings_for_import.rag
+    corpus_settings = corpus_settings or rag.corpus
+    embedding = embedding or rag.embedding
     chunks = chunk_corpus(
         corpus_dir,
         chunking=chunking or rag.chunking,
         metadata=metadata or rag.metadata,
+        corpus_settings=corpus_settings,
+        embedding=embedding,
     )
-    vectors = embed_batch([chunk.text for chunk in chunks])
+    vectors = embed_batch(
+        [chunk.text for chunk in chunks],
+        batch_size=embedding.batch_size,
+        model_name=embedding.model_name,
+    )
     for chunk, vec in zip(chunks, vectors):
         chunk.vector = vec
     return chunks
@@ -534,6 +568,8 @@ def _cached_index(corpus_dir: str, settings_json: str) -> tuple[Chunk, ...]:
             corpus_dir=corpus_dir,
             chunking=ChunkingSettings.model_validate(payload["chunking"]),
             metadata=MetadataSettings.model_validate(payload["metadata"]),
+            corpus_settings=CorpusSettings.model_validate(payload["corpus"]),
+            embedding=EmbeddingSettings.model_validate(payload["embedding"]),
         )
     )
 
@@ -543,21 +579,27 @@ def get_index(
     *,
     chunking: ChunkingSettings | None = None,
     metadata: MetadataSettings | None = None,
+    corpus_settings: CorpusSettings | None = None,
+    embedding: EmbeddingSettings | None = None,
 ) -> list[Chunk]:
     """Return the cached chunk index for the corpus."""
     corpus_dir = str(Path(corpus_dir).resolve())
     rag = _settings_for_import.rag
+    corpus_settings = corpus_settings or rag.corpus
+    embedding = embedding or rag.embedding
     settings_json = json.dumps(
         {
             "chunking": (chunking or rag.chunking).model_dump(mode="json"),
             "metadata": (metadata or rag.metadata).model_dump(mode="json"),
+            "corpus": corpus_settings.model_dump(mode="json"),
+            "embedding": embedding.model_dump(mode="json"),
         },
         sort_keys=True,
     )
     return list(_cached_index(corpus_dir, settings_json))
 
 
-def get_qdrant_client() -> Any:
+def get_qdrant_client(rag_settings: RagSettings | None = None) -> Any:
     """Return a client for the configured remote Qdrant server."""
     try:
         from qdrant_client import QdrantClient
@@ -566,27 +608,28 @@ def get_qdrant_client() -> Any:
             "Qdrant support requires qdrant-client. Install dependencies before indexing."
         ) from exc
 
-    url = os.getenv("QDRANT_URL")
+    qdrant_settings = (rag_settings or _default_rag_settings).qdrant
+    url = os.getenv(qdrant_settings.url_env_var)
     if not url:
         raise RuntimeError(
-            "QDRANT_URL is required. Configure a remote Qdrant server before "
+            f"{qdrant_settings.url_env_var} is required. Configure a remote Qdrant server before "
             "running ingestion or retrieval."
         )
-    api_key = os.getenv("QDRANT_API_KEY") or None
+    api_key = os.getenv(qdrant_settings.api_key_env_var) or None
     return QdrantClient(url=url, api_key=api_key) if api_key else QdrantClient(url=url)
 
 
 def persist_chunks_to_qdrant(
     chunks: list[Chunk],
     *,
-    collection_name: str = DEFAULT_QDRANT_COLLECTION,
-    upsert_batch_size: int = 128,
+    collection_name: str,
+    rag_settings: RagSettings | None = None,
 ) -> int:
-    """Rebuild a Qdrant collection from embedded chunks and their metadata."""
+    """Create a new collection or overwrite one with the same index settings."""
     if not chunks:
         return 0
-    if upsert_batch_size <= 0:
-        raise ValueError("upsert_batch_size must be positive")
+    rag = rag_settings or _default_rag_settings
+    upsert_batch_size = rag.qdrant.upsert_batch_size
 
     try:
         from qdrant_client.models import Distance, PointStruct, VectorParams
@@ -595,8 +638,14 @@ def persist_chunks_to_qdrant(
             "Qdrant support requires qdrant-client. Install dependencies before indexing."
         ) from exc
 
-    vectors = [chunk.vector if chunk.vector is not None else embed(chunk.text) for chunk in chunks]
-    client = get_qdrant_client()
+    vectors = [
+        chunk.vector
+        if chunk.vector is not None
+        else embed(chunk.text, model_name=rag.embedding.model_name)
+        for chunk in chunks
+    ]
+    client = get_qdrant_client(rag)
+    # Qdrant recreates an existing matching configuration collection or creates a new one.
     client.recreate_collection(
         collection_name=collection_name,
         vectors_config=VectorParams(size=len(vectors[0]), distance=Distance.COSINE),
@@ -609,6 +658,8 @@ def persist_chunks_to_qdrant(
                 "chunk_id": chunk.chunk_id,
                 "source": chunk.source,
                 "text": chunk.text,
+                "indexing_settings": rag.indexing_settings(),
+                "collection_name": collection_name,
                 **chunk.metadata,
             },
         )
@@ -631,13 +682,17 @@ def index_corpus_in_qdrant(
 ) -> int:
     """Build the configured PDF chunk index, then persist it to Qdrant."""
     rag = rag_settings or _settings_for_import.rag
+    resolved_collection_name = collection_name or rag.collection_name()
     return persist_chunks_to_qdrant(
         get_index(
-            corpus_dir or rag.corpus_dir,
+            corpus_dir or rag.corpus.directory,
             chunking=rag.chunking,
             metadata=rag.metadata,
+            corpus_settings=rag.corpus,
+            embedding=rag.embedding,
         ),
-        collection_name=collection_name or rag.retrieval.collection_name,
+        collection_name=resolved_collection_name,
+        rag_settings=rag,
     )
 
 
@@ -646,16 +701,18 @@ def retrieve_from_qdrant(
     *,
     k: int = DEFAULT_TOP_K,
     collection_name: str = DEFAULT_QDRANT_COLLECTION,
+    rag_settings: RagSettings | None = None,
 ) -> list[dict[str, Any]]:
     """Retrieve dense chunk matches from a previously indexed Qdrant collection."""
     if k <= 0:
         raise ValueError("k must be positive")
 
-    client = get_qdrant_client()
+    rag = rag_settings or _default_rag_settings
+    client = get_qdrant_client(rag)
     try:
         results = client.query_points(
             collection_name=collection_name,
-            query=embed(query),
+            query=embed(query, model_name=rag.embedding.model_name),
             limit=k,
         ).points
     finally:
@@ -683,6 +740,7 @@ def _retrieve_with_qdrant_hybrid(
     k: int,
     rrf_k: int,
     collection_name: str,
+    rag_settings: RagSettings,
 ) -> list[dict[str, Any]]:
     """Fuse Qdrant dense candidates with locally computed BM25 candidates."""
     candidate_limit = max(k * 4, 20)
@@ -691,6 +749,7 @@ def _retrieve_with_qdrant_hybrid(
             query,
             k=candidate_limit,
             collection_name=collection_name,
+            rag_settings=rag_settings,
         )
     except Exception as exc:
         raise RuntimeError(
@@ -748,25 +807,38 @@ def retrieve(
     strategy: str = "hybrid",
     rrf_k: int = 60,
     collection_name: str = DEFAULT_QDRANT_COLLECTION,
+    rag_settings: RagSettings | None = None,
 ) -> list[dict[str, Any]]:
     """Rank chunks with configured semantic-only or hybrid retrieval."""
     if strategy not in {"semantic", "hybrid"}:
         raise ValueError("strategy must be 'semantic' or 'hybrid'")
     if rrf_k <= 0:
         raise ValueError("rrf_k must be positive")
+    rag = rag_settings or _default_rag_settings
     if use_qdrant:
         if strategy == "semantic":
-            return retrieve_from_qdrant(query, k=k, collection_name=collection_name)
+            return retrieve_from_qdrant(
+                query,
+                k=k,
+                collection_name=collection_name,
+                rag_settings=rag,
+            )
         return _retrieve_with_qdrant_hybrid(
             query,
             index,
             k=k,
             rrf_k=rrf_k,
             collection_name=collection_name,
+            rag_settings=rag,
         )
-    q_vec = embed(query)
+    q_vec = embed(query, model_name=rag.embedding.model_name)
     semantic_scores = [
-        _cosine(q_vec, chunk.vector if chunk.vector is not None else embed(chunk.text))
+        _cosine(
+            q_vec,
+            chunk.vector
+            if chunk.vector is not None
+            else embed(chunk.text, model_name=rag.embedding.model_name),
+        )
         for chunk in index
     ]
     if strategy == "semantic":
@@ -901,7 +973,7 @@ async def ask_rag(
     *,
     corpus_dir: str | Path | None = None,
     top_k: int | None = None,
-    model: str = DEFAULT_MODEL,
+    model: str | None = None,
     rag_settings: RagSettings | None = None,
     use_qdrant: bool | None = None,
 ) -> RagAnswer:
@@ -915,9 +987,11 @@ async def ask_rag(
         else result_count
     )
     index = get_index(
-        corpus_dir or rag.corpus_dir,
+        corpus_dir or rag.corpus.directory,
         chunking=rag.chunking,
         metadata=rag.metadata,
+        corpus_settings=rag.corpus,
+        embedding=rag.embedding,
     )
     retrieved = retrieve(
         question,
@@ -926,7 +1000,8 @@ async def ask_rag(
         use_qdrant=retrieval.use_qdrant if use_qdrant is None else use_qdrant,
         strategy=retrieval.strategy,
         rrf_k=retrieval.rrf_k,
-        collection_name=retrieval.collection_name,
+        collection_name=rag.collection_name(),
+        rag_settings=rag,
     )
     if retrieval.rerank_enabled:
         retrieved = rerank_with_cross_encoder(
@@ -951,11 +1026,12 @@ async def ask_rag(
     system_msg, user_msg = build_prompt(
         question,
         retrieved,
+        system=rag.generation.system_prompt,
         max_context_chars=retrieval.max_context_chars,
     )
     resp = await _client.chat.completions.create(
-        model=model,
-        temperature=0.0,
+        model=model or rag.generation.model,
+        temperature=rag.generation.temperature,
         messages=[
             {"role": "system", "content": system_msg},
             {"role": "user", "content": user_msg},
@@ -965,7 +1041,7 @@ async def ask_rag(
     usage = resp.usage
     prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
     completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
-    cost_usd = _compute_rag_cost(model, prompt_tokens, completion_tokens)
+    cost_usd = _compute_rag_cost(model or rag.generation.model, prompt_tokens, completion_tokens)
 
     return RagAnswer(
         question=question,

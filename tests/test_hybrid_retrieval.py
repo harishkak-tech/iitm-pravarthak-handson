@@ -46,7 +46,7 @@ def test_hybrid_retrieval_uses_bm25_when_semantic_scores_tie(monkeypatch) -> Non
             vector=[1.0, 0.0],
         ),
     ]
-    monkeypatch.setattr(pipeline, "embed", lambda _text: [1.0, 0.0])
+    monkeypatch.setattr(pipeline, "embed", lambda _text, **_: [1.0, 0.0])
 
     results = retrieve("Which SRR-12 fields are required?", index, k=1)
 

@@ -5,6 +5,9 @@ Two models with different roles:
   - RunSummary:  observation (one row per execution; produced at run end)
 """
 from __future__ import annotations
+import hashlib
+import json
+import re
 from pathlib import Path
 from typing import Literal
 
@@ -53,13 +56,49 @@ class MetadataSettings(BaseModel):
     version: str = "latest"
 
 
+class CorpusSettings(BaseModel):
+    """Input documents for a reusable PDF corpus."""
+
+    directory: Path = Path("docs/corpus_pdf_styled")
+    file_glob: str = "*.pdf"
+    # Retain .txt IDs for the existing golden set. Use ".pdf" for a new corpus if preferred.
+    source_id_extension: str = ".txt"
+
+
+class EmbeddingSettings(BaseModel):
+    """Embedding model and batching used for indexing and dense retrieval."""
+
+    model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
+    batch_size: int = Field(64, gt=0)
+
+
+class GenerationSettings(BaseModel):
+    """LLM settings for grounded RAG answer generation."""
+
+    model: str = "gpt-4o-mini"
+    temperature: float = Field(0.0, ge=0.0, le=2.0)
+    system_prompt: str = (
+        "You are a helpful assistant. Answer the user's question using ONLY the "
+        "provided context. If the context does not contain the answer, say so "
+        "plainly. Cite the source id in square brackets after any fact you use."
+    )
+
+
+class QdrantSettings(BaseModel):
+    """Remote Qdrant connection and collection lifecycle settings."""
+
+    url_env_var: str = "QDRANT_URL"
+    api_key_env_var: str = "QDRANT_API_KEY"
+    collection_prefix: str = "rag"
+    upsert_batch_size: int = Field(128, gt=0)
+
+
 class RetrievalSettings(BaseModel):
     """Select semantic-only or semantic-plus-BM25 retrieval."""
 
     # Possible values: "semantic", "hybrid".
     strategy: Literal["semantic", "hybrid"] = "hybrid"
     use_qdrant: bool = True
-    collection_name: str = "public_policy_corpus"
     top_k: int = Field(8, gt=0)
     rrf_k: int = Field(20, gt=0)
     max_context_chars: int = Field(5000, gt=0)
@@ -72,10 +111,29 @@ class RetrievalSettings(BaseModel):
 class RagSettings(BaseModel):
     """All RAG strategy settings, grouped in one place."""
 
-    corpus_dir: Path = Path("docs/corpus_pdf_styled")
+    corpus: CorpusSettings = Field(default_factory=CorpusSettings)
     chunking: ChunkingSettings = Field(default_factory=ChunkingSettings)
     metadata: MetadataSettings = Field(default_factory=MetadataSettings)
+    embedding: EmbeddingSettings = Field(default_factory=EmbeddingSettings)
     retrieval: RetrievalSettings = Field(default_factory=RetrievalSettings)
+    generation: GenerationSettings = Field(default_factory=GenerationSettings)
+    qdrant: QdrantSettings = Field(default_factory=QdrantSettings)
+
+    def indexing_settings(self) -> dict[str, object]:
+        """Return only settings that change chunk text or vector dimensions."""
+        return {
+            "corpus": self.corpus.model_dump(mode="json"),
+            "chunking": self.chunking.model_dump(mode="json"),
+            "metadata": self.metadata.model_dump(mode="json"),
+            "embedding": self.embedding.model_dump(mode="json"),
+        }
+
+    def collection_name(self) -> str:
+        """Derive a stable collection name from index-affecting settings."""
+        payload = json.dumps(self.indexing_settings(), sort_keys=True, separators=(",", ":"))
+        fingerprint = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
+        corpus_name = re.sub(r"[^a-z0-9_]+", "_", self.corpus.directory.name.lower()).strip("_")
+        return f"{self.qdrant.collection_prefix}_{corpus_name}_{self.chunking.strategy}_{fingerprint}"
 
 
 class Settings(BaseModel):
