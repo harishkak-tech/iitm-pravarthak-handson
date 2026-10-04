@@ -2118,7 +2118,7 @@ ET
 endstream
 endobj
 61 0 obj
-<< /Length 4180 >>
+<< /Length 4142 >>
 stream
 BT
 /F1 9 Tf
@@ -2209,6 +2209,45 @@ BT
 0 -14 Td
 (applicants who completed a request and beneficiaries who received a usable service.) Tj
 0 -14 Td
+(Last-Mile Benefit Delivery Note) Tj
+0 -14 Td
+(------------------------------) Tj
+0 -14 Td
+(For a benefit delivered through a bank account, assisted enrolment, eligibility) Tj
+0 -14 Td
+(verification, account seeding, payment-order generation, payment release and successful) Tj
+0 -14 Td
+(credit are distinct stages. A person may be registered in a programme but not receive a) Tj
+0 -14 Td
+ET
+endstream
+endobj
+62 0 obj
+<< /Length 4118 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
+(benefit while identity, bank, eligibility or transaction exceptions are being corrected.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Financial-service camps and digital assistance should retain a case-level correction trail) Tj
+0 -14 Td
+(and provide an accessible route for resolving failed authentication, inactive accounts or) Tj
+0 -14 Td
+(rejected transactions. Reporting should separate a released amount from an amount credited) Tj
+0 -14 Td
+(to a beneficiary and should not use enrolment totals as a proxy for received support.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(When a delivery dashboard is combined with another sector's service data, the programme) Tj
+0 -14 Td
+(owner must specify the shared unit, reporting period and status definition. A matched record) Tj
+0 -14 Td
+(is useful for follow-up, but it is not evidence that all linked services were delivered.) Tj
+0 -14 Td
 () Tj
 0 -14 Td
 (Review of risk and safeguards should distinguish administrative activity from actual) Tj
@@ -2219,15 +2258,6 @@ BT
 0 -14 Td
 (achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
 0 -14 Td
-ET
-endstream
-endobj
-62 0 obj
-<< /Length 4034 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
 0 -14 Td
 (authority improve implementation over time.) Tj
@@ -2294,6 +2324,15 @@ BT
 0 -14 Td
 (administered through a written procedure with a named responsible authority. The procedure) Tj
 0 -14 Td
+ET
+endstream
+endobj
+63 0 obj
+<< /Length 4146 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (should identify the intended users, the service or action to be delivered, the records) Tj
 0 -14 Td
 (required and the point at which a matter is treated as complete. It should also state how) Tj
@@ -2324,15 +2363,6 @@ BT
 0 -14 Td
 (Review of procurement and contracts should distinguish administrative activity from actual) Tj
 0 -14 Td
-ET
-endstream
-endobj
-63 0 obj
-<< /Length 4175 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
 0 -14 Td
 (may represent an important stage without proving that the intended public benefit has been) Tj
@@ -2398,46 +2428,46 @@ BT
 (explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
 0 -14 Td
 (authority improve implementation over time.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(The procurement and contracts arrangements for Financial Inclusion and Social Security) Tj
-0 -14 Td
-(should be administered through a written procedure with a named responsible authority. The) Tj
-0 -14 Td
-(procedure should identify the intended users, the service or action to be delivered, the) Tj
-0 -14 Td
-(records required and the point at which a matter is treated as complete. It should also) Tj
-0 -14 Td
-(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
-0 -14 Td
-(documentation supports fairness across locations and reporting periods.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Implementation of procurement and contracts requires coordination between policy) Tj
-0 -14 Td
-(authorities, field offices, local institutions and delivery partners. Each participant) Tj
-0 -14 Td
-(should understand its role, the information it must provide and the decision it is) Tj
-0 -14 Td
-(authorised to take. A pending dependency should remain visible in the record instead of) Tj
-0 -14 Td
-(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
-0 -14 Td
-(preserving accountability for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
 0 -14 Td
 ET
 endstream
 endobj
 64 0 obj
-<< /Length 4216 >>
+<< /Length 4218 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+() Tj
+0 -14 Td
+(The procurement and contracts arrangements for Financial Inclusion and Social Security) Tj
+0 -14 Td
+(should be administered through a written procedure with a named responsible authority. The) Tj
+0 -14 Td
+(procedure should identify the intended users, the service or action to be delivered, the) Tj
+0 -14 Td
+(records required and the point at which a matter is treated as complete. It should also) Tj
+0 -14 Td
+(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
+0 -14 Td
+(documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of procurement and contracts requires coordination between policy) Tj
+0 -14 Td
+(authorities, field offices, local institutions and delivery partners. Each participant) Tj
+0 -14 Td
+(should understand its role, the information it must provide and the decision it is) Tj
+0 -14 Td
+(authorised to take. A pending dependency should remain visible in the record instead of) Tj
+0 -14 Td
+(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
+0 -14 Td
+(preserving accountability for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
 (Authorities should interpret procurement and contracts in a manner that is evidence-based,) Tj
 0 -14 Td
 (inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
@@ -2504,6 +2534,15 @@ BT
 0 -14 Td
 (along with the standard process. Records should distinguish people who were informed,) Tj
 0 -14 Td
+ET
+endstream
+endobj
+65 0 obj
+<< /Length 4075 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (applicants who completed a request and beneficiaries who received a usable service.) Tj
 0 -14 Td
 () Tj
@@ -2534,15 +2573,6 @@ BT
 0 -14 Td
 (pending dependency should remain visible in the record instead of being absorbed into an) Tj
 0 -14 Td
-ET
-endstream
-endobj
-65 0 obj
-<< /Length 4172 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (unexplained total. This enables officers to resolve delays while preserving accountability) Tj
 0 -14 Td
 (for public resources and citizen-facing commitments.) Tj
@@ -2609,6 +2639,15 @@ BT
 0 -14 Td
 (inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
 0 -14 Td
+ET
+endstream
+endobj
+66 0 obj
+<< /Length 4167 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
 0 -14 Td
 (disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
@@ -2639,15 +2678,6 @@ BT
 0 -14 Td
 (should identify the intended users, the service or action to be delivered, the records) Tj
 0 -14 Td
-ET
-endstream
-endobj
-66 0 obj
-<< /Length 4089 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (required and the point at which a matter is treated as complete. It should also state how) Tj
 0 -14 Td
 (exceptions are handled and how a person can seek clarification. Consistent documentation) Tj
@@ -2714,75 +2744,17 @@ BT
 0 -14 Td
 (preserving accountability for public resources and citizen-facing commitments.) Tj
 0 -14 Td
-() Tj
-0 -14 Td
-(Authorities should interpret coordination and convergence in a manner that is) Tj
-0 -14 Td
-(evidence-based, inclusive and proportionate to the needs of Financial Inclusion and Social) Tj
-0 -14 Td
-(Security. Formal eligibility alone may not remove barriers caused by distance,) Tj
-0 -14 Td
-(documentation, language, disability, connectivity or cost. Outreach and assisted channels) Tj
-0 -14 Td
-(should therefore be planned along with the standard process. Records should distinguish) Tj
-0 -14 Td
-(people who were informed, applicants who completed a request and beneficiaries who received) Tj
-0 -14 Td
-(a usable service.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Review of coordination and convergence should distinguish administrative activity from) Tj
-0 -14 Td
-(actual outcomes. An application, approval, inspection, release, installation, payment or) Tj
-0 -14 Td
-(closure may represent an important stage without proving that the intended public benefit) Tj
-0 -14 Td
-(has been achieved. Monitoring should record the relevant unit, date, source and status, and) Tj
-0 -14 Td
-(should explain unresolved cases. This discipline prevents overstatement and helps the) Tj
-0 -14 Td
-(responsible authority improve implementation over time.) Tj
-0 -14 Td
 ET
 endstream
 endobj
 67 0 obj
-<< /Length 4125 >>
+<< /Length 4069 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
 () Tj
 0 -14 Td
-(The coordination and convergence arrangements for Financial Inclusion and Social Security) Tj
-0 -14 Td
-(should be administered through a written procedure with a named responsible authority. The) Tj
-0 -14 Td
-(procedure should identify the intended users, the service or action to be delivered, the) Tj
-0 -14 Td
-(records required and the point at which a matter is treated as complete. It should also) Tj
-0 -14 Td
-(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
-0 -14 Td
-(documentation supports fairness across locations and reporting periods.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Implementation of coordination and convergence requires coordination between policy) Tj
-0 -14 Td
-(authorities, field offices, local institutions and delivery partners. Each participant) Tj
-0 -14 Td
-(should understand its role, the information it must provide and the decision it is) Tj
-0 -14 Td
-(authorised to take. A pending dependency should remain visible in the record instead of) Tj
-0 -14 Td
-(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
-0 -14 Td
-(preserving accountability for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
 (Authorities should interpret coordination and convergence in a manner that is) Tj
 0 -14 Td
 (evidence-based, inclusive and proportionate to the needs of Financial Inclusion and Social) Tj
@@ -2848,16 +2820,74 @@ BT
 (Security. Formal eligibility alone may not remove barriers caused by distance,) Tj
 0 -14 Td
 (documentation, language, disability, connectivity or cost. Outreach and assisted channels) Tj
+0 -14 Td
+(should therefore be planned along with the standard process. Records should distinguish) Tj
+0 -14 Td
+(people who were informed, applicants who completed a request and beneficiaries who received) Tj
+0 -14 Td
+(a usable service.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Review of coordination and convergence should distinguish administrative activity from) Tj
+0 -14 Td
+(actual outcomes. An application, approval, inspection, release, installation, payment or) Tj
+0 -14 Td
+(closure may represent an important stage without proving that the intended public benefit) Tj
+0 -14 Td
+(has been achieved. Monitoring should record the relevant unit, date, source and status, and) Tj
+0 -14 Td
+(should explain unresolved cases. This discipline prevents overstatement and helps the) Tj
+0 -14 Td
+(responsible authority improve implementation over time.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The coordination and convergence arrangements for Financial Inclusion and Social Security) Tj
+0 -14 Td
+(should be administered through a written procedure with a named responsible authority. The) Tj
+0 -14 Td
+(procedure should identify the intended users, the service or action to be delivered, the) Tj
 0 -14 Td
 ET
 endstream
 endobj
 68 0 obj
-<< /Length 4039 >>
+<< /Length 4112 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+(records required and the point at which a matter is treated as complete. It should also) Tj
+0 -14 Td
+(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
+0 -14 Td
+(documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of coordination and convergence requires coordination between policy) Tj
+0 -14 Td
+(authorities, field offices, local institutions and delivery partners. Each participant) Tj
+0 -14 Td
+(should understand its role, the information it must provide and the decision it is) Tj
+0 -14 Td
+(authorised to take. A pending dependency should remain visible in the record instead of) Tj
+0 -14 Td
+(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
+0 -14 Td
+(preserving accountability for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Authorities should interpret coordination and convergence in a manner that is) Tj
+0 -14 Td
+(evidence-based, inclusive and proportionate to the needs of Financial Inclusion and Social) Tj
+0 -14 Td
+(Security. Formal eligibility alone may not remove barriers caused by distance,) Tj
+0 -14 Td
+(documentation, language, disability, connectivity or cost. Outreach and assisted channels) Tj
+0 -14 Td
 (should therefore be planned along with the standard process. Records should distinguish) Tj
 0 -14 Td
 (people who were informed, applicants who completed a request and beneficiaries who received) Tj
@@ -2924,71 +2954,15 @@ BT
 0 -14 Td
 (authority improve implementation over time.) Tj
 0 -14 Td
-() Tj
-0 -14 Td
-(The monitoring and indicators arrangements for Financial Inclusion and Social Security) Tj
-0 -14 Td
-(should be administered through a written procedure with a named responsible authority. The) Tj
-0 -14 Td
-(procedure should identify the intended users, the service or action to be delivered, the) Tj
-0 -14 Td
-(records required and the point at which a matter is treated as complete. It should also) Tj
-0 -14 Td
-(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
-0 -14 Td
-(documentation supports fairness across locations and reporting periods.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Implementation of monitoring and indicators requires coordination between policy) Tj
-0 -14 Td
-(authorities, field offices, local institutions and delivery partners. Each participant) Tj
-0 -14 Td
-(should understand its role, the information it must provide and the decision it is) Tj
-0 -14 Td
-(authorised to take. A pending dependency should remain visible in the record instead of) Tj
-0 -14 Td
-(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
-0 -14 Td
-(preserving accountability for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
 ET
 endstream
 endobj
 69 0 obj
-<< /Length 4292 >>
+<< /Length 4218 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
-(Authorities should interpret monitoring and indicators in a manner that is evidence-based,) Tj
-0 -14 Td
-(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
-0 -14 Td
-(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
-0 -14 Td
-(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
-0 -14 Td
-(along with the standard process. Records should distinguish people who were informed,) Tj
-0 -14 Td
-(applicants who completed a request and beneficiaries who received a usable service.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Review of monitoring and indicators should distinguish administrative activity from actual) Tj
-0 -14 Td
-(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
-0 -14 Td
-(may represent an important stage without proving that the intended public benefit has been) Tj
-0 -14 Td
-(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
-0 -14 Td
-(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
-0 -14 Td
-(authority improve implementation over time.) Tj
-0 -14 Td
 () Tj
 0 -14 Td
 (The monitoring and indicators arrangements for Financial Inclusion and Social Security) Tj
@@ -3058,16 +3032,72 @@ BT
 (state how exceptions are handled and how a person can seek clarification. Consistent) Tj
 0 -14 Td
 (documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of monitoring and indicators requires coordination between policy) Tj
+0 -14 Td
+(authorities, field offices, local institutions and delivery partners. Each participant) Tj
+0 -14 Td
+(should understand its role, the information it must provide and the decision it is) Tj
+0 -14 Td
+(authorised to take. A pending dependency should remain visible in the record instead of) Tj
+0 -14 Td
+(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
+0 -14 Td
+(preserving accountability for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Authorities should interpret monitoring and indicators in a manner that is evidence-based,) Tj
+0 -14 Td
+(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
+0 -14 Td
+(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
+0 -14 Td
+(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
+0 -14 Td
+(along with the standard process. Records should distinguish people who were informed,) Tj
 0 -14 Td
 ET
 endstream
 endobj
 70 0 obj
-<< /Length 4080 >>
+<< /Length 4063 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+(applicants who completed a request and beneficiaries who received a usable service.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Review of monitoring and indicators should distinguish administrative activity from actual) Tj
+0 -14 Td
+(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
+0 -14 Td
+(may represent an important stage without proving that the intended public benefit has been) Tj
+0 -14 Td
+(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
+0 -14 Td
+(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
+0 -14 Td
+(authority improve implementation over time.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The monitoring and indicators arrangements for Financial Inclusion and Social Security) Tj
+0 -14 Td
+(should be administered through a written procedure with a named responsible authority. The) Tj
+0 -14 Td
+(procedure should identify the intended users, the service or action to be delivered, the) Tj
+0 -14 Td
+(records required and the point at which a matter is treated as complete. It should also) Tj
+0 -14 Td
+(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
+0 -14 Td
+(documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
 () Tj
 0 -14 Td
 (Implementation of monitoring and indicators requires coordination between policy) Tj
@@ -3134,6 +3164,15 @@ BT
 0 -14 Td
 (inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
 0 -14 Td
+ET
+endstream
+endobj
+71 0 obj
+<< /Length 4190 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
 0 -14 Td
 (disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
@@ -3164,15 +3203,6 @@ BT
 0 -14 Td
 (procedure should identify the intended users, the service or action to be delivered, the) Tj
 0 -14 Td
-ET
-endstream
-endobj
-71 0 obj
-<< /Length 4092 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (records required and the point at which a matter is treated as complete. It should also) Tj
 0 -14 Td
 (state how exceptions are handled and how a person can seek clarification. Consistent) Tj
@@ -3239,6 +3269,15 @@ BT
 0 -14 Td
 (Implementation of evaluation and learning requires coordination between policy authorities,) Tj
 0 -14 Td
+ET
+endstream
+endobj
+72 0 obj
+<< /Length 4187 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (field offices, local institutions and delivery partners. Each participant should understand) Tj
 0 -14 Td
 (its role, the information it must provide and the decision it is authorised to take. A) Tj
@@ -3269,15 +3308,6 @@ BT
 0 -14 Td
 (---------------------------------) Tj
 0 -14 Td
-ET
-endstream
-endobj
-72 0 obj
-<< /Length 4280 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (The audit and verification arrangements for Financial Inclusion and Social Security should) Tj
 0 -14 Td
 (be administered through a written procedure with a named responsible authority. The) Tj
@@ -3343,46 +3373,46 @@ BT
 (records required and the point at which a matter is treated as complete. It should also) Tj
 0 -14 Td
 (state how exceptions are handled and how a person can seek clarification. Consistent) Tj
-0 -14 Td
-(documentation supports fairness across locations and reporting periods.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Implementation of audit and verification requires coordination between policy authorities,) Tj
-0 -14 Td
-(field offices, local institutions and delivery partners. Each participant should understand) Tj
-0 -14 Td
-(its role, the information it must provide and the decision it is authorised to take. A) Tj
-0 -14 Td
-(pending dependency should remain visible in the record instead of being absorbed into an) Tj
-0 -14 Td
-(unexplained total. This enables officers to resolve delays while preserving accountability) Tj
-0 -14 Td
-(for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Authorities should interpret audit and verification in a manner that is evidence-based,) Tj
-0 -14 Td
-(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
-0 -14 Td
-(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
-0 -14 Td
-(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
-0 -14 Td
-(along with the standard process. Records should distinguish people who were informed,) Tj
-0 -14 Td
-(applicants who completed a request and beneficiaries who received a usable service.) Tj
 0 -14 Td
 ET
 endstream
 endobj
 73 0 obj
-<< /Length 4068 >>
+<< /Length 4203 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+(documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of audit and verification requires coordination between policy authorities,) Tj
+0 -14 Td
+(field offices, local institutions and delivery partners. Each participant should understand) Tj
+0 -14 Td
+(its role, the information it must provide and the decision it is authorised to take. A) Tj
+0 -14 Td
+(pending dependency should remain visible in the record instead of being absorbed into an) Tj
+0 -14 Td
+(unexplained total. This enables officers to resolve delays while preserving accountability) Tj
+0 -14 Td
+(for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Authorities should interpret audit and verification in a manner that is evidence-based,) Tj
+0 -14 Td
+(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
+0 -14 Td
+(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
+0 -14 Td
+(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
+0 -14 Td
+(along with the standard process. Records should distinguish people who were informed,) Tj
+0 -14 Td
+(applicants who completed a request and beneficiaries who received a usable service.) Tj
+0 -14 Td
 () Tj
 0 -14 Td
 (Review of audit and verification should distinguish administrative activity from actual) Tj
@@ -3449,6 +3479,15 @@ BT
 0 -14 Td
 (achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
 0 -14 Td
+ET
+endstream
+endobj
+74 0 obj
+<< /Length 4055 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
 0 -14 Td
 (authority improve implementation over time.) Tj
@@ -3479,15 +3518,6 @@ BT
 0 -14 Td
 (eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
 0 -14 Td
-ET
-endstream
-endobj
-74 0 obj
-<< /Length 4181 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
 0 -14 Td
 (along with the standard process. Records should distinguish people who were informed,) Tj
@@ -3554,6 +3584,15 @@ BT
 0 -14 Td
 (Review of grievance and appeals should distinguish administrative activity from actual) Tj
 0 -14 Td
+ET
+endstream
+endobj
+75 0 obj
+<< /Length 4172 >>
+stream
+BT
+/F1 9 Tf
+50 750 Td
 (outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
 0 -14 Td
 (may represent an important stage without proving that the intended public benefit has been) Tj
@@ -3584,15 +3623,6 @@ BT
 0 -14 Td
 (field offices, local institutions and delivery partners. Each participant should understand) Tj
 0 -14 Td
-ET
-endstream
-endobj
-75 0 obj
-<< /Length 4169 >>
-stream
-BT
-/F1 9 Tf
-50 750 Td
 (its role, the information it must provide and the decision it is authorised to take. A) Tj
 0 -14 Td
 (pending dependency should remain visible in the record instead of being absorbed into an) Tj
@@ -3659,71 +3689,15 @@ BT
 0 -14 Td
 (along with the standard process. Records should distinguish people who were informed,) Tj
 0 -14 Td
-(applicants who completed a request and beneficiaries who received a usable service.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Review of continuity and resilience should distinguish administrative activity from actual) Tj
-0 -14 Td
-(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
-0 -14 Td
-(may represent an important stage without proving that the intended public benefit has been) Tj
-0 -14 Td
-(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
-0 -14 Td
-(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
-0 -14 Td
-(authority improve implementation over time.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(The continuity and resilience arrangements for Financial Inclusion and Social Security) Tj
-0 -14 Td
-(should be administered through a written procedure with a named responsible authority. The) Tj
-0 -14 Td
-(procedure should identify the intended users, the service or action to be delivered, the) Tj
-0 -14 Td
-(records required and the point at which a matter is treated as complete. It should also) Tj
-0 -14 Td
-(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
-0 -14 Td
-(documentation supports fairness across locations and reporting periods.) Tj
-0 -14 Td
 ET
 endstream
 endobj
 76 0 obj
-<< /Length 4243 >>
+<< /Length 4183 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
-() Tj
-0 -14 Td
-(Implementation of continuity and resilience requires coordination between policy) Tj
-0 -14 Td
-(authorities, field offices, local institutions and delivery partners. Each participant) Tj
-0 -14 Td
-(should understand its role, the information it must provide and the decision it is) Tj
-0 -14 Td
-(authorised to take. A pending dependency should remain visible in the record instead of) Tj
-0 -14 Td
-(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
-0 -14 Td
-(preserving accountability for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Authorities should interpret continuity and resilience in a manner that is evidence-based,) Tj
-0 -14 Td
-(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
-0 -14 Td
-(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
-0 -14 Td
-(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
-0 -14 Td
-(along with the standard process. Records should distinguish people who were informed,) Tj
-0 -14 Td
 (applicants who completed a request and beneficiaries who received a usable service.) Tj
 0 -14 Td
 () Tj
@@ -3793,16 +3767,72 @@ BT
 (achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
 0 -14 Td
 (explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
+0 -14 Td
+(authority improve implementation over time.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The continuity and resilience arrangements for Financial Inclusion and Social Security) Tj
+0 -14 Td
+(should be administered through a written procedure with a named responsible authority. The) Tj
+0 -14 Td
+(procedure should identify the intended users, the service or action to be delivered, the) Tj
+0 -14 Td
+(records required and the point at which a matter is treated as complete. It should also) Tj
+0 -14 Td
+(state how exceptions are handled and how a person can seek clarification. Consistent) Tj
+0 -14 Td
+(documentation supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of continuity and resilience requires coordination between policy) Tj
+0 -14 Td
+(authorities, field offices, local institutions and delivery partners. Each participant) Tj
+0 -14 Td
+(should understand its role, the information it must provide and the decision it is) Tj
+0 -14 Td
+(authorised to take. A pending dependency should remain visible in the record instead of) Tj
 0 -14 Td
 ET
 endstream
 endobj
 77 0 obj
-<< /Length 4027 >>
+<< /Length 4066 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+(being absorbed into an unexplained total. This enables officers to resolve delays while) Tj
+0 -14 Td
+(preserving accountability for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Authorities should interpret continuity and resilience in a manner that is evidence-based,) Tj
+0 -14 Td
+(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
+0 -14 Td
+(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
+0 -14 Td
+(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
+0 -14 Td
+(along with the standard process. Records should distinguish people who were informed,) Tj
+0 -14 Td
+(applicants who completed a request and beneficiaries who received a usable service.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Review of continuity and resilience should distinguish administrative activity from actual) Tj
+0 -14 Td
+(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
+0 -14 Td
+(may represent an important stage without proving that the intended public benefit has been) Tj
+0 -14 Td
+(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
+0 -14 Td
+(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
+0 -14 Td
 (authority improve implementation over time.) Tj
 0 -14 Td
 () Tj
@@ -3869,71 +3899,15 @@ BT
 0 -14 Td
 (Implementation of review and revision requires coordination between policy authorities,) Tj
 0 -14 Td
-(field offices, local institutions and delivery partners. Each participant should understand) Tj
-0 -14 Td
-(its role, the information it must provide and the decision it is authorised to take. A) Tj
-0 -14 Td
-(pending dependency should remain visible in the record instead of being absorbed into an) Tj
-0 -14 Td
-(unexplained total. This enables officers to resolve delays while preserving accountability) Tj
-0 -14 Td
-(for public resources and citizen-facing commitments.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Authorities should interpret review and revision in a manner that is evidence-based,) Tj
-0 -14 Td
-(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
-0 -14 Td
-(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
-0 -14 Td
-(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
-0 -14 Td
-(along with the standard process. Records should distinguish people who were informed,) Tj
-0 -14 Td
-(applicants who completed a request and beneficiaries who received a usable service.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Review of review and revision should distinguish administrative activity from actual) Tj
-0 -14 Td
-(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
-0 -14 Td
 ET
 endstream
 endobj
 78 0 obj
-<< /Length 4134 >>
+<< /Length 4157 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
-(may represent an important stage without proving that the intended public benefit has been) Tj
-0 -14 Td
-(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
-0 -14 Td
-(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
-0 -14 Td
-(authority improve implementation over time.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(The review and revision arrangements for Financial Inclusion and Social Security should be) Tj
-0 -14 Td
-(administered through a written procedure with a named responsible authority. The procedure) Tj
-0 -14 Td
-(should identify the intended users, the service or action to be delivered, the records) Tj
-0 -14 Td
-(required and the point at which a matter is treated as complete. It should also state how) Tj
-0 -14 Td
-(exceptions are handled and how a person can seek clarification. Consistent documentation) Tj
-0 -14 Td
-(supports fairness across locations and reporting periods.) Tj
-0 -14 Td
-() Tj
-0 -14 Td
-(Implementation of review and revision requires coordination between policy authorities,) Tj
-0 -14 Td
 (field offices, local institutions and delivery partners. Each participant should understand) Tj
 0 -14 Td
 (its role, the information it must provide and the decision it is authorised to take. A) Tj
@@ -4003,16 +3977,72 @@ BT
 () Tj
 0 -14 Td
 (Authorities should interpret review and revision in a manner that is evidence-based,) Tj
+0 -14 Td
+(inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
+0 -14 Td
+(eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
+0 -14 Td
+(disability, connectivity or cost. Outreach and assisted channels should therefore be planned) Tj
+0 -14 Td
+(along with the standard process. Records should distinguish people who were informed,) Tj
+0 -14 Td
+(applicants who completed a request and beneficiaries who received a usable service.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Review of review and revision should distinguish administrative activity from actual) Tj
+0 -14 Td
+(outcomes. An application, approval, inspection, release, installation, payment or closure) Tj
+0 -14 Td
+(may represent an important stage without proving that the intended public benefit has been) Tj
+0 -14 Td
+(achieved. Monitoring should record the relevant unit, date, source and status, and should) Tj
+0 -14 Td
+(explain unresolved cases. This discipline prevents overstatement and helps the responsible) Tj
+0 -14 Td
+(authority improve implementation over time.) Tj
+0 -14 Td
+() Tj
 0 -14 Td
 ET
 endstream
 endobj
 79 0 obj
-<< /Length 551 >>
+<< /Length 1854 >>
 stream
 BT
 /F1 9 Tf
 50 750 Td
+(The review and revision arrangements for Financial Inclusion and Social Security should be) Tj
+0 -14 Td
+(administered through a written procedure with a named responsible authority. The procedure) Tj
+0 -14 Td
+(should identify the intended users, the service or action to be delivered, the records) Tj
+0 -14 Td
+(required and the point at which a matter is treated as complete. It should also state how) Tj
+0 -14 Td
+(exceptions are handled and how a person can seek clarification. Consistent documentation) Tj
+0 -14 Td
+(supports fairness across locations and reporting periods.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Implementation of review and revision requires coordination between policy authorities,) Tj
+0 -14 Td
+(field offices, local institutions and delivery partners. Each participant should understand) Tj
+0 -14 Td
+(its role, the information it must provide and the decision it is authorised to take. A) Tj
+0 -14 Td
+(pending dependency should remain visible in the record instead of being absorbed into an) Tj
+0 -14 Td
+(unexplained total. This enables officers to resolve delays while preserving accountability) Tj
+0 -14 Td
+(for public resources and citizen-facing commitments.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Authorities should interpret review and revision in a manner that is evidence-based,) Tj
+0 -14 Td
 (inclusive and proportionate to the needs of Financial Inclusion and Social Security. Formal) Tj
 0 -14 Td
 (eligibility alone may not remove barriers caused by distance, documentation, language,) Tj
@@ -4092,26 +4122,26 @@ xref
 0000075316 00000 n 
 0000079462 00000 n 
 0000083684 00000 n 
-0000087917 00000 n 
-0000092004 00000 n 
-0000096232 00000 n 
-0000100501 00000 n 
-0000104726 00000 n 
+0000087879 00000 n 
+0000092050 00000 n 
+0000096249 00000 n 
+0000100520 00000 n 
+0000104648 00000 n 
 0000108868 00000 n 
-0000113046 00000 n 
-0000117138 00000 n 
-0000121483 00000 n 
-0000125616 00000 n 
-0000129761 00000 n 
-0000134094 00000 n 
-0000138215 00000 n 
-0000142449 00000 n 
-0000146671 00000 n 
-0000150967 00000 n 
-0000155047 00000 n 
-0000159234 00000 n 
+0000112990 00000 n 
+0000117155 00000 n 
+0000121426 00000 n 
+0000125542 00000 n 
+0000129785 00000 n 
+0000134025 00000 n 
+0000138281 00000 n 
+0000142389 00000 n 
+0000146614 00000 n 
+0000150850 00000 n 
+0000154969 00000 n 
+0000159179 00000 n 
 trailer
 << /Size 80 /Root 1 0 R >>
 startxref
-159837
+161086
 %%EOF

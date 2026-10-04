@@ -1,7 +1,7 @@
 """Golden-set loading and evaluation helpers.
 
 The golden set lives in ``docs/goldenset/golden_set_60.jsonl`` and the source
-corpus lives in ``docs/corpus/``. This module keeps the schema, document
+corpus lives in ``docs/corpus_pdf_styled/``. This module keeps the schema, document
 loading, retrieval heuristic, and evaluation loop in one place.
 """
 
@@ -11,6 +11,7 @@ import json
 import re
 import time
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Awaitable, Callable, Literal
 
@@ -69,6 +70,10 @@ class GoldenEvalSummary(BaseModel):
     abstention_rate: float
     passed: int
     pass_rate: float
+    answerable_passed: int
+    answerable_pass_rate: float
+    unanswerable_passed: int
+    unanswerable_pass_rate: float
     total_cost_usd: float
     total_elapsed_seconds: float
     by_eval_type: dict[str, int]
@@ -78,6 +83,7 @@ class GoldenEvalSummary(BaseModel):
     judge_overall_avg: float
     judge_passed: int
     judge_pass_rate: float
+    judge_log_path: str
 
 
 def load_golden_set(path: str | Path) -> list[GoldenEntry]:
@@ -96,11 +102,21 @@ def load_golden_set(path: str | Path) -> list[GoldenEntry]:
 
 
 def load_corpus_documents(corpus_dir: str | Path) -> dict[str, str]:
-    """Load all corpus text files into memory keyed by file name."""
+    """Extract styled PDF corpus files into memory keyed by original text IDs."""
     corpus_dir = Path(corpus_dir)
+    try:
+        import pymupdf
+    except ImportError as exc:
+        raise RuntimeError(
+            "Golden-set evaluation requires PyMuPDF for the styled PDF corpus."
+        ) from exc
+
     docs: dict[str, str] = {}
-    for path in sorted(corpus_dir.glob("*.txt")):
-        docs[path.name] = path.read_text(encoding="utf-8")
+    for path in sorted(corpus_dir.glob("*.pdf")):
+        with pymupdf.open(path) as pdf:
+            text = "\n\n".join(page.get_text("text").strip() for page in pdf).strip()
+        if text:
+            docs[f"{path.stem}.txt"] = text
     return docs
 
 
@@ -199,10 +215,16 @@ async def evaluate_golden_set(
     answer_fn: Callable[[str], Awaitable[Any]],
     *,
     max_entries: int | None = None,
+    judge_log_path: str | Path | None = None,
 ) -> tuple[list[GoldenEvalRow], GoldenEvalSummary]:
     """Run a golden-set evaluation loop against an async question-answer function."""
     rows: list[GoldenEvalRow] = []
     entries = golden_entries[:max_entries] if max_entries is not None else golden_entries
+    if judge_log_path is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        judge_log_path = Path("docs/runs/judge_logs") / f"golden_eval_{timestamp}.jsonl"
+    judge_log_path = Path(judge_log_path)
+    judge_log_path.parent.mkdir(parents=True, exist_ok=True)
     total_elapsed = 0.0
     total_cost = 0.0
     judge_accuracy_total = 0.0
@@ -211,79 +233,100 @@ async def evaluate_golden_set(
     judge_overall_total = 0.0
     judge_passed = 0
 
-    for entry in entries:
-        selected_name, selected_text = select_document(entry.question, corpus_docs)
-        if entry.document and entry.document in corpus_docs:
-            expected_text = corpus_docs[entry.document]
-        else:
-            expected_text = None
+    with judge_log_path.open("w", encoding="utf-8") as judge_log:
+        for entry in entries:
+            selected_name, selected_text = select_document(entry.question, corpus_docs)
+            if entry.document and entry.document in corpus_docs:
+                expected_text = corpus_docs[entry.document]
+            else:
+                expected_text = None
 
-        started = time.perf_counter()
-        answer = await answer_fn(entry.question)
-        elapsed = time.perf_counter() - started
+            started = time.perf_counter()
+            answer = await answer_fn(entry.question)
+            elapsed = time.perf_counter() - started
 
-        answer_text = getattr(answer, "content", getattr(answer, "text", str(answer)))
-        cost_usd = float(getattr(answer, "cost_usd", 0.0) or 0.0)
-        retries = int(getattr(answer, "retries", 0) or 0)
-        abstained = is_abstention(answer_text)
-        retrieved = getattr(answer, "retrieved", [])
-        expected_sources = entry.source_documents or ([entry.document] if entry.document else [])
-        retrieved_sources = {str(hit.get("source", "")) for hit in retrieved}
-        retrieval_hit = bool(expected_sources) and set(expected_sources).issubset(retrieved_sources)
-        source_context = "\n\n".join(
-            f"[{hit['chunk_id']}]\n{hit['text']}"
-            for hit in retrieved
-        )
-
-        judge: JudgeScore = await judge_answer(
-            question=entry.question,
-            expected_behavior=entry.expected_behavior,
-            source_context=source_context,
-            candidate_answer=answer_text,
-            answerability=entry.answerability,
-            evaluation_type=entry.evaluation_type,
-        )
-        passed = judge.passed
-        judge_accuracy_total += judge.accuracy
-        judge_groundedness_total += judge.groundedness
-        judge_format_total += judge.format
-        judge_overall_total += judge.overall
-        if judge.passed:
-            judge_passed += 1
-
-        rows.append(
-            GoldenEvalRow(
-                id=entry.id,
-                document=entry.document,
-                source_documents=entry.source_documents,
+            answer_text = getattr(answer, "content", getattr(answer, "text", str(answer)))
+            cost_usd = float(getattr(answer, "cost_usd", 0.0) or 0.0)
+            retries = int(getattr(answer, "retries", 0) or 0)
+            abstained = is_abstention(answer_text)
+            retrieved = getattr(answer, "retrieved", [])
+            expected_sources = entry.source_documents or ([entry.document] if entry.document else [])
+            retrieved_sources = {str(hit.get("source", "")) for hit in retrieved}
+            retrieval_hit = bool(expected_sources) and set(expected_sources).issubset(retrieved_sources)
+            source_context = "\n\n".join(
+                f"[{hit['chunk_id']}]\n{hit['text']}"
+                for hit in retrieved
+            )
+            judge: JudgeScore = await judge_answer(
                 question=entry.question,
                 expected_behavior=entry.expected_behavior,
+                source_context=source_context,
+                candidate_answer=answer_text,
                 answerability=entry.answerability,
                 evaluation_type=entry.evaluation_type,
-                selected_document=selected_name,
-                retrieval_hit=retrieval_hit,
-                abstained=abstained,
-                answer_text=answer_text,
-                cost_usd=cost_usd,
-                retries=retries,
-                elapsed_seconds=elapsed,
-                pass_fail=passed,
-                judge_accuracy=judge.accuracy,
-                judge_groundedness=judge.groundedness,
-                judge_format=judge.format,
-                judge_reasoning=judge.reasoning,
-                judge_overall=judge.overall,
-                judge_pass=judge.passed,
             )
-        )
-        total_elapsed += elapsed
-        total_cost += cost_usd
+            passed = judge.passed
+            judge_accuracy_total += judge.accuracy
+            judge_groundedness_total += judge.groundedness
+            judge_format_total += judge.format
+            judge_overall_total += judge.overall
+            if judge.passed:
+                judge_passed += 1
+
+            judge_log.write(
+                json.dumps(
+                    {
+                        "id": entry.id,
+                        "question": entry.question,
+                        "expected_behavior": entry.expected_behavior,
+                        "llm_response": answer_text,
+                        "judge_pass": judge.passed,
+                        "judge_accuracy": judge.accuracy,
+                        "judge_groundedness": judge.groundedness,
+                        "judge_format": judge.format,
+                        "judge_reasoning": judge.reasoning,
+                    }
+                )
+                + "\n"
+            )
+
+            rows.append(
+                GoldenEvalRow(
+                    id=entry.id,
+                    document=entry.document,
+                    source_documents=entry.source_documents,
+                    question=entry.question,
+                    expected_behavior=entry.expected_behavior,
+                    answerability=entry.answerability,
+                    evaluation_type=entry.evaluation_type,
+                    selected_document=selected_name,
+                    retrieval_hit=retrieval_hit,
+                    abstained=abstained,
+                    answer_text=answer_text,
+                    cost_usd=cost_usd,
+                    retries=retries,
+                    elapsed_seconds=elapsed,
+                    pass_fail=passed,
+                    judge_accuracy=judge.accuracy,
+                    judge_groundedness=judge.groundedness,
+                    judge_format=judge.format,
+                    judge_reasoning=judge.reasoning,
+                    judge_overall=judge.overall,
+                    judge_pass=judge.passed,
+                )
+            )
+            total_elapsed += elapsed
+            total_cost += cost_usd
 
     answerable = sum(1 for row in rows if row.answerability == "answerable")
     unanswerable = len(rows) - answerable
-    retrieval_hits = sum(1 for row in rows if row.retrieval_hit)
+    answerable_rows = [row for row in rows if row.answerability == "answerable"]
+    unanswerable_rows = [row for row in rows if row.answerability == "unanswerable"]
+    retrieval_hits = sum(1 for row in answerable_rows if row.retrieval_hit)
     abstentions = sum(1 for row in rows if row.abstained)
     passed = sum(1 for row in rows if row.pass_fail)
+    answerable_passed = sum(1 for row in answerable_rows if row.pass_fail)
+    unanswerable_passed = sum(1 for row in unanswerable_rows if row.pass_fail)
     by_eval_type = dict(Counter(row.evaluation_type for row in rows))
 
     summary = GoldenEvalSummary(
@@ -296,6 +339,10 @@ async def evaluate_golden_set(
         abstention_rate=(abstentions / max(len(rows), 1)),
         passed=passed,
         pass_rate=(passed / max(len(rows), 1)),
+        answerable_passed=answerable_passed,
+        answerable_pass_rate=(answerable_passed / max(answerable, 1)),
+        unanswerable_passed=unanswerable_passed,
+        unanswerable_pass_rate=(unanswerable_passed / max(unanswerable, 1)),
         total_cost_usd=total_cost,
         total_elapsed_seconds=total_elapsed,
         by_eval_type=by_eval_type,
@@ -305,6 +352,7 @@ async def evaluate_golden_set(
         judge_overall_avg=(judge_overall_total / max(len(rows), 1)),
         judge_passed=judge_passed,
         judge_pass_rate=(judge_passed / max(len(rows), 1)),
+        judge_log_path=str(judge_log_path),
     )
     return rows, summary
 

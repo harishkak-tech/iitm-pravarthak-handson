@@ -1821,11 +1821,42 @@ BT /F1 8 Tf 500 25 Td (Page 34 of 35) Tj ET
 endstream
 endobj
 74 0 obj
-<< /Length 387 >>
+<< /Length 3599 >>
 stream
 BT /F1 10 Tf 50 742 Td (connectivity or cost. Outreach and assisted channels should therefore be planned along with) Tj ET
 BT /F1 10 Tf 50 728 Td (the standard process. Records should distinguish people who were informed, applicants who) Tj ET
 BT /F1 10 Tf 50 714 Td (completed a request and beneficiaries who received a usable service.) Tj ET
+BT /F2 12 Tf 50 668 Td (Government Policies: Food Security, Public Distribution and Local Nutrition) Tj ET
+BT /F2 12 Tf 50 632 Td (Policy Purpose) Tj ET
+BT /F1 10 Tf 50 610 Td (Food-security policy combines entitlement delivery, local storage, nutrition support, price) Tj ET
+BT /F1 10 Tf 50 596 Td (resilience and accessible grievance channels. It should distinguish an eligible household,) Tj ET
+BT /F1 10 Tf 50 582 Td (an allocated entitlement, an authenticated transaction, a collected ration and a nutrition) Tj ET
+BT /F1 10 Tf 50 568 Td (or health outcome.) Tj ET
+BT /F2 12 Tf 50 540 Td (Entitlement and Transaction States) Tj ET
+BT /F1 10 Tf 50 518 Td (A household may be present in a ration registry before its identity or household composition) Tj ET
+BT /F1 10 Tf 50 504 Td (is corrected. A Fair Price Shop transaction can be authorised, attempted, completed or) Tj ET
+BT /F1 10 Tf 50 490 Td (reversed; these are not interchangeable. The Fair Price Shop Exception Log \(FPS-21\) records) Tj ET
+BT /F1 10 Tf 50 476 Td (failed authentication, stock variance, portability requests, transaction reversals and) Tj ET
+BT /F1 10 Tf 50 462 Td (correction ownership. An FPS-21 closure requires either a confirmed replacement transaction) Tj ET
+BT /F1 10 Tf 50 448 Td (or a documented reason the entitlement was not due.) Tj ET
+BT /F2 12 Tf 50 420 Td (Nutrition Convergence) Tj ET
+BT /F1 10 Tf 50 398 Td (Commodity distribution can support food access but does not establish dietary adequacy,) Tj ET
+BT /F1 10 Tf 50 384 Td (child growth improvement or completed clinical care. When a nutrition worker identifies a) Tj ET
+BT /F1 10 Tf 50 370 Td (child requiring follow-up, the NTR-7 referral pathway tracks coordination with a health) Tj ET
+BT /F1 10 Tf 50 356 Td (facility. Food-distribution reporting should not merge household ration collection with) Tj ET
+BT /F1 10 Tf 50 342 Td (children screened, referrals accepted or treatment completed.) Tj ET
+BT /F2 12 Tf 50 314 Td (Digital and Local Safeguards) Tj ET
+BT /F1 10 Tf 50 292 Td (Offline registers and assisted authentication must remain available during connectivity) Tj ET
+BT /F1 10 Tf 50 278 Td (failures. Once service resumes, the system should reconcile the original transaction, the) Tj ET
+BT /F1 10 Tf 50 264 Td (correction action and any duplicate risk without overwriting the audit trail. A dashboard) Tj ET
+BT /F1 10 Tf 50 250 Td (must state whether it reports allocation, attempted authentication, completed collection, or) Tj ET
+BT /F1 10 Tf 50 236 Td (resolved exception.) Tj ET
+BT /F2 12 Tf 50 208 Td (Storage, Shocks and Accountability) Tj ET
+BT /F1 10 Tf 50 186 Td (Local plans should record stock condition, last-mile access constraints, community notice) Tj ET
+BT /F1 10 Tf 50 172 Td (arrangements and escalation contacts before a disruption. During a flood, heat event or) Tj ET
+BT /F1 10 Tf 50 158 Td (transport interruption, an emergency issue may protect immediate access but should not be) Tj ET
+BT /F1 10 Tf 50 144 Td (reported as normal monthly collection. Social audit and grievance review should test whether) Tj ET
+BT /F1 10 Tf 50 130 Td (a reported transaction corresponds to an accessible entitlement for the household.) Tj ET
 BT /F1 8 Tf 500 25 Td (Page 35 of 35) Tj ET
 endstream
 endobj
@@ -1909,5 +1940,5 @@ xref
 trailer
 << /Size 75 /Root 1 0 R >>
 startxref
-179343
+182556
 %%EOF

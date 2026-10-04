@@ -1,5 +1,15 @@
 from src.pipeline import pipeline
-from src.pipeline.pipeline import Chunk, bm25_scores, retrieve
+from src.pipeline.pipeline import Chunk, bm25_scores, retrieve, rrf_fuse
+
+
+def test_rrf_fusion_scores_by_rank_across_retrievers() -> None:
+    scores = rrf_fuse(
+        [["doc_A", "doc_B", "doc_C"], ["doc_C", "doc_A", "doc_D"]],
+        rrf_k=60,
+    )
+
+    assert scores["doc_A"] == (1 / 61) + (1 / 62)
+    assert scores["doc_A"] > scores["doc_B"]
 
 
 def test_bm25_scores_exact_operational_identifier() -> None:

@@ -30,7 +30,7 @@ from src.eval.golden import (
 
 
 DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set_60.jsonl"
-DEFAULT_CORPUS = ROOT / "docs" / "corpus"
+DEFAULT_CORPUS = ROOT / "docs" / "corpus_pdf_styled"
 DEFAULT_ROWS_OUT = ROOT / "docs" / "runs" / "golden_eval_results.jsonl"
 DEFAULT_SUMMARY_OUT = ROOT / "docs" / "runs" / "golden_eval_summary.json"
 
@@ -63,14 +63,17 @@ async def _run(
     print(f"Loaded {len(golden_entries)} golden entries from {golden_path}")
     print(f"Loaded {len(corpus_docs)} corpus documents from {corpus_dir}")
     print(f"Evaluated {summary.total} entries in {summary.total_elapsed_seconds:.2f}s")
-    print(f"Retrieval hit rate: {summary.retrieval_hit_rate:.2%}")
+    print(f"Retrieval hit rate (answerable): {summary.retrieval_hit_rate:.2%}")
     print(f"Abstention rate:    {summary.abstention_rate:.2%}")
-    print(f"Pass rate:          {summary.pass_rate:.2%}")
+    print(f"Pass rate (all):              {summary.pass_rate:.2%}")
+    print(f"Pass rate (answerable):       {summary.answerable_pass_rate:.2%}")
+    print(f"Pass rate (unanswerable):     {summary.unanswerable_pass_rate:.2%}")
     print(f"Judge avg accuracy:  {summary.judge_accuracy_avg:.2f}")
     print(f"Judge avg grounded:  {summary.judge_groundedness_avg:.2f}")
     print(f"Judge avg format:    {summary.judge_format_avg:.2f}")
     print(f"Judge avg overall:   {summary.judge_overall_avg:.2f}")
     print(f"Judge pass rate:     {summary.judge_pass_rate:.2%}")
+    print(f"Judge trace:         {summary.judge_log_path}")
     print(f"Total cost:         ${summary.total_cost_usd:.6f}")
     print(f"Wrote rows to:      {rows_out}")
     print(f"Wrote summary to:   {summary_out}")
