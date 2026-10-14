@@ -13,6 +13,8 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+from datetime import datetime, timezone
+import os
 from pathlib import Path
 import sys
 
@@ -28,12 +30,15 @@ from src.eval.golden import (
     write_eval_artifacts,
 )
 from src.pipeline.settings import Settings
+from src.eval.judge import JUDGE_MODEL, RUBRIC, JUDGE_TOOL
+from src.eval.store import save_golden_run
 
 
-DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set_60.jsonl"
+DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set_104.jsonl"
 DEFAULT_CORPUS = ROOT / Settings().rag.corpus.directory
 DEFAULT_ROWS_OUT = ROOT / "docs" / "runs" / "golden_eval_results.jsonl"
 DEFAULT_SUMMARY_OUT = ROOT / "docs" / "runs" / "golden_eval_summary.json"
+DEFAULT_DB = ROOT / Settings().results_db
 
 
 async def _run(
@@ -43,14 +48,25 @@ async def _run(
     limit: int | None,
     rows_out: Path,
     summary_out: Path,
+    db_path: Path = DEFAULT_DB,
 ) -> None:
+    started_at = datetime.now(timezone.utc).isoformat()
+    settings = Settings()
+    settings.rag.corpus.directory = corpus_dir.resolve()
     golden_entries = load_golden_set(golden_path)
     corpus_docs = load_corpus_documents(corpus_dir)
 
     from src.pipeline.pipeline import ask_rag
 
+    judge_settings = {
+        "model": JUDGE_MODEL,
+        "use_fake": os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"},
+        "rubric": RUBRIC,
+        "tool": JUDGE_TOOL,
+    }
+
     async def answer_fn(question: str):
-        return await ask_rag(question)
+        return await ask_rag(question, rag_settings=settings.rag)
 
     rows, summary = await evaluate_golden_set(
         golden_entries,
@@ -59,6 +75,11 @@ async def _run(
         max_entries=limit,
     )
 
+    run_id = save_golden_run(
+        db_path, rows, summary, settings=settings, judge_settings=judge_settings,
+        started_at=started_at, completed_at=datetime.now(timezone.utc).isoformat(),
+        golden_path=golden_path.resolve(), corpus_dir=corpus_dir.resolve(), limit=limit,
+    )
     write_eval_artifacts(rows, summary, rows_path=rows_out, summary_path=summary_out)
 
     print(f"Loaded {len(golden_entries)} golden entries from {golden_path}")
@@ -78,6 +99,7 @@ async def _run(
     print(f"Total cost:         ${summary.total_cost_usd:.6f}")
     print(f"Wrote rows to:      {rows_out}")
     print(f"Wrote summary to:   {summary_out}")
+    print(f"Saved database run: {run_id} in {db_path}")
 
     failed = [row for row in rows if not row.pass_fail]
     if failed:
@@ -94,6 +116,7 @@ def main() -> None:
     parser.add_argument("--rows-out", type=Path, default=DEFAULT_ROWS_OUT)
     parser.add_argument("--summary-out", type=Path, default=DEFAULT_SUMMARY_OUT)
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--db-path", type=Path, default=DEFAULT_DB)
     args = parser.parse_args()
 
     asyncio.run(
@@ -103,6 +126,7 @@ def main() -> None:
             limit=args.limit,
             rows_out=args.rows_out,
             summary_out=args.summary_out,
+            db_path=args.db_path,
         )
     )
 

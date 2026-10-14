@@ -90,6 +90,26 @@ python scripts/run_golden_set.py
 # and put your key in a .env file:  OPENAI_API_KEY=sk-...
 ```
 
+Completed golden evaluations also append to `results.db`. The `golden_runs`
+table stores the generation model, full settings snapshot, judge configuration,
+input paths, UTC timestamps, and summary. The `golden_results` table stores each
+question's answer, scores, and complete evaluation row, linked by `run_id`.
+Existing JSON outputs are still written. Use
+`python scripts/run_golden_set.py --db-path docs/runs/golden_runs.db`
+to choose a different database. Historical JSON files are not automatically
+imported because their original settings are not recorded.
+
+To browse saved results locally, run:
+
+```powershell
+python -m streamlit run api/results_viewer.py --server.port 8502
+```
+
+Open `http://localhost:8502`. The read-only viewer shows golden-run settings,
+model and score history, searchable failed answers and judge reasoning, plus
+older batch runs. Use **Refresh results** after a golden run finishes. It does
+not need an OpenAI API key or Qdrant connection.
+
 ## Setup (once)
 
 ```bash

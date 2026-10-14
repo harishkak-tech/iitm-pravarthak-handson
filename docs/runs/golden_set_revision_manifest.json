@@ -1,0 +1,621 @@
+[
+  {
+    "id": "Q012",
+    "before": {
+      "id": "Q012",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "question": "What employment guarantee does MGNREGA provide?",
+      "expected_behavior": "Answer only from the document's treatment of MGNREGA; expected focus: guarantee.",
+      "answerability": "answerable",
+      "evaluation_type": "targeted retrieval"
+    },
+    "after": {
+      "id": "Q012",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "question": "What employment guarantee does MGNREGA provide?",
+      "expected_behavior": "State that MGNREGA provides a legal framework for guaranteed wage employment subject to the provisions of the Act. The corpus does not specify an exact number of guaranteed days; do not require or invent that number.",
+      "answerability": "answerable",
+      "evaluation_type": "targeted retrieval"
+    }
+  },
+  {
+    "id": "Q061",
+    "before": {
+      "id": "Q061",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "How should registered, verified, and benefit-receiving households be distinguished in district delivery reporting?",
+      "expected_behavior": "Explain the three lifecycle measures and give their reported counts without treating them as interchangeable.",
+      "answerability": "answerable",
+      "evaluation_type": "multi-stage reasoning"
+    },
+    "after": {
+      "id": "Q061",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), how should registered, verified, and benefit-receiving households be distinguished in district delivery reporting?",
+      "expected_behavior": "Explain the three lifecycle measures and give their reported counts without treating them as interchangeable.",
+      "answerability": "answerable",
+      "evaluation_type": "multi-stage reasoning"
+    }
+  },
+  {
+    "id": "Q062",
+    "before": {
+      "id": "Q062",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "What is the difference between the pilot's approved envelope, released funds, and reported expenditure?",
+      "expected_behavior": "Distinguish approved, released, and spent amounts and report the three values with their accounting meaning.",
+      "answerability": "answerable",
+      "evaluation_type": "numerical reasoning"
+    },
+    "after": {
+      "id": "Q062",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), what is the difference between the pilot's approved envelope, released funds, and reported expenditure?",
+      "expected_behavior": "Distinguish approved, released, and spent amounts and report the three values with their accounting meaning.",
+      "answerability": "answerable",
+      "evaluation_type": "numerical reasoning"
+    }
+  },
+  {
+    "id": "Q063",
+    "before": {
+      "id": "Q063",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "How many solar applications were not yet commissioned, and what were the stated reasons?",
+      "expected_behavior": "Calculate the uncommissioned applications from the total and commissioned counts, then identify the listed pending categories.",
+      "answerability": "answerable",
+      "evaluation_type": "numerical reasoning"
+    },
+    "after": {
+      "id": "Q063",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), how many solar applications were not yet commissioned, and what were the stated reasons?",
+      "expected_behavior": "Calculate the uncommissioned applications from the total and commissioned counts, then identify the listed pending categories.",
+      "answerability": "answerable",
+      "evaluation_type": "numerical reasoning"
+    }
+  },
+  {
+    "id": "Q064",
+    "before": {
+      "id": "Q064",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "When reporting coverage, how should registered, verified, and benefit-receiving households be distinguished?",
+      "expected_behavior": "Point out that coverage is ambiguous and distinguish registered, verified, and benefit-receiving households.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    },
+    "after": {
+      "id": "Q064",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), when reporting coverage, how should registered, verified, and benefit-receiving households be distinguished?",
+      "expected_behavior": "Point out that coverage is ambiguous and distinguish registered, verified, and benefit-receiving households.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    }
+  },
+  {
+    "id": "Q065",
+    "before": {
+      "id": "Q065",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "Which district performed better in the pilot?",
+      "expected_behavior": "Do not invent an overall winner; explain that a performance metric must be specified because no composite score is provided.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    },
+    "after": {
+      "id": "Q065",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), which district performed better in the pilot?",
+      "expected_behavior": "Do not invent an overall winner; explain that a performance metric must be specified because no composite score is provided.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    }
+  },
+  {
+    "id": "Q066",
+    "before": {
+      "id": "Q066",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "What percentage of the planned rural access length was certified complete?",
+      "expected_behavior": "Compute the certified-complete share from 62 completed kilometres out of 86 planned kilometres, and identify it as an engineering progress measure.",
+      "answerability": "answerable",
+      "evaluation_type": "calculation and qualification"
+    },
+    "after": {
+      "id": "Q066",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), what percentage of the planned rural access length was certified complete?",
+      "expected_behavior": "Compute the certified-complete share from 62 completed kilometres out of 86 planned kilometres, and identify it as an engineering progress measure.",
+      "answerability": "answerable",
+      "evaluation_type": "calculation and qualification"
+    }
+  },
+  {
+    "id": "Q067",
+    "before": {
+      "id": "Q067",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "Is a final resolution rate reported for failed payment transactions?",
+      "expected_behavior": "State that the casebook describes exceptions and a correction queue but does not provide a final resolution rate.",
+      "answerability": "answerable",
+      "evaluation_type": "missing-field detection"
+    },
+    "after": {
+      "id": "Q067",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), is a final resolution rate reported for failed payment transactions?",
+      "expected_behavior": "State that the casebook describes exceptions and a correction queue but does not provide a final resolution rate.",
+      "answerability": "answerable",
+      "evaluation_type": "missing-field detection"
+    }
+  },
+  {
+    "id": "Q069",
+    "before": {
+      "id": "Q069",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "How much of the approved pilot budget was spent?",
+      "expected_behavior": "Clarify that the approved amount was Rs 48 crore and reported expenditure was Rs 27.4 crore; do not confuse expenditure with release.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous numerical question"
+    },
+    "after": {
+      "id": "Q069",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), how much of the approved pilot budget was spent?",
+      "expected_behavior": "Clarify that the approved amount was Rs 48 crore and reported expenditure was Rs 27.4 crore; do not confuse expenditure with release.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous numerical question"
+    }
+  },
+  {
+    "id": "Q070",
+    "before": {
+      "id": "Q070",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "How many households benefited from the solar component?",
+      "expected_behavior": "Explain that the source reports applications and commissioned systems, not a single generic beneficiary count; distinguish 4,800 applications from 3,100 commissioned systems.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous numerical question"
+    },
+    "after": {
+      "id": "Q070",
+      "document": "11_Integrated_District_Delivery_Casebook.txt",
+      "question": "For the Integrated District Delivery Pilot (Sundar and Narmada), how many households benefited from the solar component?",
+      "expected_behavior": "Explain that the source reports applications and commissioned systems, not a single generic beneficiary count; distinguish 4,800 applications from 3,100 commissioned systems.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous numerical question"
+    }
+  },
+  {
+    "id": "Q072",
+    "before": {
+      "id": "Q072",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "What is the difference between an approved clean-energy referral and a verified installation?",
+      "expected_behavior": "Distinguish the initial eligibility review from inspected completion and report 2,400 reviewed referrals and 1,760 verified installations.",
+      "answerability": "answerable",
+      "evaluation_type": "entity-state reasoning"
+    },
+    "after": {
+      "id": "Q072",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), what is the difference between an approved clean-energy referral and a verified installation?",
+      "expected_behavior": "Distinguish the initial eligibility review from inspected completion and report 2,400 reviewed referrals and 1,760 verified installations.",
+      "answerability": "answerable",
+      "evaluation_type": "entity-state reasoning"
+    }
+  },
+  {
+    "id": "Q073",
+    "before": {
+      "id": "Q073",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "What does the word budget refer to in this brief?",
+      "expected_behavior": "Clarify the ambiguity between the Rs 42 crore approved allocation, Rs 25 crore released, and Rs 23.9 crore spent.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    },
+    "after": {
+      "id": "Q073",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), what does the word budget refer to in this brief?",
+      "expected_behavior": "Clarify the ambiguity between the Rs 42 crore approved allocation, Rs 25 crore released, and Rs 23.9 crore spent.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguity handling"
+    }
+  },
+  {
+    "id": "Q074",
+    "before": {
+      "id": "Q074",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "Which district had the highest overall performance?",
+      "expected_behavior": "Do not select a winner; explain that Aster has more enrolments while Bhagirathi has a higher verification share, and no composite ranking is provided.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous comparison"
+    },
+    "after": {
+      "id": "Q074",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), which district had the highest overall performance?",
+      "expected_behavior": "Do not select a winner; explain that Aster has more enrolments while Bhagirathi has a higher verification share, and no composite ranking is provided.",
+      "answerability": "answerable",
+      "evaluation_type": "ambiguous comparison"
+    }
+  },
+  {
+    "id": "Q075",
+    "before": {
+      "id": "Q075",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "How many housing units were completed in the pilot?",
+      "expected_behavior": "Abstain because the brief reports 1,200 housing referrals but does not report completed houses.",
+      "answerability": "unanswerable",
+      "evaluation_type": "hallucination / abstention"
+    },
+    "after": {
+      "id": "Q075",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), how many housing units were completed in the pilot?",
+      "expected_behavior": "Abstain from giving a completed-house count: the Connected Services brief reports 1,200 housing referrals, not completed houses. Mentioning that referral count or distinguishing unrelated installation figures is acceptable if clearly labeled and not presented as completed houses.",
+      "answerability": "unanswerable",
+      "evaluation_type": "hallucination / abstention"
+    }
+  },
+  {
+    "id": "Q076",
+    "before": {
+      "id": "Q076",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "What percentage of payment correction tickets had been closed?",
+      "expected_behavior": "Calculate the share from 610 closed tickets out of 860 opened tickets, and clarify that ticket closure does not necessarily mean same-day payment receipt.",
+      "answerability": "answerable",
+      "evaluation_type": "calculation and qualification"
+    },
+    "after": {
+      "id": "Q076",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), what percentage of payment correction tickets had been closed?",
+      "expected_behavior": "Calculate the share from 610 closed tickets out of 860 opened tickets, and clarify that ticket closure does not necessarily mean same-day payment receipt.",
+      "answerability": "answerable",
+      "evaluation_type": "calculation and qualification"
+    }
+  },
+  {
+    "id": "Q077",
+    "before": {
+      "id": "Q077",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "Can the enrolment figures in the two casebooks be added to produce a combined coverage total?",
+      "expected_behavior": "Do not combine them without qualification because they are separate pilots with different systems and reporting scopes; explain the distinction.",
+      "answerability": "answerable",
+      "evaluation_type": "cross-document reasoning"
+    },
+    "after": {
+      "id": "Q077",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "Can the enrolment figures in the two casebooks be added to produce a combined coverage total?",
+      "expected_behavior": "Do not combine them without qualification because they are separate pilots with different systems and reporting scopes; explain the distinction.",
+      "answerability": "answerable",
+      "evaluation_type": "cross-document reasoning",
+      "source_documents": [
+        "11_Integrated_District_Delivery_Casebook.txt",
+        "12_State_Implementation_Brief.txt"
+      ]
+    }
+  },
+  {
+    "id": "Q078",
+    "before": {
+      "id": "Q078",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "What was the expenditure during the current financial year after 2024-25?",
+      "expected_behavior": "Abstain because the brief provides no expenditure figure for a later current financial year.",
+      "answerability": "unanswerable",
+      "evaluation_type": "hallucination / abstention"
+    },
+    "after": {
+      "id": "Q078",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), what was the expenditure during the current financial year after 2024-25?",
+      "expected_behavior": "Abstain because the brief provides no expenditure figure for a later current financial year.",
+      "answerability": "unanswerable",
+      "evaluation_type": "hallucination / abstention"
+    }
+  },
+  {
+    "id": "Q079",
+    "before": {
+      "id": "Q079",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "Is a successful transaction the same as a verified eligible household?",
+      "expected_behavior": "Explain that they are separate measures: verification concerns eligibility checks, while successful transaction concerns a completed service or payment during the reporting window.",
+      "answerability": "answerable",
+      "evaluation_type": "definition and distinction"
+    },
+    "after": {
+      "id": "Q079",
+      "document": "12_State_Implementation_Brief.txt",
+      "question": "For the Connected Services Pilot (Aster and Bhagirathi), is a successful transaction the same as a verified eligible household?",
+      "expected_behavior": "Explain that they are separate measures: verification concerns eligibility checks, while successful transaction concerns a completed service or payment during the reporting window.",
+      "answerability": "answerable",
+      "evaluation_type": "definition and distinction"
+    }
+  },
+  {
+    "id": "Q081",
+    "before": {
+      "id": "Q081",
+      "document": "01_Agriculture_and_Farmers_Welfare.txt",
+      "source_documents": [
+        "01_Agriculture_and_Farmers_Welfare.txt",
+        "01_Agriculture_and_Farmers_Welfare.txt"
+      ],
+      "question": "A drought-prone village is promoting micro-irrigation and also has unreliable household water. What should the district plan together, and what should it avoid claiming?",
+      "expected_behavior": "Explain that farm-demand measures should align with the village water-security plan and seasonal water budget, while making clear that they do not prove safe or reliable household water service.",
+      "answerability": "answerable",
+      "evaluation_type": "indirect cross-document reasoning"
+    },
+    "after": {
+      "id": "Q081",
+      "document": "01_Agriculture_and_Farmers_Welfare.txt",
+      "source_documents": [
+        "01_Agriculture_and_Farmers_Welfare.txt"
+      ],
+      "question": "A drought-prone village is promoting micro-irrigation and also has unreliable household water. What should the district plan together, and what should it avoid claiming?",
+      "expected_behavior": "Explain that farm-demand measures should align with the village water-security plan and seasonal water budget, while making clear that they do not prove safe or reliable household water service.",
+      "answerability": "answerable",
+      "evaluation_type": "indirect multi-section reasoning"
+    }
+  },
+  {
+    "id": "Q083",
+    "before": {
+      "id": "Q083",
+      "document": "02_Health_and_Public_Health.txt",
+      "source_documents": [
+        "02_Health_and_Public_Health.txt",
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A child was flagged at a nutrition session and referred to a clinic. Which steps still need to be tracked before describing the child as having completed care?",
+      "expected_behavior": "Distinguish screening or identification, referral, referral acceptance, clinical assessment, treatment where needed, and completed follow-up; do not treat a screening or referral as completed care.",
+      "answerability": "answerable",
+      "evaluation_type": "multi-stage cross-document reasoning"
+    },
+    "after": {
+      "id": "Q083",
+      "document": "02_Health_and_Public_Health.txt",
+      "source_documents": [
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A child was flagged at a nutrition session and referred to a clinic. Which steps still need to be tracked before describing the child as having completed care?",
+      "expected_behavior": "Distinguish screening or identification, referral, referral acceptance, clinical assessment, treatment where needed, and completed follow-up; do not treat a screening or referral as completed care.",
+      "answerability": "answerable",
+      "evaluation_type": "multi-stage multi-section reasoning"
+    }
+  },
+  {
+    "id": "Q096",
+    "before": {
+      "id": "Q096",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "02_Health_and_Public_Health.txt",
+        "02_Health_and_Public_Health.txt",
+        "10_Rural_Development_and_Livelihoods.txt"
+      ],
+      "question": "During a flood response, children are screened at a relief camp and referred to clinics. What should the dashboard keep separate?",
+      "expected_behavior": "Keep relief outreach, nutrition screening, referral acceptance, clinical assessment, treatment and completed follow-up separate; a water or disaster alert is not proof of illness causation or completed care.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source lifecycle reasoning"
+    },
+    "after": {
+      "id": "Q096",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "02_Health_and_Public_Health.txt",
+        "10_Rural_Development_and_Livelihoods.txt"
+      ],
+      "question": "During a flood response, children are screened at a relief camp and referred to clinics. What should the dashboard keep separate?",
+      "expected_behavior": "Keep relief outreach, nutrition screening, referral acceptance, clinical assessment, treatment and completed follow-up separate; a water or disaster alert is not proof of illness causation or completed care.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source lifecycle reasoning"
+    }
+  },
+  {
+    "id": "Q099",
+    "before": {
+      "id": "Q099",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "10_Rural_Development_and_Livelihoods.txt",
+        "05_Renewable_Energy_and_Power.txt",
+        "10_Rural_Development_and_Livelihoods.txt"
+      ],
+      "question": "A district reports that a flood-resilience earthwork is complete. What must it avoid presenting as already achieved?",
+      "expected_behavior": "Avoid treating construction completion as verified risk reduction, functioning environmental service, or a community water outcome; record work, asset, maintenance and later outcome evidence separately.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source qualification"
+    },
+    "after": {
+      "id": "Q099",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "10_Rural_Development_and_Livelihoods.txt",
+        "05_Renewable_Energy_and_Power.txt"
+      ],
+      "question": "A district reports that a flood-resilience earthwork is complete. What must it avoid presenting as already achieved?",
+      "expected_behavior": "Avoid treating construction completion as verified risk reduction, functioning environmental service, or a community water outcome; record work, asset, maintenance and later outcome evidence separately.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source qualification"
+    }
+  },
+  {
+    "id": "Q101",
+    "before": {
+      "id": "Q101",
+      "document": "07_Transport_and_Infrastructure.txt",
+      "source_documents": [
+        "07_Transport_and_Infrastructure.txt",
+        "02_Health_and_Public_Health.txt",
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A child collected a household ration and was flagged for nutrition risk. Does the collection show completed care?",
+      "expected_behavior": "No. Ration collection is a food-access transaction; the child still needs the NTR-7 referral, health assessment, treatment where needed and completed follow-up recorded separately.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source distinction"
+    },
+    "after": {
+      "id": "Q101",
+      "document": "07_Transport_and_Infrastructure.txt",
+      "source_documents": [
+        "07_Transport_and_Infrastructure.txt",
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A child collected a household ration and was flagged for nutrition risk. Does the collection show completed care?",
+      "expected_behavior": "No. Ration collection is a food-access transaction; the child still needs the NTR-7 referral, health assessment, treatment where needed and completed follow-up recorded separately.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source distinction"
+    }
+  },
+  {
+    "id": "Q102",
+    "before": {
+      "id": "Q102",
+      "document": "07_Transport_and_Infrastructure.txt",
+      "source_documents": [
+        "07_Transport_and_Infrastructure.txt",
+        "06_Digital_India_and_Public_Services.txt",
+        "06_Digital_India_and_Public_Services.txt"
+      ],
+      "question": "An assisted ration transaction failed during a connectivity outage and the household complains that its record was overwritten. What is the correct handling?",
+      "expected_behavior": "Retain the offline or original transaction and correction trail in FPS-21, reconcile after service resumes without overwriting the mismatch, and record the grievance lifecycle and verified remedy separately in JGR-11.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source record reconciliation"
+    },
+    "after": {
+      "id": "Q102",
+      "document": "07_Transport_and_Infrastructure.txt",
+      "source_documents": [
+        "07_Transport_and_Infrastructure.txt",
+        "06_Digital_India_and_Public_Services.txt"
+      ],
+      "question": "An assisted ration transaction failed during a connectivity outage and the household complains that its record was overwritten. What is the correct handling?",
+      "expected_behavior": "Retain the offline or original transaction and correction trail in FPS-21, reconcile after service resumes without overwriting the mismatch, and record the grievance lifecycle and verified remedy separately in JGR-11.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source record reconciliation"
+    }
+  },
+  {
+    "id": "Q114",
+    "before": {
+      "id": "Q114",
+      "document": "05_Renewable_Energy_and_Power.txt",
+      "source_documents": [
+        "05_Renewable_Energy_and_Power.txt",
+        "06_Digital_India_and_Public_Services.txt",
+        "06_Digital_India_and_Public_Services.txt"
+      ],
+      "question": "Residents challenge an environmental dashboard total that mixes samples, complaints and inspections. What is the correct response?",
+      "expected_behavior": "State the unit, period, evidence method and threshold for each measure; preserve the complaint and correction trail in JGR-11 rather than presenting mixed counts as one ranking.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source accountability reasoning"
+    },
+    "after": {
+      "id": "Q114",
+      "document": "05_Renewable_Energy_and_Power.txt",
+      "source_documents": [
+        "05_Renewable_Energy_and_Power.txt",
+        "06_Digital_India_and_Public_Services.txt"
+      ],
+      "question": "Residents challenge an environmental dashboard total that mixes samples, complaints and inspections. What is the correct response?",
+      "expected_behavior": "State the unit, period, evidence method and threshold for each measure; preserve the complaint and correction trail in JGR-11 rather than presenting mixed counts as one ranking.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source accountability reasoning"
+    }
+  },
+  {
+    "id": "Q116",
+    "before": {
+      "id": "Q116",
+      "document": "03_Education_and_Skills.txt",
+      "source_documents": [
+        "03_Education_and_Skills.txt",
+        "02_Health_and_Public_Health.txt",
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A mother receives a nutrition referral and confidential safety support. What must not appear in a public beneficiary dashboard?",
+      "expected_behavior": "Confidential GSC-8 details must remain restricted; report only appropriate aggregate stages while keeping nutrition referral, health assessment, treatment and safe-resolution review distinct.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source confidentiality reasoning"
+    },
+    "after": {
+      "id": "Q116",
+      "document": "03_Education_and_Skills.txt",
+      "source_documents": [
+        "03_Education_and_Skills.txt",
+        "02_Health_and_Public_Health.txt"
+      ],
+      "question": "A mother receives a nutrition referral and confidential safety support. What must not appear in a public beneficiary dashboard?",
+      "expected_behavior": "Confidential GSC-8 details must remain restricted; report only appropriate aggregate stages while keeping nutrition referral, health assessment, treatment and safe-resolution review distinct.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source confidentiality reasoning"
+    }
+  },
+  {
+    "id": "Q121",
+    "before": {
+      "id": "Q121",
+      "document": "06_Digital_India_and_Public_Services.txt",
+      "source_documents": [
+        "06_Digital_India_and_Public_Services.txt",
+        "09_Financial_Inclusion_and_Social_Security.txt",
+        "06_Digital_India_and_Public_Services.txt"
+      ],
+      "question": "A benefit grievance is marked resolved after a portal update. What evidence is needed for a verified remedy?",
+      "expected_behavior": "Retain the original mismatch and correction trail, identify the payment stage, and require JGR-11 verification that the intended correction or successful credit occurred; a portal update alone is not enough.",
+      "answerability": "answerable",
+      "evaluation_type": "three-source remedy verification"
+    },
+    "after": {
+      "id": "Q121",
+      "document": "06_Digital_India_and_Public_Services.txt",
+      "source_documents": [
+        "06_Digital_India_and_Public_Services.txt",
+        "09_Financial_Inclusion_and_Social_Security.txt"
+      ],
+      "question": "A benefit grievance is marked resolved after a portal update. What evidence is needed for a verified remedy?",
+      "expected_behavior": "Retain the original mismatch and correction trail, identify the payment stage, and require JGR-11 verification that the intended correction or successful credit occurred; a portal update alone is not enough.",
+      "answerability": "answerable",
+      "evaluation_type": "two-source remedy verification"
+    }
+  },
+  {
+    "id": "Q127",
+    "before": {
+      "id": "Q127",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "10_Rural_Development_and_Livelihoods.txt"
+      ],
+      "question": "What must be documented before an RRF-9 relief-reconciliation case can close?",
+      "expected_behavior": "State that the incident identifier, relevant record, action owner, review date and verification method must be recorded, and closure needs documented verification rather than a caseworker note.",
+      "answerability": "answerable",
+      "evaluation_type": "targeted annex retrieval"
+    },
+    "after": {
+      "id": "Q127",
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "source_documents": [
+        "10_Rural_Development_and_Livelihoods.txt"
+      ],
+      "question": "What must be documented before an RRF-9 relief-reconciliation case can close?",
+      "expected_behavior": "State that RRF-9 requires the incident identifier, household or site reference, claimed need, source record, action owner, next review date and verification method. Closure requires documented verification, not merely a caseworker note. Accept equivalent wording for these fields.",
+      "answerability": "answerable",
+      "evaluation_type": "targeted annex retrieval"
+    }
+  }
+]

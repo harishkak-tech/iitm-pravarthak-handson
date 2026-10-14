@@ -45,6 +45,7 @@ from .settings import (
 log = get_logger()
 
 RATES = {
+    "gpt-5-mini": (0.25, 2.00),
     "gpt-4o-mini": (0.15, 0.60),
     "gpt-4o": (2.50, 10.00),
 }
@@ -61,8 +62,8 @@ DEFAULT_MAX_CONTEXT_CHARS = _default_rag_settings.retrieval.max_context_chars
 DEFAULT_MODEL = _default_rag_settings.generation.model
 DEFAULT_QDRANT_COLLECTION = _default_rag_settings.collection_name()
 
-PRICE_INPUT_PER_1M = {"gpt-4o-mini": 0.15, "gpt-4o": 2.50}
-PRICE_OUTPUT_PER_1M = {"gpt-4o-mini": 0.60, "gpt-4o": 10.00}
+PRICE_INPUT_PER_1M = {"gpt-4o-mini": 0.15, "gpt-4o": 2.50, "gpt-5-mini": 0.25}
+PRICE_OUTPUT_PER_1M = {"gpt-4o-mini": 0.60, "gpt-4o": 10.00, "gpt-5-mini": 2.00}
 
 DEFAULT_SYSTEM = _default_rag_settings.generation.system_prompt
 
@@ -619,6 +620,96 @@ def get_qdrant_client(rag_settings: RagSettings | None = None) -> Any:
     return QdrantClient(url=url, api_key=api_key) if api_key else QdrantClient(url=url)
 
 
+def _chunk_payload_value(chunk: Chunk, key: str) -> Any:
+    """Return the value for a payload-style key on a local chunk."""
+    if key == "chunk_id":
+        return chunk.chunk_id
+    if key == "source":
+        return chunk.source
+    if key == "text":
+        return chunk.text
+    return chunk.metadata.get(key)
+
+
+def _matches_filter_value(actual: Any, expected: Any) -> bool:
+    """Apply simple equality, membership, or numeric range filter semantics."""
+    if expected is None:
+        return True
+    if isinstance(expected, dict):
+        if actual is None:
+            return False
+        try:
+            value = float(actual)
+        except (TypeError, ValueError):
+            return False
+        if "gt" in expected and not value > float(expected["gt"]):
+            return False
+        if "gte" in expected and not value >= float(expected["gte"]):
+            return False
+        if "lt" in expected and not value < float(expected["lt"]):
+            return False
+        if "lte" in expected and not value <= float(expected["lte"]):
+            return False
+        return True
+    if isinstance(expected, (list, tuple, set)):
+        return actual in expected
+    return actual == expected
+
+
+def _filter_index_by_metadata(
+    index: list[Chunk],
+    metadata_filters: dict[str, Any] | None,
+) -> list[Chunk]:
+    """Apply payload-style metadata filters to the local chunk index."""
+    if not metadata_filters:
+        return index
+    return [
+        chunk
+        for chunk in index
+        if all(
+            _matches_filter_value(_chunk_payload_value(chunk, key), expected)
+            for key, expected in metadata_filters.items()
+        )
+    ]
+
+
+def _build_qdrant_filter(metadata_filters: dict[str, Any] | None) -> Any:
+    """Translate simple metadata filters into Qdrant's payload filter DSL."""
+    if not metadata_filters:
+        return None
+    try:
+        from qdrant_client.models import FieldCondition, Filter, MatchAny, MatchValue, Range
+    except ImportError as exc:
+        raise RuntimeError(
+            "Qdrant metadata filters require qdrant-client. Install dependencies before retrieval."
+        ) from exc
+
+    must: list[Any] = []
+    for key, expected in metadata_filters.items():
+        if expected is None:
+            continue
+        if isinstance(expected, dict):
+            range_kwargs = {
+                name: expected[name]
+                for name in ("gt", "gte", "lt", "lte")
+                if name in expected
+            }
+            if range_kwargs:
+                must.append(FieldCondition(key=key, range=Range(**range_kwargs)))
+            continue
+        if isinstance(expected, (list, tuple, set)):
+            values = list(expected)
+            if not values:
+                continue
+            if len(values) == 1:
+                must.append(FieldCondition(key=key, match=MatchValue(value=values[0])))
+            else:
+                must.append(FieldCondition(key=key, match=MatchAny(any=values)))
+            continue
+        must.append(FieldCondition(key=key, match=MatchValue(value=expected)))
+    return Filter(must=must) if must else None
+
+
 def persist_chunks_to_qdrant(
     chunks: list[Chunk],
     *,
@@ -702,6 +793,7 @@ def retrieve_from_qdrant(
     k: int = DEFAULT_TOP_K,
     collection_name: str = DEFAULT_QDRANT_COLLECTION,
     rag_settings: RagSettings | None = None,
+    metadata_filters: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Retrieve dense chunk matches from a previously indexed Qdrant collection."""
     if k <= 0:
@@ -710,11 +802,15 @@ def retrieve_from_qdrant(
     rag = rag_settings or _default_rag_settings
     client = get_qdrant_client(rag)
     try:
-        results = client.query_points(
-            collection_name=collection_name,
-            query=embed(query, model_name=rag.embedding.model_name),
-            limit=k,
-        ).points
+        query_kwargs: dict[str, Any] = {
+            "collection_name": collection_name,
+            "query": embed(query, model_name=rag.embedding.model_name),
+            "limit": k,
+        }
+        query_filter = _build_qdrant_filter(metadata_filters)
+        if query_filter is not None:
+            query_kwargs["query_filter"] = query_filter
+        results = client.query_points(**query_kwargs).points
     finally:
         client.close()
     return [
@@ -741,15 +837,20 @@ def _retrieve_with_qdrant_hybrid(
     rrf_k: int,
     collection_name: str,
     rag_settings: RagSettings,
+    metadata_filters: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Fuse Qdrant dense candidates with locally computed BM25 candidates."""
     candidate_limit = max(k * 4, 20)
+    filtered_index = _filter_index_by_metadata(index, metadata_filters)
+    if not filtered_index:
+        return []
     try:
         dense_hits = retrieve_from_qdrant(
             query,
             k=candidate_limit,
             collection_name=collection_name,
             rag_settings=rag_settings,
+            metadata_filters=metadata_filters,
         )
     except Exception as exc:
         raise RuntimeError(
@@ -758,20 +859,23 @@ def _retrieve_with_qdrant_hybrid(
         ) from exc
 
     dense_by_id = {str(hit["chunk_id"]): float(hit["score"]) for hit in dense_hits}
-    chunks_by_id = {chunk.chunk_id: chunk for chunk in index}
-    lexical_scores = bm25_scores(query, index)
+    chunks_by_id = {chunk.chunk_id: chunk for chunk in filtered_index}
+    lexical_scores = bm25_scores(query, filtered_index)
     lexical_ranked = sorted(
         enumerate(lexical_scores),
         key=lambda item: item[1],
         reverse=True,
     )[:candidate_limit]
 
-    lexical_ids = [index[position].chunk_id for position, _ in lexical_ranked]
+    lexical_ids = [filtered_index[position].chunk_id for position, _ in lexical_ranked]
     rrf_scores = rrf_fuse([list(dense_by_id), lexical_ids], rrf_k=rrf_k)
     if not rrf_scores:
         return []
 
-    lexical_by_id = {chunk.chunk_id: lexical_scores[position] for position, chunk in enumerate(index)}
+    lexical_by_id = {
+        chunk.chunk_id: lexical_scores[position]
+        for position, chunk in enumerate(filtered_index)
+    }
     scored = [
         (
             rrf_score,
@@ -808,6 +912,7 @@ def retrieve(
     rrf_k: int = 60,
     collection_name: str = DEFAULT_QDRANT_COLLECTION,
     rag_settings: RagSettings | None = None,
+    metadata_filters: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Rank chunks with configured semantic-only or hybrid retrieval."""
     if strategy not in {"semantic", "hybrid"}:
@@ -815,6 +920,7 @@ def retrieve(
     if rrf_k <= 0:
         raise ValueError("rrf_k must be positive")
     rag = rag_settings or _default_rag_settings
+    metadata_filters = metadata_filters or None
     if use_qdrant:
         if strategy == "semantic":
             return retrieve_from_qdrant(
@@ -822,6 +928,7 @@ def retrieve(
                 k=k,
                 collection_name=collection_name,
                 rag_settings=rag,
+                metadata_filters=metadata_filters,
             )
         return _retrieve_with_qdrant_hybrid(
             query,
@@ -830,7 +937,11 @@ def retrieve(
             rrf_k=rrf_k,
             collection_name=collection_name,
             rag_settings=rag,
+            metadata_filters=metadata_filters,
         )
+    index = _filter_index_by_metadata(index, metadata_filters)
+    if not index:
+        return []
     q_vec = embed(query, model_name=rag.embedding.model_name)
     semantic_scores = [
         _cosine(
@@ -968,6 +1079,156 @@ def _compute_rag_cost(model: str, prompt_tokens: int, completion_tokens: int) ->
     )
 
 
+def _parse_query_rewrites(text: str, *, limit: int) -> list[str]:
+    """Parse one-rewrite-per-line LLM output into a deduplicated list."""
+    rewrites: list[str] = []
+    seen: set[str] = set()
+    for line in text.splitlines():
+        value = re.sub(r"^\s*(?:[-*]|\d+[.)])\s*", "", line).strip()
+        value = value.strip("\"'")
+        if not value:
+            continue
+        key = value.lower()
+        if key in seen:
+            continue
+        rewrites.append(value)
+        seen.add(key)
+        if len(rewrites) >= limit:
+            break
+    return rewrites
+
+
+async def _generate_query_rewrites(
+    query: str,
+    *,
+    rag_settings: RagSettings,
+) -> tuple[list[str], float]:
+    """Use the Week 9 multi-query prompt to generate alternate phrasings."""
+    retrieval = rag_settings.retrieval
+    if _use_fake_rag():
+        return [], 0.0
+
+    rewrite_prompt = (
+        f"Rewrite this question in {retrieval.query_rewrite_n} different ways that "
+        "would return the same answer from a public policy document corpus. Vary "
+        "terminology, sentence structure, and formality. Preserve any exact names, "
+        "codes, dates, schemes, districts, states, sections, and numeric values. "
+        "Return each rewrite on its own line -- nothing else, no numbering.\n\n"
+        f"Question: {query}"
+    )
+    resp = await _client.chat.completions.create(
+        model=retrieval.query_rewrite_model,
+        temperature=retrieval.query_rewrite_temperature,
+        messages=[{"role": "user", "content": rewrite_prompt}],
+    )
+    content = resp.choices[0].message.content or ""
+    usage = resp.usage
+    prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+    completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+    cost_usd = _compute_rag_cost(
+        retrieval.query_rewrite_model,
+        prompt_tokens,
+        completion_tokens,
+    )
+    original_key = query.strip().lower()
+    rewrites = [
+        rewrite
+        for rewrite in _parse_query_rewrites(content, limit=retrieval.query_rewrite_n)
+        if rewrite.strip().lower() != original_key
+    ]
+    return rewrites, cost_usd
+
+
+async def _generate_hypothetical_retrieval_query(
+    query: str,
+    *,
+    rag_settings: RagSettings,
+) -> tuple[str, float]:
+    """Use the Week 9 HyDE prompt to draft a retrieval-friendly answer."""
+    retrieval = rag_settings.retrieval
+    if _use_fake_rag():
+        return query, 0.0
+
+    hyde_prompt = (
+        "Write a plausible one-paragraph answer to this question about a public "
+        "policy document corpus. Do not hedge; write as if the answer exists in "
+        "the corpus. Preserve exact names, codes, schemes, dates, districts, "
+        "states, sections, and numeric values from the question. The text will "
+        "be used only for retrieval, not shown to the user.\n\n"
+        f"Question: {query}\n\n"
+        "Hypothetical answer:"
+    )
+    resp = await _client.chat.completions.create(
+        model=retrieval.hypothetical_retrieval_model,
+        temperature=retrieval.hypothetical_retrieval_temperature,
+        messages=[{"role": "user", "content": hyde_prompt}],
+    )
+    hypothetical = (resp.choices[0].message.content or "").strip()
+    usage = resp.usage
+    prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+    completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+    cost_usd = _compute_rag_cost(
+        retrieval.hypothetical_retrieval_model,
+        prompt_tokens,
+        completion_tokens,
+    )
+    return hypothetical or query, cost_usd
+
+
+async def _retrieve_with_query_rewriting(
+    query: str,
+    index: list[Chunk],
+    *,
+    k: int,
+    use_qdrant: bool,
+    strategy: str,
+    rrf_k: int,
+    collection_name: str,
+    rag_settings: RagSettings,
+    metadata_filters: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[str], float]:
+    """Retrieve for the original query plus LLM rewrites, then RRF-fuse results."""
+    rewrites, rewrite_cost = await _generate_query_rewrites(
+        query,
+        rag_settings=rag_settings,
+    )
+    all_queries = [query, *rewrites]
+    ranked_lists: list[list[str]] = []
+    by_id: dict[str, dict[str, Any]] = {}
+
+    for search_query in all_queries:
+        hits = retrieve(
+            search_query,
+            index,
+            k=k,
+            use_qdrant=use_qdrant,
+            strategy=strategy,
+            rrf_k=rrf_k,
+            collection_name=collection_name,
+            rag_settings=rag_settings,
+            metadata_filters=metadata_filters,
+        )
+        ranked_lists.append([str(hit["chunk_id"]) for hit in hits])
+        for hit in hits:
+            chunk_id = str(hit["chunk_id"])
+            if chunk_id not in by_id:
+                by_id[chunk_id] = {**hit, "matched_query": search_query}
+
+    fused_scores = rrf_fuse(ranked_lists, rrf_k=rrf_k)
+    fused = sorted(fused_scores.items(), key=lambda item: item[1], reverse=True)
+    retrieved = [
+        {
+            **by_id[chunk_id],
+            "score": score,
+            "query_rewrite_rrf_score": score,
+            "query_rewrites": rewrites,
+        }
+        for chunk_id, score in fused[:k]
+        if chunk_id in by_id
+    ]
+    return retrieved, rewrites, rewrite_cost
+
+
 async def ask_rag(
     question: str,
     *,
@@ -993,16 +1254,47 @@ async def ask_rag(
         corpus_settings=rag.corpus,
         embedding=rag.embedding,
     )
-    retrieved = retrieve(
-        question,
-        index,
-        k=candidate_count,
-        use_qdrant=retrieval.use_qdrant if use_qdrant is None else use_qdrant,
-        strategy=retrieval.strategy,
-        rrf_k=retrieval.rrf_k,
-        collection_name=rag.collection_name(),
-        rag_settings=rag,
-    )
+    retrieval_llm_cost = 0.0
+    resolved_use_qdrant = retrieval.use_qdrant if use_qdrant is None else use_qdrant
+    if retrieval.query_rewrite_enabled:
+        retrieved, _rewrites, retrieval_llm_cost = await _retrieve_with_query_rewriting(
+            question,
+            index,
+            k=candidate_count,
+            use_qdrant=resolved_use_qdrant,
+            strategy=retrieval.strategy,
+            rrf_k=retrieval.rrf_k,
+            collection_name=rag.collection_name(),
+            rag_settings=rag,
+            metadata_filters=retrieval.metadata_filters,
+        )
+    else:
+        retrieval_query = question
+        if retrieval.hypothetical_retrieval_enabled:
+            retrieval_query, retrieval_llm_cost = await _generate_hypothetical_retrieval_query(
+                question,
+                rag_settings=rag,
+            )
+        retrieved = retrieve(
+            retrieval_query,
+            index,
+            k=candidate_count,
+            use_qdrant=resolved_use_qdrant,
+            strategy=retrieval.strategy,
+            rrf_k=retrieval.rrf_k,
+            collection_name=rag.collection_name(),
+            rag_settings=rag,
+            metadata_filters=retrieval.metadata_filters,
+        )
+        if retrieval.hypothetical_retrieval_enabled:
+            retrieved = [
+                {
+                    **hit,
+                    "matched_query": "hyde",
+                    "hypothetical_retrieval_query": retrieval_query,
+                }
+                for hit in retrieved
+            ]
     if retrieval.rerank_enabled:
         retrieved = rerank_with_cross_encoder(
             question,
@@ -1018,7 +1310,7 @@ async def ask_rag(
             question=question,
             content=content,
             sources=sources,
-            cost_usd=0.0,
+            cost_usd=retrieval_llm_cost,
             retries=0,
             retrieved=retrieved,
         )
@@ -1031,7 +1323,7 @@ async def ask_rag(
     )
     resp = await _client.chat.completions.create(
         model=model or rag.generation.model,
-        temperature=rag.generation.temperature,
+        **({"temperature": rag.generation.temperature} if rag.generation.temperature is not None else {}),
         messages=[
             {"role": "system", "content": system_msg},
             {"role": "user", "content": user_msg},
@@ -1041,7 +1333,11 @@ async def ask_rag(
     usage = resp.usage
     prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
     completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
-    cost_usd = _compute_rag_cost(model or rag.generation.model, prompt_tokens, completion_tokens)
+    cost_usd = retrieval_llm_cost + _compute_rag_cost(
+        model or rag.generation.model,
+        prompt_tokens,
+        completion_tokens,
+    )
 
     return RagAnswer(
         question=question,

@@ -6,10 +6,10 @@ endobj
 << /Type /Pages /Kids [5 0 R 6 0 R] /Count 2 >>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
@@ -18,7 +18,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
 endobj
 7 0 obj
-<< /Length 3954 >>
+<< /Length 3561 >>
 stream
 BT /F2 18 Tf 50 742 Td (Integrated District Delivery Casebook) Tj ET
 BT /F2 12 Tf 50 700 Td (Scope and status) Tj ET
@@ -28,57 +28,58 @@ BT /F1 10 Tf 50 650 Td (It is a planning and monitoring casebook, not a national
 BT /F1 10 Tf 50 636 Td (figures below are provisional administrative figures for financial year 2024-25) Tj ET
 BT /F1 10 Tf 50 622 Td (unless a different period is stated.) Tj ET
 BT /F2 12 Tf 50 594 Td (Funding and accounting) Tj ET
-BT /F1 10 Tf 50 572 Td (The approved pilot envelope was Rs 48 crore. Rs 31 crore had been released by) Tj ET
-BT /F1 10 Tf 50 558 Td (31 March 2025 and reported expenditure was Rs 27.4 crore. Approval, release and) Tj ET
-BT /F1 10 Tf 50 544 Td (expenditure are different measures and should not be treated as interchangeable.) Tj ET
-BT /F1 10 Tf 50 530 Td (The expenditure figure includes district coordination and payment-system costs,) Tj ET
-BT /F1 10 Tf 50 516 Td (not only household transfers.) Tj ET
-BT /F2 12 Tf 50 488 Td (Household registration and verification) Tj ET
-BT /F1 10 Tf 50 466 Td (The district offices registered 18,400 households for at least one intervention.) Tj ET
-BT /F1 10 Tf 50 452 Td (After duplicate removal and document checks, 15,920 households were verified.) Tj ET
-BT /F1 10 Tf 50 438 Td (The monitoring dashboard recorded 12,600 households as having received at least) Tj ET
-BT /F1 10 Tf 50 424 Td (one benefit. These counts describe different stages of the process: registered,) Tj ET
-BT /F1 10 Tf 50 410 Td (verified and benefit-receiving. They are not three estimates of the same outcome.) Tj ET
-BT /F2 12 Tf 50 382 Td (Rooftop solar component) Tj ET
-BT /F1 10 Tf 50 360 Td (There were 4,800 solar applications across the two districts. Distribution) Tj ET
-BT /F1 10 Tf 50 346 Td (companies had commissioned systems for 3,100 households by the reporting date.) Tj ET
-BT /F1 10 Tf 50 332 Td (The remaining applications were not necessarily rejected: 1,050 were awaiting) Tj ET
-BT /F1 10 Tf 50 318 Td (technical inspection, 420 were waiting for an applicant contribution, and 230) Tj ET
-BT /F1 10 Tf 50 304 Td (were held for documentation or address correction. A commissioned system is) Tj ET
-BT /F1 10 Tf 50 290 Td (counted only after installation inspection; an approved application is counted) Tj ET
-BT /F1 10 Tf 50 276 Td (earlier.) Tj ET
-BT /F2 12 Tf 50 248 Td (Rural access works) Tj ET
-BT /F1 10 Tf 50 226 Td (The pilot schedule listed 86 kilometres of rural access improvements. Engineers) Tj ET
-BT /F1 10 Tf 50 212 Td (certified 62 kilometres as complete, while 14 kilometres were under construction) Tj ET
-BT /F1 10 Tf 50 198 Td (and 10 kilometres had not started. The completed length is an engineering) Tj ET
-BT /F1 10 Tf 50 184 Td (progress measure and does not by itself establish that every target household) Tj ET
-BT /F1 10 Tf 50 170 Td (has improved market or health-service access.) Tj ET
-BT /F2 12 Tf 50 142 Td (Digital payments and exceptions) Tj ET
-BT /F1 10 Tf 50 120 Td (Benefit payments were routed through bank accounts and assisted service points.) Tj ET
-BT /F1 10 Tf 50 106 Td (Of the 12,600 households recorded as receiving a benefit, 1,180 experienced at) Tj ET
-BT /F1 10 Tf 50 92 Td (least one failed or delayed transaction. The casebook does not say that all of) Tj ET
-BT /F1 10 Tf 50 78 Td (these households permanently lost a benefit. Common exceptions were account) Tj ET
-BT /F1 10 Tf 50 64 Td (mapping errors, inactive accounts, name mismatches and intermittent connectivity.) Tj ET
-BT /F1 10 Tf 50 50 Td (District teams used a correction queue and a grievance desk, but the casebook) Tj ET
-BT /F1 10 Tf 50 36 Td (does not provide a final resolution rate.) Tj ET
+BT /F1 10 Tf 50 572 Td (The Integrated District Delivery Pilot in Sundar and Narmada \(financial year 2024-25\) had an) Tj ET
+BT /F1 10 Tf 50 558 Td (approved envelope of Rs 48 crore. Rs 31 crore had been released by) Tj ET
+BT /F1 10 Tf 50 544 Td (31 March 2025 and reported expenditure was Rs 27.4 crore. Approval, release and) Tj ET
+BT /F1 10 Tf 50 530 Td (expenditure are different measures and should not be treated as interchangeable.) Tj ET
+BT /F1 10 Tf 50 516 Td (The expenditure figure includes district coordination and payment-system costs,) Tj ET
+BT /F1 10 Tf 50 502 Td (not only household transfers.) Tj ET
+BT /F2 12 Tf 50 474 Td (Household registration and verification) Tj ET
+BT /F1 10 Tf 50 452 Td (The district offices registered 18,400 households for at least one intervention.) Tj ET
+BT /F1 10 Tf 50 438 Td (After duplicate removal and document checks, 15,920 households were verified.) Tj ET
+BT /F1 10 Tf 50 424 Td (The monitoring dashboard recorded 12,600 households as having received at least) Tj ET
+BT /F1 10 Tf 50 410 Td (one benefit. These counts describe different stages of the process: registered,) Tj ET
+BT /F1 10 Tf 50 396 Td (verified and benefit-receiving. They are not three estimates of the same outcome.) Tj ET
+BT /F2 12 Tf 50 368 Td (Rooftop solar component) Tj ET
+BT /F1 10 Tf 50 346 Td (There were 4,800 solar applications across the two districts. Distribution) Tj ET
+BT /F1 10 Tf 50 332 Td (companies had commissioned systems for 3,100 households by the reporting date.) Tj ET
+BT /F1 10 Tf 50 318 Td (The remaining applications were not necessarily rejected: 1,050 were awaiting) Tj ET
+BT /F1 10 Tf 50 304 Td (technical inspection, 420 were waiting for an applicant contribution, and 230) Tj ET
+BT /F1 10 Tf 50 290 Td (were held for documentation or address correction. A commissioned system is) Tj ET
+BT /F1 10 Tf 50 276 Td (counted only after installation inspection; an approved application is counted) Tj ET
+BT /F1 10 Tf 50 262 Td (earlier.) Tj ET
+BT /F2 12 Tf 50 234 Td (Rural access works) Tj ET
+BT /F1 10 Tf 50 212 Td (The pilot schedule listed 86 kilometres of rural access improvements. Engineers) Tj ET
+BT /F1 10 Tf 50 198 Td (certified 62 kilometres as complete, while 14 kilometres were under construction) Tj ET
+BT /F1 10 Tf 50 184 Td (and 10 kilometres had not started. The completed length is an engineering) Tj ET
+BT /F1 10 Tf 50 170 Td (progress measure and does not by itself establish that every target household) Tj ET
+BT /F1 10 Tf 50 156 Td (has improved market or health-service access.) Tj ET
+BT /F2 12 Tf 50 128 Td (Digital payments and exceptions) Tj ET
+BT /F1 10 Tf 50 106 Td (Benefit payments were routed through bank accounts and assisted service points.) Tj ET
+BT /F1 10 Tf 50 92 Td (Of the 12,600 households recorded as receiving a benefit, 1,180 experienced at) Tj ET
 BT /F1 8 Tf 500 25 Td (Page 1 of 2) Tj ET
 endstream
 endobj
 8 0 obj
-<< /Length 1155 >>
+<< /Length 1667 >>
 stream
-BT /F2 12 Tf 50 728 Td (Time and target caveats) Tj ET
-BT /F1 10 Tf 50 706 Td (The pilot had a planning target of 25,000 registered households for 2025-26.) Tj ET
-BT /F1 10 Tf 50 692 Td (That is a target, not a reported achievement. No final 2025-26 coverage,) Tj ET
-BT /F1 10 Tf 50 678 Td (district ranking, ministerial assignment or audit finding is provided here.) Tj ET
-BT /F1 10 Tf 50 664 Td (The two districts used the same dashboard, but their local implementation) Tj ET
-BT /F1 10 Tf 50 650 Td (capacity and contractor schedules were not identical.) Tj ET
-BT /F2 12 Tf 50 622 Td (Interpretation note) Tj ET
-BT /F1 10 Tf 50 600 Td (When a question asks for "coverage," clarify whether it means registered,) Tj ET
-BT /F1 10 Tf 50 586 Td (verified or benefit-receiving households. When it asks for "budget," clarify) Tj ET
-BT /F1 10 Tf 50 572 Td (whether it means approved, released or spent funds. When it asks which district) Tj ET
-BT /F1 10 Tf 50 558 Td (performed better, identify the metric first; the casebook does not provide a) Tj ET
-BT /F1 10 Tf 50 544 Td (single composite performance score.) Tj ET
+BT /F1 10 Tf 50 742 Td (least one failed or delayed transaction. The casebook does not say that all of) Tj ET
+BT /F1 10 Tf 50 728 Td (these households permanently lost a benefit. Common exceptions were account) Tj ET
+BT /F1 10 Tf 50 714 Td (mapping errors, inactive accounts, name mismatches and intermittent connectivity.) Tj ET
+BT /F1 10 Tf 50 700 Td (District teams used a correction queue and a grievance desk, but the casebook) Tj ET
+BT /F1 10 Tf 50 686 Td (does not provide a final resolution rate.) Tj ET
+BT /F2 12 Tf 50 658 Td (Time and target caveats) Tj ET
+BT /F1 10 Tf 50 636 Td (The pilot had a planning target of 25,000 registered households for 2025-26.) Tj ET
+BT /F1 10 Tf 50 622 Td (That is a target, not a reported achievement. No final 2025-26 coverage,) Tj ET
+BT /F1 10 Tf 50 608 Td (district ranking, ministerial assignment or audit finding is provided here.) Tj ET
+BT /F1 10 Tf 50 594 Td (The two districts used the same dashboard, but their local implementation) Tj ET
+BT /F1 10 Tf 50 580 Td (capacity and contractor schedules were not identical.) Tj ET
+BT /F2 12 Tf 50 552 Td (Interpretation note) Tj ET
+BT /F1 10 Tf 50 530 Td (When a question asks for "coverage," clarify whether it means registered,) Tj ET
+BT /F1 10 Tf 50 516 Td (verified or benefit-receiving households. When it asks for "budget," clarify) Tj ET
+BT /F1 10 Tf 50 502 Td (whether it means approved, released or spent funds. When it asks which district) Tj ET
+BT /F1 10 Tf 50 488 Td (performed better, identify the metric first; the casebook does not provide a) Tj ET
+BT /F1 10 Tf 50 474 Td (single composite performance score.) Tj ET
 BT /F1 8 Tf 500 25 Td (Page 2 of 2) Tj ET
 endstream
 endobj
@@ -88,13 +89,13 @@ xref
 0000000009 00000 n 
 0000000058 00000 n 
 0000000121 00000 n 
-0000000191 00000 n 
-0000000266 00000 n 
-0000000402 00000 n 
-0000000538 00000 n 
-0000004544 00000 n 
+0000000218 00000 n 
+0000000320 00000 n 
+0000000456 00000 n 
+0000000592 00000 n 
+0000004205 00000 n 
 trailer
 << /Size 9 /Root 1 0 R >>
 startxref
-5751
+5924
 %%EOF

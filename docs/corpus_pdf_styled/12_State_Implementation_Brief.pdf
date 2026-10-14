@@ -6,10 +6,10 @@ endobj
 << /Type /Pages /Kids [5 0 R 6 0 R] /Count 2 >>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
@@ -18,7 +18,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
 endobj
 7 0 obj
-<< /Length 3803 >>
+<< /Length 3525 >>
 stream
 BT /F2 18 Tf 50 742 Td (State Implementation Brief: Connected Services) Tj ET
 BT /F2 12 Tf 50 700 Td (Purpose and reporting period) Tj ET
@@ -28,49 +28,50 @@ BT /F1 10 Tf 50 650 Td (service points with housing referrals, payment correctio
 BT /F1 10 Tf 50 636 Td (applications. It should not be merged with the Integrated District Delivery) Tj ET
 BT /F1 10 Tf 50 622 Td (Pilot in the other casebook.) Tj ET
 BT /F2 12 Tf 50 594 Td (Financial position) Tj ET
-BT /F1 10 Tf 50 572 Td (The state approved an allocation of Rs 42 crore for the pilot. By the end of) Tj ET
-BT /F1 10 Tf 50 558 Td (2024-25, Rs 25 crore had been released and Rs 23.9 crore had been spent. The) Tj ET
-BT /F1 10 Tf 50 544 Td (release number covers funds transferred to implementing agencies; expenditure) Tj ET
-BT /F1 10 Tf 50 530 Td (includes operations and training. The brief gives no monthly expenditure series) Tj ET
-BT /F1 10 Tf 50 516 Td (and no 2025-26 expenditure figure.) Tj ET
-BT /F2 12 Tf 50 488 Td (People and service records) Tj ET
-BT /F1 10 Tf 50 466 Td (Service points recorded 22,000 enrolled households. Identity and eligibility) Tj ET
-BT /F1 10 Tf 50 452 Td (checks were complete for 17,500 households. A payment or service transaction was) Tj ET
-BT /F1 10 Tf 50 438 Td (successfully completed for 14,200 households at least once. Enrolment, verified) Tj ET
-BT /F1 10 Tf 50 424 Td (eligibility and successful transaction are separate measures. A household may be) Tj ET
-BT /F1 10 Tf 50 410 Td (enrolled without being verified, or verified without having a successful) Tj ET
-BT /F1 10 Tf 50 396 Td (transaction during the reporting window.) Tj ET
-BT /F2 12 Tf 50 368 Td (Clean-energy referrals) Tj ET
-BT /F1 10 Tf 50 346 Td (The pilot received 3,600 clean-energy referrals. Of these, 2,400 passed the) Tj ET
-BT /F1 10 Tf 50 332 Td (initial eligibility review and 1,760 installations were verified by inspection.) Tj ET
-BT /F1 10 Tf 50 318 Td (Some eligible referrals remained pending because of wiring work, vendor capacity) Tj ET
-BT /F1 10 Tf 50 304 Td (or an incomplete bank detail. The word "approved" in the local tracker refers to) Tj ET
-BT /F1 10 Tf 50 290 Td (the initial eligibility review, not to a completed installation.) Tj ET
-BT /F2 12 Tf 50 262 Td (Housing and payment support) Tj ET
-BT /F1 10 Tf 50 240 Td (Housing referrals were sent to urban local bodies for local verification. The) Tj ET
-BT /F1 10 Tf 50 226 Td (brief reports 1,200 referrals, but does not report how many houses were finally) Tj ET
-BT /F1 10 Tf 50 212 Td (completed. Payment corrections were opened for 860 records; 610 were closed by) Tj ET
-BT /F1 10 Tf 50 198 Td (the reporting date and the remainder were still in the correction queue. Closure) Tj ET
-BT /F1 10 Tf 50 184 Td (of a ticket means that the record was processed, not necessarily that a payment) Tj ET
-BT /F1 10 Tf 50 170 Td (was received on the same day.) Tj ET
-BT /F2 12 Tf 50 142 Td (District comparison) Tj ET
-BT /F1 10 Tf 50 120 Td (Aster recorded more enrolled households than Bhagirathi, while Bhagirathi had a) Tj ET
-BT /F1 10 Tf 50 106 Td (higher share of verified households among its enrolments. The brief does not) Tj ET
-BT /F1 10 Tf 50 92 Td (give the district-level counts needed to calculate either share precisely, and) Tj ET
-BT /F1 10 Tf 50 78 Td (it does not define a single overall ranking. It therefore cannot support a claim) Tj ET
-BT /F1 10 Tf 50 64 Td (that one district performed best without specifying a metric.) Tj ET
-BT /F2 12 Tf 50 36 Td (Data quality and missing facts) Tj ET
+BT /F1 10 Tf 50 572 Td (The Connected Services Pilot in Aster and Bhagirathi \(financial year 2024-25\) had a) Tj ET
+BT /F1 10 Tf 50 558 Td (state-approved allocation of Rs 42 crore. By the end of) Tj ET
+BT /F1 10 Tf 50 544 Td (2024-25, Rs 25 crore had been released and Rs 23.9 crore had been spent. The) Tj ET
+BT /F1 10 Tf 50 530 Td (release number covers funds transferred to implementing agencies; expenditure) Tj ET
+BT /F1 10 Tf 50 516 Td (includes operations and training. The brief gives no monthly expenditure series) Tj ET
+BT /F1 10 Tf 50 502 Td (and no 2025-26 expenditure figure.) Tj ET
+BT /F2 12 Tf 50 474 Td (People and service records) Tj ET
+BT /F1 10 Tf 50 452 Td (Service points recorded 22,000 enrolled households. Identity and eligibility) Tj ET
+BT /F1 10 Tf 50 438 Td (checks were complete for 17,500 households. A payment or service transaction was) Tj ET
+BT /F1 10 Tf 50 424 Td (successfully completed for 14,200 households at least once. Enrolment, verified) Tj ET
+BT /F1 10 Tf 50 410 Td (eligibility and successful transaction are separate measures. A household may be) Tj ET
+BT /F1 10 Tf 50 396 Td (enrolled without being verified, or verified without having a successful) Tj ET
+BT /F1 10 Tf 50 382 Td (transaction during the reporting window.) Tj ET
+BT /F2 12 Tf 50 354 Td (Clean-energy referrals) Tj ET
+BT /F1 10 Tf 50 332 Td (The pilot received 3,600 clean-energy referrals. Of these, 2,400 passed the) Tj ET
+BT /F1 10 Tf 50 318 Td (initial eligibility review and 1,760 installations were verified by inspection.) Tj ET
+BT /F1 10 Tf 50 304 Td (Some eligible referrals remained pending because of wiring work, vendor capacity) Tj ET
+BT /F1 10 Tf 50 290 Td (or an incomplete bank detail. The word "approved" in the local tracker refers to) Tj ET
+BT /F1 10 Tf 50 276 Td (the initial eligibility review, not to a completed installation.) Tj ET
+BT /F2 12 Tf 50 248 Td (Housing and payment support) Tj ET
+BT /F1 10 Tf 50 226 Td (Housing referrals were sent to urban local bodies for local verification. The) Tj ET
+BT /F1 10 Tf 50 212 Td (brief reports 1,200 referrals, but does not report how many houses were finally) Tj ET
+BT /F1 10 Tf 50 198 Td (completed. Payment corrections were opened for 860 records; 610 were closed by) Tj ET
+BT /F1 10 Tf 50 184 Td (the reporting date and the remainder were still in the correction queue. Closure) Tj ET
+BT /F1 10 Tf 50 170 Td (of a ticket means that the record was processed, not necessarily that a payment) Tj ET
+BT /F1 10 Tf 50 156 Td (was received on the same day.) Tj ET
+BT /F2 12 Tf 50 128 Td (District comparison) Tj ET
+BT /F1 10 Tf 50 106 Td (Aster recorded more enrolled households than Bhagirathi, while Bhagirathi had a) Tj ET
+BT /F1 10 Tf 50 92 Td (higher share of verified households among its enrolments. The brief does not) Tj ET
 BT /F1 8 Tf 500 25 Td (Page 1 of 2) Tj ET
 endstream
 endobj
 8 0 obj
-<< /Length 575 >>
+<< /Length 952 >>
 stream
-BT /F1 10 Tf 50 742 Td (The source systems used different update times, so totals from separate sections) Tj ET
-BT /F1 10 Tf 50 728 Td (should not be added together. The brief contains no current minister name, no) Tj ET
-BT /F1 10 Tf 50 714 Td (latest audit conclusion, no national rank, and no exact figure for the current) Tj ET
-BT /F1 10 Tf 50 700 Td (financial year after 2024-25. Questions asking for those facts should be treated) Tj ET
-BT /F1 10 Tf 50 686 Td (as unsupported rather than answered from general knowledge.) Tj ET
+BT /F1 10 Tf 50 742 Td (give the district-level counts needed to calculate either share precisely, and) Tj ET
+BT /F1 10 Tf 50 728 Td (it does not define a single overall ranking. It therefore cannot support a claim) Tj ET
+BT /F1 10 Tf 50 714 Td (that one district performed best without specifying a metric.) Tj ET
+BT /F2 12 Tf 50 686 Td (Data quality and missing facts) Tj ET
+BT /F1 10 Tf 50 664 Td (The source systems used different update times, so totals from separate sections) Tj ET
+BT /F1 10 Tf 50 650 Td (should not be added together. The brief contains no current minister name, no) Tj ET
+BT /F1 10 Tf 50 636 Td (latest audit conclusion, no national rank, and no exact figure for the current) Tj ET
+BT /F1 10 Tf 50 622 Td (financial year after 2024-25. Questions asking for those facts should be treated) Tj ET
+BT /F1 10 Tf 50 608 Td (as unsupported rather than answered from general knowledge.) Tj ET
 BT /F1 8 Tf 500 25 Td (Page 2 of 2) Tj ET
 endstream
 endobj
@@ -80,13 +81,13 @@ xref
 0000000009 00000 n 
 0000000058 00000 n 
 0000000121 00000 n 
-0000000191 00000 n 
-0000000266 00000 n 
-0000000402 00000 n 
-0000000538 00000 n 
-0000004393 00000 n 
+0000000218 00000 n 
+0000000320 00000 n 
+0000000456 00000 n 
+0000000592 00000 n 
+0000004169 00000 n 
 trailer
 << /Size 9 /Root 1 0 R >>
 startxref
-5019
+5172
 %%EOF

@@ -72,12 +72,12 @@ function New-Pdf([object[]]$Records) {
     foreach ($record in $Records) {
         $height = switch ($record.Style) {
             'title' { 28 }
-            'heading' { 22 }
+            'heading' { 27 }
             'spacer' { 9 }
             default { 14 }
         }
 
-        if ($current.Count -gt 0 -and ($remaining - $height) -lt 45) {
+        if ($current.Count -gt 0 -and ($remaining - $height) -lt 65) {
             $pages += ,$current
             $current = @()
             $remaining = 742
@@ -93,8 +93,8 @@ function New-Pdf([object[]]$Records) {
     $contentObjectStart = $pageObjectStart + $pages.Count
     $kids = ((0..($pages.Count - 1)) | ForEach-Object { "$($pageObjectStart + $_) 0 R" }) -join ' '
     $objects += "<< /Type /Pages /Kids [$kids] /Count $($pages.Count) >>"
-    $objects += '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>'
-    $objects += '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>'
+    $objects += '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>'
+    $objects += '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'
 
     $streams = @()
     for ($pageIndex = 0; $pageIndex -lt $pages.Count; $pageIndex++) {
@@ -149,7 +149,7 @@ function New-Pdf([object[]]$Records) {
 }
 
 Get-ChildItem -LiteralPath $SourceDir -Filter '*.txt' | Sort-Object Name | ForEach-Object {
-    $rawLines = Get-Content -LiteralPath $_.FullName
+    $rawLines = Get-Content -LiteralPath $_.FullName -Encoding UTF8
     $records = New-Records $rawLines
     $target = Join-Path $OutputDir ($_.BaseName + '.pdf')
     [System.IO.File]::WriteAllBytes($target, (New-Pdf $records))

@@ -1,0 +1,86 @@
+[
+  {
+    "source": "01_Agriculture_and_Farmers_Welfare.txt",
+    "before_chars": 131215,
+    "after_chars": 8005,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "02_Health_and_Public_Health.txt",
+    "before_chars": 129386,
+    "after_chars": 7558,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "03_Education_and_Skills.txt",
+    "before_chars": 126436,
+    "after_chars": 5447,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "04_Housing_and_Urban_Development.txt",
+    "before_chars": 125443,
+    "after_chars": 2868,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "05_Renewable_Energy_and_Power.txt",
+    "before_chars": 127417,
+    "after_chars": 5707,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "06_Digital_India_and_Public_Services.txt",
+    "before_chars": 129205,
+    "after_chars": 6256,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "07_Transport_and_Infrastructure.txt",
+    "before_chars": 127847,
+    "after_chars": 5391,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "08_MSME_and_Industrial_Development.txt",
+    "before_chars": 127819,
+    "after_chars": 5624,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "09_Financial_Inclusion_and_Social_Security.txt",
+    "before_chars": 127706,
+    "after_chars": 4150,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "10_Rural_Development_and_Livelihoods.txt",
+    "before_chars": 129359,
+    "after_chars": 6520,
+    "template_paragraphs_removed": 241,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "11_Integrated_District_Delivery_Casebook.txt",
+    "before_chars": 3633,
+    "after_chars": 3715,
+    "template_paragraphs_removed": 0,
+    "duplicate_paragraphs_remaining": 0
+  },
+  {
+    "source": "12_State_Implementation_Brief.txt",
+    "before_chars": 3136,
+    "after_chars": 3199,
+    "template_paragraphs_removed": 0,
+    "duplicate_paragraphs_remaining": 0
+  }
+]

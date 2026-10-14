@@ -1,6 +1,6 @@
 """Golden-set loading and evaluation helpers.
 
-The golden set lives in ``docs/goldenset/golden_set_60.jsonl`` and the source
+The golden set lives in ``docs/goldenset/golden_set_104.jsonl`` and the source
 corpus lives in ``docs/corpus_pdf_styled/``. This module keeps the schema, document
 loading, retrieval heuristic, and evaluation loop in one place.
 """

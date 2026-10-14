@@ -9,7 +9,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -40,7 +40,7 @@ class ChunkingSettings(BaseModel):
     """Choose one chunking strategy and configure both strategies together."""
 
     # Possible values: "fixed", "structure_aware", "semantic".
-    strategy: Literal["fixed", "structure_aware", "semantic"] = "structure_aware"
+    strategy: Literal["fixed", "structure_aware", "semantic"] = "semantic"
     fixed: FixedCharacterChunkingSettings = Field(default_factory=FixedCharacterChunkingSettings)
     structure_aware: StructureAwareChunkingSettings = Field(
         default_factory=StructureAwareChunkingSettings
@@ -53,7 +53,7 @@ class MetadataSettings(BaseModel):
 
     enabled: bool = True
     language: str = "en"
-    version: str = "latest"
+    version: str = "corpus-v2"
 
 
 class CorpusSettings(BaseModel):
@@ -75,8 +75,9 @@ class EmbeddingSettings(BaseModel):
 class GenerationSettings(BaseModel):
     """LLM settings for grounded RAG answer generation."""
 
-    model: str = "gpt-4o-mini"
-    temperature: float = Field(0.0, ge=0.0, le=2.0)
+    model: str = "gpt-5-mini"
+    # None omits temperature for reasoning models that do not support it.
+    temperature: float | None = Field(None, ge=0.0, le=2.0)
     system_prompt: str = (
         "You are a careful policy QA assistant. Answer the user's question using "
         "ONLY the provided context. First consider all retrieved chunks, including "
@@ -108,10 +109,22 @@ class RetrievalSettings(BaseModel):
     top_k: int = Field(8, gt=0)
     rrf_k: int = Field(20, gt=0)
     max_context_chars: int = Field(5000, gt=0)
+    # Optional hard filters applied before retrieval/ranking, using Qdrant payload fields
+    # and local chunk metadata. Examples: {"doc_type": "pdf"}, {"page": {"gte": 2}}.
+    metadata_filters: dict[str, Any] = Field(default_factory=dict)
+    # Week 9 multi-query rewrite: original query + LLM rewrites, then RRF-fuse results.
+    query_rewrite_enabled: bool = False
+    query_rewrite_n: int = Field(3, gt=0, le=10)
+    query_rewrite_model: str = "gpt-4o-mini"
+    query_rewrite_temperature: float = Field(0.4, ge=0.0, le=2.0)
+    # Week 9 HyDE: draft a hypothetical answer and use it as the retrieval query.
+    hypothetical_retrieval_enabled: bool = False
+    hypothetical_retrieval_model: str = "gpt-4o-mini"
+    hypothetical_retrieval_temperature: float = Field(0.3, ge=0.0, le=2.0)
     # Possible values: True (cross-encoder reranking) or False (first-stage retrieval only).
     rerank_enabled: bool = True
     rerank_model: str = "cross-encoder/ms-marco-MiniLM-L-12-v2"
-    rerank_candidate_k: int = Field(10, gt=0)
+    rerank_candidate_k: int = Field(20, gt=0)
 
 
 class RagSettings(BaseModel):
@@ -136,7 +149,18 @@ class RagSettings(BaseModel):
 
     def collection_name(self) -> str:
         """Derive a stable collection name from index-affecting settings."""
-        payload = json.dumps(self.indexing_settings(), sort_keys=True, separators=(",", ":"))
+        indexing = self.indexing_settings()
+        # The golden runner uses absolute paths; ingestion normally uses relative
+        # paths. Equivalent corpus folders must select the same collection.
+        project_root = Path(__file__).resolve().parents[2]
+        directory = self.corpus.directory
+        resolved = (project_root / directory).resolve()
+        try:
+            canonical_directory = str(resolved.relative_to(project_root))
+        except ValueError:
+            canonical_directory = str(resolved)
+        indexing["corpus"]["directory"] = canonical_directory
+        payload = json.dumps(indexing, sort_keys=True, separators=(",", ":"))
         fingerprint = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
         corpus_name = re.sub(r"[^a-z0-9_]+", "_", self.corpus.directory.name.lower()).strip("_")
         return f"{self.qdrant.collection_prefix}_{corpus_name}_{self.chunking.strategy}_{fingerprint}"
@@ -150,7 +174,7 @@ class Settings(BaseModel):
     results_db:    Path  = Path("results.db")
     batch_size:    int   = Field(5,   gt=0, le=20)
     fail_rate:     float = Field(0.0, ge=0.0, le=1.0)
-    model:         str   = "gpt-4o-mini"
+    model:         str   = "gpt-5-mini"
     use_fake:      bool  = False
     rag:           RagSettings = Field(default_factory=RagSettings)
 

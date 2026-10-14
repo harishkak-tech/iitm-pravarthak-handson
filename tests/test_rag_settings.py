@@ -6,6 +6,7 @@ from src.pipeline import pipeline
 from src.pipeline.pipeline import (
     Chunk,
     _chunk_semantically,
+    _parse_query_rewrites,
     chunk_corpus,
     rerank_with_cross_encoder,
     retrieve,
@@ -85,9 +86,28 @@ def test_cross_encoder_reranking_orders_candidates(monkeypatch) -> None:
 def test_rag_settings_group_strategies() -> None:
     settings = Settings()
 
-    assert settings.rag.chunking.strategy == "structure_aware"
+    assert settings.rag.chunking.strategy == "semantic"
     assert settings.rag.retrieval.strategy == "hybrid"
     assert settings.rag.retrieval.rerank_enabled is True
+    assert settings.rag.retrieval.metadata_filters == {}
+    assert settings.rag.retrieval.query_rewrite_enabled is False
+    assert settings.rag.retrieval.hypothetical_retrieval_enabled is False
+
+
+def test_query_rewrite_parser_handles_numbered_lines() -> None:
+    rewrites = _parse_query_rewrites(
+        "1. What policy applies to SRR-12?\n"
+        "- Which SRR-12 rule is relevant?\n"
+        "What policy applies to SRR-12?\n"
+        "extra rewrite",
+        limit=3,
+    )
+
+    assert rewrites == [
+        "What policy applies to SRR-12?",
+        "Which SRR-12 rule is relevant?",
+        "extra rewrite",
+    ]
 
 
 def test_collection_name_changes_only_with_indexing_settings() -> None:
