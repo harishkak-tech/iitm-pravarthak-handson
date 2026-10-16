@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/corpus"
+SOURCE = ROOT / "docs/corpus_txt"
 
 ADDITIONS = {
     "02": ("Health Referral Status and Reporting", "Health and nutrition referral reporting must keep referrals issued, referrals accepted, clinical assessments, treatment where relevant and completed follow-up separate. State the reporting period and denominator. NTR-7 tracks referral coordination; health records establish assessment and treatment. Reconcile only the minimum necessary information, retain the original discrepancy and correction trail, and do not merge unresolved screening and clinical records into a single beneficiary total."),

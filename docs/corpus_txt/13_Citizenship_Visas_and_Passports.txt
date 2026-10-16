@@ -1,0 +1,38 @@
+Government Policies: Citizenship and Travel
+===========================================
+
+Official Source Scope (checked 14 October 2026)
+----------------------------------------------
+This document supplements the National Portal's Citizenship, Visa and Passports category [GOV-CITIZENSHIP-PORTAL]. It covers citizenship, Overseas Citizen of India (OCI) services, travel authorisation and immigration services. Source identifiers resolve to URLs in docs/corpus_sources.json. Check current official instructions for individual eligibility. The defence and foreign-affairs document covers Passport Seva service stages, eSanad authentication and MADAD consular grievances.
+
+Citizenship Applications [GOV-CITIZENSHIP-ONLINE]
+-----------------------------------------------
+The Ministry of Home Affairs' Indian Citizenship Online portal identifies acquisition by birth, descent, registration and naturalisation, subject to the Citizenship Act, 1955. It publishes route-specific forms, including registration under Section 5, naturalisation under Section 6 and consular birth registration under Section 4. It also provides a separate application route and guidance under the Citizenship (Amendment) Act, 2019 and Section 6B. The portal links legislation, rules, amendments, orders and application-status services. Select the applicable legal route before assembling evidence; these routes do not have interchangeable conditions or forms.
+
+For corpus reporting exercises, distinguish preparation, submission, acknowledgment, document verification and citizenship grant. Record the applicable route and the authority's decision; a submission receipt or pending status is not a citizenship grant. These are editorial evidence-handling conventions.
+
+OCI Status and Its Limits [GOV-OCI-FAQ]
+--------------------------------------
+The official OCI FAQ describes an OCI cardholder as a foreign national holding a foreign passport, rather than a citizen of India. OCI does not confer voting rights or entitlement to an ordinary Indian passport. Eligible cardholders receive a multiple-entry lifelong visa benefit, subject to restrictions. Prior permission is required for specified activities such as research, journalism and visits to protected or restricted areas. The FAQ also describes an exemption from FRRO/FRO registration for any length of stay, while requiring normally resident OCI cardholders to notify the jurisdictional office of changes in permanent residential address and occupation. This exemption should not be applied to every foreign visitor.
+
+The FAQ identifies OCI Miscellaneous Services for replacement after loss of the registration certificate, with supporting evidence submitted to the Indian Mission, Post or FRRO. In corpus exercises, distinguish OCI registration, replacement of a lost document and a separate application for Indian citizenship. A replacement document is not a change of nationality. Use the relevant official service instructions for the actual case.
+
+e-Visa and Pre-Travel Checks [GOV-EVISA]
+---------------------------------------
+The official Indian e-Visa portal instructs applicants to confirm that their Electronic Travel Authorization (ETA) status is GRANTED before starting the journey. It provides an application-status service. Completing the form or paying an application fee is not the same stage as receiving the grant. Check current eligibility, the appropriate purpose of travel, required documents, permitted entry points, validity and stay conditions on the official portal. Do not substitute a fixed country list or a general processing-time estimate for the current instructions.
+
+In corpus reporting exercises, keep submission, payment, ETA grant, arrival and admission separate. Record the authorisation and its conditions; a travel booking is not approval. These are editorial measurement conventions, not individual travel clearance.
+
+e-FRRO Immigration Services [GOV-EFRRO]
+--------------------------------------
+The official e-FRRO service supports online applications for foreigner registration, visa extension, visa conversion and exit permits. Applicants create their own user account, choose the service and upload the required documents. Its guidance says an office appointment or visit is unnecessary unless the concerned FRRO/FRO specifically calls the applicant in. It also warns against intermediaries claiming speedy or express grants. An online service channel should therefore not be described as an unconditional exemption from an authority's verification request.
+
+For corpus exercises, keep service requested, evidence supplied, further information requested and permission issued separate. Availability of an extension or conversion application does not establish that every visa can be extended or converted. Use the applicant's current permission and the authority's applicable instructions. These are editorial distinctions; this document does not prescribe a universal registration deadline for all foreign nationals.
+
+Protected and Restricted Areas [GOV-AREA-PERMITS]
+------------------------------------------------
+The Consulate General of India in Birmingham explains that foreign nationals intending to visit protected or restricted areas need the relevant Protected Area Permit or Restricted Area Permit from the competent authority in addition to a valid Indian visa. It points applicants to the official e-FRRO portal. In corpus exercises, distinguish the visa from any additional area permission and retain the places and dates actually authorised. A general visa record alone should not be used as evidence of permission for a restricted itinerary.
+
+Passport Re-Issue and Document Selection [GOV-PASSPORT-DOCUMENTS]
+---------------------------------------------------------------
+Passport Seva's application FAQ lists loss of an existing passport among reasons to apply for re-issue. It directs applicants to the Documents Advisor for the applicable supporting-document list. In corpus exercises, identify the application type and circumstances before checking evidence; do not reuse one applicant's checklist for every re-issue case. The defence and foreign-affairs document describes the broader Passport Seva workflow. Keep a passport re-issue, OCI document replacement and immigration-service application distinct because they concern different records and decisions.

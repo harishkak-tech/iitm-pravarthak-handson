@@ -1,35 +1,16 @@
 {
-  "golden_path": "D:\\iitm-pravarthak-codebase\\iitm-pravarthak-handson\\docs\\goldenset\\golden_set_104.jsonl",
-  "total": 104,
+  "golden_path": "C:\\code-repo\\iitm-pravarthak-handson\\iitm-pravarthak-handson\\docs\\goldenset\\golden_set.jsonl",
+  "total": 126,
   "answerability": {
-    "answerable": 89,
-    "unanswerable": 15
+    "answerable": 98,
+    "unanswerable": 28
   },
   "errors": [],
-  "review_warnings": [
-    "Q001: broad expected behavior; consider a source-backed fact checklist",
-    "Q002: broad expected behavior; consider a source-backed fact checklist",
-    "Q003: broad expected behavior; consider a source-backed fact checklist",
-    "Q004: broad expected behavior; consider a source-backed fact checklist",
-    "Q005: broad expected behavior; consider a source-backed fact checklist",
-    "Q006: broad expected behavior; consider a source-backed fact checklist",
-    "Q007: broad expected behavior; consider a source-backed fact checklist",
-    "Q008: broad expected behavior; consider a source-backed fact checklist",
-    "Q010: broad expected behavior; consider a source-backed fact checklist",
-    "Q011: broad expected behavior; consider a source-backed fact checklist",
-    "Q014: broad expected behavior; consider a source-backed fact checklist",
-    "Q017: broad expected behavior; consider a source-backed fact checklist",
-    "Q018: broad expected behavior; consider a source-backed fact checklist",
-    "Q019: broad expected behavior; consider a source-backed fact checklist",
-    "Q020: broad expected behavior; consider a source-backed fact checklist",
-    "Q021: broad expected behavior; consider a source-backed fact checklist",
-    "Q022: broad expected behavior; consider a source-backed fact checklist",
-    "Q023: broad expected behavior; consider a source-backed fact checklist"
-  ],
+  "review_warnings": [],
   "limitations": [
     "Structural and record-anchor validation is deterministic; semantic completeness needs source review.",
-    "Several questions exercise the same facts (Q061/Q064, Q093/Q125, Q094/Q126); keep their weighting in mind.",
-    "Corpus-v2 reading notes were informed by failures on this set. Treat it as a development set; use new held-out questions to measure generalisation.",
+    "Evidence fragments establish textual anchors, not full semantic entailment of every expected answer.",
+    "This set is tied to the documented corpus snapshot; review it when corpus content changes.",
     "This validation does not call generation or judge models, measure pass rate, or change judge thresholds."
   ]
 }

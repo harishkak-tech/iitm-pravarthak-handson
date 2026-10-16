@@ -11,13 +11,14 @@ Run with:
 Hit with curl:
     curl -X POST http://localhost:8000/ask_batched \
          -H "Content-Type: application/json" \
-         -d '{"question": "What is RAG?"}'
+         -d '{"questions": ["What is RAG?", "Who is eligible for PM-KISAN?"]}'
 """
 import asyncio
 import logging
 import os
 from pathlib import Path
 import sys
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -25,7 +26,7 @@ if str(ROOT) not in sys.path:
 
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 # RAG pipeline â€” the underlying engine
 from src.pipeline.pipeline import RagAnswer as _RagAnswer
@@ -54,6 +55,31 @@ class Answer(BaseModel):
     retries: int
 
 
+class BatchQuestions(BaseModel):
+    questions: list[str] = Field(min_length=1, max_length=100)
+    concurrency: int = Field(default=5, ge=1, le=20)
+
+    @field_validator("questions")
+    @classmethod
+    def reject_blank_questions(cls, questions: list[str]) -> list[str]:
+        if any(not question.strip() for question in questions):
+            raise ValueError("Questions must not be blank")
+        return questions
+
+
+class BatchAnswer(Answer):
+    question: str
+
+
+class SingleAnswer(Answer):
+    question: str
+    retrieved: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class BatchResponse(BaseModel):
+    answers: list[BatchAnswer]
+
+
 app = FastAPI(
     title="Capstone API",
     description="Wraps the W2 async pipeline. Contract locked in ADR 0002 (W3); internals upgraded W4+.",
@@ -64,16 +90,35 @@ app = FastAPI(
 # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # /ask_batched â€” non-streaming reference endpoint
 # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-@app.post("/ask_batched", response_model=Answer)
-async def ask_batched(q: Question) -> Answer:
-    """Non-streaming. Returns the full Answer in a single JSON body."""
-    log.info("ask_batched  question=%r", q.question[:80])
+@app.post("/ask_batched", response_model=BatchResponse)
+async def ask_batched(q: BatchQuestions) -> BatchResponse:
+    """Answer questions concurrently and return results in request order."""
+    log.info("ask_batched  count=%s concurrency=%s", len(q.questions), q.concurrency)
+    pipeline_answers = await _ask_rag(q.questions, concurrency=q.concurrency)
+    answers = [
+        BatchAnswer(
+            question=question,
+            content=pipeline_ans.content,
+            sources=pipeline_ans.sources,
+            cost_usd=pipeline_ans.cost_usd,
+            retries=pipeline_ans.retries,
+        )
+        for question, pipeline_ans in zip(q.questions, pipeline_answers)
+    ]
+    return BatchResponse(answers=answers)
+
+
+@app.post("/ask_rag", response_model=SingleAnswer)
+async def ask_single_rag(q: Question) -> SingleAnswer:
+    """Answer one question and include retrieved evidence for inspection."""
     pipeline_ans = await _ask_rag(q.question)
-    return Answer(
+    return SingleAnswer(
+        question=q.question,
         content=pipeline_ans.content,
         sources=pipeline_ans.sources,
         cost_usd=pipeline_ans.cost_usd,
         retries=pipeline_ans.retries,
+        retrieved=pipeline_ans.retrieved,
     )
 
 

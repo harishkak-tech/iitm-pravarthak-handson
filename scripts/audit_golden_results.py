@@ -33,15 +33,15 @@ def main():
         "## Findings and proposed changes", "",
         "1. Remove repeated administrative paragraphs before indexing. This preserves facts while reducing duplicate candidates. The duplication counts below refer to TXT sources; regenerate and inspect the styled PDFs after an approved corpus edit.",
         "2. Keep topic-specific passages self-contained: name the subject, record identifier, required fields and verification conditions together. Copy only existing source facts; do not add golden answers as new policy facts.",
-        "3. Keep each pilot's name, districts and reporting period beside its accounting figures. Q062 and Q069 retrieve two separate pilots with different budgets; ambiguous questions should accept clarification or identify the intended pilot explicitly.",
-        "4. Review judge failures before using pass rate as the sole metric. Q024's expected behavior permits a concise subset, but its judge demands omitted examples. Q127's judge rejects claimed need and source record although the RRF-9 source requires both. Q075 correctly abstains according to the judge but is penalized for supplementary figures.",
+        "3. Review each failure against the current question, evidence and source context. Do not carry conclusions or question-specific fixes over from a retired golden set.",
+        "4. Review judge reasoning before using pass rate as the sole metric. Check whether required facts were supported and whether a correct abstention was penalised for a clearly qualified explanation.",
         "5. Capture retrieved chunks and the exact generation context in future runs. A document-level retrieval hit cannot establish that the required passage reached the model. Current saved rows do not include that context, so attribution to retrieval versus generation is provisional.",
-        "6. Establish a gpt-4o-mini baseline, then compare changes on the same questions and judge. This run used gpt-5-mini; improved gpt-4o-mini performance is not yet measured.", "",
+        "6. Compare runs only with the same corpus snapshot, golden-set version and recorded settings. Replacing the corpus or questions requires a new baseline; retired scores are not directly comparable.", "",
         "## Source duplication", "",
         "| Source | Characters | Repeated paragraph occurrences beyond first |",
         "| --- | ---: | ---: |",
     ]
-    for path in sorted((ROOT / "docs/corpus").glob("*.txt")):
+    for path in sorted((ROOT / "docs/corpus_txt").glob("*.txt")):
         text = path.read_text(encoding="utf-8")
         counts = Counter(p.strip() for p in re.split(r"\n\s*\n", text) if p.strip())
         lines.append(f"| {path.name} | {len(text)} | {sum(n - 1 for n in counts.values())} |")

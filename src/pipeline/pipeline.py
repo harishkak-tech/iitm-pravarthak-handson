@@ -92,6 +92,11 @@ else:
 
 class RagAnswer(BaseModel):
     """Structured output from the local RAG pipeline."""
+    retrieval_seconds: float = Field(default=0.0, ge=0)
+    rerank_seconds: float = Field(default=0.0, ge=0)
+    generation_seconds: float = Field(default=0.0, ge=0)
+    rag_seconds: float = Field(default=0.0, ge=0)
+    stage_intervals: dict[str, tuple[float, float]] = Field(default_factory=dict, exclude=True)
 
     question: str
     content: str
@@ -854,8 +859,10 @@ def _retrieve_with_qdrant_hybrid(
         )
     except Exception as exc:
         raise RuntimeError(
-            "Qdrant retrieval is unavailable. Run `python scripts/ingest_qdrant.py` "
-            "after installing dependencies, then retry."
+            f"Qdrant query failed for collection '{collection_name}': "
+            f"{type(exc).__name__}: {exc}. "
+            "Check the Qdrant connection, endpoint and credentials, then retry. "
+            "Re-ingest only if the configured collection is missing or the index is out of date."
         ) from exc
 
     dense_by_id = {str(hit["chunk_id"]): float(hit["score"]) for hit in dense_hits}
@@ -1113,7 +1120,9 @@ async def _generate_query_rewrites(
         "would return the same answer from a public policy document corpus. Vary "
         "terminology, sentence structure, and formality. Preserve any exact names, "
         "codes, dates, schemes, districts, states, sections, and numeric values. "
-        "Return each rewrite on its own line -- nothing else, no numbering.\n\n"
+        "Return each rewrite on its own line -- nothing else, no numbering. "
+        "If there are multiple questions embedded in a single question then simplify "
+        "the question by splitting that into multiple questions\n\n"
         f"Question: {query}"
     )
     resp = await _client.chat.completions.create(
@@ -1230,6 +1239,49 @@ async def _retrieve_with_query_rewriting(
 
 
 async def ask_rag(
+    question: str | list[str],
+    *,
+    corpus_dir: str | Path | None = None,
+    top_k: int | None = None,
+    model: str | None = None,
+    rag_settings: RagSettings | None = None,
+    use_qdrant: bool | None = None,
+    concurrency: int = 5,
+) -> RagAnswer | list[RagAnswer]:
+    """Answer one question, or a batch in input order with bounded concurrency.
+
+    A string returns one RagAnswer; a list returns a list of RagAnswer objects.
+    Batch failures propagate to the caller; partial results are not returned.
+    """
+    if isinstance(concurrency, bool) or not isinstance(concurrency, int) or not 1 <= concurrency <= 20:
+        raise ValueError("concurrency must be an integer between 1 and 20")
+    questions = [question] if isinstance(question, str) else question
+    if not isinstance(questions, list) or any(not isinstance(q, str) for q in questions):
+        raise TypeError("question must be a string or a list of strings")
+    if any(not q.strip() for q in questions):
+        raise ValueError("Questions must not be blank")
+    options = dict(
+        corpus_dir=corpus_dir, top_k=top_k, model=model,
+        rag_settings=rag_settings, use_qdrant=use_qdrant,
+    )
+    async def timed_answer(text: str) -> RagAnswer:
+        started = time.perf_counter()
+        answer = await _ask_rag_single(text, **options)
+        answer.rag_seconds = time.perf_counter() - started
+        return answer
+
+    if isinstance(question, str):
+        return await timed_answer(question)
+    semaphore = asyncio.Semaphore(concurrency)
+
+    async def answer_one(text: str) -> RagAnswer:
+        async with semaphore:
+            return await timed_answer(text)
+
+    return await asyncio.gather(*(answer_one(text) for text in questions))
+
+
+async def _ask_rag_single(
     question: str,
     *,
     corpus_dir: str | Path | None = None,
@@ -1239,6 +1291,7 @@ async def ask_rag(
     use_qdrant: bool | None = None,
 ) -> RagAnswer:
     """Run RAG using the selected chunking and retrieval settings."""
+    retrieval_started = time.perf_counter()
     rag = rag_settings or _settings_for_import.rag
     retrieval = rag.retrieval
     result_count = top_k or retrieval.top_k
@@ -1295,6 +1348,8 @@ async def ask_rag(
                 }
                 for hit in retrieved
             ]
+    retrieval_seconds = time.perf_counter() - retrieval_started
+    rerank_started = time.perf_counter()
     if retrieval.rerank_enabled:
         retrieved = rerank_with_cross_encoder(
             question,
@@ -1302,11 +1357,20 @@ async def ask_rag(
             top_k=result_count,
             model_name=retrieval.rerank_model,
         )
+    rerank_seconds = time.perf_counter() - rerank_started
+    generation_started = time.perf_counter()
     sources = [hit["chunk_id"] for hit in retrieved]
 
     if _use_fake_rag():
         content = _extractive_answer(question, retrieved)
         return RagAnswer(
+            stage_intervals={
+                "retrieval": (retrieval_started, generation_started),
+                "generation": (generation_started, time.perf_counter()),
+            },
+            retrieval_seconds=retrieval_seconds,
+            rerank_seconds=rerank_seconds,
+            generation_seconds=time.perf_counter() - generation_started,
             question=question,
             content=content,
             sources=sources,
@@ -1340,6 +1404,13 @@ async def ask_rag(
     )
 
     return RagAnswer(
+        stage_intervals={
+            "retrieval": (retrieval_started, generation_started),
+            "generation": (generation_started, time.perf_counter()),
+        },
+        retrieval_seconds=retrieval_seconds,
+        rerank_seconds=rerank_seconds,
+        generation_seconds=time.perf_counter() - generation_started,
         question=question,
         content=content,
         sources=sources,

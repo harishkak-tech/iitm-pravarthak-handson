@@ -1,0 +1,255 @@
+{
+  "documents": [
+    {
+      "file": "01_Agriculture_and_Farmers_Welfare.txt",
+      "pages": 4,
+      "words": 1343,
+      "meta_paragraphs": 3,
+      "top_level_titles": [
+        "Government Policies: Agriculture and Farmers' Welfare",
+        "Government Policies: Water, Sanitation and Climate Resilience"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "02_Health_and_Public_Health.txt",
+      "pages": 4,
+      "words": 1278,
+      "meta_paragraphs": 2,
+      "top_level_titles": [
+        "Government Policies: Health and Public Health",
+        "Government Policies: Nutrition, Early Childhood and Care"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "03_Education_and_Skills.txt",
+      "pages": 4,
+      "words": 1366,
+      "meta_paragraphs": 5,
+      "top_level_titles": [
+        "Government Policies: Education and Skill Development",
+        "Government Policies: Gender Equality, Safety and Care Economy"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "04_Housing_and_Urban_Development.txt",
+      "pages": 3,
+      "words": 939,
+      "meta_paragraphs": 5,
+      "top_level_titles": [
+        "Government Policies: Housing and Urban Development"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "05_Renewable_Energy_and_Power.txt",
+      "pages": 3,
+      "words": 795,
+      "meta_paragraphs": 1,
+      "top_level_titles": [
+        "Government Policies: Renewable Energy and Power",
+        "Government Policies: Environment, Air Quality and Circular Economy"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "06_Digital_India_and_Public_Services.txt",
+      "pages": 4,
+      "words": 1523,
+      "meta_paragraphs": 7,
+      "top_level_titles": [
+        "Government Policies: Digital India and Digital Public Services",
+        "Government Policies: Legal Aid, Citizen Grievances and Administrative Justice"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "07_Transport_and_Infrastructure.txt",
+      "pages": 3,
+      "words": 1048,
+      "meta_paragraphs": 5,
+      "top_level_titles": [
+        "Government Policies: Transport and Infrastructure",
+        "Government Policies: Food Security, Public Distribution and Local Nutrition"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "08_MSME_and_Industrial_Development.txt",
+      "pages": 5,
+      "words": 1809,
+      "meta_paragraphs": 7,
+      "top_level_titles": [
+        "Government Policies: MSME and Industrial Development",
+        "Government Policies: Labour Mobility, Social Protection and Urban Informal Work"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "09_Financial_Inclusion_and_Social_Security.txt",
+      "pages": 3,
+      "words": 842,
+      "meta_paragraphs": 1,
+      "top_level_titles": [
+        "Government Policies: Financial Inclusion and Social Security"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "10_Rural_Development_and_Livelihoods.txt",
+      "pages": 3,
+      "words": 1111,
+      "meta_paragraphs": 2,
+      "top_level_titles": [
+        "Government Policies: Rural Development and Livelihoods",
+        "Government Policies: Disaster Risk, Climate Adaptation and Relief Operations"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "11_Defence_and_Foreign_Affairs.txt",
+      "pages": 3,
+      "words": 955,
+      "meta_paragraphs": 9,
+      "top_level_titles": [
+        "Government Policies: Defence and Foreign Affairs"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "12_Governance_and_Planning.txt",
+      "pages": 3,
+      "words": 959,
+      "meta_paragraphs": 9,
+      "top_level_titles": [
+        "Government Policies: Governance and Planning"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "13_Citizenship_Visas_and_Passports.txt",
+      "pages": 2,
+      "words": 814,
+      "meta_paragraphs": 6,
+      "top_level_titles": [
+        "Government Policies: Citizenship and Travel"
+      ],
+      "repaired_on_open": false
+    },
+    {
+      "file": "14_Science_IT_and_Communication.txt",
+      "pages": 3,
+      "words": 1076,
+      "meta_paragraphs": 10,
+      "top_level_titles": [
+        "Government Policies: Science, IT and Communication"
+      ],
+      "repaired_on_open": false
+    }
+  ],
+  "duplicate_paragraphs": [
+    {
+      "text": "Common Administration and Evidence Standards Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.",
+      "locations": [
+        {
+          "file": "01_Agriculture_and_Farmers_Welfare.txt",
+          "line": 93
+        },
+        {
+          "file": "02_Health_and_Public_Health.txt",
+          "line": 88
+        },
+        {
+          "file": "03_Education_and_Skills.txt",
+          "line": 91
+        },
+        {
+          "file": "04_Housing_and_Urban_Development.txt",
+          "line": 62
+        },
+        {
+          "file": "05_Renewable_Energy_and_Power.txt",
+          "line": 66
+        },
+        {
+          "file": "06_Digital_India_and_Public_Services.txt",
+          "line": 94
+        },
+        {
+          "file": "07_Transport_and_Infrastructure.txt",
+          "line": 77
+        },
+        {
+          "file": "08_MSME_and_Industrial_Development.txt",
+          "line": 105
+        },
+        {
+          "file": "09_Financial_Inclusion_and_Social_Security.txt",
+          "line": 51
+        },
+        {
+          "file": "10_Rural_Development_and_Livelihoods.txt",
+          "line": 72
+        }
+      ]
+    }
+  ],
+  "similar_paragraphs": [],
+  "layout_flags": [
+    {
+      "file": "01_Agriculture_and_Farmers_Welfare.pdf",
+      "page": 3,
+      "issue": "heading ends page",
+      "text": "Climate Resilience and Emergency Service"
+    },
+    {
+      "file": "04_Housing_and_Urban_Development.pdf",
+      "page": 2,
+      "issue": "heading ends page",
+      "text": "Implementation"
+    },
+    {
+      "file": "09_Financial_Inclusion_and_Social_Security.pdf",
+      "page": 2,
+      "issue": "heading ends page",
+      "text": "Financial-Inclusion Delivery Channels and Payment Checks"
+    },
+    {
+      "file": "10_Rural_Development_and_Livelihoods.pdf",
+      "page": 2,
+      "issue": "heading ends page",
+      "text": "Relief Lifecycle"
+    }
+  ],
+  "record_codes": {
+    "SRR-12": [
+      "01_Agriculture_and_Farmers_Welfare.txt",
+      "10_Rural_Development_and_Livelihoods.txt"
+    ],
+    "NTR-7": [
+      "02_Health_and_Public_Health.txt",
+      "07_Transport_and_Infrastructure.txt"
+    ],
+    "GSC-8": [
+      "03_Education_and_Skills.txt"
+    ],
+    "ECR-5": [
+      "05_Renewable_Energy_and_Power.txt"
+    ],
+    "JGR-11": [
+      "06_Digital_India_and_Public_Services.txt"
+    ],
+    "FPS-21": [
+      "07_Transport_and_Infrastructure.txt"
+    ],
+    "MSR-3": [
+      "08_MSME_and_Industrial_Development.txt"
+    ],
+    "RRF-9": [
+      "10_Rural_Development_and_Livelihoods.txt"
+    ]
+  },
+  "source_reference_errors": []
+}

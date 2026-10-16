@@ -34,7 +34,7 @@ from src.eval.judge import JUDGE_MODEL, RUBRIC, JUDGE_TOOL
 from src.eval.store import save_golden_run
 
 
-DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set_104.jsonl"
+DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set.jsonl"
 DEFAULT_CORPUS = ROOT / Settings().rag.corpus.directory
 DEFAULT_ROWS_OUT = ROOT / "docs" / "runs" / "golden_eval_results.jsonl"
 DEFAULT_SUMMARY_OUT = ROOT / "docs" / "runs" / "golden_eval_summary.json"
@@ -68,11 +68,16 @@ async def _run(
     async def answer_fn(question: str):
         return await ask_rag(question, rag_settings=settings.rag)
 
+    async def batch_answer_fn(questions: list[str]):
+        return await ask_rag(questions, rag_settings=settings.rag, concurrency=10)
+
     rows, summary = await evaluate_golden_set(
         golden_entries,
         corpus_docs,
         answer_fn,
         max_entries=limit,
+        batch_answer_fn=batch_answer_fn,
+        batch_size=10,
     )
 
     run_id = save_golden_run(
@@ -85,6 +90,9 @@ async def _run(
     print(f"Loaded {len(golden_entries)} golden entries from {golden_path}")
     print(f"Loaded {len(corpus_docs)} corpus documents from {corpus_dir}")
     print(f"Evaluated {summary.total} entries in {summary.total_elapsed_seconds:.2f}s")
+    print(f"Total retrieval time (including reranking): {summary.total_retrieval_seconds:.2f}s")
+    print(f"Total LLM answer time: {summary.total_generation_seconds:.2f}s")
+    print(f"Total judge processing time: {summary.total_judge_seconds:.2f}s")
     print(f"Retrieval hit rate (answerable): {summary.retrieval_hit_rate:.2%}")
     print(f"Abstention rate:    {summary.abstention_rate:.2%}")
     print(f"Pass rate (all):              {summary.pass_rate:.2%}")

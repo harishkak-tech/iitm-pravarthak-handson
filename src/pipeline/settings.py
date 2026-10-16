@@ -40,7 +40,7 @@ class ChunkingSettings(BaseModel):
     """Choose one chunking strategy and configure both strategies together."""
 
     # Possible values: "fixed", "structure_aware", "semantic".
-    strategy: Literal["fixed", "structure_aware", "semantic"] = "semantic"
+    strategy: Literal["fixed", "structure_aware", "semantic"] = "structure_aware"
     fixed: FixedCharacterChunkingSettings = Field(default_factory=FixedCharacterChunkingSettings)
     structure_aware: StructureAwareChunkingSettings = Field(
         default_factory=StructureAwareChunkingSettings
@@ -75,7 +75,7 @@ class EmbeddingSettings(BaseModel):
 class GenerationSettings(BaseModel):
     """LLM settings for grounded RAG answer generation."""
 
-    model: str = "gpt-5-mini"
+    model: str = "gpt-4o-mini"
     # None omits temperature for reasoning models that do not support it.
     temperature: float | None = Field(None, ge=0.0, le=2.0)
     system_prompt: str = (
@@ -84,9 +84,12 @@ class GenerationSettings(BaseModel):
         "chunks from different documents, and synthesize every relevant fact needed "
         "for a complete answer. Keep distinct lifecycle stages, records, statuses, "
         "exceptions, verification steps, and outcomes separate; do not collapse "
-        "them into one generic answer. If the context supports only part of the "
-        "answer, say what is supported and what is not available in the context. "
-        "If the context does not contain the answer, say so plainly. Cite the "
+        "them into one generic answer. If the question has some terms and if the"
+        "context has explaination of those terms , then see if the explaination of" 
+        "those terms is needed for giving an accurate answer For example if family is the word used , "
+        "then also see if you have a chunk whihc explain who all are considered part of family.If the context supports" 
+        "only part of the answer, say what is supported and what is not available in the context. "
+        "If the context does not contain the answer, say that you don't the answer for it. Cite the "
         "source id in square brackets after any fact you use."
     )
 
@@ -106,14 +109,15 @@ class RetrievalSettings(BaseModel):
     # Possible values: "semantic", "hybrid".
     strategy: Literal["semantic", "hybrid"] = "hybrid"
     use_qdrant: bool = True
-    top_k: int = Field(8, gt=0)
+    top_k: int = Field(8   , gt=0)
+    # Used only when hybrid retrieval or multi-query rewriting is enabled.
     rrf_k: int = Field(20, gt=0)
     max_context_chars: int = Field(5000, gt=0)
     # Optional hard filters applied before retrieval/ranking, using Qdrant payload fields
     # and local chunk metadata. Examples: {"doc_type": "pdf"}, {"page": {"gte": 2}}.
     metadata_filters: dict[str, Any] = Field(default_factory=dict)
     # Week 9 multi-query rewrite: original query + LLM rewrites, then RRF-fuse results.
-    query_rewrite_enabled: bool = False
+    query_rewrite_enabled: bool = True
     query_rewrite_n: int = Field(3, gt=0, le=10)
     query_rewrite_model: str = "gpt-4o-mini"
     query_rewrite_temperature: float = Field(0.4, ge=0.0, le=2.0)
@@ -122,9 +126,9 @@ class RetrievalSettings(BaseModel):
     hypothetical_retrieval_model: str = "gpt-4o-mini"
     hypothetical_retrieval_temperature: float = Field(0.3, ge=0.0, le=2.0)
     # Possible values: True (cross-encoder reranking) or False (first-stage retrieval only).
-    rerank_enabled: bool = True
+    rerank_enabled: bool = False
     rerank_model: str = "cross-encoder/ms-marco-MiniLM-L-12-v2"
-    rerank_candidate_k: int = Field(20, gt=0)
+    rerank_candidate_k: int = Field(15, gt=0)
 
 
 class RagSettings(BaseModel):
@@ -174,7 +178,7 @@ class Settings(BaseModel):
     results_db:    Path  = Path("results.db")
     batch_size:    int   = Field(5,   gt=0, le=20)
     fail_rate:     float = Field(0.0, ge=0.0, le=1.0)
-    model:         str   = "gpt-5-mini"
+    model:         str   = "gpt-4o-mini"
     use_fake:      bool  = False
     rag:           RagSettings = Field(default_factory=RagSettings)
 

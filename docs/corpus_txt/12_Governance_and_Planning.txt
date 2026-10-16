@@ -1,0 +1,40 @@
+Government Policies: Governance and Planning
+============================================
+
+Official Source Scope (checked 14 October 2026)
+----------------------------------------------
+This document supplements the corpus using official resources associated with the National Portal's Governance and Planning category [GOV-GOVERNANCE-PORTAL]. It covers policy coordination, local planning, administrative records, transparency and evidence for decisions. Source identifiers resolve to URLs in docs/corpus_sources.json. It does not provide current budget allocations, rankings or election information. Existing district pilots and local training-record codes elsewhere in the corpus are exercises, not authenticated official forms or national performance statistics.
+
+Policy Coordination and Cooperative Federalism [GOV-NITI]
+--------------------------------------------------------
+NITI Aayog describes itself as the Government of India's apex policy think tank, providing strategic and technical advice to the Centre, States and Union Territories. Its functions include policy and programme frameworks, cooperative federalism, monitoring and evaluation, and knowledge and innovation. The institution supports shared development priorities with State participation. An advisory report or strategy is different from a department's administrative approval, budget release or project implementation. In corpus reporting exercises, identify the institution's actual role and the authority responsible for implementation before attributing an outcome; that distinction is editorial guidance.
+
+Panchayat Development Planning [GOV-EGRAMSWARAJ]
+-----------------------------------------------
+The Ministry of Panchayati Raj describes eGramSwaraj as an integrated system for local information, planning, works monitoring and financial management. Its planning description says that works approved in the Gram Sabha are entered as activities, with administrative sanction linked to budget allocation. A Gram Panchayat Development Plan (GPDP) is a planning record, not evidence that every proposed work has been financed or completed. In corpus reporting exercises, keep a community priority, approved plan activity, administrative sanction, budget provision, expenditure, physical progress and service outcome separate. These measurement distinctions are editorial guidance.
+
+The same Ministry describes Gram Manchitra as a spatial-planning application that uses geographical information to develop and compare facility-planning scenarios. Map layers can support decisions about buildings, roads, water facilities and other local resources. A mapped asset or proposed facility is not proof that it is functional or accessible. This final distinction is a corpus reporting convention.
+
+Local Government Directory Codes [GOV-LGD]
+-----------------------------------------
+The Ministry's Local Government Directory description identifies unique codes for local-government bodies and mappings between bodies and their constituent areas, such as Gram Panchayats and villages. It describes updates for reorganisation, rural-to-urban conversion and new bodies, supporting government orders, and archived historical values. In corpus reviews, use the entity and relevant date when joining records and account for boundary changes when comparing periods. A local-body code is not a household identifier, land title or proof of individual eligibility.
+
+Accounts, Audit and Follow-Up [GOV-PANCHAYAT-AUDIT]
+-------------------------------------------------
+The Ministry's official description identifies eGramSwaraj and AuditOnline as tools supporting digital planning, budgeting, accounting, audit, asset management and monitoring of Panchayat activities. In corpus reporting exercises, a voucher entered, payment processed, audit scheduled, audit report issued and corrective action verified are separate events. A digitised account or a completed audit upload is not by itself proof that every expenditure was valid or that an asset delivers its intended service. Preserve the financial year, local body, activity, evidence and unresolved observation rather than combining these stages into a single completion total. These are editorial measurement conventions, not a new audit rule.
+
+RTI Online: Information Requests and Appeals [GOV-RTIONLINE]
+----------------------------------------------------------
+The Department of Personnel and Training's RTI Online portal supports applications and first appeals by Indian citizens for Central Government ministries, departments and other Central public authorities. The portal explicitly says not to file applications for State Government authorities, including the Government of NCT Delhi, through that Central portal. It also provides request-status services and links to the Central Information Commission's second-appeal service. An information request is different from a grievance asking a department to correct a failed public service. A first appeal about an RTI request is not a CPGRAMS appeal or an appeal against a court judgment. Check the responsible public authority and the applicable process. These service distinctions supplement the grievance material in the digital-services document.
+
+Bhavishya: Pension Process Tracking [GOV-BHAVISHYA]
+--------------------------------------------------
+The Department of Pension and Pensioners' Welfare identifies Bhavishya as a Pension Sanction and Payment Tracking System and publishes a retiree module for use of the service. Pension processing, sanction and payment tracking should not be treated as a new universal pension entitlement. In corpus reporting exercises, keep retirement information submitted, records checked, sanction issued and payment actually received separate. A pension-system status is not interchangeable with a bank transaction or with defence-pension SPARSH records. These distinctions are editorial guidance; use the responsible pension authority's rules and the person's record for an individual entitlement question.
+
+Official Statistics and Planning Evidence [GOV-ESANKHYIKI]
+--------------------------------------------------------
+MoSPI describes eSankhyiki as an official-statistics access and dissemination platform, with a catalogue of datasets, metadata, charts and downloadable tables. A published table needs its definition and scope to be interpreted correctly. In corpus analysis exercises, retain the compiling agency, indicator, unit, geography, reference period, release date and any revision or methodology note. A release date is not necessarily the period measured. Survey estimates, administrative counts, financial transactions and programme targets should not be merged merely because they concern the same district. A new release or portal update does not by itself establish improved performance. These are editorial evidence-handling conventions.
+
+Cross-Service Accountability
+-----------------------------
+Local planning, an RTI response, a pension sanction, a grievance decision and an audit follow-up have different purposes and evidence requirements. The digital-services document describes CPGRAMS and legal-aid services; sector documents describe the underlying water, housing, health, employment and other service records. In corpus review exercises, retain the original record, source, reporting period, responsible authority, pending dependency and correction trail. A shared code or linked dashboard does not establish that the final service was delivered. Publish appropriate aggregate measures while keeping personal case information restricted to the necessary service purpose. These are training-corpus reporting conventions.

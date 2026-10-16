@@ -1,0 +1,54 @@
+Government Policies: Science, IT and Communication
+===================================================
+
+Official Source Scope (checked 14 October 2026)
+----------------------------------------------
+This document supplements the National Portal's Science, IT and Communication category [GOV-SCIENCE-PORTAL]. It covers research, weather, telecom, IT, library and media services. Source URLs are in docs/corpus_sources.json. The digital-services document covers broader service delivery and grievances; the governance document covers official-statistics interpretation. Check programme calls, eligibility, fees and permissions against the responsible authority's current instructions.
+
+Research Funding and Programme Selection [GOV-ANRF]
+---------------------------------------------------
+The Anusandhan National Research Foundation (ANRF) describes its role in supporting research at academic and research institutions and identifies the former Science and Engineering Research Board (SERB) in its programme material. The National Portal's category page still labels a research-funding link with SERB's name. Use ANRF's official programme information and the applicable call when researching support; an older scheme name or archived description does not establish that applications are currently open.
+
+For corpus research exercises, retain the call, eligibility, submission window, permissible costs and required approvals. Keep submission, selection, sanction, payment and research completion separate. Funding alone does not establish successful deployment or public benefit. These are editorial reporting conventions, not additional grant conditions.
+
+Weather Forecasts and Agromet Information [GOV-IMD]
+--------------------------------------------------
+The India Meteorological Department's official district-weather page links district forecasts, district and subdivision warnings, district and station nowcasts, and current and archived agrometeorological bulletins. These products serve different locations, periods and purposes. In corpus exercises, retain the issuing office, issue time, validity period, geographic coverage and product type before comparing weather information. A forecast is a prediction; an observation describes measured conditions. Neither should be silently substituted for the other in a service record.
+
+For corpus exercises, a district forecast is not proof of rainfall at a particular farm, crop loss or an approved compensation claim. The agriculture document covers claim stages. This evidence-handling guidance does not replace current official warnings.
+
+Telecom Connections and Suspected Fraud [GOV-SANCHAR]
+----------------------------------------------------
+The Department of Telecommunications describes Sanchar Saathi as a citizen service for checking mobile connections issued in a person's name and reporting suspicious calls, SMS or WhatsApp messages. Its Chakshu facility receives suspected fraudulent communications. The Department distinguishes this preventive reporting from cases where money has already been lost or a person has become a cyber-crime victim: those should be reported immediately through the national cyber-crime helpline 1930 or cybercrime.gov.in. A Chakshu report does not establish a refund or recovery.
+
+In corpus reporting exercises, separate a suspicious communication reported, an unauthorised connection flagged, action by a provider or authority, a criminal complaint and any verified recovery. Retain the relevant reference and action status without putting phone numbers, identification documents or complaint evidence into a public training extract. These are editorial privacy and measurement conventions.
+
+Authentication and Single Sign-On [GOV-EPRAMAAN]
+-----------------------------------------------
+C-DAC describes e-Pramaan as a national single sign-on platform for access to integrated government applications. It supports multiple authentication methods, including passwords, one-time passwords, digital certificates and biometrics. Its user-login link leads to the MeriPehchaan service. Availability of several methods does not mean that every application uses every factor or that one login gives access to all government services.
+
+For corpus exercises, distinguish user registration, successful authentication, access to a particular application and approval of the underlying service request. Authentication establishes an access step; the responsible programme still determines the service decision. Record failures and assisted-access needs without collecting passwords, OTPs or biometric data in corpus examples. These are editorial safeguards and measurement distinctions; broader access and inclusion issues are covered in the digital-services document.
+
+Open Government Data [GOV-OGD]
+------------------------------
+The Open Government Data Platform India provides access to government datasets and related resources. Its official help describes API-key generation and access to API URLs for registered users. The platform identifies the publishing ministry, State, department or organisation as the content owner and uses the Government Open Data License - India [GOV-OGD-LICENCE]. Before reusing a resource, check its metadata and applicable licence rather than assuming that every government record is public or unrestricted.
+
+In corpus analysis exercises, retain the resource identifier, publisher, download date, reference period, units, geographic coverage and revision notes. A catalogue entry, downloadable file and API response are different access forms, not separate observations to add together. The governance document discusses interpretation of official statistics. These are editorial practices for reproducible analysis; API access does not itself certify the completeness or comparability of a dataset.
+
+Library Automation and Resource Discovery [GOV-EGRANTHALAYA]
+-----------------------------------------------------------
+NIC describes e-Granthalaya as a platform for government libraries that supports internal library automation, member services and networking for resource sharing. Its services include library-management software, a digital-library module, cloud hosting and an online public-access catalogue. It provides an institutional request process for eligible government or semi-government libraries.
+
+In corpus exercises, distinguish institutional onboarding, catalogue creation, item availability, member requests and access provided. A catalogue entry does not establish that a book is digitised, freely downloadable or immediately available for loan. Check the library's holdings, access conditions and service status. These are editorial distinctions.
+
+Broadcast Permissions [GOV-BROADCAST]
+------------------------------------
+The Ministry of Information and Broadcasting describes Broadcast Seva as a single-point facility for stakeholders to request permissions, registrations and licences for broadcasting activities. Its service portal supplies account and application guidance. An applicant must identify the relevant activity and service; a portal account or request is not itself a broadcasting licence.
+
+In corpus exercises, retain the issuing authority, application reference, decision, permitted activity and any stated conditions or validity. Keep submission, clarification, permission issued and actual operation separate. These are editorial evidence conventions. Broadcast permissions, print-periodical registration and film certification are distinct processes and should not share a single completion status.
+
+Periodicals and Film Certification
+----------------------------------
+The Press Registrar General of India's official service description identifies Press Sewa services including new-periodical registration, revision of registration, ownership transfer, annual-statement filing and circulation verification [GOV-PRESSSEWA]. A registration record, annual statement and circulation-verification result answer different questions. In corpus exercises, preserve the publication, financial year and service type rather than treating a filing as verified circulation. Check current notices for the applicable filing window and requirements.
+
+The Central Board of Film Certification describes e-Cinepramaan as its online route for film-certification applications, fee payment, status checks and responses to observations [GOV-ECINE]. Submitting an application or corrective response is different from issue of the certification decision. In corpus exercises, keep the applicant, relevant film or version, pending observations and issued decision distinct. These are editorial reporting conventions; the document does not prescribe a universal processing deadline or reproduce historical appeal instructions.

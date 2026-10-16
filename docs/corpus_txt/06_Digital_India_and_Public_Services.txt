@@ -1,0 +1,100 @@
+Government Policies: Digital India and Digital Public Services
+==============================================================
+
+Official Digital-Health Supplement (checked 14 October 2026)
+-----------------------------------------------------------
+Under the Ayushman Bharat Digital Mission (ABDM), Ayushman Bharat Health Account (ABHA) identifiers help link and exchange digital health records. Official material describes patient-authorised record exchange using revocable, time-bound consent [GOV-ABDM-CONSENT]. Creation of ABHA is voluntary and based on the person's consent [GOV-ABHA-VOLUNTARY]. ABDM itself provides no financial health cover or insurance [GOV-ABDM-COVER]; an ABHA account must not be reported as a PM-JAY entitlement or a completed consultation. In corpus reporting exercises, separate account creation, a record linked, consent granted for a particular exchange and the care actually delivered. These reporting distinctions are editorial guidance. Source URLs are in docs/corpus_sources.json; local training-case identifiers are not authenticated government forms.
+
+Policy Objectives
+-----------------
+Digital policy aims to improve connectivity, digital service delivery, inclusion, innovation and access to government services. Digital public infrastructure can provide common foundations used by multiple programmes.
+
+Digital Service Delivery
+------------------------
+Government portals and digital platforms can reduce paperwork and make services easier to access. myScheme, for example, is designed as a platform that helps citizens discover government schemes across categories.
+
+Digital Public Infrastructure
+-----------------------------
+Shared digital systems can support identity, payments, document exchange and service delivery. Their value increases when institutions can build services using common standards and trusted interfaces.
+
+Financial and Social Services
+-----------------------------
+Digital platforms can support benefit delivery, banking access, pension services and other citizen-facing programmes. Direct benefit delivery requires accurate beneficiary information and effective mechanisms for resolving errors.
+
+Connectivity and Inclusion
+--------------------------
+Digital services depend on connectivity, devices and digital skills. Policy must therefore consider rural connectivity, affordability, accessibility and language diversity, rather than assuming that all citizens have equal access.
+
+Governance Challenges
+---------------------
+Digital governance must balance convenience with cybersecurity, privacy, reliability and accountability. Large public systems need clear rules for access, data handling, grievance redressal and continuity during outages.
+
+Service Status and Inclusion
+----------------------------
+An application submitted, an application authenticated, a request approved and
+a service successfully delivered are different statuses. Authentication failure
+can result from incorrect records rather than ineligibility, while a successful
+approval may still be delayed by a bank, department or local service provider.
+Dashboard totals can also use different update times. Digital access should be
+measured with attention to assisted-service use, failed transactions, language
+support, accessibility and outage duration, not only the number of registered
+users.
+
+Service platforms should support assisted and offline channels for people affected by connectivity, language, disability or device barriers. Where programmes reconcile records, they should exchange only the minimum information needed for the stated purpose and preserve an auditable correction trail rather than overwriting an unresolved mismatch.
+
+Dashboard totals should state whether they represent registrations, verified records, approved cases, released payments, completed transactions or sustained service. A shared identifier can help match records, but it does not make measures from different programmes interchangeable.
+
+Government Policies: Legal Aid, Citizen Grievances and Administrative Justice
+========================================================================
+
+Policy Purpose
+--------------
+Legal-aid and grievance policy supports accessible redress, reasoned decisions, timely corrections and accountable public administration. People may use in-person, assisted, phone and digital channels; channel choice should not change their right to a recorded response.
+
+Official Justice-Service Supplement (checked 14 October 2026)
+------------------------------------------------------------
+These notes describe official justice and grievance services. Source identifiers resolve to URLs in docs/corpus_sources.json. JGR-11 is a local training convention, not an official CPGRAMS, court or legal-aid form. Grievance redress, information requests, legal advice, court proceedings and protection complaints have different purposes and authorities; these summaries are not advice on an individual case.
+
+CPGRAMS: Public-Service Grievances [GOV-CPGRAMS]
+-----------------------------------------------
+The Centralized Public Grievance Redress and Monitoring System provides grievance registration and status tracking using a unique registration number. The official FAQ also describes postal and Common Service Centre routes. The concerned ministry or department handles redress; State-related grievances are forwarded to the relevant State or Union Territory. Its published exclusions include RTI matters, personal or family disputes, and matters before courts or concerning court judgments. CPGRAMS is not a substitute for an RTI application or a judicial appeal. As checked on the review date, the FAQ specifies 21 days for redress, with an interim reply explaining delay where required. It describes a feedback-linked appeal for dissatisfied grievances concerning Central ministries or departments, to be filed within 30 days. These are the stated CPGRAMS arrangements, not universal deadlines for every complaint channel or court case. In corpus reporting exercises, a disposal, an appeal and a verified service correction remain separate stages; that distinction is editorial guidance.
+
+Legal Aid: Authorities and Access [GOV-NALSA]
+--------------------------------------------
+NALSA's FAQ describes free legal services for eligible persons under the Legal Services Authorities Act, 1987. Eligibility includes specified categories such as women, children, Scheduled Caste or Scheduled Tribe members and persons in custody, as well as an income-based route. Income ceilings depend on the applicable State rules or Supreme Court context; there is no one universal ceiling for every applicant. Applications may be made to the relevant legal-services institution, including a District Legal Services Authority, State Legal Services Authority, High Court Legal Services Committee or Supreme Court Legal Services Committee. The FAQ describes online, written, in-person and postal application routes. An application or referral is not evidence that a lawyer has been assigned or representation provided; this last distinction is editorial guidance.
+
+Tele-Law: Pre-Litigation Advice [GOV-TELELAW]
+-------------------------------------------
+The Department of Justice describes Tele-Law as a service for legal advice before litigation, connecting citizens with panel lawyers through video or telephone facilities at Common Service Centres and through the Tele-Law application. Official programme material describes the service as free for citizens. Advice received is different from a court filing, a lawyer appointed for litigation or a judicial remedy. In corpus reporting exercises, keep a consultation requested, advice actually provided and any later referral or representation separate; these measurement distinctions are editorial guidance.
+
+Court Information and Legislation [GOV-ECOURTS] [GOV-INDIACODE]
+-------------------------------------------------------------
+The official eCourts service supports case-status and history lookup using a 16-character alphanumeric CNR without spaces or hyphens; alternative search options include case registration number, party name or advocate name. A case-status search is not itself a new filing or a court order. India Code is the official legislation database for Central and State Acts and subordinate legislation. In corpus research exercises, identify the jurisdiction, relevant provision, amendments and commencement information before drawing conclusions. A law found in a database does not by itself determine the result of an individual dispute; these interpretation boundaries are editorial guidance.
+
+National Consumer Helpline [GOV-NCH]
+-----------------------------------
+The Department of Consumer Affairs describes the National Consumer Helpline's INGRAM portal as a pre-litigation consumer-grievance mechanism. It issues a docket number, forwards complaints to the concerned company, agency, regulator or ombudsman, and supports status tracking. Its official information says registration does not guarantee a remedy and identifies the appropriate Consumer Commission as a further route if the consumer remains dissatisfied. An NCH docket is not a Consumer Commission case or an order awarding compensation. In corpus reporting exercises, distinguish complaint registration, the business response, any agreed correction and verified receipt of a refund or service; those distinctions are editorial guidance.
+
+Grievance Lifecycle
+-------------------
+A grievance may be filed, acknowledged, assigned, investigated, decision-issued, corrective action completed and remedy verified. The Justice and Grievance Register (JGR-11) records the complainant reference, service concerned, issue category, evidence link, assigned authority, response deadline, decision reason and verification method. An administrative closure is not a verified remedy unless the JGR-11 contains the required verification record.
+
+Cross-Service Corrections
+-------------------------
+A grievance about a ration, benefit transfer, water source, housing service or health referral should identify the underlying source record and correction owner. Agencies may reconcile the minimum information necessary to resolve the case, but should not overwrite the original mismatch or treat a linked identifier as proof that the requested service was delivered.
+
+Legal Aid and Protection
+------------------------
+A referral to legal aid, counselling or another protection service is a coordination step, not proof that legal representation, safety planning or remedy was received. Confidential cases require restricted access and an auditable record of authorised sharing. A person can withdraw or be unreachable; those closure reasons must remain distinct from resolved cases.
+
+Measurement and Public Reporting
+--------------------------------
+Dashboards should separately report grievances filed, acknowledged within the service standard, decisions issued, corrective actions completed and remedies verified. They should state the service, period and denominator before comparing districts or agencies.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.
+
+Grievance Verification Across Public Services
+---------------------------------------------
+For a disputed payment, ration transaction, water source or housing service, JGR-11 must link the underlying service record, evidence and correction owner. Preserve the original mismatch and correction trail. Record the decision, corrective action and verified remedy as separate stages. A portal update or administrative closure does not establish successful credit, completed collection, functional restoration or a verified remedy.

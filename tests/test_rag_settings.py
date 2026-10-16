@@ -86,11 +86,11 @@ def test_cross_encoder_reranking_orders_candidates(monkeypatch) -> None:
 def test_rag_settings_group_strategies() -> None:
     settings = Settings()
 
-    assert settings.rag.chunking.strategy == "semantic"
+    assert settings.rag.chunking.strategy == "structure_aware"
     assert settings.rag.retrieval.strategy == "hybrid"
-    assert settings.rag.retrieval.rerank_enabled is True
+    assert settings.rag.retrieval.rerank_enabled is False
     assert settings.rag.retrieval.metadata_filters == {}
-    assert settings.rag.retrieval.query_rewrite_enabled is False
+    assert settings.rag.retrieval.query_rewrite_enabled is True
     assert settings.rag.retrieval.hypothetical_retrieval_enabled is False
 
 

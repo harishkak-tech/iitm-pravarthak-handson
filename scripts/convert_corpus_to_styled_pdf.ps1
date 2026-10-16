@@ -1,5 +1,5 @@
 param(
-    [string]$SourceDir = (Join-Path $PSScriptRoot "..\docs\corpus"),
+    [string]$SourceDir = (Join-Path $PSScriptRoot "..\docs\corpus_txt"),
     [string]$OutputDir = (Join-Path $PSScriptRoot "..\docs\corpus_pdf_styled")
 )
 

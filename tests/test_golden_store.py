@@ -61,6 +61,7 @@ def test_history_snapshots_and_atomic_results(tmp_path, monkeypatch):
     monkeypatch.setattr(run_golden_set, "load_golden_set", lambda _: [entry])
     monkeypatch.setattr(run_golden_set, "load_corpus_documents", lambda _: {})
     monkeypatch.setenv("JUDGE_USE_FAKE", "1")
+    answer.return_value = [SimpleNamespace(content="Policy answer", retrieved=[])]
     monkeypatch.setitem(sys.modules, "src.pipeline.pipeline", SimpleNamespace(ask_rag=answer))
     asyncio.run(run_golden_set._run(
         golden_path=tmp_path / "golden.jsonl", corpus_dir=tmp_path / "custom-corpus",
@@ -68,6 +69,8 @@ def test_history_snapshots_and_atomic_results(tmp_path, monkeypatch):
         db_path=db_path,
     ))
     actual_settings = answer.call_args.kwargs["rag_settings"]
+    assert answer.call_args.args == ([entry.question],)
+    assert answer.call_args.kwargs["concurrency"] == 10
     assert actual_settings.corpus.directory == (tmp_path / "custom-corpus").resolve()
     with sqlite3.connect(db_path) as con:
         saved = con.execute("SELECT settings_json, judge_settings_json FROM golden_runs ORDER BY id DESC LIMIT 1").fetchone()

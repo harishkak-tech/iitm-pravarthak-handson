@@ -1,0 +1,57 @@
+Government Policies: Financial Inclusion and Social Security
+============================================================
+
+Official Senior Health-Cover Supplement (checked 14 October 2026)
+----------------------------------------------------------------
+NHA's senior-citizen FAQ states that people aged 70 years or above are eligible under the PM-JAY senior-citizen expansion regardless of economic status [GOV-PMJAY-SENIOR-FAQ]. NHA's September 2024 announcement distinguishes two cover arrangements: seniors in families already covered under PM-JAY receive an additional top-up up to Rs 5 lakh per year for themselves, not shared with family members below 70; other eligible senior families receive cover up to Rs 5 lakh per year on a family basis [GOV-PMJAY-SENIOR-COVER]. Do not describe the latter as Rs 5 lakh independently for each senior. The announcement also states that beneficiaries of CGHS, ECHS or Ayushman CAPF may choose their existing scheme or PM-JAY, while private insurance or Employees' State Insurance does not exclude senior-citizen eligibility. Confirm applicable enrolment and scheme-choice rules through NHA. This is hospital health assurance, not a bank-account cash payment. Source URLs are in docs/corpus_sources.json; the health document describes the general PM-JAY hospital-cover framework.
+
+Policy Objectives
+-----------------
+Financial inclusion policy aims to increase access to bank accounts, payments, credit, insurance and pensions. Social-security programmes seek to reduce vulnerability caused by income shocks, accidents, illness and old age.
+
+Jan Dhan
+--------
+Pradhan Mantri Jan Dhan Yojana is associated with expanding access to basic banking services. Bank accounts can also support the transfer of eligible benefits through formal financial channels.
+
+Insurance
+---------
+Government-backed social insurance programmes include schemes for accident and life coverage, subject to their applicable terms and eligibility. Affordable insurance can help households manage certain financial shocks.
+
+Pensions
+--------
+Pension and retirement-security programmes provide mechanisms for long-term savings and income support. Policy design must balance affordability, coverage, investment management and the needs of different worker groups.
+
+Official Micro-Enterprise Credit Supplement (checked 14 October 2026)
+--------------------------------------------------------------------
+Pradhan Mantri MUDRA Yojana (PMMY) supports eligible income-generating micro-enterprise activities through lending institutions such as banks, NBFCs and microfinance institutions [GOV-MUDRA]. The Government's April 2026 description lists four loan categories: Shishu up to Rs 50,000; Kishor above Rs 50,000 up to Rs 5 lakh; Tarun above Rs 5 lakh up to Rs 10 lakh; and Tarun Plus above Rs 10 lakh up to Rs 20 lakh. Tarun Plus is for borrowers who have successfully repaid earlier Tarun loans; it is not a general first-loan entitlement of Rs 20 lakh. Covered activities include manufacturing, trading, services and eligible allied agricultural activities. These are loans, not grants or a uniform subsidy amount, and lending institutions make lending decisions. In corpus reporting exercises, separate a credit application, sanction, disbursement, use of funds and repayment; those distinctions are editorial guidance. PMMY loans should not be conflated with PMEGP margin-money subsidy or Startup India seed-fund grants. Source URLs are in docs/corpus_sources.json.
+
+Credit and Enterprise
+---------------------
+Financial inclusion is linked to entrepreneurship because access to credit can support self-employment and small businesses. Programmes such as Mudra and other credit-linked initiatives operate alongside banks and financial institutions.
+
+Direct Benefit Delivery
+-----------------------
+Digital systems can support the transfer of eligible government benefits to beneficiaries. Accurate records, accessible banking channels and grievance mechanisms are important because exclusion or payment errors can directly affect households.
+
+Account and Benefit Status
+--------------------------
+An account opened is not necessarily an account used, and an account linked to a
+benefit programme is not necessarily an account that received a successful
+transfer. Reports may distinguish enrolled households, verified beneficiaries,
+transactions attempted, transactions settled and complaints resolved. Insurance
+enrolment is also different from a claim being filed or a claim being paid.
+Metrics should identify whether they cover individuals, households, accounts or
+transactions, since these units cannot be added together without a defined
+conversion rule.
+
+Financial-service camps and digital assistance should retain a case-level correction trail and provide an accessible route for resolving failed authentication, inactive accounts or rejected transactions. Reporting should separate a released amount from an amount credited to a beneficiary and should not use enrolment totals as a proxy for received support.
+
+When a delivery dashboard is combined with another sector's service data, the programme owner must specify the shared unit, reporting period and status definition. A matched record is useful for follow-up, but it is not evidence that all linked services were delivered.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.
+
+Financial-Inclusion Delivery Channels and Payment Checks
+--------------------------------------------------------
+Financial-inclusion delivery uses banks and formal financial channels, including digital transfer of eligible government benefits. Accessible banking channels, accurate records and grievance mechanisms guard against exclusion and payment errors. Check enrolment, eligibility verification, account linkage or seeding, payment-order generation, release and successful credit separately. A released payment is not a settled transaction. Preserve the original mismatch and correction trail when correcting the benefit record.

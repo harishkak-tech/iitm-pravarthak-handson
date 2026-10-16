@@ -1,0 +1,104 @@
+{
+  "version": "corpus-v3-golden-20261014",
+  "created_on": "2026-10-14",
+  "golden_path": "docs/goldenset/golden_set.jsonl",
+  "golden_sha256": "c499c1fd9c9b42d36233de875c526f2c88adf169ac212de9766102f13571133e",
+  "text_directory": "docs/corpus_txt",
+  "pdf_directory": "docs/corpus_pdf_styled",
+  "total": 126,
+  "answerability": {
+    "answerable": 98,
+    "unanswerable": 28
+  },
+  "cross_document_questions": 63,
+  "single_document_questions": 63,
+  "per_primary_document": {
+    "01_Agriculture_and_Farmers_Welfare.txt": 12,
+    "02_Health_and_Public_Health.txt": 12,
+    "03_Education_and_Skills.txt": 11,
+    "04_Housing_and_Urban_Development.txt": 15,
+    "05_Renewable_Energy_and_Power.txt": 11,
+    "06_Digital_India_and_Public_Services.txt": 11,
+    "07_Transport_and_Infrastructure.txt": 10,
+    "08_MSME_and_Industrial_Development.txt": 10,
+    "09_Financial_Inclusion_and_Social_Security.txt": 6,
+    "10_Rural_Development_and_Livelihoods.txt": 6,
+    "11_Defence_and_Foreign_Affairs.txt": 7,
+    "12_Governance_and_Planning.txt": 6,
+    "13_Citizenship_Visas_and_Passports.txt": 5,
+    "14_Science_IT_and_Communication.txt": 4
+  },
+  "scope": "Closed-corpus evaluation. Official-source summaries and substantive policy distinctions; no local training-record definitions or removed casebooks. Not an external fact-check or held-out generalisation benchmark.",
+  "corpus": [
+    {
+      "document": "01_Agriculture_and_Farmers_Welfare.txt",
+      "text_sha256": "f655ac50fc28d5dc5c35a2ab7b2f9e8aba74dee319850f1cb4fab5e8c2ec3c07",
+      "pdf_sha256": "8640f76a77b78c5ba9d022ffa36b481a1fefe56e94242807412f5793c9fa992d"
+    },
+    {
+      "document": "02_Health_and_Public_Health.txt",
+      "text_sha256": "ad53dcd4daed7635c2d5b600fee1beefb479713764a12e98d98f3d11d589c677",
+      "pdf_sha256": "223c9b1fb30fd2a5deba0324ac128f8e668f6d98e0956071e8b93fe8deb9c195"
+    },
+    {
+      "document": "03_Education_and_Skills.txt",
+      "text_sha256": "71a0b0e7b11e3d8d5b68e6c960652f21787eba7c93fd71b35e918616d39a1ff3",
+      "pdf_sha256": "936824cdbae3ff2a6d08f602ba892170258bb0d8429e2bfa705e40cd323c2292"
+    },
+    {
+      "document": "04_Housing_and_Urban_Development.txt",
+      "text_sha256": "0be30e18bdbd9dc61d2f6200000354336affd3979b2ac888b58e8235e3152651",
+      "pdf_sha256": "2e4476b0381996943430ea66de0c8796ba6763effcccbf7ce1a7c2edf6c9b36a"
+    },
+    {
+      "document": "05_Renewable_Energy_and_Power.txt",
+      "text_sha256": "ed11e67ffd4cab587eac901f3ac195550ba9696d61df2c915e97d8ee4f167379",
+      "pdf_sha256": "b5ff715b5d667e32837ea0d013a2d514f78e822bb7fd2b375fe222e3f71f2707"
+    },
+    {
+      "document": "06_Digital_India_and_Public_Services.txt",
+      "text_sha256": "65994bd6ecf036c3f76a25a91cc37081d49bb2510c19149f889ce87ecfe2ce4e",
+      "pdf_sha256": "ea7a6d02aa0a397da8b6d5c3450ec8d562282e6338d12066f4f0e8faa2511b8a"
+    },
+    {
+      "document": "07_Transport_and_Infrastructure.txt",
+      "text_sha256": "ef29e61bf19e7098790f2dd8cd4191be39c069651dab09a9d8e666949efbb682",
+      "pdf_sha256": "6035b39cdf6064fbf2817a94f138e1a003fdce00185c3042b5e74cebb07d09e8"
+    },
+    {
+      "document": "08_MSME_and_Industrial_Development.txt",
+      "text_sha256": "e9cef41ac6cc7eca176115037a50784b48178457a6cc9d24c42d378786ac809d",
+      "pdf_sha256": "ad14d1d658b3e591c73bcdf96f59f5c9fac794f60dbf77a0c2bfc02a43961648"
+    },
+    {
+      "document": "09_Financial_Inclusion_and_Social_Security.txt",
+      "text_sha256": "d9705b35029f7b06055009e1f69e8679e1eedb6140a16e3e3740a9e68ba25434",
+      "pdf_sha256": "8c8b7ad828165c64874168d39e304c8545dd3c4f78439b30d0257d09892c5b72"
+    },
+    {
+      "document": "10_Rural_Development_and_Livelihoods.txt",
+      "text_sha256": "9ad5ce75cfc1f563eb62eb09bcb6a741af4191df1b0736a85b64941a76149ba1",
+      "pdf_sha256": "701fdbd210f2dfa1a4617b8a5573304b9f8096498f3a20a3191a124f31588a4b"
+    },
+    {
+      "document": "11_Defence_and_Foreign_Affairs.txt",
+      "text_sha256": "efc7923bbfccc04b20ea9f0382ffc8d65165687209d4b70871e667bb45bc9449",
+      "pdf_sha256": "43ccdd9ef3adf1e3158854f7fe6f601da6e8364cbcbe4059d005d0a897bdd2ef"
+    },
+    {
+      "document": "12_Governance_and_Planning.txt",
+      "text_sha256": "3603fbf84a02a701ca47ac6a9d03250cdc17f716e0a8628625941b5e3ea77f6d",
+      "pdf_sha256": "b4dbe07a522a11873fc3f8980bfd4827c7fa87c132348939bec53a1062d3310f"
+    },
+    {
+      "document": "13_Citizenship_Visas_and_Passports.txt",
+      "text_sha256": "b1b1e15bdd3c4153a09637737a3e9084b21a1dce46ae51eb0a61e7fa660e5dd2",
+      "pdf_sha256": "13b804a7ab5c98453515b0dd8a5e83ff7aaec314a0af915e224fa3d65433d8d2"
+    },
+    {
+      "document": "14_Science_IT_and_Communication.txt",
+      "text_sha256": "6920b7af7c5344b58aec938021126daac04c5ba70cfa6c7b060d538e68b2c8a1",
+      "pdf_sha256": "3809033e5043c104d03b1fd9fdd27d6914982eb71049280e2b8f1255ba763eda"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+Government Policies: Renewable Energy and Power
+===============================================
+
+Official Environmental-Service Supplement (checked 14 October 2026)
+------------------------------------------------------------------
+PARIVESH is the Ministry of Environment, Forest and Climate Change's portal for online submission and monitoring of proposals seeking environmental, forest, wildlife and Coastal Regulation Zone (CRZ) clearances [GOV-PARIVESH]. Its Know Your Approval module provides tentative clearance information based on user inputs and dynamic decision rules [GOV-PARIVESH-KYA]. A tentative result should not be represented as an issued clearance. In this corpus's review exercises, retain the proposal identifier, clearance category, authority, decision and conditions separately; these are editorial evidence checks. Local training codes such as ECR-5 are not established as official forms by these sources. Official source URLs are recorded in docs/corpus_sources.json.
+
+Policy Objectives
+-----------------
+Energy policy seeks to improve electricity access, reliability, affordability and sustainability. Renewable energy has become increasingly important in planning for long-term energy security and lower-carbon development.
+
+Solar Energy
+------------
+Government initiatives support expansion of solar generation through utility-scale projects and distributed systems. Rooftop solar programmes encourage households and other consumers to generate electricity closer to where it is used.
+
+PM Surya Ghar
+-------------
+PM Surya Ghar: Muft Bijli Yojana is associated with support for rooftop solar adoption by households. Successful implementation depends on consumer awareness, financing, installation capacity, distribution companies and reliable programme processes.
+
+Wind and Other Sources
+----------------------
+Wind, hydropower, biomass and other sources contribute to India's broader electricity mix. A diversified system can reduce dependence on any single source but requires planning for geography, seasonality and transmission.
+
+Grid Integration
+----------------
+Variable renewable generation creates requirements for transmission, forecasting, storage and flexible electricity resources. Energy policy therefore includes not only building generation capacity but also strengthening the wider power system.
+
+Energy Efficiency
+-----------------
+Reducing waste through efficient appliances, buildings and industrial processes can lower energy demand. Efficiency policy is often complementary to renewable-energy policy because avoided demand can reduce pressure on generation and networks.
+
+Capacity, Generation and Household Adoption
+-------------------------------------------
+Installed renewable capacity, electricity actually generated and household
+adoption are different indicators. A rooftop system can be approved before it is
+installed, and an installed system can produce less electricity than its rated
+capacity because of weather, maintenance or grid constraints. Programme reports
+may separately count applications, sanctioned subsidies, commissioned systems
+and active net-metering connections. A claim about renewable capacity should
+therefore identify the technology, measurement unit, reporting date and whether
+the figure is planned, installed or operational.
+
+Government Policies: Environment, Air Quality and Circular Economy
+================================================================
+
+Policy Purpose
+--------------
+Environmental policy integrates pollution prevention, climate adaptation, waste management, ecosystem protection and accountable local implementation. It should distinguish an asset installed, a facility operating, a sample collected, a standard met and a verified environmental outcome.
+
+Compliance and Evidence
+-----------------------
+The Environmental Compliance Record (ECR-5) records an inspected site, applicable condition, evidence source, corrective owner, due date and verification result. An ECR-5 marked action-complete means the assigned corrective action was reported complete; it does not prove that a water body, air shed or neighbourhood has met the relevant outcome standard until verification is recorded.
+
+Waste, Water and Urban Services
+-------------------------------
+Solid and liquid waste systems should record segregation, collection, transport, processing and safe disposal as separate stages. A sanitation infrastructure count is not evidence of wastewater treatment, safe water quality or lower disease incidence. Where urban drainage or waste failures affect a water source, local teams should link the ECR-5 evidence with the source record and report the responsible correction path.
+
+Climate and Livelihood Effects
+------------------------------
+Heat, flood and drought plans should identify exposed workers, informal settlements, critical services and ecosystem risks. A resilience asset may reduce future risk, but a project completion report must not be represented as a measured health, income or water-service outcome. Local employment and procurement can support maintenance, provided the activity, payment and service result are recorded separately.
+
+Measurement and Review
+----------------------
+Comparisons should specify the pollutant, site, reporting period, evidence method and threshold. Public dashboards should not rank locations using mixed measures such as inspections, complaints, samples and verified compliance as though they were a single performance indicator.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.
+
+Renewable-Energy Users and Delivery Conditions
+----------------------------------------------
+Renewable-energy and power policy serves electricity users through improved access, reliability, affordability and sustainability. Rooftop solar adoption specifically concerns households and other consumers. Consumer awareness, financing, installation capacity, distribution-company processes and grid integration affect delivery. An application or sanctioned subsidy is not a commissioned, operating system.

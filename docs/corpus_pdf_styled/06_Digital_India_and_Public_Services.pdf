@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 6 0 R 7 0 R] /Count 3 >>
+<< /Type /Pages /Kids [5 0 R 6 0 R 7 0 R 8 0 R] /Count 4 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -12,129 +12,209 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
-7 0 obj
+6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
 endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
 8 0 obj
-<< /Length 3332 >>
-stream
-BT /F2 18 Tf 50 742 Td (Government Policies: Digital India and Digital Public Services) Tj ET
-BT /F2 12 Tf 50 700 Td (Policy Objectives) Tj ET
-BT /F1 10 Tf 50 678 Td (Digital policy aims to improve connectivity, digital service delivery, inclusion, innovation) Tj ET
-BT /F1 10 Tf 50 664 Td (and access to government services. Digital public infrastructure can provide common) Tj ET
-BT /F1 10 Tf 50 650 Td (foundations used by multiple programmes.) Tj ET
-BT /F2 12 Tf 50 622 Td (Digital Service Delivery) Tj ET
-BT /F1 10 Tf 50 600 Td (Government portals and digital platforms can reduce paperwork and make services easier to) Tj ET
-BT /F1 10 Tf 50 586 Td (access. myScheme, for example, is designed as a platform that helps citizens discover) Tj ET
-BT /F1 10 Tf 50 572 Td (government schemes across categories.) Tj ET
-BT /F2 12 Tf 50 544 Td (Digital Public Infrastructure) Tj ET
-BT /F1 10 Tf 50 522 Td (Shared digital systems can support identity, payments, document exchange and service) Tj ET
-BT /F1 10 Tf 50 508 Td (delivery. Their value increases when institutions can build services using common standards) Tj ET
-BT /F1 10 Tf 50 494 Td (and trusted interfaces.) Tj ET
-BT /F2 12 Tf 50 466 Td (Financial and Social Services) Tj ET
-BT /F1 10 Tf 50 444 Td (Digital platforms can support benefit delivery, banking access, pension services and other) Tj ET
-BT /F1 10 Tf 50 430 Td (citizen-facing programmes. Direct benefit delivery requires accurate beneficiary information) Tj ET
-BT /F1 10 Tf 50 416 Td (and effective mechanisms for resolving errors.) Tj ET
-BT /F2 12 Tf 50 388 Td (Connectivity and Inclusion) Tj ET
-BT /F1 10 Tf 50 366 Td (Digital services depend on connectivity, devices and digital skills. Policy must therefore) Tj ET
-BT /F1 10 Tf 50 352 Td (consider rural connectivity, affordability, accessibility and language diversity, rather) Tj ET
-BT /F1 10 Tf 50 338 Td (than assuming that all citizens have equal access.) Tj ET
-BT /F2 12 Tf 50 310 Td (Governance Challenges) Tj ET
-BT /F1 10 Tf 50 288 Td (Digital governance must balance convenience with cybersecurity, privacy, reliability and) Tj ET
-BT /F1 10 Tf 50 274 Td (accountability. Large public systems need clear rules for access, data handling, grievance) Tj ET
-BT /F1 10 Tf 50 260 Td (redressal and continuity during outages.) Tj ET
-BT /F2 12 Tf 50 232 Td (Service Status and Inclusion) Tj ET
-BT /F1 10 Tf 50 210 Td (An application submitted, an application authenticated, a request approved and) Tj ET
-BT /F1 10 Tf 50 196 Td (a service successfully delivered are different statuses. Authentication failure) Tj ET
-BT /F1 10 Tf 50 182 Td (can result from incorrect records rather than ineligibility, while a successful) Tj ET
-BT /F1 10 Tf 50 168 Td (approval may still be delayed by a bank, department or local service provider.) Tj ET
-BT /F1 10 Tf 50 154 Td (Dashboard totals can also use different update times. Digital access should be) Tj ET
-BT /F1 10 Tf 50 140 Td (measured with attention to assisted-service use, failed transactions, language) Tj ET
-BT /F1 10 Tf 50 126 Td (support, accessibility and outage duration, not only the number of registered) Tj ET
-BT /F1 10 Tf 50 112 Td (users.) Tj ET
-BT /F1 10 Tf 50 89 Td (Service platforms should support assisted and offline channels for people affected by) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 1 of 3) Tj ET
-endstream
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
 endobj
 9 0 obj
-<< /Length 3744 >>
+<< /Length 3593 >>
 stream
-BT /F1 10 Tf 50 742 Td (connectivity, language, disability or device barriers. Where programmes reconcile records,) Tj ET
-BT /F1 10 Tf 50 728 Td (they should exchange only the minimum information needed for the stated purpose and preserve) Tj ET
-BT /F1 10 Tf 50 714 Td (an auditable correction trail rather than overwriting an unresolved mismatch.) Tj ET
-BT /F1 10 Tf 50 691 Td (Dashboard totals should state whether they represent registrations, verified records,) Tj ET
-BT /F1 10 Tf 50 677 Td (approved cases, released payments, completed transactions or sustained service. A shared) Tj ET
-BT /F1 10 Tf 50 663 Td (identifier can help match records, but it does not make measures from different programmes) Tj ET
-BT /F1 10 Tf 50 649 Td (interchangeable.) Tj ET
-BT /F2 12 Tf 50 621 Td (Government Policies: Legal Aid, Citizen Grievances and Administrative Justice) Tj ET
-BT /F2 12 Tf 50 585 Td (Policy Purpose) Tj ET
-BT /F1 10 Tf 50 563 Td (Legal-aid and grievance policy supports accessible redress, reasoned decisions, timely) Tj ET
-BT /F1 10 Tf 50 549 Td (corrections and accountable public administration. People may use in-person, assisted, phone) Tj ET
-BT /F1 10 Tf 50 535 Td (and digital channels; channel choice should not change their right to a recorded response.) Tj ET
-BT /F2 12 Tf 50 507 Td (Grievance Lifecycle) Tj ET
-BT /F1 10 Tf 50 485 Td (A grievance may be filed, acknowledged, assigned, investigated, decision-issued, corrective) Tj ET
-BT /F1 10 Tf 50 471 Td (action completed and remedy verified. The Justice and Grievance Register \(JGR-11\) records) Tj ET
-BT /F1 10 Tf 50 457 Td (the complainant reference, service concerned, issue category, evidence link, assigned) Tj ET
-BT /F1 10 Tf 50 443 Td (authority, response deadline, decision reason and verification method. An administrative) Tj ET
-BT /F1 10 Tf 50 429 Td (closure is not a verified remedy unless the JGR-11 contains the required verification) Tj ET
-BT /F1 10 Tf 50 415 Td (record.) Tj ET
-BT /F2 12 Tf 50 387 Td (Cross-Service Corrections) Tj ET
-BT /F1 10 Tf 50 365 Td (A grievance about a ration, benefit transfer, water source, housing service or health) Tj ET
-BT /F1 10 Tf 50 351 Td (referral should identify the underlying source record and correction owner. Agencies may) Tj ET
-BT /F1 10 Tf 50 337 Td (reconcile the minimum information necessary to resolve the case, but should not overwrite) Tj ET
-BT /F1 10 Tf 50 323 Td (the original mismatch or treat a linked identifier as proof that the requested service was) Tj ET
-BT /F1 10 Tf 50 309 Td (delivered.) Tj ET
-BT /F2 12 Tf 50 281 Td (Legal Aid and Protection) Tj ET
-BT /F1 10 Tf 50 259 Td (A referral to legal aid, counselling or another protection service is a coordination step,) Tj ET
-BT /F1 10 Tf 50 245 Td (not proof that legal representation, safety planning or remedy was received. Confidential) Tj ET
-BT /F1 10 Tf 50 231 Td (cases require restricted access and an auditable record of authorised sharing. A person can) Tj ET
-BT /F1 10 Tf 50 217 Td (withdraw or be unreachable; those closure reasons must remain distinct from resolved cases.) Tj ET
-BT /F2 12 Tf 50 189 Td (Measurement and Public Reporting) Tj ET
-BT /F1 10 Tf 50 167 Td (Dashboards should separately report grievances filed, acknowledged within the service) Tj ET
-BT /F1 10 Tf 50 153 Td (standard, decisions issued, corrective actions completed and remedies verified. They should) Tj ET
-BT /F1 10 Tf 50 139 Td (state the service, period and denominator before comparing districts or agencies.) Tj ET
-BT /F2 12 Tf 50 111 Td (Common Administration and Evidence Standards) Tj ET
-BT /F1 10 Tf 50 89 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 2 of 3) Tj ET
+BT /F2 18 Tf 50 742 Td (Government Policies: Digital India and Digital Public Services) Tj ET
+BT /F2 12 Tf 50 700 Td (Official Digital-Health Supplement \(checked 14 October 2026\)) Tj ET
+BT /F1 10 Tf 50 678 Td (Under the Ayushman Bharat Digital Mission \(ABDM\), Ayushman Bharat Health Account \(ABHA\)) Tj ET
+BT /F1 10 Tf 50 664 Td (identifiers help link and exchange digital health records. Official material describes) Tj ET
+BT /F1 10 Tf 50 650 Td (patient-authorised record exchange using revocable, time-bound consent [GOV-ABDM-CONSENT].) Tj ET
+BT /F1 10 Tf 50 636 Td (Creation of ABHA is voluntary and based on the person's consent [GOV-ABHA-VOLUNTARY]. ABDM) Tj ET
+BT /F1 10 Tf 50 622 Td (itself provides no financial health cover or insurance [GOV-ABDM-COVER]; an ABHA account) Tj ET
+BT /F1 10 Tf 50 608 Td (must not be reported as a PM-JAY entitlement or a completed consultation. In corpus) Tj ET
+BT /F1 10 Tf 50 594 Td (reporting exercises, separate account creation, a record linked, consent granted for a) Tj ET
+BT /F1 10 Tf 50 580 Td (particular exchange and the care actually delivered. These reporting distinctions are) Tj ET
+BT /F1 10 Tf 50 566 Td (editorial guidance. Source URLs are in docs/corpus_sources.json; local training-case) Tj ET
+BT /F1 10 Tf 50 552 Td (identifiers are not authenticated government forms.) Tj ET
+BT /F2 12 Tf 50 524 Td (Policy Objectives) Tj ET
+BT /F1 10 Tf 50 502 Td (Digital policy aims to improve connectivity, digital service delivery, inclusion, innovation) Tj ET
+BT /F1 10 Tf 50 488 Td (and access to government services. Digital public infrastructure can provide common) Tj ET
+BT /F1 10 Tf 50 474 Td (foundations used by multiple programmes.) Tj ET
+BT /F2 12 Tf 50 446 Td (Digital Service Delivery) Tj ET
+BT /F1 10 Tf 50 424 Td (Government portals and digital platforms can reduce paperwork and make services easier to) Tj ET
+BT /F1 10 Tf 50 410 Td (access. myScheme, for example, is designed as a platform that helps citizens discover) Tj ET
+BT /F1 10 Tf 50 396 Td (government schemes across categories.) Tj ET
+BT /F2 12 Tf 50 368 Td (Digital Public Infrastructure) Tj ET
+BT /F1 10 Tf 50 346 Td (Shared digital systems can support identity, payments, document exchange and service) Tj ET
+BT /F1 10 Tf 50 332 Td (delivery. Their value increases when institutions can build services using common standards) Tj ET
+BT /F1 10 Tf 50 318 Td (and trusted interfaces.) Tj ET
+BT /F2 12 Tf 50 290 Td (Financial and Social Services) Tj ET
+BT /F1 10 Tf 50 268 Td (Digital platforms can support benefit delivery, banking access, pension services and other) Tj ET
+BT /F1 10 Tf 50 254 Td (citizen-facing programmes. Direct benefit delivery requires accurate beneficiary information) Tj ET
+BT /F1 10 Tf 50 240 Td (and effective mechanisms for resolving errors.) Tj ET
+BT /F2 12 Tf 50 212 Td (Connectivity and Inclusion) Tj ET
+BT /F1 10 Tf 50 190 Td (Digital services depend on connectivity, devices and digital skills. Policy must therefore) Tj ET
+BT /F1 10 Tf 50 176 Td (consider rural connectivity, affordability, accessibility and language diversity, rather) Tj ET
+BT /F1 10 Tf 50 162 Td (than assuming that all citizens have equal access.) Tj ET
+BT /F2 12 Tf 50 134 Td (Governance Challenges) Tj ET
+BT /F1 10 Tf 50 112 Td (Digital governance must balance convenience with cybersecurity, privacy, reliability and) Tj ET
+BT /F1 10 Tf 50 98 Td (accountability. Large public systems need clear rules for access, data handling, grievance) Tj ET
+BT /F1 10 Tf 50 84 Td (redressal and continuity during outages.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 1 of 4) Tj ET
 endstream
 endobj
 10 0 obj
-<< /Length 1301 >>
+<< /Length 4231 >>
 stream
-BT /F1 10 Tf 50 742 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
-BT /F1 10 Tf 50 728 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
-BT /F1 10 Tf 50 714 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
-BT /F1 10 Tf 50 700 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
-BT /F1 10 Tf 50 686 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
-BT /F2 12 Tf 50 658 Td (Grievance Verification Across Public Services) Tj ET
-BT /F1 10 Tf 50 636 Td (For a disputed payment, ration transaction, water source or housing service, JGR-11 must) Tj ET
-BT /F1 10 Tf 50 622 Td (link the underlying service record, evidence and correction owner. Preserve the original) Tj ET
-BT /F1 10 Tf 50 608 Td (mismatch and correction trail. Record the decision, corrective action and verified remedy as) Tj ET
-BT /F1 10 Tf 50 594 Td (separate stages. A portal update or administrative closure does not establish successful) Tj ET
-BT /F1 10 Tf 50 580 Td (credit, completed collection, functional restoration or a verified remedy.) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 3 of 3) Tj ET
+BT /F2 12 Tf 50 728 Td (Service Status and Inclusion) Tj ET
+BT /F1 10 Tf 50 706 Td (An application submitted, an application authenticated, a request approved and) Tj ET
+BT /F1 10 Tf 50 692 Td (a service successfully delivered are different statuses. Authentication failure) Tj ET
+BT /F1 10 Tf 50 678 Td (can result from incorrect records rather than ineligibility, while a successful) Tj ET
+BT /F1 10 Tf 50 664 Td (approval may still be delayed by a bank, department or local service provider.) Tj ET
+BT /F1 10 Tf 50 650 Td (Dashboard totals can also use different update times. Digital access should be) Tj ET
+BT /F1 10 Tf 50 636 Td (measured with attention to assisted-service use, failed transactions, language) Tj ET
+BT /F1 10 Tf 50 622 Td (support, accessibility and outage duration, not only the number of registered) Tj ET
+BT /F1 10 Tf 50 608 Td (users.) Tj ET
+BT /F1 10 Tf 50 585 Td (Service platforms should support assisted and offline channels for people affected by) Tj ET
+BT /F1 10 Tf 50 571 Td (connectivity, language, disability or device barriers. Where programmes reconcile records,) Tj ET
+BT /F1 10 Tf 50 557 Td (they should exchange only the minimum information needed for the stated purpose and preserve) Tj ET
+BT /F1 10 Tf 50 543 Td (an auditable correction trail rather than overwriting an unresolved mismatch.) Tj ET
+BT /F1 10 Tf 50 520 Td (Dashboard totals should state whether they represent registrations, verified records,) Tj ET
+BT /F1 10 Tf 50 506 Td (approved cases, released payments, completed transactions or sustained service. A shared) Tj ET
+BT /F1 10 Tf 50 492 Td (identifier can help match records, but it does not make measures from different programmes) Tj ET
+BT /F1 10 Tf 50 478 Td (interchangeable.) Tj ET
+BT /F2 12 Tf 50 450 Td (Government Policies: Legal Aid, Citizen Grievances and Administrative Justice) Tj ET
+BT /F2 12 Tf 50 414 Td (Policy Purpose) Tj ET
+BT /F1 10 Tf 50 392 Td (Legal-aid and grievance policy supports accessible redress, reasoned decisions, timely) Tj ET
+BT /F1 10 Tf 50 378 Td (corrections and accountable public administration. People may use in-person, assisted, phone) Tj ET
+BT /F1 10 Tf 50 364 Td (and digital channels; channel choice should not change their right to a recorded response.) Tj ET
+BT /F2 12 Tf 50 336 Td (Official Justice-Service Supplement \(checked 14 October 2026\)) Tj ET
+BT /F1 10 Tf 50 314 Td (These notes describe official justice and grievance services. Source identifiers resolve to) Tj ET
+BT /F1 10 Tf 50 300 Td (URLs in docs/corpus_sources.json. JGR-11 is a local training convention, not an official) Tj ET
+BT /F1 10 Tf 50 286 Td (CPGRAMS, court or legal-aid form. Grievance redress, information requests, legal advice,) Tj ET
+BT /F1 10 Tf 50 272 Td (court proceedings and protection complaints have different purposes and authorities; these) Tj ET
+BT /F1 10 Tf 50 258 Td (summaries are not advice on an individual case.) Tj ET
+BT /F2 12 Tf 50 230 Td (CPGRAMS: Public-Service Grievances [GOV-CPGRAMS]) Tj ET
+BT /F1 10 Tf 50 208 Td (The Centralized Public Grievance Redress and Monitoring System provides grievance) Tj ET
+BT /F1 10 Tf 50 194 Td (registration and status tracking using a unique registration number. The official FAQ also) Tj ET
+BT /F1 10 Tf 50 180 Td (describes postal and Common Service Centre routes. The concerned ministry or department) Tj ET
+BT /F1 10 Tf 50 166 Td (handles redress; State-related grievances are forwarded to the relevant State or Union) Tj ET
+BT /F1 10 Tf 50 152 Td (Territory. Its published exclusions include RTI matters, personal or family disputes, and) Tj ET
+BT /F1 10 Tf 50 138 Td (matters before courts or concerning court judgments. CPGRAMS is not a substitute for an RTI) Tj ET
+BT /F1 10 Tf 50 124 Td (application or a judicial appeal. As checked on the review date, the FAQ specifies 21 days) Tj ET
+BT /F1 10 Tf 50 110 Td (for redress, with an interim reply explaining delay where required. It describes a) Tj ET
+BT /F1 10 Tf 50 96 Td (feedback-linked appeal for dissatisfied grievances concerning Central ministries or) Tj ET
+BT /F1 10 Tf 50 82 Td (departments, to be filed within 30 days. These are the stated CPGRAMS arrangements, not) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 2 of 4) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Length 4614 >>
+stream
+BT /F1 10 Tf 50 742 Td (universal deadlines for every complaint channel or court case. In corpus reporting) Tj ET
+BT /F1 10 Tf 50 728 Td (exercises, a disposal, an appeal and a verified service correction remain separate stages;) Tj ET
+BT /F1 10 Tf 50 714 Td (that distinction is editorial guidance.) Tj ET
+BT /F2 12 Tf 50 686 Td (Legal Aid: Authorities and Access [GOV-NALSA]) Tj ET
+BT /F1 10 Tf 50 664 Td (NALSA's FAQ describes free legal services for eligible persons under the Legal Services) Tj ET
+BT /F1 10 Tf 50 650 Td (Authorities Act, 1987. Eligibility includes specified categories such as women, children,) Tj ET
+BT /F1 10 Tf 50 636 Td (Scheduled Caste or Scheduled Tribe members and persons in custody, as well as an) Tj ET
+BT /F1 10 Tf 50 622 Td (income-based route. Income ceilings depend on the applicable State rules or Supreme Court) Tj ET
+BT /F1 10 Tf 50 608 Td (context; there is no one universal ceiling for every applicant. Applications may be made to) Tj ET
+BT /F1 10 Tf 50 594 Td (the relevant legal-services institution, including a District Legal Services Authority,) Tj ET
+BT /F1 10 Tf 50 580 Td (State Legal Services Authority, High Court Legal Services Committee or Supreme Court Legal) Tj ET
+BT /F1 10 Tf 50 566 Td (Services Committee. The FAQ describes online, written, in-person and postal application) Tj ET
+BT /F1 10 Tf 50 552 Td (routes. An application or referral is not evidence that a lawyer has been assigned or) Tj ET
+BT /F1 10 Tf 50 538 Td (representation provided; this last distinction is editorial guidance.) Tj ET
+BT /F2 12 Tf 50 510 Td (Tele-Law: Pre-Litigation Advice [GOV-TELELAW]) Tj ET
+BT /F1 10 Tf 50 488 Td (The Department of Justice describes Tele-Law as a service for legal advice before) Tj ET
+BT /F1 10 Tf 50 474 Td (litigation, connecting citizens with panel lawyers through video or telephone facilities at) Tj ET
+BT /F1 10 Tf 50 460 Td (Common Service Centres and through the Tele-Law application. Official programme material) Tj ET
+BT /F1 10 Tf 50 446 Td (describes the service as free for citizens. Advice received is different from a court) Tj ET
+BT /F1 10 Tf 50 432 Td (filing, a lawyer appointed for litigation or a judicial remedy. In corpus reporting) Tj ET
+BT /F1 10 Tf 50 418 Td (exercises, keep a consultation requested, advice actually provided and any later referral or) Tj ET
+BT /F1 10 Tf 50 404 Td (representation separate; these measurement distinctions are editorial guidance.) Tj ET
+BT /F2 12 Tf 50 376 Td (Court Information and Legislation [GOV-ECOURTS] [GOV-INDIACODE]) Tj ET
+BT /F1 10 Tf 50 354 Td (The official eCourts service supports case-status and history lookup using a 16-character) Tj ET
+BT /F1 10 Tf 50 340 Td (alphanumeric CNR without spaces or hyphens; alternative search options include case) Tj ET
+BT /F1 10 Tf 50 326 Td (registration number, party name or advocate name. A case-status search is not itself a new) Tj ET
+BT /F1 10 Tf 50 312 Td (filing or a court order. India Code is the official legislation database for Central and) Tj ET
+BT /F1 10 Tf 50 298 Td (State Acts and subordinate legislation. In corpus research exercises, identify the) Tj ET
+BT /F1 10 Tf 50 284 Td (jurisdiction, relevant provision, amendments and commencement information before drawing) Tj ET
+BT /F1 10 Tf 50 270 Td (conclusions. A law found in a database does not by itself determine the result of an) Tj ET
+BT /F1 10 Tf 50 256 Td (individual dispute; these interpretation boundaries are editorial guidance.) Tj ET
+BT /F2 12 Tf 50 228 Td (National Consumer Helpline [GOV-NCH]) Tj ET
+BT /F1 10 Tf 50 206 Td (The Department of Consumer Affairs describes the National Consumer Helpline's INGRAM portal) Tj ET
+BT /F1 10 Tf 50 192 Td (as a pre-litigation consumer-grievance mechanism. It issues a docket number, forwards) Tj ET
+BT /F1 10 Tf 50 178 Td (complaints to the concerned company, agency, regulator or ombudsman, and supports status) Tj ET
+BT /F1 10 Tf 50 164 Td (tracking. Its official information says registration does not guarantee a remedy and) Tj ET
+BT /F1 10 Tf 50 150 Td (identifies the appropriate Consumer Commission as a further route if the consumer remains) Tj ET
+BT /F1 10 Tf 50 136 Td (dissatisfied. An NCH docket is not a Consumer Commission case or an order awarding) Tj ET
+BT /F1 10 Tf 50 122 Td (compensation. In corpus reporting exercises, distinguish complaint registration, the) Tj ET
+BT /F1 10 Tf 50 108 Td (business response, any agreed correction and verified receipt of a refund or service; those) Tj ET
+BT /F1 10 Tf 50 94 Td (distinctions are editorial guidance.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 3 of 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Length 3724 >>
+stream
+BT /F2 12 Tf 50 737 Td (Grievance Lifecycle) Tj ET
+BT /F1 10 Tf 50 715 Td (A grievance may be filed, acknowledged, assigned, investigated, decision-issued, corrective) Tj ET
+BT /F1 10 Tf 50 701 Td (action completed and remedy verified. The Justice and Grievance Register \(JGR-11\) records) Tj ET
+BT /F1 10 Tf 50 687 Td (the complainant reference, service concerned, issue category, evidence link, assigned) Tj ET
+BT /F1 10 Tf 50 673 Td (authority, response deadline, decision reason and verification method. An administrative) Tj ET
+BT /F1 10 Tf 50 659 Td (closure is not a verified remedy unless the JGR-11 contains the required verification) Tj ET
+BT /F1 10 Tf 50 645 Td (record.) Tj ET
+BT /F2 12 Tf 50 617 Td (Cross-Service Corrections) Tj ET
+BT /F1 10 Tf 50 595 Td (A grievance about a ration, benefit transfer, water source, housing service or health) Tj ET
+BT /F1 10 Tf 50 581 Td (referral should identify the underlying source record and correction owner. Agencies may) Tj ET
+BT /F1 10 Tf 50 567 Td (reconcile the minimum information necessary to resolve the case, but should not overwrite) Tj ET
+BT /F1 10 Tf 50 553 Td (the original mismatch or treat a linked identifier as proof that the requested service was) Tj ET
+BT /F1 10 Tf 50 539 Td (delivered.) Tj ET
+BT /F2 12 Tf 50 511 Td (Legal Aid and Protection) Tj ET
+BT /F1 10 Tf 50 489 Td (A referral to legal aid, counselling or another protection service is a coordination step,) Tj ET
+BT /F1 10 Tf 50 475 Td (not proof that legal representation, safety planning or remedy was received. Confidential) Tj ET
+BT /F1 10 Tf 50 461 Td (cases require restricted access and an auditable record of authorised sharing. A person can) Tj ET
+BT /F1 10 Tf 50 447 Td (withdraw or be unreachable; those closure reasons must remain distinct from resolved cases.) Tj ET
+BT /F2 12 Tf 50 419 Td (Measurement and Public Reporting) Tj ET
+BT /F1 10 Tf 50 397 Td (Dashboards should separately report grievances filed, acknowledged within the service) Tj ET
+BT /F1 10 Tf 50 383 Td (standard, decisions issued, corrective actions completed and remedies verified. They should) Tj ET
+BT /F1 10 Tf 50 369 Td (state the service, period and denominator before comparing districts or agencies.) Tj ET
+BT /F2 12 Tf 50 341 Td (Common Administration and Evidence Standards) Tj ET
+BT /F1 10 Tf 50 319 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
+BT /F1 10 Tf 50 305 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
+BT /F1 10 Tf 50 291 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
+BT /F1 10 Tf 50 277 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
+BT /F1 10 Tf 50 263 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
+BT /F1 10 Tf 50 249 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
+BT /F2 12 Tf 50 221 Td (Grievance Verification Across Public Services) Tj ET
+BT /F1 10 Tf 50 199 Td (For a disputed payment, ration transaction, water source or housing service, JGR-11 must) Tj ET
+BT /F1 10 Tf 50 185 Td (link the underlying service record, evidence and correction owner. Preserve the original) Tj ET
+BT /F1 10 Tf 50 171 Td (mismatch and correction trail. Record the decision, corrective action and verified remedy as) Tj ET
+BT /F1 10 Tf 50 157 Td (separate stages. A portal update or administrative closure does not establish successful) Tj ET
+BT /F1 10 Tf 50 143 Td (credit, completed collection, functional restoration or a verified remedy.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 4 of 4) Tj ET
 endstream
 endobj
 xref
-0 11
+0 13
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000127 00000 n 
-0000000224 00000 n 
-0000000326 00000 n 
-0000000462 00000 n 
-0000000598 00000 n 
-0000000735 00000 n 
-0000004119 00000 n 
-0000007915 00000 n 
+0000000133 00000 n 
+0000000230 00000 n 
+0000000332 00000 n 
+0000000468 00000 n 
+0000000605 00000 n 
+0000000742 00000 n 
+0000000879 00000 n 
+0000004524 00000 n 
+0000008808 00000 n 
+0000013475 00000 n 
 trailer
-<< /Size 11 /Root 1 0 R >>
+<< /Size 13 /Root 1 0 R >>
 startxref
-9269
+17252
 %%EOF

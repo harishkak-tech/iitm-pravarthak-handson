@@ -1,0 +1,79 @@
+Government Policies: Transport and Infrastructure
+=================================================
+
+Official Infrastructure Supplement (checked 14 October 2026)
+------------------------------------------------------------
+These notes supplement the training corpus using official infrastructure and industry resources. Source identifiers resolve to URLs in docs/corpus_sources.json. Planning systems, operating approvals and performance measures serve different purposes. Local casebook figures and training-record codes are not authenticated national programme statistics or government forms by these sources.
+
+Policy Objectives
+-----------------
+Transport and infrastructure policy seeks to improve connectivity, reduce logistics costs, increase safety and support economic activity. Roads, railways, airports, ports, waterways and urban transport form an interconnected system.
+
+Integrated Planning
+-------------------
+PM GatiShakti's National Master Plan is a GIS-based, data-supported platform for integrated infrastructure planning, coordinated implementation and project monitoring across ministries, departments and States [GOV-GATISHAKTI]. DPIIT describes its use in identifying first- and last-mile connectivity gaps and planning multimodal links for people, goods and services. A mapped proposal or an identified gap is not a completed transport connection. In corpus reporting exercises, retain the location, transport mode, responsible agency, dependencies and project stage separately; those reporting distinctions are editorial guidance.
+
+National Logistics Policy
+-------------------------
+The National Logistics Policy focuses on improving the efficiency of moving goods. Logistics performance is affected by infrastructure, regulation, warehousing, digital systems, last-mile connectivity and coordination among agencies.
+
+ULIP: Logistics Data Exchange [GOV-ULIP]
+---------------------------------------
+DPIIT describes the Unified Logistics Interface Platform (ULIP), launched under the National Logistics Policy in September 2022, as integrating logistics systems of government departments through Application Programming Interfaces (APIs). Published use cases include cargo tracking, gate automation and verification. Digital integration is different from physical road, rail, port or warehouse capacity. In corpus reviews, API transactions, shipments handled, transit time and logistics cost are separate indicators; no single integration count establishes an actual cost reduction. The measurement distinctions are editorial guidance.
+
+Roads and Highways
+------------------
+Highway development can reduce travel times and improve market access. Policy must also address maintenance, road safety, land acquisition, environmental impacts and the connection of highways to local roads.
+
+Railways and Public Transport
+-----------------------------
+Railways support both passenger and freight movement. Urban transport policies also address metros, buses and multimodal systems. Investment decisions must consider demand, affordability and long-term operating requirements.
+
+Ports and Aviation
+------------------
+Ports and airports connect domestic and international markets. Their effectiveness depends not only on terminals but also on surrounding roads, rail links, customs processes, warehousing and other supporting infrastructure.
+
+Aviation Security Applications [GOV-ESAHAJ]
+------------------------------------------
+The Ministry of Civil Aviation's e-Sahaj portal provides online security-clearance applications for aviation-sector organisations and individuals. Its guidance directs applicants to the relevant clearance type and user manual. A submitted form is not an issued security clearance, and security clearance should not be treated as the entire set of operating permissions for an airport or air operator. In corpus reporting exercises, distinguish application submission, document scrutiny, security decision and the applicable operating authorisation. These stage distinctions are editorial guidance; check the current authority-specific process for an individual case.
+
+Project Progress and Performance
+--------------------------------
+Transport projects pass through approval, land acquisition, contracting,
+construction and commissioning stages. A length awarded to a contractor is not
+the same as a length completed or opened to traffic. Similarly, reduced travel
+time, lower freight cost, fewer accidents and higher passenger volume are
+different outcomes. A logistics corridor can improve freight movement while a
+nearby village still lacks a last-mile connection. Claims about project success
+should name the stage, route, mode and measurement period.
+
+Government Policies: Food Security, Public Distribution and Local Nutrition
+========================================================================
+
+Policy Purpose
+--------------
+Food-security policy combines entitlement delivery, local storage, nutrition support, price resilience and accessible grievance channels. It should distinguish an eligible household, an allocated entitlement, an authenticated transaction, a collected ration and a nutrition or health outcome.
+
+Entitlement and Transaction States
+----------------------------------
+A household may be present in a ration registry before its identity or household composition is corrected. A Fair Price Shop transaction can be authorised, attempted, completed or reversed; these are not interchangeable. The Fair Price Shop Exception Log (FPS-21) records failed authentication, stock variance, portability requests, transaction reversals and correction ownership. An FPS-21 closure requires either a confirmed replacement transaction or a documented reason the entitlement was not due.
+
+Official Food-Safety Service Supplement (checked 14 October 2026)
+----------------------------------------------------------------
+FSSAI's Food Safety Connect grievance portal accepts consumer concerns about packaged food, food premises and online food aggregators or delivery platforms [GOV-FSSAI-GRIEVANCE]. Its FAQ describes submitting complaints, attaching supporting evidence such as a product photograph or bill, and tracking complaint status online. The portal routes complaints to the relevant food business and authorities for action. A food-safety complaint is different from a public-distribution entitlement dispute or a clinical nutrition referral. For corpus reporting exercises, keep complaint submission, investigation, corrective action and verification separate; submission alone does not prove contamination, illness causation or resolution. This distinction is editorial guidance. Official URLs are in docs/corpus_sources.json.
+
+Nutrition Convergence
+---------------------
+Commodity distribution can support food access but does not establish dietary adequacy, child growth improvement or completed clinical care. When a nutrition worker identifies a child requiring follow-up, the NTR-7 referral pathway tracks coordination with a health facility. Food-distribution reporting should not merge household ration collection with children screened, referrals accepted or treatment completed.
+
+Digital and Local Safeguards
+----------------------------
+Offline registers and assisted authentication must remain available during connectivity failures. Once service resumes, the system should reconcile the original transaction, the correction action and any duplicate risk without overwriting the audit trail. A dashboard must state whether it reports allocation, attempted authentication, completed collection, or resolved exception.
+
+Storage, Shocks and Accountability
+----------------------------------
+Local plans should record stock condition, last-mile access constraints, community notice arrangements and escalation contacts before a disruption. During a flood, heat event or transport interruption, an emergency issue may protect immediate access but should not be reported as normal monthly collection. Social audit and grievance review should test whether a reported transaction corresponds to an accessible entitlement for the household.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.

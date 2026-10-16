@@ -23,7 +23,7 @@ def test_runtime_settings_reuse_collection():
     changed = base.model_copy(deep=True)
     changed.generation.model = "another-model"
     changed.retrieval.top_k = 2
-    changed.retrieval.rerank_enabled = False
+    changed.retrieval.rerank_enabled = not base.retrieval.rerank_enabled
     changed.retrieval.rrf_k = 60
     assert changed.collection_name() == base.collection_name()
 

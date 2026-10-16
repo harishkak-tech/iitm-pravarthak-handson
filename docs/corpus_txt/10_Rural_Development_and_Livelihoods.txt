@@ -1,0 +1,78 @@
+Government Policies: Rural Development and Livelihoods
+======================================================
+
+Official Rural-Road Supplement (checked 14 October 2026)
+-------------------------------------------------------
+The National Rural Infrastructure Development Agency's PMGSY FAQ says that programme and individual work details are available through the Online Monitoring and Management System (OMMS) and PMGSY websites [GOV-PMGSY-FAQ]. It also identifies citizen feedback routes through those websites. NRIDA's 2023-24 annual report describes Meri Sadak as a citizen-feedback application for PMGSY projects: users can submit complaints with geo-referenced photographs and receive a unique feedback number to monitor status [GOV-PMGSY-REPORT]. This is a description of the published report, not a guarantee that an application interface or complaint deadline is unchanged. For corpus review exercises, distinguish a complaint submitted, its status updated and a defect independently verified as corrected. The last distinction is editorial guidance, not a quoted statutory rule. Official URLs are in docs/corpus_sources.json; existing local case-record codes are training conventions.
+
+Policy Objectives
+-----------------
+Rural development policy addresses employment, housing, roads, livelihoods, social assistance, local institutions and access to essential services. Rural outcomes depend on agriculture but also on non-farm employment and infrastructure.
+
+MGNREGA
+-------
+The Mahatma Gandhi National Rural Employment Guarantee Act provides a legal framework for guaranteed wage employment subject to the provisions of the Act. The programme also supports certain categories of local works and requires substantial administrative coordination.
+
+Rural Roads
+-----------
+Pradhan Mantri Gram Sadak Yojana is associated with improving rural road connectivity. Better roads can improve access to markets, schools, healthcare and other services, although maintenance remains important after construction.
+
+Rural Housing
+-------------
+Rural housing programmes aim to improve housing conditions for eligible households. Housing outcomes also depend on land, construction capacity, access to water and electricity, and local implementation.
+
+Official Rural Housing Supplement (checked 14 October 2026)
+----------------------------------------------------------
+The Cabinet's August 2024 approval describes continuation of Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) during financial years 2024-25 to 2028-29, including assistance for two crore additional houses [GOV-PMAYG-CABINET]. It specifies existing unit assistance of Rs 1.20 lakh in plain areas and Rs 1.30 lakh in the North Eastern Region States and the Hill States of Himachal Pradesh and Uttarakhand and Union Territories of Jammu and Kashmir and Ladakh. Those are approved assistance arrangements and a programme target, not a count of houses already completed. PMAY-G is rural housing; PMAY-U 2.0's urban income bands, rental vertical and interest-subsidy rules should not be applied to it. In corpus reviews, separate eligibility, sanction, instalments, construction, completion and essential-service availability. These stage distinctions are editorial guidance. Official URLs are in docs/corpus_sources.json; local pilot housing-referral counts are not national PMAY-G completion statistics.
+
+Livelihoods and SHGs
+--------------------
+DAY-NRLM supports rural livelihoods and the organisation of self-help groups. Collective institutions can support savings, credit access, skills, enterprise development and local participation.
+
+Implementation and Inclusion
+----------------------------
+Rural programmes require coordination across national, State and local institutions. Good implementation depends on accurate beneficiary identification, transparency, local capacity, timely payments and effective grievance redressal.
+
+Work, Housing and Group Outcomes
+--------------------------------
+For employment programmes, a household demanding work, a work application
+approved, a workday generated and wages paid are separate events. Delayed payment
+does not necessarily mean that work was not provided, but it is an important
+implementation issue. Rural housing reports may distinguish eligible households,
+sanctioned houses, construction stages and completed houses. Under livelihood
+programmes, the number of self-help groups formed does not by itself show whether
+members obtained credit, skills or sustained enterprise income. Local comparisons
+should state the indicator and period being used.
+
+Employment generated, an asset completed, an asset functioning and an improved seasonal water outcome are different measures. A district should not describe an earthwork completion certificate as proof of reliable drinking-water service or increased farm income without the relevant service or outcome evidence.
+
+Convergence with agriculture should identify the intended users, the source or catchment, the seasonal water budget and the responsible maintenance institution. These records make it possible to distinguish a useful common asset from an unverified claim of programme impact.
+
+Government Policies: Disaster Risk, Climate Adaptation and Relief Operations
+========================================================================
+
+Operating Model
+---------------
+Disaster policy links risk reduction, anticipatory action, response, recovery and transparent relief delivery. A district incident plan should record hazard triggers, exposed settlements, responsible agencies, accessible communication channels and the criteria for closing each operational stage.
+
+Relief Lifecycle
+----------------
+Prepared, triggered, delivered and verified are distinct relief states. Prepared means supplies, staff or transfer lists are ready; triggered means the published threshold has been met; delivered means an item or payment was dispatched; verified means the intended household or site confirmed receipt or functional access. A relief order must not be counted as verified delivery.
+
+The Relief Reconciliation Form (RRF-9) is used when a household record, supply issue, service disruption or payment status is disputed during an incident. An RRF-9 must contain the incident identifier, household or site reference, claimed need, source record, action owner, next review date and verification method. Closing an RRF-9 requires documented verification, not merely a caseworker note.
+
+Water, Health and Cash Convergence
+----------------------------------
+A flood or drought response should distinguish emergency water supply from restoration of the original source. Teams should link an SRR-12 source-reliability record to the incident plan where a water source has failed. Health outreach may prioritise affected locations, but a water alert does not prove illness causation or completed treatment. Cash relief requires the same distinction used for benefit delivery: a released transfer is not a successful credit until the transaction is confirmed.
+
+Recovery and Accountability
+---------------------------
+Recovery plans should name the service baseline, the evidence needed to verify restoration and the group whose access remains constrained. District dashboards should separately report shelters opened, households listed, relief orders issued, deliveries verified, water sources restored and grievances closed. These measures cannot be added into a single coverage total because they describe different units and stages.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.
+
+Rural Works, Social Audit and Relief Verification
+-------------------------------------------------
+For rural employment works, Gram Sabha review and social audit make the proposed asset, expenditure, work completed and maintenance responsibility visible to the community. Keep an asset completed separate from a later service or hydrological outcome. For disaster-related disputes, RRF-9 links the incident identifier, household or site reference, claimed need, source record, action owner, next review date and verification method. Closing an RRF-9 requires documented verification, not merely a caseworker note.

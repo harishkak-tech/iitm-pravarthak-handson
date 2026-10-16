@@ -1,0 +1,64 @@
+Government Policies: Housing and Urban Development
+==================================================
+
+Official Housing-Service Supplement (checked 14 October 2026)
+------------------------------------------------------------
+These notes supplement the training corpus using official housing and local-service resources. Source identifiers resolve to official URLs in docs/corpus_sources.json. Programme targets describe intended coverage, not verified completion. Local casebook figures and training-record codes remain separate from official scheme statistics and forms.
+
+PMAY-U 2.0: Urban Housing Options [GOV-PMAYU-GUIDELINES]
+-------------------------------------------------------
+Pradhan Mantri Awas Yojana - Urban 2.0 supports eligible urban households to construct, purchase or rent affordable housing. Its guidelines specify five years from 1 September 2024 and four verticals: Beneficiary Led Construction (BLC), Affordable Housing in Partnership (AHP), Affordable Rental Housing (ARH) and Interest Subsidy Scheme (ISS). BLC supports eligible EWS families constructing a new house on available land; AHP concerns eligible housing in partnership projects; ARH concerns rental housing; ISS concerns eligible home-loan interest support. The scheme's family definition includes husband, wife, unmarried sons and unmarried daughters. Eligible urban EWS/LIG/MIG families should not own a pucca house anywhere in India in a family member's name, subject to the scheme's other conditions. The annual household-income bands are EWS up to Rs 3 lakh, LIG above Rs 3 lakh up to Rs 6 lakh, and MIG above Rs 6 lakh up to Rs 9 lakh. This is an overview, not a complete eligibility assessment. Do not substitute the older PMAY-U Credit Linked Subsidy Scheme's rates or income bands for PMAY-U 2.0 rules.
+
+Urban Housing Applications [GOV-PMAYU-FAQ]
+-----------------------------------------
+The PMAY-U 2.0 FAQ identifies the Unified Web Portal, Common Service Centres and the relevant Urban Local Body or municipality as application routes. A beneficiary chooses one scheme vertical with assistance from the relevant authorities or lending institution. The FAQ describes BLC applications as requiring supporting documents including land-ownership proof. An application is not a sanction, a loan approval or a completed home. In corpus reporting exercises, retain the scheme version, vertical, beneficiary household, location, financial stage and construction or rental stage separately; these reporting distinctions are editorial guidance.
+
+AMRUT 2.0: Urban Water Planning [GOV-AMRUT-GUIDELINES]
+----------------------------------------------------
+AMRUT 2.0's operational guidelines aim at household water-supply coverage in all statutory towns and universal sewerage or septage management in the 500 AMRUT cities. They describe water-source conservation, rejuvenation of water bodies, rainwater harvesting and reuse of treated used water. Urban Local Bodies prepare City Water Balance Plans to identify sources, demand, supply and service gaps. City Water Action Plans identify projects, which are aggregated into State Water Action Plans. These are planning and mission objectives, not evidence that every household already has reliable safe water. In corpus reviews, distinguish a proposed connection, an installed connection, functioning service and water-quality evidence.
+
+SBM-Urban 2.0: Waste and Sanitation [GOV-SBMU-GUIDELINES]
+------------------------------------------------------
+The SBM-Urban 2.0 operational guidelines describe a garbage-free-city vision, source segregation, door-to-door collection, scientific management of waste fractions and remediation of legacy dumpsites. They also address safe management of used water and faecal sludge, particularly in smaller cities. Collection, processing, safe disposal and dumpsite remediation are different activities. For corpus reporting exercises, record the waste stream, location, reporting period and verified stage; do not treat collection tonnage as proof that all waste was processed or that a dumpsite has been remediated.
+
+Local-Service Jurisdiction [GOV-HOUSING-PORTAL]
+---------------------------------------------
+The National Portal's housing category includes state and municipal services as well as national programmes. Examples listed include Gandhinagar Municipal Corporation's water and drainage connection services and Telangana land-document and prohibited-land searches. These listings do not establish one nationwide fee, document checklist, approval deadline or utility-connection procedure. Use the service for the relevant jurisdiction and distinguish a land-record search, housing-scheme application, building approval and utility-connection request. These distinctions are editorial guidance, not a legal opinion on property title.
+
+Policy Objectives
+-----------------
+Housing and urban policy addresses affordable housing, water, sanitation, mobility, public spaces, urban infrastructure and the management of rapidly growing cities.
+
+Affordable Housing
+------------------
+Government housing programmes aim to improve access to formal and affordable homes for eligible groups. Policy approaches can include direct support, credit-linked assistance and support for housing infrastructure.
+
+Urban Missions
+--------------
+Urban development programmes support improvements in water supply, sanitation, urban infrastructure and service delivery. Different cities have different fiscal capacity, population density and infrastructure gaps, so implementation often requires local planning.
+
+Sanitation and Waste
+--------------------
+Urban policy includes efforts to improve sanitation and solid-waste management. Effective systems require collection, segregation, transport, processing and disposal, along with citizen participation and municipal capacity.
+
+Urban Transport
+---------------
+Congestion and air pollution make public transport and integrated mobility important policy concerns. Metro systems, buses, walking and cycling infrastructure can complement one another when planning connects land use with transport.
+
+Implementation
+--------------
+Urban development involves the Union government, States, urban local bodies and public agencies. Funding, land availability, municipal capacity and coordination across agencies strongly influence results.
+
+Project Status and Service Quality
+----------------------------------
+Housing applications, sanctioned houses, houses under construction and completed
+houses are separate project stages. A completed structure may still lack a water
+connection, electricity connection or occupancy certification. Similarly, a city
+may report waste collected without reporting whether the waste was segregated or
+processed. Urban comparisons should specify whether the indicator concerns
+physical construction, service access, financial utilisation or citizen coverage,
+because a single overall ranking is not implied by any one of these measures.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.

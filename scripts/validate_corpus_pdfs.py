@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     total_pages = 0
-    files = sorted((ROOT / "docs/corpus").glob("*.txt"))
+    files = sorted((ROOT / "docs/corpus_txt").glob("*.txt"))
     for path in files:
         source = path.read_text(encoding="utf-8")
         counts = Counter(p.strip() for p in re.split(r"\n\s*\n", source) if p.strip())

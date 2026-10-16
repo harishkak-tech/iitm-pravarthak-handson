@@ -1,13 +1,15 @@
 """Golden-set loading and evaluation helpers.
 
-The golden set lives in ``docs/goldenset/golden_set_104.jsonl`` and the source
+The golden set lives in ``docs/goldenset/golden_set.jsonl`` and the source
 corpus lives in ``docs/corpus_pdf_styled/``. This module keeps the schema, document
 loading, retrieval heuristic, and evaluation loop in one place.
 """
 
 from __future__ import annotations
 
+import asyncio
 import json
+import logging
 import re
 import time
 from collections import Counter
@@ -30,6 +32,7 @@ class GoldenEntry(BaseModel):
     expected_behavior: str = Field(min_length=1)
     answerability: Literal["answerable", "unanswerable"]
     evaluation_type: str = Field(min_length=1)
+    evidence: dict[str, list[str]] = Field(default_factory=dict)
 
 
 class GoldenEvalRow(BaseModel):
@@ -76,6 +79,9 @@ class GoldenEvalSummary(BaseModel):
     unanswerable_pass_rate: float
     total_cost_usd: float
     total_elapsed_seconds: float
+    total_retrieval_seconds: float = 0.0
+    total_generation_seconds: float = 0.0
+    total_judge_seconds: float = 0.0
     by_eval_type: dict[str, int]
     judge_accuracy_avg: float
     judge_groundedness_avg: float
@@ -216,8 +222,12 @@ async def evaluate_golden_set(
     *,
     max_entries: int | None = None,
     judge_log_path: str | Path | None = None,
+    batch_answer_fn: Callable[[list[str]], Awaitable[list[Any]]] | None = None,
+    batch_size: int = 5,
 ) -> tuple[list[GoldenEvalRow], GoldenEvalSummary]:
     """Run a golden-set evaluation loop against an async question-answer function."""
+    if batch_size < 1:
+        raise ValueError("batch_size must be positive")
     rows: list[GoldenEvalRow] = []
     entries = golden_entries[:max_entries] if max_entries is not None else golden_entries
     if judge_log_path is None:
@@ -232,18 +242,61 @@ async def evaluate_golden_set(
     judge_format_total = 0.0
     judge_overall_total = 0.0
     judge_passed = 0
+    stage_intervals: dict[str, list[tuple[float, float]]] = {
+        "retrieval": [], "generation": [], "judge": [],
+    }
+
+    def stage_total(intervals: list[tuple[float, float]]) -> float:
+        total = 0.0
+        end = float("-inf")
+        for start, stop in sorted(intervals):
+            total += max(0.0, stop - max(start, end))
+            end = max(end, stop)
+        return total
+
+    async def judge_one(entry: GoldenEntry, answer: Any) -> tuple[JudgeScore, float]:
+        started = time.perf_counter()
+        retrieved = getattr(answer, "retrieved", [])
+        score = await judge_answer(
+            question=entry.question,
+            expected_behavior=entry.expected_behavior,
+            source_context="\n\n".join(
+                f"[{hit['chunk_id']}]\n{hit['text']}" for hit in retrieved
+            ),
+            candidate_answer=getattr(answer, "content", getattr(answer, "text", str(answer))),
+            answerability=entry.answerability,
+            evaluation_type=entry.evaluation_type,
+        )
+        finished = time.perf_counter()
+        stage_intervals["judge"].append((started, finished))
+        return score, finished - started
 
     with judge_log_path.open("w", encoding="utf-8") as judge_log:
-        for entry in entries:
+        for position, entry in enumerate(entries):
             selected_name, selected_text = select_document(entry.question, corpus_docs)
             if entry.document and entry.document in corpus_docs:
                 expected_text = corpus_docs[entry.document]
             else:
                 expected_text = None
 
-            started = time.perf_counter()
-            answer = await answer_fn(entry.question)
-            elapsed = time.perf_counter() - started
+            if batch_answer_fn is not None:
+                if position % batch_size == 0:
+                    batch = entries[position:position + batch_size]
+                    started = time.perf_counter()
+                    batch_answers = await batch_answer_fn([item.question for item in batch])
+                    # Allocate batch wall time equally so the summary does not count it repeatedly.
+                    batch_elapsed = (time.perf_counter() - started) / len(batch)
+                    if len(batch_answers) != len(batch):
+                        raise ValueError("Batch answer count must match question count")
+                    batch_judges = await asyncio.gather(*(
+                        judge_one(item, result) for item, result in zip(batch, batch_answers)
+                    ))
+                answer = batch_answers[position % batch_size]
+                elapsed = batch_elapsed
+            else:
+                started = time.perf_counter()
+                answer = await answer_fn(entry.question)
+                elapsed = time.perf_counter() - started
 
             answer_text = getattr(answer, "content", getattr(answer, "text", str(answer)))
             cost_usd = float(getattr(answer, "cost_usd", 0.0) or 0.0)
@@ -253,19 +306,14 @@ async def evaluate_golden_set(
             expected_sources = entry.source_documents or ([entry.document] if entry.document else [])
             retrieved_sources = {str(hit.get("source", "")) for hit in retrieved}
             retrieval_hit = bool(expected_sources) and set(expected_sources).issubset(retrieved_sources)
-            source_context = "\n\n".join(
-                f"[{hit['chunk_id']}]\n{hit['text']}"
-                for hit in retrieved
-            )
-            judge: JudgeScore = await judge_answer(
-                question=entry.question,
-                expected_behavior=entry.expected_behavior,
-                source_context=source_context,
-                candidate_answer=answer_text,
-                answerability=entry.answerability,
-                evaluation_type=entry.evaluation_type,
+            judge, judge_seconds = (
+                batch_judges[position % batch_size]
+                if batch_answer_fn is not None else await judge_one(entry, answer)
             )
             passed = judge.passed
+            for stage, interval in getattr(answer, "stage_intervals", {}).items():
+                if stage in stage_intervals:
+                    stage_intervals[stage].append(interval)
             judge_accuracy_total += judge.accuracy
             judge_groundedness_total += judge.groundedness
             judge_format_total += judge.format
@@ -345,6 +393,9 @@ async def evaluate_golden_set(
         unanswerable_pass_rate=(unanswerable_passed / max(unanswerable, 1)),
         total_cost_usd=total_cost,
         total_elapsed_seconds=total_elapsed,
+        total_retrieval_seconds=stage_total(stage_intervals["retrieval"]),
+        total_generation_seconds=stage_total(stage_intervals["generation"]),
+        total_judge_seconds=stage_total(stage_intervals["judge"]),
         by_eval_type=by_eval_type,
         judge_accuracy_avg=(judge_accuracy_total / max(len(rows), 1)),
         judge_groundedness_avg=(judge_groundedness_total / max(len(rows), 1)),
@@ -354,6 +405,11 @@ async def evaluate_golden_set(
         judge_pass_rate=(judge_passed / max(len(rows), 1)),
         judge_log_path=str(judge_log_path),
     )
+    logging.getLogger("pipeline").info("golden_run_metrics %s", json.dumps({
+        "total_retrieval_seconds": summary.total_retrieval_seconds,
+        "total_generation_seconds": summary.total_generation_seconds,
+        "total_judge_seconds": summary.total_judge_seconds,
+    }))
     return rows, summary
 
 

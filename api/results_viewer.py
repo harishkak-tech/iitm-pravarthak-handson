@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.eval.results_reader import read_history, read_results
+from api.ask_ui import ask_view
 
 
 def local_time(value):
@@ -31,12 +32,26 @@ def run_record(run):
         "Run": run["id"], "Started": local_time(run["started_at"]), "Model": run["model"],
         "Questions": summary.get("total", 0), "Passed": summary.get("passed", 0),
         "Pass rate (%)": round(summary.get("pass_rate", 0) * 100, 2),
+        "Retrieval time (s)": summary.get("total_retrieval_seconds"),
+        "LLM answer time (s)": summary.get("total_generation_seconds"),
+        "Judge time (s)": summary.get("total_judge_seconds"),
+        "Retrieval hit rate (%)": (
+            round(summary["retrieval_hit_rate"] * 100, 2)
+            if summary.get("retrieval_hit_rate") is not None else None
+        ),
+        "Retrieval hits": summary.get("retrieval_hits"),
+        "Answerable questions": summary.get("answerable"),
         "Cost ($)": summary.get("total_cost_usd", 0), "k": retrieval.get("top_k"),
         "Reranking": retrieval.get("rerank_enabled"),
         "Reranking candidate limit": retrieval.get("rerank_candidate_k"),
         "Reranking model": retrieval.get("rerank_model"),
         "RRF k": retrieval.get("rrf_k"),
         "Retrieval": retrieval.get("strategy"),
+        "Query rewriting": retrieval.get("query_rewrite_enabled"),
+        "Query rewrite count": retrieval.get("query_rewrite_n"),
+        "Query rewrite model": retrieval.get("query_rewrite_model"),
+        "Hypothetical retrieval (HyDE)": retrieval.get("hypothetical_retrieval_enabled"),
+        "Hypothetical retrieval model": retrieval.get("hypothetical_retrieval_model"),
         "Chunking": rag.get("chunking", {}).get("strategy"),
         "Corpus version": rag.get("metadata", {}).get("version"),
     }
@@ -71,6 +86,10 @@ def golden_view(path, runs):
         st.metric("Passed / total", f"{summary.get('passed', 0)} / {summary.get('total', 0)}", border=True)
         st.metric("Retrieval hit rate", f"{summary.get('retrieval_hit_rate', 0):.1%}", border=True)
         st.metric("Generation cost", f"${summary.get('total_cost_usd', 0):.4f}", border=True)
+    st.caption(
+        "Retrieval hit rate: answerable questions where all expected source documents "
+        f"were retrieved ({summary.get('retrieval_hits', 0)} / {summary.get('answerable', 0)})."
+    )
     with st.expander("Settings, judge configuration and summary"):
         st.write("Saved generation model:", run["model"])
         st.caption(f"Golden set: {run['golden_path']} · Corpus: {run['corpus_dir']}")
@@ -135,9 +154,11 @@ def batch_view(path, runs):
 
 
 def main():
-    st.set_page_config(page_title="Evaluation results", page_icon=":material/assessment:", layout="wide")
-    st.title("Evaluation results")
-    st.caption("Browse saved runs, their settings and the answers behind each score.")
+    st.set_page_config(page_title="Government Policy Knowledge Assistant", page_icon=":material/assessment:", layout="wide")
+    st.title("Government Policy Knowledge Assistant")
+    ask_tab, golden_tab = st.tabs(["Ask questions", "Golden evaluations"])
+    with ask_tab:
+        ask_view()
     supplied = st.sidebar.text_input("Database path", value=str(ROOT / "results.db"))
     if st.sidebar.button("Refresh results", icon=":material/refresh:"):
         history_snapshot.clear()
@@ -146,15 +167,15 @@ def main():
     if not path.is_absolute():
         path = ROOT / path
     st.sidebar.caption("Read-only viewer · Times shown in IST")
-    try:
-        history = history_snapshot(str(path.resolve()))
-        golden_tab, batch_tab = st.tabs(["Golden evaluations", "Batch runs"])
-        with golden_tab:
+    with golden_tab:
+        st.caption("Browse saved runs, their settings and the answers behind each score.")
+        try:
+            history = history_snapshot(str(path.resolve()))
             golden_view(str(path.resolve()), history["golden_runs"])
-        with batch_tab:
-            batch_view(str(path.resolve()), history["runs"])
-    except (OSError, sqlite3.Error, ValueError, KeyError) as exc:
-        st.error(f"Could not read results: {exc}")
+            with st.expander("Older batch runs"):
+                batch_view(str(path.resolve()), history["runs"])
+        except (OSError, sqlite3.Error, ValueError, KeyError) as exc:
+            st.error(f"Could not read results: {exc}")
 
 
 if __name__ == "__main__":

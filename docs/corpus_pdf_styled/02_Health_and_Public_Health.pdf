@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 6 0 R 7 0 R] /Count 3 >>
+<< /Type /Pages /Kids [5 0 R 6 0 R 7 0 R 8 0 R] /Count 4 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -12,144 +12,188 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
-7 0 obj
+6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
 endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
 8 0 obj
-<< /Length 3485 >>
-stream
-BT /F2 18 Tf 50 742 Td (Government Policies: Health and Public Health) Tj ET
-BT /F2 12 Tf 50 700 Td (Policy Objectives) Tj ET
-BT /F1 10 Tf 50 678 Td (Health policy aims to improve access to preventive, primary, secondary and tertiary) Tj ET
-BT /F1 10 Tf 50 664 Td (healthcare. Public health programmes also address maternal and child health, infectious) Tj ET
-BT /F1 10 Tf 50 650 Td (diseases, nutrition, medicines, health infrastructure and the healthcare workforce.) Tj ET
-BT /F2 12 Tf 50 622 Td (Ayushman Bharat) Tj ET
-BT /F1 10 Tf 50 600 Td (Ayushman Bharat is a major policy framework associated with expanding health coverage. Its) Tj ET
-BT /F1 10 Tf 50 586 Td (components include strengthening primary healthcare through Health and Wellness Centres and) Tj ET
-BT /F1 10 Tf 50 572 Td (financial protection for eligible beneficiaries through the health assurance component.) Tj ET
-BT /F2 12 Tf 50 544 Td (National Health Mission) Tj ET
-BT /F1 10 Tf 50 522 Td (The National Health Mission supports public health systems and works with States and Union) Tj ET
-BT /F1 10 Tf 50 508 Td (Territories on healthcare delivery. Areas of attention include maternal health, child) Tj ET
-BT /F1 10 Tf 50 494 Td (health, disease control, human resources and strengthening facilities.) Tj ET
-BT /F2 12 Tf 50 466 Td (Digital Health) Tj ET
-BT /F1 10 Tf 50 444 Td (Digital health policy promotes interoperable systems and improved access to health services) Tj ET
-BT /F1 10 Tf 50 430 Td (and records. Digital platforms can support telemedicine, appointments, health information) Tj ET
-BT /F1 10 Tf 50 416 Td (and service delivery, while privacy and secure handling of personal information remain) Tj ET
-BT /F1 10 Tf 50 402 Td (important considerations.) Tj ET
-BT /F2 12 Tf 50 374 Td (Prevention and Primary Care) Tj ET
-BT /F1 10 Tf 50 352 Td (Public policy increasingly emphasizes prevention, screening, immunisation and early) Tj ET
-BT /F1 10 Tf 50 338 Td (diagnosis. Primary healthcare can reduce pressure on higher-level hospitals when common) Tj ET
-BT /F1 10 Tf 50 324 Td (conditions are managed earlier and referral systems function effectively.) Tj ET
-BT /F2 12 Tf 50 296 Td (Implementation Challenges) Tj ET
-BT /F1 10 Tf 50 274 Td (Health is a large and diverse sector. Outcomes depend on financing, State capacity,) Tj ET
-BT /F1 10 Tf 50 260 Td (availability of doctors and nurses, medicines, infrastructure, geographic access and public) Tj ET
-BT /F1 10 Tf 50 246 Td (awareness. Policy design therefore needs strong implementation and monitoring.) Tj ET
-BT /F2 12 Tf 50 218 Td (Service and Outcome Measures) Tj ET
-BT /F1 10 Tf 50 196 Td (Health-system reporting may count facilities opened, facilities functional,) Tj ET
-BT /F1 10 Tf 50 182 Td (patients registered, consultations completed or referrals completed. These are) Tj ET
-BT /F1 10 Tf 50 168 Td (not interchangeable measures of improved health access. A telemedicine referral) Tj ET
-BT /F1 10 Tf 50 154 Td (does not necessarily mean that a specialist consultation occurred, and a person) Tj ET
-BT /F1 10 Tf 50 140 Td (covered by an assurance scheme may still face travel, documentation or hospital) Tj ET
-BT /F1 10 Tf 50 126 Td (availability barriers. Monitoring also needs to distinguish reported disease) Tj ET
-BT /F1 10 Tf 50 112 Td (incidence from improved detection, since expanded screening can temporarily) Tj ET
-BT /F1 10 Tf 50 98 Td (increase the number of recorded cases.) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 1 of 3) Tj ET
-endstream
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
 endobj
 9 0 obj
-<< /Length 3941 >>
+<< /Length 4082 >>
 stream
-BT /F1 10 Tf 50 742 Td (Public-health teams may use water-quality alerts, sanitation conditions and local disease) Tj ET
-BT /F1 10 Tf 50 728 Td (surveillance to prioritise outreach. They must not infer that a household connection, a) Tj ET
-BT /F1 10 Tf 50 714 Td (sanitation certificate, or a nutrition registration by itself establishes safe water use,) Tj ET
-BT /F1 10 Tf 50 700 Td (disease prevention or a completed health outcome.) Tj ET
-BT /F1 10 Tf 50 677 Td (When a family is referred between a nutrition centre and a health facility, the minimum) Tj ET
-BT /F1 10 Tf 50 663 Td (information needed for continuity of care may be reconciled through approved service) Tj ET
-BT /F1 10 Tf 50 649 Td (processes. Aggregate reporting must distinguish children screened, children referred,) Tj ET
-BT /F1 10 Tf 50 635 Td (children assessed and children who completed follow-up.) Tj ET
-BT /F2 12 Tf 50 607 Td (Government Policies: Nutrition, Early Childhood and Care) Tj ET
-BT /F2 12 Tf 50 571 Td (Policy Purpose) Tj ET
-BT /F1 10 Tf 50 549 Td (Nutrition and early-childhood policy supports maternal nutrition, child growth, responsive) Tj ET
-BT /F1 10 Tf 50 535 Td (care, early learning and timely referral to health services. Delivery is designed around the) Tj ET
-BT /F1 10 Tf 50 521 Td (first 1,000 days and continued support for young children, while recognising that a service) Tj ET
-BT /F1 10 Tf 50 507 Td (contact alone does not prove an outcome.) Tj ET
-BT /F2 12 Tf 50 479 Td (Growth Monitoring and Referral) Tj ET
-BT /F1 10 Tf 50 457 Td (Community nutrition sessions may measure growth and screen children for nutrition risk. The) Tj ET
-BT /F1 10 Tf 50 443 Td (reporting chain must distinguish children screened, children identified for follow-up,) Tj ET
-BT /F1 10 Tf 50 429 Td (referrals issued, referrals accepted by a health facility, children clinically assessed and) Tj ET
-BT /F1 10 Tf 50 415 Td (children completing follow-up. A screening result is not a clinical diagnosis, and a) Tj ET
-BT /F1 10 Tf 50 401 Td (referral is not proof that treatment was received.) Tj ET
-BT /F1 10 Tf 50 378 Td (The Nutrition Referral Tracker \(NTR-7\) is used when a nutrition centre hands a child or) Tj ET
-BT /F1 10 Tf 50 364 Td (mother to a health facility. Each NTR-7 record must include the referral reason, issue date,) Tj ET
-BT /F1 10 Tf 50 350 Td (receiving service point, acceptance status, correction status and follow-up due date. NTR-7) Tj ET
-BT /F1 10 Tf 50 336 Td (measures care coordination; it is not a treatment-completion certificate.) Tj ET
-BT /F2 12 Tf 50 308 Td (Service Package and Inclusion) Tj ET
-BT /F1 10 Tf 50 286 Td (Frontline workers may provide counselling on infant and young-child feeding, maternal diets,) Tj ET
-BT /F1 10 Tf 50 272 Td (hygiene and responsive caregiving, alongside age-appropriate supplementary nutrition where) Tj ET
-BT /F1 10 Tf 50 258 Td (the programme provides it. Home visits and centre-based sessions should offer assisted) Tj ET
-BT /F1 10 Tf 50 244 Td (access for families affected by disability, migration, language barriers, care burdens or) Tj ET
-BT /F1 10 Tf 50 230 Td (limited connectivity. Families should have a clear local route to ask for a missed) Tj ET
-BT /F1 10 Tf 50 216 Td (entitlement or correct a record.) Tj ET
-BT /F2 12 Tf 50 188 Td (Convergence with Health) Tj ET
-BT /F1 10 Tf 50 166 Td (Nutrition centres should use an approved referral pathway for children or mothers who) Tj ET
-BT /F1 10 Tf 50 152 Td (require clinical assessment. Health facilities retain responsibility for recording) Tj ET
-BT /F1 10 Tf 50 138 Td (diagnosis, treatment and follow-up. Joint reviews may reconcile the minimum information) Tj ET
-BT /F1 10 Tf 50 124 Td (needed to identify pending referrals, but they must not collapse nutrition screening, health) Tj ET
-BT /F1 10 Tf 50 110 Td (assessment and completed treatment into one beneficiary count.) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 2 of 3) Tj ET
+BT /F2 18 Tf 50 742 Td (Government Policies: Health and Public Health) Tj ET
+BT /F2 12 Tf 50 700 Td (Official Health-Service Supplement \(checked 14 October 2026\)) Tj ET
+BT /F1 10 Tf 50 678 Td (These notes use official resources discovered through the National Portal's Health and) Tj ET
+BT /F1 10 Tf 50 664 Td (Wellness category. Source identifiers resolve to URLs in docs/corpus_sources.json. They) Tj ET
+BT /F1 10 Tf 50 650 Td (describe programme services, not individual medical advice. Existing local training codes,) Tj ET
+BT /F1 10 Tf 50 636 Td (including NTR-7, are not established as government-prescribed forms by these sources.) Tj ET
+BT /F2 12 Tf 50 608 Td (PM-JAY: Hospital Cover and Access [GOV-PMJAY]) Tj ET
+BT /F1 10 Tf 50 586 Td (Ayushman Bharat Pradhan Mantri Jan Arogya Yojana \(AB PM-JAY\) provides eligible families) Tj ET
+BT /F1 10 Tf 50 572 Td (health cover up to Rs 5 lakh per family per year for secondary and tertiary care) Tj ET
+BT /F1 10 Tf 50 558 Td (hospitalisation in empanelled public and private hospitals. Benefits are cashless and) Tj ET
+BT /F1 10 Tf 50 544 Td (portable across the country within the empanelled network. The annual amount is a family) Tj ET
+BT /F1 10 Tf 50 530 Td (cover limit, not a cash transfer or an amount payable to every family member. Applicable) Tj ET
+BT /F1 10 Tf 50 516 Td (eligibility, treatment-package rules and hospital empanelment must be checked. Creating a) Tj ET
+BT /F1 10 Tf 50 502 Td (digital health account is a different service from establishing PM-JAY entitlement; see the) Tj ET
+BT /F1 10 Tf 50 488 Td (ABHA notes in the digital-services document and senior-citizen coverage in the) Tj ET
+BT /F1 10 Tf 50 474 Td (social-security document.) Tj ET
+BT /F2 12 Tf 50 446 Td (eSanjeevani: Two Telemedicine Routes [GOV-ESANJEEVANI]) Tj ET
+BT /F1 10 Tf 50 424 Td (The Ministry of Health and Family Welfare describes two eSanjeevani models.) Tj ET
+BT /F1 10 Tf 50 410 Td (Provider-to-provider telemedicine supports assisted consultations at Ayushman Arogya) Tj ET
+BT /F1 10 Tf 50 396 Td (Mandirs, formerly Health and Wellness Centres, linking frontline providers with doctors and) Tj ET
+BT /F1 10 Tf 50 382 Td (specialists at higher-level hubs. Patient-to-provider telemedicine, eSanjeevaniOPD, supports) Tj ET
+BT /F1 10 Tf 50 368 Td (remote outpatient consultations from home using devices such as smartphones or laptops. For) Tj ET
+BT /F1 10 Tf 50 354 Td (corpus reporting exercises, count registration, a consultation completed and any subsequent) Tj ET
+BT /F1 10 Tf 50 340 Td (referral or follow-up separately; this reporting distinction is editorial guidance.) Tj ET
+BT /F2 12 Tf 50 312 Td (U-WIN: Immunisation Records [GOV-UWIN]) Tj ET
+BT /F1 10 Tf 50 290 Td (The Ministry's 29 November 2024 programme description identifies U-WIN as the digital) Tj ET
+BT /F1 10 Tf 50 276 Td (platform for Universal Immunization Programme services for pregnant women and children from) Tj ET
+BT /F1 10 Tf 50 262 Td (birth to 16 years. It supports vaccination records, appointment-related citizen services,) Tj ET
+BT /F1 10 Tf 50 248 Td (SMS reminders, QR-based vaccination certificates and offline recording by vaccinators where) Tj ET
+BT /F1 10 Tf 50 234 Td (connectivity is unavailable. Registration, an appointment booked, a recorded dose and) Tj ET
+BT /F1 10 Tf 50 220 Td (completion of the age-appropriate schedule are distinct stages in this corpus's reporting) Tj ET
+BT /F1 10 Tf 50 206 Td (exercises. These notes do not reproduce a vaccine schedule; use the current official) Tj ET
+BT /F1 10 Tf 50 192 Td (National Immunization Schedule for dose-specific information.) Tj ET
+BT /F2 12 Tf 50 164 Td (Policy Objectives) Tj ET
+BT /F1 10 Tf 50 142 Td (Health policy aims to improve access to preventive, primary, secondary and tertiary) Tj ET
+BT /F1 10 Tf 50 128 Td (healthcare. Public health programmes also address maternal and child health, infectious) Tj ET
+BT /F1 10 Tf 50 114 Td (diseases, nutrition, medicines, health infrastructure and the healthcare workforce.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 1 of 4) Tj ET
 endstream
 endobj
 10 0 obj
-<< /Length 2745 >>
+<< /Length 3878 >>
 stream
-BT /F2 12 Tf 50 737 Td (Responsible Digital Records) Tj ET
-BT /F1 10 Tf 50 715 Td (Digital records should retain the service stage, date, local service point and reason for) Tj ET
-BT /F1 10 Tf 50 701 Td (any pending correction. Assisted entry is valid delivery support, but a successful form) Tj ET
-BT /F1 10 Tf 50 687 Td (submission is not proof that a family received nutrition, health care or cash support. Any) Tj ET
-BT /F1 10 Tf 50 673 Td (reconciliation across services should be purpose-limited, auditable and supported by a) Tj ET
-BT /F1 10 Tf 50 659 Td (correction process that preserves the original discrepancy.) Tj ET
-BT /F2 12 Tf 50 631 Td (Measurement and Accountability) Tj ET
-BT /F1 10 Tf 50 609 Td (District reporting should identify whether it counts children, visits, food-service days,) Tj ET
-BT /F1 10 Tf 50 595 Td (screenings, referrals, assessments or completed follow-ups. An increase in registrations may) Tj ET
-BT /F1 10 Tf 50 581 Td (reflect outreach or duplicate cleanup rather than improved nutritional status. Outcome) Tj ET
-BT /F1 10 Tf 50 567 Td (claims should use the stated measurement method, reporting period and denominator.) Tj ET
-BT /F2 12 Tf 50 539 Td (Common Administration and Evidence Standards) Tj ET
-BT /F1 10 Tf 50 517 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
-BT /F1 10 Tf 50 503 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
-BT /F1 10 Tf 50 489 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
-BT /F1 10 Tf 50 475 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
-BT /F1 10 Tf 50 461 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
-BT /F1 10 Tf 50 447 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
-BT /F2 12 Tf 50 419 Td (Health Referral Status and Reporting) Tj ET
-BT /F1 10 Tf 50 397 Td (Health and nutrition referral reporting must keep referrals issued, referrals accepted,) Tj ET
-BT /F1 10 Tf 50 383 Td (clinical assessments, treatment where relevant and completed follow-up separate. State the) Tj ET
-BT /F1 10 Tf 50 369 Td (reporting period and denominator. NTR-7 tracks referral coordination; health records) Tj ET
-BT /F1 10 Tf 50 355 Td (establish assessment and treatment. Reconcile only the minimum necessary information, retain) Tj ET
-BT /F1 10 Tf 50 341 Td (the original discrepancy and correction trail, and do not merge unresolved screening and) Tj ET
-BT /F1 10 Tf 50 327 Td (clinical records into a single beneficiary total.) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 3 of 3) Tj ET
+BT /F2 12 Tf 50 737 Td (Ayushman Bharat) Tj ET
+BT /F1 10 Tf 50 715 Td (Ayushman Bharat is a major policy framework associated with expanding health coverage. Its) Tj ET
+BT /F1 10 Tf 50 701 Td (components include strengthening primary healthcare through Ayushman Arogya Mandirs) Tj ET
+BT /F1 10 Tf 50 687 Td (\(formerly Health and Wellness Centres\) and financial protection for eligible beneficiaries) Tj ET
+BT /F1 10 Tf 50 673 Td (through the PM-JAY health assurance component.) Tj ET
+BT /F2 12 Tf 50 645 Td (National Health Mission) Tj ET
+BT /F1 10 Tf 50 623 Td (The National Health Mission supports public health systems and works with States and Union) Tj ET
+BT /F1 10 Tf 50 609 Td (Territories on healthcare delivery. Areas of attention include maternal health, child) Tj ET
+BT /F1 10 Tf 50 595 Td (health, disease control, human resources and strengthening facilities.) Tj ET
+BT /F2 12 Tf 50 567 Td (Digital Health) Tj ET
+BT /F1 10 Tf 50 545 Td (Digital health policy promotes interoperable systems and improved access to health services) Tj ET
+BT /F1 10 Tf 50 531 Td (and records. Digital platforms can support telemedicine, appointments, health information) Tj ET
+BT /F1 10 Tf 50 517 Td (and service delivery, while privacy and secure handling of personal information remain) Tj ET
+BT /F1 10 Tf 50 503 Td (important considerations.) Tj ET
+BT /F2 12 Tf 50 475 Td (Prevention and Primary Care) Tj ET
+BT /F1 10 Tf 50 453 Td (Public policy increasingly emphasizes prevention, screening, immunisation and early) Tj ET
+BT /F1 10 Tf 50 439 Td (diagnosis. Primary healthcare can reduce pressure on higher-level hospitals when common) Tj ET
+BT /F1 10 Tf 50 425 Td (conditions are managed earlier and referral systems function effectively.) Tj ET
+BT /F2 12 Tf 50 397 Td (Implementation Challenges) Tj ET
+BT /F1 10 Tf 50 375 Td (Health is a large and diverse sector. Outcomes depend on financing, State capacity,) Tj ET
+BT /F1 10 Tf 50 361 Td (availability of doctors and nurses, medicines, infrastructure, geographic access and public) Tj ET
+BT /F1 10 Tf 50 347 Td (awareness. Policy design therefore needs strong implementation and monitoring.) Tj ET
+BT /F2 12 Tf 50 319 Td (Service and Outcome Measures) Tj ET
+BT /F1 10 Tf 50 297 Td (Health-system reporting may count facilities opened, facilities functional,) Tj ET
+BT /F1 10 Tf 50 283 Td (patients registered, consultations completed or referrals completed. These are) Tj ET
+BT /F1 10 Tf 50 269 Td (not interchangeable measures of improved health access. A telemedicine referral) Tj ET
+BT /F1 10 Tf 50 255 Td (does not necessarily mean that a specialist consultation occurred, and a person) Tj ET
+BT /F1 10 Tf 50 241 Td (covered by an assurance scheme may still face travel, documentation or hospital) Tj ET
+BT /F1 10 Tf 50 227 Td (availability barriers. Monitoring also needs to distinguish reported disease) Tj ET
+BT /F1 10 Tf 50 213 Td (incidence from improved detection, since expanded screening can temporarily) Tj ET
+BT /F1 10 Tf 50 199 Td (increase the number of recorded cases.) Tj ET
+BT /F1 10 Tf 50 176 Td (Public-health teams may use water-quality alerts, sanitation conditions and local disease) Tj ET
+BT /F1 10 Tf 50 162 Td (surveillance to prioritise outreach. They must not infer that a household connection, a) Tj ET
+BT /F1 10 Tf 50 148 Td (sanitation certificate, or a nutrition registration by itself establishes safe water use,) Tj ET
+BT /F1 10 Tf 50 134 Td (disease prevention or a completed health outcome.) Tj ET
+BT /F1 10 Tf 50 111 Td (When a family is referred between a nutrition centre and a health facility, the minimum) Tj ET
+BT /F1 10 Tf 50 97 Td (information needed for continuity of care may be reconciled through approved service) Tj ET
+BT /F1 10 Tf 50 83 Td (processes. Aggregate reporting must distinguish children screened, children referred,) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 2 of 4) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Length 3777 >>
+stream
+BT /F1 10 Tf 50 742 Td (children assessed and children who completed follow-up.) Tj ET
+BT /F2 12 Tf 50 714 Td (Government Policies: Nutrition, Early Childhood and Care) Tj ET
+BT /F2 12 Tf 50 678 Td (Policy Purpose) Tj ET
+BT /F1 10 Tf 50 656 Td (Nutrition and early-childhood policy supports maternal nutrition, child growth, responsive) Tj ET
+BT /F1 10 Tf 50 642 Td (care, early learning and timely referral to health services. Delivery is designed around the) Tj ET
+BT /F1 10 Tf 50 628 Td (first 1,000 days and continued support for young children, while recognising that a service) Tj ET
+BT /F1 10 Tf 50 614 Td (contact alone does not prove an outcome.) Tj ET
+BT /F2 12 Tf 50 586 Td (Growth Monitoring and Referral) Tj ET
+BT /F1 10 Tf 50 564 Td (Community nutrition sessions may measure growth and screen children for nutrition risk. The) Tj ET
+BT /F1 10 Tf 50 550 Td (reporting chain must distinguish children screened, children identified for follow-up,) Tj ET
+BT /F1 10 Tf 50 536 Td (referrals issued, referrals accepted by a health facility, children clinically assessed and) Tj ET
+BT /F1 10 Tf 50 522 Td (children completing follow-up. A screening result is not a clinical diagnosis, and a) Tj ET
+BT /F1 10 Tf 50 508 Td (referral is not proof that treatment was received.) Tj ET
+BT /F1 10 Tf 50 485 Td (The Nutrition Referral Tracker \(NTR-7\) is used when a nutrition centre hands a child or) Tj ET
+BT /F1 10 Tf 50 471 Td (mother to a health facility. Each NTR-7 record must include the referral reason, issue date,) Tj ET
+BT /F1 10 Tf 50 457 Td (receiving service point, acceptance status, correction status and follow-up due date. NTR-7) Tj ET
+BT /F1 10 Tf 50 443 Td (measures care coordination; it is not a treatment-completion certificate.) Tj ET
+BT /F2 12 Tf 50 415 Td (Service Package and Inclusion) Tj ET
+BT /F1 10 Tf 50 393 Td (Frontline workers may provide counselling on infant and young-child feeding, maternal diets,) Tj ET
+BT /F1 10 Tf 50 379 Td (hygiene and responsive caregiving, alongside age-appropriate supplementary nutrition where) Tj ET
+BT /F1 10 Tf 50 365 Td (the programme provides it. Home visits and centre-based sessions should offer assisted) Tj ET
+BT /F1 10 Tf 50 351 Td (access for families affected by disability, migration, language barriers, care burdens or) Tj ET
+BT /F1 10 Tf 50 337 Td (limited connectivity. Families should have a clear local route to ask for a missed) Tj ET
+BT /F1 10 Tf 50 323 Td (entitlement or correct a record.) Tj ET
+BT /F2 12 Tf 50 295 Td (Convergence with Health) Tj ET
+BT /F1 10 Tf 50 273 Td (Nutrition centres should use an approved referral pathway for children or mothers who) Tj ET
+BT /F1 10 Tf 50 259 Td (require clinical assessment. Health facilities retain responsibility for recording) Tj ET
+BT /F1 10 Tf 50 245 Td (diagnosis, treatment and follow-up. Joint reviews may reconcile the minimum information) Tj ET
+BT /F1 10 Tf 50 231 Td (needed to identify pending referrals, but they must not collapse nutrition screening, health) Tj ET
+BT /F1 10 Tf 50 217 Td (assessment and completed treatment into one beneficiary count.) Tj ET
+BT /F2 12 Tf 50 189 Td (Responsible Digital Records) Tj ET
+BT /F1 10 Tf 50 167 Td (Digital records should retain the service stage, date, local service point and reason for) Tj ET
+BT /F1 10 Tf 50 153 Td (any pending correction. Assisted entry is valid delivery support, but a successful form) Tj ET
+BT /F1 10 Tf 50 139 Td (submission is not proof that a family received nutrition, health care or cash support. Any) Tj ET
+BT /F1 10 Tf 50 125 Td (reconciliation across services should be purpose-limited, auditable and supported by a) Tj ET
+BT /F1 10 Tf 50 111 Td (correction process that preserves the original discrepancy.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 3 of 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Length 2115 >>
+stream
+BT /F2 12 Tf 50 737 Td (Measurement and Accountability) Tj ET
+BT /F1 10 Tf 50 715 Td (District reporting should identify whether it counts children, visits, food-service days,) Tj ET
+BT /F1 10 Tf 50 701 Td (screenings, referrals, assessments or completed follow-ups. An increase in registrations may) Tj ET
+BT /F1 10 Tf 50 687 Td (reflect outreach or duplicate cleanup rather than improved nutritional status. Outcome) Tj ET
+BT /F1 10 Tf 50 673 Td (claims should use the stated measurement method, reporting period and denominator.) Tj ET
+BT /F2 12 Tf 50 645 Td (Common Administration and Evidence Standards) Tj ET
+BT /F1 10 Tf 50 623 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
+BT /F1 10 Tf 50 609 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
+BT /F1 10 Tf 50 595 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
+BT /F1 10 Tf 50 581 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
+BT /F1 10 Tf 50 567 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
+BT /F1 10 Tf 50 553 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
+BT /F2 12 Tf 50 525 Td (Health Referral Status and Reporting) Tj ET
+BT /F1 10 Tf 50 503 Td (Health and nutrition referral reporting must keep referrals issued, referrals accepted,) Tj ET
+BT /F1 10 Tf 50 489 Td (clinical assessments, treatment where relevant and completed follow-up separate. State the) Tj ET
+BT /F1 10 Tf 50 475 Td (reporting period and denominator. NTR-7 tracks referral coordination; health records) Tj ET
+BT /F1 10 Tf 50 461 Td (establish assessment and treatment. Reconcile only the minimum necessary information, retain) Tj ET
+BT /F1 10 Tf 50 447 Td (the original discrepancy and correction trail, and do not merge unresolved screening and) Tj ET
+BT /F1 10 Tf 50 433 Td (clinical records into a single beneficiary total.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 4 of 4) Tj ET
 endstream
 endobj
 xref
-0 11
+0 13
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000127 00000 n 
-0000000224 00000 n 
-0000000326 00000 n 
-0000000462 00000 n 
-0000000598 00000 n 
-0000000735 00000 n 
-0000004272 00000 n 
-0000008265 00000 n 
+0000000133 00000 n 
+0000000230 00000 n 
+0000000332 00000 n 
+0000000468 00000 n 
+0000000605 00000 n 
+0000000742 00000 n 
+0000000879 00000 n 
+0000005013 00000 n 
+0000008944 00000 n 
+0000012774 00000 n 
 trailer
-<< /Size 11 /Root 1 0 R >>
+<< /Size 13 /Root 1 0 R >>
 startxref
-11063
+14942
 %%EOF

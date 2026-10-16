@@ -1,6 +1,6 @@
 """Validate golden-set structure and source anchors without API calls.
 
-Use --fix-known-issues to apply the documented corpus-v2 editorial corrections.
+Use --fix-known-issues to normalise duplicate sources and evaluation labels.
 Lexical anchor checks support review; they do not prove semantic entailment.
 """
 
@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -53,6 +54,17 @@ def validate(rows, corpus, pdf_dir):
         if "cross-document" in entry.evaluation_type and len(set(sources)) < 2:
             errors.append(f"{label}: cross-document label has fewer than two sources")
         context = "\n".join(corpus.get(name, "") for name in sources)
+        for name, fragments in entry.evidence.items():
+            if name not in sources:
+                errors.append(f"{label}: evidence document {name} absent from sources")
+            normalized = " ".join(corpus.get(name, "").split())
+            if not fragments:
+                errors.append(f"{label}: empty evidence list for {name}")
+            for fragment in fragments:
+                if not fragment.strip() or " ".join(fragment.split()) not in normalized:
+                    errors.append(f"{label}: evidence fragment absent from {name}: {fragment!r}")
+        if entry.answerability == "answerable" and entry.evidence and set(entry.evidence) != set(sources):
+            errors.append(f"{label}: evidence does not cover every declared source")
         for code in set(re.findall(r"\b[A-Z]{2,4}-\d+\b", entry.expected_behavior)):
             if code not in context:
                 errors.append(f"{label}: expected record identifier {code} absent from declared sources")
@@ -68,33 +80,47 @@ def fix_known_issues(rows):
         sources = list(dict.fromkeys(row.get("source_documents", [])))
         if "source_documents" in row:
             row["source_documents"] = sources
-        label = row["id"]
-        if label == "Q077":
-            sources = ["11_Integrated_District_Delivery_Casebook.txt", "12_State_Implementation_Brief.txt"]
-            row["source_documents"] = sources
         if sources:
             if row["evaluation_type"].startswith("three-source") and len(sources) == 2:
                 row["evaluation_type"] = row["evaluation_type"].replace("three-source", "two-source", 1)
             if len(sources) == 1 and "cross-document" in row["evaluation_type"]:
                 row["evaluation_type"] = row["evaluation_type"].replace("cross-document", "multi-section")
-        number = int(label[1:])
-        if 61 <= number <= 80 and label not in {"Q068", "Q071", "Q077", "Q080"} and not row["question"].startswith("For the "):
-            pilot = "Integrated District Delivery Pilot (Sundar and Narmada)" if number <= 70 else "Connected Services Pilot (Aster and Bhagirathi)"
-            row["question"] = f"For the {pilot}, {row['question'][0].lower() + row['question'][1:]}"
-        if label == "Q012":
-            row["expected_behavior"] = "State that MGNREGA provides a legal framework for guaranteed wage employment subject to the provisions of the Act. The corpus does not specify an exact number of guaranteed days; do not require or invent that number."
-        if label == "Q075":
-            row["expected_behavior"] = "Abstain from giving a completed-house count: the Connected Services brief reports 1,200 housing referrals, not completed houses. Mentioning that referral count or distinguishing unrelated installation figures is acceptable if clearly labeled and not presented as completed houses."
-        if label == "Q127":
-            row["expected_behavior"] = "State that RRF-9 requires the incident identifier, household or site reference, claimed need, source record, action owner, next review date and verification method. Closure requires documented verification, not merely a caseworker note. Accept equivalent wording for these fields."
         if before != row:
-            changes.append({"id": label, "before": before, "after": row})
+            changes.append({"id": row["id"], "before": before, "after": row})
     return changes
+
+
+def validate_snapshot(golden_path, root=ROOT):
+    """Detect a changed dataset or corpus against its optional recorded snapshot."""
+    manifest_path = golden_path.with_name("golden_set_manifest.json")
+    if not manifest_path.is_file():
+        return []
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if Path(manifest["golden_path"]).name != golden_path.name:
+        return []
+    errors = []
+    paths = [(golden_path, manifest["golden_sha256"])]
+    for source in manifest["corpus"]:
+        name = source["document"]
+        paths.extend([
+            (root / manifest["text_directory"] / name, source["text_sha256"]),
+            (root / manifest["pdf_directory"] / (Path(name).stem + ".pdf"), source["pdf_sha256"]),
+        ])
+    for path, expected in paths:
+        if not path.is_file():
+            errors.append(f"Snapshot file missing: {path.name}")
+        elif hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            errors.append(f"Snapshot changed: {path.name}; review the golden set and refresh its manifest")
+    expected_names = {source["document"] for source in manifest["corpus"]}
+    actual_names = {path.name for path in (root / manifest["text_directory"]).glob("*.txt")}
+    if expected_names != actual_names:
+        errors.append("Snapshot document list differs from the current text corpus")
+    return errors
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--golden-path", type=Path, default=ROOT / "docs/goldenset/golden_set_104.jsonl")
+    parser.add_argument("--golden-path", type=Path, default=ROOT / "docs/goldenset/golden_set.jsonl")
     parser.add_argument("--fix-known-issues", action="store_true")
     args = parser.parse_args()
     rows = [json.loads(line) for line in args.golden_path.read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -102,20 +128,23 @@ def main():
     if changes:
         args.golden_path.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
         (ROOT / "docs/runs/golden_set_revision_manifest.json").write_text(json.dumps(changes, indent=2) + "\n", encoding="utf-8")
-    corpus = {p.name: p.read_text(encoding="utf-8") for p in (ROOT / "docs/corpus").glob("*.txt")}
+    corpus = {p.name: p.read_text(encoding="utf-8") for p in (ROOT / "docs/corpus_txt").glob("*.txt")}
     errors, warnings = validate(rows, corpus, ROOT / "docs/corpus_pdf_styled")
+    errors.extend(validate_snapshot(args.golden_path))
     report = {
         "golden_path": str(args.golden_path), "total": len(rows),
         "answerability": dict(Counter(row["answerability"] for row in rows)),
         "errors": errors, "review_warnings": warnings,
         "limitations": [
             "Structural and record-anchor validation is deterministic; semantic completeness needs source review.",
-            "Several questions exercise the same facts (Q061/Q064, Q093/Q125, Q094/Q126); keep their weighting in mind.",
-            "Corpus-v2 reading notes were informed by failures on this set. Treat it as a development set; use new held-out questions to measure generalisation.",
+            "Evidence fragments establish textual anchors, not full semantic entailment of every expected answer.",
+            "This set is tied to the documented corpus snapshot; review it when corpus content changes.",
             "This validation does not call generation or judge models, measure pass rate, or change judge thresholds.",
         ],
     }
-    (ROOT / "docs/runs/golden_set_validation.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    report_path = ROOT / "docs/runs/golden_set_validation.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Validated {len(rows)} entries: {len(errors)} errors, {len(warnings)} review warnings; {len(changes)} entries corrected")
     for error in errors:
         print(error)

@@ -1,0 +1,111 @@
+Government Policies: MSME and Industrial Development
+====================================================
+
+Official Business Supplement (checked 14 October 2026)
+------------------------------------------------------
+These notes use official business and self-employment resources. Source identifiers resolve to URLs in docs/corpus_sources.json. Registration, operating permission, recognition, loan sanction and actual funding are separate services and do not automatically establish eligibility for each other. Existing training-case codes, including MSR-3, are not authenticated government forms by these sources.
+
+Udyam Registration and MSME Classification [GOV-UDYAM]
+-----------------------------------------------------
+The Ministry of MSME's Udyam portal describes registration as free, online, paperless and based on self-declaration, with a permanent registration number and an online certificate; registration does not require renewal. Its classification thresholds effective from 1 April 2025 use both investment and turnover. A micro enterprise has investment not exceeding Rs 2.5 crore and turnover not exceeding Rs 10 crore; small limits are Rs 25 crore and Rs 100 crore respectively; medium limits are Rs 125 crore and Rs 500 crore. Both limits for a category matter. PAN and GST-linked information is used as applicable under the registration rules. An enterprise should not file multiple Udyam registrations merely because it undertakes multiple activities. Udyam registration is not company incorporation, a sector licence or automatic credit approval.
+
+PMEGP: Project Cost, Contribution and Subsidy [GOV-PMEGP]
+-------------------------------------------------------
+KVIC's revised PMEGP guidelines describe credit-linked support for new micro-enterprises, with subsidy-eligible project-cost ceilings of Rs 50 lakh for manufacturing and Rs 20 lakh for business or services. These are project-cost ceilings, not grants of those amounts. For new units, the general-category beneficiary contribution is 10% of project cost and margin-money subsidy is 15% in urban areas or 25% in rural areas. For eligible special categories, contribution is 5% and subsidy is 25% urban or 35% rural. Category, project location, activity, eligibility and bank appraisal matter. The published guidelines describe separate support for upgradation of eligible existing units; the new-unit rules should not be treated as a universal rule for every business. In corpus reporting exercises, separate application, bank sanction, loan disbursement, subsidy processing and an operating enterprise. Those distinctions are editorial guidance. Check applicable guideline revisions and the financial-year application process before using these figures for an individual case.
+
+Startup Seed Funding and Published Deadline
+-------------------------------------------
+The Startup India Seed Fund Scheme FAQ describes incubator-mediated support for eligible DPIIT-recognised startups incorporated not more than two years before application [GOV-SISFS-FAQ]. It distinguishes milestone-based grants up to Rs 20 lakh for proof of concept, prototypes or product trials from investment up to Rs 50 lakh for market entry, commercialisation or scaling through debt, convertible debentures or debt-linked instruments. These are different funding forms, not an automatic combined grant. The portal's published final notice lists 31 May 2026 as the startup application deadline and 30 June 2026 for incubators to complete startup selection [GOV-SISFS-NOTICE]. Those dates have passed as of this supplement's review date. Do not infer an open application window from older year-round-call text or an Apply button; verify any subsequent official reopening notice.
+
+Trade and Food-Business Services [GOV-DGFT-IEC] [GOV-FOSCOS]
+----------------------------------------------------------
+DGFT's IEC user manual describes an online application using the firm's identity, PAN, address, bank information and declarations, including validation against the tax database. An Importer-Exporter Code application is a different process from an individual shipment's permission or customs clearance. FSSAI's FoSCoS portal provides food-business licence or registration applications, renewals, modifications, eligibility information and application tracking. Use current activity-specific criteria rather than assuming every food business needs the same registration category. A consumer food-safety complaint and a business's licensing application are different workflows. These service distinctions are editorial guidance.
+
+Business Service Jurisdiction [GOV-BUSINESS-PORTAL]
+--------------------------------------------------
+The National Portal's business category includes MCA company and LLP e-filing services, state or municipal shop-registration services, and state legal-metrology services. Examples listed include Gandhinagar shops-and-establishments applications and Goa packaged-commodity registrations. These listings do not establish a universal nationwide licence, document checklist, fee or approval deadline. Select the relevant legal entity, activity, jurisdiction and service; record filing, payment and approval as separate stages. These are editorial reporting distinctions. The financial-inclusion document describes MUDRA loan categories separately from PMEGP subsidy and startup seed funding.
+
+Policy Objectives
+-----------------
+MSME policy aims to promote entrepreneurship, employment, competitiveness, technology adoption and access to markets and finance. The Union government supplements State-level efforts through schemes and support programmes.
+
+Access to Credit
+----------------
+Small enterprises often face difficulties obtaining formal credit. Government-supported mechanisms include credit guarantees and credit-linked programmes intended to reduce financing constraints for eligible enterprises.
+
+PMEGP
+-----
+The Prime Minister's Employment Generation Programme supports the creation of micro-enterprises and self-employment through its programme framework. It is associated with promoting first-generation entrepreneurship in rural and urban areas.
+
+Technology and Quality
+----------------------
+MSME programmes support modernisation, technology improvement, quality certification and improved production capabilities. Smaller firms may need external support because they have limited capital and specialist capacity.
+
+Market Access
+-------------
+Marketing support, procurement opportunities, trade events and digital channels can help enterprises reach customers. Policy also encourages clusters and collective approaches that can provide shared infrastructure and services.
+
+Official Industry-Skills Supplement (checked 14 October 2026)
+------------------------------------------------------------
+NATS 2.0's official launch description connects educational institutions, learners and industry through apprenticeship lifecycle services, including vacancy advertisements, applications, contracts, certification and stipend disbursement [GOV-NATS-INDUSTRY]. For enterprise reporting exercises, an advertised training position, apprentice selected, contract created, stipend received, training completed and subsequent job are different stages. A training slot should not automatically be counted as a permanent job, and a stipend transaction should not be presented as proof of sustained employment. These measurement distinctions are editorial guidance. The education document provides learner-facing context; source URLs are in docs/corpus_sources.json.
+
+Industrial Development
+----------------------
+Broader industrial policy considers manufacturing, investment, infrastructure, innovation and employment. The effectiveness of incentives depends on implementation, stable regulations, skilled labour and supporting supply chains.
+
+Official Industrial-Service Supplement (checked 14 October 2026)
+---------------------------------------------------------------
+The following notes add official industry-service detail without replacing the business-registration, finance and training notes above. Official source URLs are in docs/corpus_sources.json. Infrastructure advertised to investors, approvals granted, units operating and actual employment require different evidence.
+
+Industrial Corridors and Shared Infrastructure [GOV-NICDC]
+---------------------------------------------------------
+The National Industrial Corridor Development Corporation describes industrial cities built around multimodal connectivity and shared infrastructure such as power, water and waste-management systems. Its investor materials describe ready-to-use industrial plots and sector-focused clusters. These are the programme's infrastructure offer and development approach, not proof that every proposed node or plot is operational. Check the particular site's development status, utilities, land availability and applicable approvals. In corpus reporting exercises, distinguish a node approved, infrastructure constructed, a plot allotted, a factory commissioned and employment actually recorded; these distinctions are editorial guidance.
+
+NSWS: Approvals and Responsible Authorities [GOV-NSWS]
+-----------------------------------------------------
+The National Single Window System helps businesses identify and apply for Central and State approvals. Its Know Your Approvals questionnaire produces an indicative list based on the applicant's inputs and is guidance, not an approval. The official FAQ states that the relevant ministry, department or State decides whether to grant an approval; NSWS itself does not issue approvals. It distinguishes pre-establishment approvals from those needed to start operations. Requirements, fees and timelines depend on the particular approval and authority. In corpus reviews, separate a suggested approval, an application filed, a decision issued and fulfilment of any conditions; these reporting distinctions are editorial guidance.
+
+MSME Samadhaan: Delayed-Payment Support
+--------------------------------------
+The Ministry of MSME's official description identifies Samadhaan as an online route for micro and small enterprises to file delayed-payment applications, with cases handled by the concerned State or Union Territory Micro and Small Enterprise Facilitation Council (MSEFC) [GOV-SAMADHAAN-PROCESS]. The Ministry's RAMP page identifies micro or small enterprises with valid Udyam registration as applicants [GOV-SAMADHAAN-ACCESS]. Do not extend that description to all medium enterprises simply because they belong to the broader MSME category; check applicable supplier and claim conditions. Filing on the portal is not proof that a debt was established or money recovered. In corpus reporting exercises, retain the supplier, buyer, transaction evidence, claim stage, council decision and actual payment separately. These are editorial measurement distinctions, not an individual legal assessment.
+
+Enterprise Support Stages
+-------------------------
+An enterprise may submit a credit application, receive a sanction, draw down a
+loan and later repay it; these stages should not be reported as one credit
+coverage figure. The same distinction applies to subsidy applications, approvals
+and disbursements. Employment estimates may count direct workers, temporary
+workers or jobs expected from an investment, so the definition and reporting
+period matter. A cluster can have stronger production capacity while individual
+micro-enterprises still face working-capital and market-access constraints.
+
+Government Policies: Labour Mobility, Social Protection and Urban Informal Work
+=============================================================================
+
+Policy Purpose
+--------------
+Labour-mobility policy supports safe migration, portable access to entitlements, dignified work, skills, social protection and responsive urban services. It recognises that a worker can be registered, placed, employed, paid and retained at different stages, each requiring its own evidence.
+
+Mobility Case Lifecycle
+-----------------------
+The Migrant Support Record (MSR-3) tracks a worker's origin reference, destination service point, requested entitlement, identity or bank correction, referral owner and review date. An MSR-3 referral confirms that assistance was initiated; it does not prove the worker obtained a job, received a wage, collected a ration or accessed health care.
+
+Work and Payment Distinctions
+-----------------------------
+Job registration, work allocation, attendance recorded, wage order generated, funds released and successful credit are separate states. A worker may have completed work while payment remains pending because of attendance, identity, bank or transaction exceptions. In rural works, an asset completed is also distinct from employment generated and from a verified community outcome.
+
+Portable Services
+-----------------
+Destination cities should support assisted access to food, health, shelter and grievance services without assuming that a source-district record is current. Record reconciliation must retain the original mismatch and a correction trail. A portability request should state the relevant service, reporting period and destination authority rather than combining different entitlements into one status.
+
+Urban Service Accountability
+----------------------------
+City dashboards should separately report workers contacted, cases registered, referrals accepted, services accessed, payments credited and grievances verified. A closed case can indicate administrative closure, service completion or an unresolved withdrawal; the closure reason must be retained.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.
+
+MSME Delivery and Labour-Mobility Record Boundaries
+---------------------------------------------------
+MSME and industrial-development delivery must coordinate finance, infrastructure, skills and market access rather than treating an administrative approval as an enterprise outcome. For migrant services, MSR-3 records the origin, destination, requested entitlement, correction and referral owner. A portability request must retain the service, reporting period and destination authority. Reconciliation preserves the original mismatch and correction trail; a referral alone proves neither ration collection nor payment.

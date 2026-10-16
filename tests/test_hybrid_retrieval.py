@@ -2,6 +2,27 @@ from src.pipeline import pipeline
 from src.pipeline.pipeline import Chunk, bm25_scores, retrieve, rrf_fuse
 
 
+def test_qdrant_connection_error_preserves_cause_without_demanding_ingestion():
+    from unittest.mock import patch
+
+    failure = ConnectionError("[WinError 10054] connection forcibly closed")
+    index = [Chunk("one", "policy.txt", "A policy passage.", vector=[1.0, 0.0])]
+    with patch.object(pipeline, "retrieve_from_qdrant", side_effect=failure):
+        try:
+            pipeline._retrieve_with_qdrant_hybrid(
+                "What is the policy?", index, k=1, rrf_k=20,
+                collection_name="existing_collection", rag_settings=pipeline.Settings().rag,
+            )
+        except RuntimeError as exc:
+            assert "existing_collection" in str(exc)
+            assert "WinError 10054" in str(exc)
+            assert "Re-ingest only if" in str(exc)
+            assert "Run `python scripts/ingest_qdrant.py`" not in str(exc)
+            assert exc.__cause__ is failure
+        else:
+            raise AssertionError("The connection failure was silently ignored")
+
+
 def test_rrf_fusion_scores_by_rank_across_retrievers() -> None:
     scores = rrf_fuse(
         [["doc_A", "doc_B", "doc_C"], ["doc_C", "doc_A", "doc_D"]],
@@ -48,7 +69,7 @@ def test_hybrid_retrieval_uses_bm25_when_semantic_scores_tie(monkeypatch) -> Non
     ]
     monkeypatch.setattr(pipeline, "embed", lambda _text, **_: [1.0, 0.0])
 
-    results = retrieve("Which SRR-12 fields are required?", index, k=1)
+    results = retrieve("Which SRR-12 fields are required?", index, k=1, strategy="hybrid")
 
     assert results[0]["chunk_id"] == "water.txt#0"
     assert results[0]["bm25_score"] > 0.0

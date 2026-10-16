@@ -1,0 +1,95 @@
+Government Policies: Agriculture and Farmers' Welfare
+=====================================================
+
+Official Source Supplement (checked 14 October 2026)
+---------------------------------------------------
+The following source-backed notes supplement the training corpus. Source identifiers resolve to official URLs in docs/corpus_sources.json. Existing local record codes and district case exercises are training conventions, not government-prescribed forms.
+
+PM-KISAN Benefit, Family and Delivery [GOV-PMKISAN]
+-------------------------------------------------
+PM-KISAN is a Central Sector scheme funded by the Government of India. It provides eligible landholding farmer families Rs 6,000 a year in three equal instalments of Rs 2,000, transferred directly to beneficiary bank accounts. The scheme defines a family as husband, wife and minor children. State governments and Union Territory administrations identify eligible families under the scheme guidelines; exclusion categories apply. This is a family-level benefit, not Rs 6,000 for each family member. The official portal provides beneficiary lists and a helpdesk query form. These facts do not establish an individual applicant's eligibility or successful credit.
+
+Agricultural Marketing through eNAM [GOV-ENAM]
+----------------------------------------------
+The National Agriculture Market (eNAM) connects existing Agricultural Produce Market Committee (APMC) mandis through an electronic trading platform. The Small Farmers Agribusiness Consortium (SFAC) implements it under the Ministry of Agriculture and Farmers' Welfare. Its stated aims include transparent auctions, price discovery based on produce quality and timely online payment. It connects markets rather than replacing agricultural production or guaranteeing a sale price. For this corpus's measurement exercises, distinguish a farmer registered on the platform, a produce lot offered, an auction completed and payment received; those distinctions are editorial guidance, not additional scheme entitlements.
+
+Soil Health Card: Measurements and Advice [GOV-SHC]
+--------------------------------------------------
+A Soil Health Card reports the nutrient status of a holding and recommends fertiliser doses and soil amendments. The official FAQ lists twelve parameters: nitrogen (N), phosphorus (P), potassium (K), sulphur (S), zinc (Zn), iron (Fe), copper (Cu), manganese (Mn), boron (Bo), pH, electrical conductivity (EC) and organic carbon (OC). State and Union Territory agriculture departments implement the scheme. The card is an advisory based on tested soil; this corpus does not treat issuance of a card as proof of a yield increase or of safe drinking water.
+
+Policy Objectives
+-----------------
+Government policy in agriculture focuses on farmer income support, crop risk management, credit, irrigation, infrastructure, markets, technology and sustainable farming. Programmes are delivered through a combination of Central Sector schemes, Centrally Sponsored Schemes and cooperation with State governments.
+
+Income Support and Credit
+-------------------------
+PM-KISAN provides income support to eligible farmer families under its scheme framework. Agricultural credit policies are supported through instruments such as the Kisan Credit Card and interest-support arrangements. Credit is intended to help farmers finance seasonal cultivation and other eligible agricultural activities.
+
+Crop Insurance and Risk
+-----------------------
+Pradhan Mantri Fasal Bima Yojana is designed to address crop-related risks through insurance. Weather, yield loss and other agricultural risks make risk management an important policy area. Implementation requires coordination among governments, insurers and farmers.
+
+Infrastructure and Markets
+--------------------------
+The Agriculture Infrastructure Fund supports investment in eligible agricultural infrastructure. Policy also supports Farmer Producer Organisations, storage, processing, mechanisation and improved market access. These measures aim to strengthen value chains beyond primary cultivation.
+
+Sustainability and Water
+------------------------
+Policies include support for efficient irrigation, soil health, natural farming, crop diversification and related sustainability initiatives. Water availability varies substantially across regions, so agricultural policy must adapt to local conditions and cropping patterns.
+
+Digital Agriculture
+-------------------
+Digital Agriculture initiatives seek to improve the use of data and digital systems in agricultural services. Digital tools may support access to information, records, advisories and programme delivery. Their effectiveness depends on reliable data, local institutions and access for farmers.
+
+Delivery and Measurement Caveats
+--------------------------------
+Farmer registration, eligibility verification, payment release and actual receipt
+are separate stages. A farmer may appear in a scheme registry without receiving
+a payment if land records, bank details or identity information require correction.
+Crop-insurance reporting also distinguishes an intimation of loss, a surveyed
+claim and a settled claim. Seasonal weather data can support assessment, but the
+presence of a weather event does not by itself establish the final compensation.
+District comparisons should therefore specify the crop, season, scheme and
+indicator being compared rather than treating all registered farmers as
+beneficiaries.
+
+The completion of a farm asset, an enrolled farmer and a reported irrigation advisory are separate measures. They should not be reported as proof that a household received safe drinking water or that a water source remained functional through the dry season. District reviews should retain the scheme, season, source and service indicator for each claim.
+
+Where watershed work is undertaken through a rural employment programme, the implementing agency should document the asset location, community maintenance responsibility and the intended hydrological outcome. A construction record alone is not evidence of recharge, reliable water availability or equitable access.
+
+Government Policies: Water, Sanitation and Climate Resilience
+=============================================================
+
+Policy Purpose
+--------------
+Water and sanitation policy aims to secure safe, reliable and equitable services while protecting local sources from drought, contamination, flooding and over-extraction. Delivery combines household-level infrastructure, community institutions, source sustainability, public-health safeguards and climate-risk planning.
+
+Water-Service Lifecycle
+-----------------------
+A household connection, a functional connection, a water-quality test and regular safe use are separate measures. A connection should be counted as functional only when it delivers the prescribed service level at the point of use; a one-time installation record is not evidence of sustained service. Water-quality monitoring should record the sample source, collection date, parameter tested and the action taken when a result is unsafe.
+
+The Source Reliability Register (SRR-12) is the field record for a source that is seasonal, contaminated, or under repair. An SRR-12 entry must state the source identifier, failure category, affected users, fallback supply, responsible authority, and expected restoration date. A closed SRR-12 entry is not proof of restored service until the source is verified functional.
+
+Village Water Security Planning
+-------------------------------
+The Gram Panchayat and Village Water and Sanitation Committee should maintain a village water-security plan that identifies sources, seasonal demand, recharge opportunities, risks and emergency alternatives. The plan should include a seasonal water budget that distinguishes drinking-water needs from irrigation and other uses. Community maintenance responsibilities, tariff or contribution arrangements where applicable, and grievance contacts should be visible to users.
+
+Sanitation and Public Health
+----------------------------
+Sanitation policy covers safe containment, collection, treatment and reuse or disposal of waste, as well as household and community behaviour. A declaration of infrastructure coverage or open-defecation-free status is not, by itself, proof of sustained waste management, safe water quality or lower disease incidence. Local teams should use sanitation observations, water-quality results and disease surveillance to target corrective action without claiming causation that has not been established.
+
+Climate Resilience and Emergency Service
+----------------------------------------
+Drought, flood, heat and contamination risks should be assessed before the season and reviewed after a disruption. Where a source fails, the responsible local authority should document the fallback supply, affected users, expected restoration action and date. Emergency supply may protect immediate access but should not be recorded as restoration of the original source.
+
+Convergence with Agriculture and Rural Works
+--------------------------------------------
+Micro-irrigation, soil-moisture work and watershed assets can reduce agricultural demand and protect a shared source when they are aligned with the village water budget. They do not, by themselves, establish that households receive safe drinking water. Rural employment works should record both the completed asset and the later service or hydrological outcome, with the Gram Sabha able to review the distinction.
+
+Measurement and Accountability
+------------------------------
+District dashboards should separately report households connected, connections functional, sources tested, unsafe results resolved, and communities using an emergency fallback supply. Comparisons must state the reporting period, service definition and source of evidence. A grievance closed in an administrative register should not automatically be treated as a verified restoration of service.
+
+Common Administration and Evidence Standards
+--------------------------------------------
+Use a written procedure with a named responsible authority, intended users, required records, completion criteria and routes for exceptions or clarification. Coordinate policy authorities, field offices, local institutions and delivery partners, retaining visible pending dependencies. Address distance, documentation, language, disability, connectivity and cost through outreach and assisted access. Distinguish administrative activity from actual outcomes, and record the unit, date, source, status and unresolved cases.

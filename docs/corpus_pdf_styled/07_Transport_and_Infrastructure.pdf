@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 6 0 R] /Count 2 >>
+<< /Type /Pages /Kids [5 0 R 6 0 R 7 0 R] /Count 3 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -12,107 +12,158 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
-endobj
-6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
 endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
 7 0 obj
-<< /Length 3261 >>
-stream
-BT /F2 18 Tf 50 742 Td (Government Policies: Transport and Infrastructure) Tj ET
-BT /F2 12 Tf 50 700 Td (Policy Objectives) Tj ET
-BT /F1 10 Tf 50 678 Td (Transport and infrastructure policy seeks to improve connectivity, reduce logistics costs,) Tj ET
-BT /F1 10 Tf 50 664 Td (increase safety and support economic activity. Roads, railways, airports, ports, waterways) Tj ET
-BT /F1 10 Tf 50 650 Td (and urban transport form an interconnected system.) Tj ET
-BT /F2 12 Tf 50 622 Td (Integrated Planning) Tj ET
-BT /F1 10 Tf 50 600 Td (PM GatiShakti is associated with integrated infrastructure planning and coordination. The) Tj ET
-BT /F1 10 Tf 50 586 Td (objective of integrated planning is to reduce duplication and improve connections between) Tj ET
-BT /F1 10 Tf 50 572 Td (different transport and infrastructure networks.) Tj ET
-BT /F2 12 Tf 50 544 Td (National Logistics Policy) Tj ET
-BT /F1 10 Tf 50 522 Td (The National Logistics Policy focuses on improving the efficiency of moving goods. Logistics) Tj ET
-BT /F1 10 Tf 50 508 Td (performance is affected by infrastructure, regulation, warehousing, digital systems,) Tj ET
-BT /F1 10 Tf 50 494 Td (last-mile connectivity and coordination among agencies.) Tj ET
-BT /F2 12 Tf 50 466 Td (Roads and Highways) Tj ET
-BT /F1 10 Tf 50 444 Td (Highway development can reduce travel times and improve market access. Policy must also) Tj ET
-BT /F1 10 Tf 50 430 Td (address maintenance, road safety, land acquisition, environmental impacts and the connection) Tj ET
-BT /F1 10 Tf 50 416 Td (of highways to local roads.) Tj ET
-BT /F2 12 Tf 50 388 Td (Railways and Public Transport) Tj ET
-BT /F1 10 Tf 50 366 Td (Railways support both passenger and freight movement. Urban transport policies also address) Tj ET
-BT /F1 10 Tf 50 352 Td (metros, buses and multimodal systems. Investment decisions must consider demand,) Tj ET
-BT /F1 10 Tf 50 338 Td (affordability and long-term operating requirements.) Tj ET
-BT /F2 12 Tf 50 310 Td (Ports and Aviation) Tj ET
-BT /F1 10 Tf 50 288 Td (Ports and airports connect domestic and international markets. Their effectiveness depends) Tj ET
-BT /F1 10 Tf 50 274 Td (not only on terminals but also on surrounding roads, rail links, customs processes,) Tj ET
-BT /F1 10 Tf 50 260 Td (warehousing and other supporting infrastructure.) Tj ET
-BT /F2 12 Tf 50 232 Td (Project Progress and Performance) Tj ET
-BT /F1 10 Tf 50 210 Td (Transport projects pass through approval, land acquisition, contracting,) Tj ET
-BT /F1 10 Tf 50 196 Td (construction and commissioning stages. A length awarded to a contractor is not) Tj ET
-BT /F1 10 Tf 50 182 Td (the same as a length completed or opened to traffic. Similarly, reduced travel) Tj ET
-BT /F1 10 Tf 50 168 Td (time, lower freight cost, fewer accidents and higher passenger volume are) Tj ET
-BT /F1 10 Tf 50 154 Td (different outcomes. A logistics corridor can improve freight movement while a) Tj ET
-BT /F1 10 Tf 50 140 Td (nearby village still lacks a last-mile connection. Claims about project success) Tj ET
-BT /F1 10 Tf 50 126 Td (should name the stage, route, mode and measurement period.) Tj ET
-BT /F2 12 Tf 50 98 Td (Government Policies: Food Security, Public Distribution and Local Nutrition) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 1 of 2) Tj ET
-endstream
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
 endobj
 8 0 obj
-<< /Length 3931 >>
+<< /Length 3760 >>
 stream
-BT /F2 12 Tf 50 737 Td (Policy Purpose) Tj ET
-BT /F1 10 Tf 50 715 Td (Food-security policy combines entitlement delivery, local storage, nutrition support, price) Tj ET
-BT /F1 10 Tf 50 701 Td (resilience and accessible grievance channels. It should distinguish an eligible household,) Tj ET
-BT /F1 10 Tf 50 687 Td (an allocated entitlement, an authenticated transaction, a collected ration and a nutrition) Tj ET
-BT /F1 10 Tf 50 673 Td (or health outcome.) Tj ET
-BT /F2 12 Tf 50 645 Td (Entitlement and Transaction States) Tj ET
-BT /F1 10 Tf 50 623 Td (A household may be present in a ration registry before its identity or household composition) Tj ET
-BT /F1 10 Tf 50 609 Td (is corrected. A Fair Price Shop transaction can be authorised, attempted, completed or) Tj ET
-BT /F1 10 Tf 50 595 Td (reversed; these are not interchangeable. The Fair Price Shop Exception Log \(FPS-21\) records) Tj ET
-BT /F1 10 Tf 50 581 Td (failed authentication, stock variance, portability requests, transaction reversals and) Tj ET
-BT /F1 10 Tf 50 567 Td (correction ownership. An FPS-21 closure requires either a confirmed replacement transaction) Tj ET
-BT /F1 10 Tf 50 553 Td (or a documented reason the entitlement was not due.) Tj ET
-BT /F2 12 Tf 50 525 Td (Nutrition Convergence) Tj ET
-BT /F1 10 Tf 50 503 Td (Commodity distribution can support food access but does not establish dietary adequacy,) Tj ET
-BT /F1 10 Tf 50 489 Td (child growth improvement or completed clinical care. When a nutrition worker identifies a) Tj ET
-BT /F1 10 Tf 50 475 Td (child requiring follow-up, the NTR-7 referral pathway tracks coordination with a health) Tj ET
-BT /F1 10 Tf 50 461 Td (facility. Food-distribution reporting should not merge household ration collection with) Tj ET
-BT /F1 10 Tf 50 447 Td (children screened, referrals accepted or treatment completed.) Tj ET
-BT /F2 12 Tf 50 419 Td (Digital and Local Safeguards) Tj ET
-BT /F1 10 Tf 50 397 Td (Offline registers and assisted authentication must remain available during connectivity) Tj ET
-BT /F1 10 Tf 50 383 Td (failures. Once service resumes, the system should reconcile the original transaction, the) Tj ET
-BT /F1 10 Tf 50 369 Td (correction action and any duplicate risk without overwriting the audit trail. A dashboard) Tj ET
-BT /F1 10 Tf 50 355 Td (must state whether it reports allocation, attempted authentication, completed collection, or) Tj ET
-BT /F1 10 Tf 50 341 Td (resolved exception.) Tj ET
-BT /F2 12 Tf 50 313 Td (Storage, Shocks and Accountability) Tj ET
-BT /F1 10 Tf 50 291 Td (Local plans should record stock condition, last-mile access constraints, community notice) Tj ET
-BT /F1 10 Tf 50 277 Td (arrangements and escalation contacts before a disruption. During a flood, heat event or) Tj ET
-BT /F1 10 Tf 50 263 Td (transport interruption, an emergency issue may protect immediate access but should not be) Tj ET
-BT /F1 10 Tf 50 249 Td (reported as normal monthly collection. Social audit and grievance review should test whether) Tj ET
-BT /F1 10 Tf 50 235 Td (a reported transaction corresponds to an accessible entitlement for the household.) Tj ET
-BT /F2 12 Tf 50 207 Td (Common Administration and Evidence Standards) Tj ET
-BT /F1 10 Tf 50 185 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
-BT /F1 10 Tf 50 171 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
-BT /F1 10 Tf 50 157 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
-BT /F1 10 Tf 50 143 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
-BT /F1 10 Tf 50 129 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
-BT /F1 10 Tf 50 115 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
-BT /F1 8 Tf 500 25 Td (Page 2 of 2) Tj ET
+BT /F2 18 Tf 50 742 Td (Government Policies: Transport and Infrastructure) Tj ET
+BT /F2 12 Tf 50 700 Td (Official Infrastructure Supplement \(checked 14 October 2026\)) Tj ET
+BT /F1 10 Tf 50 678 Td (These notes supplement the training corpus using official infrastructure and industry) Tj ET
+BT /F1 10 Tf 50 664 Td (resources. Source identifiers resolve to URLs in docs/corpus_sources.json. Planning systems,) Tj ET
+BT /F1 10 Tf 50 650 Td (operating approvals and performance measures serve different purposes. Local casebook) Tj ET
+BT /F1 10 Tf 50 636 Td (figures and training-record codes are not authenticated national programme statistics or) Tj ET
+BT /F1 10 Tf 50 622 Td (government forms by these sources.) Tj ET
+BT /F2 12 Tf 50 594 Td (Policy Objectives) Tj ET
+BT /F1 10 Tf 50 572 Td (Transport and infrastructure policy seeks to improve connectivity, reduce logistics costs,) Tj ET
+BT /F1 10 Tf 50 558 Td (increase safety and support economic activity. Roads, railways, airports, ports, waterways) Tj ET
+BT /F1 10 Tf 50 544 Td (and urban transport form an interconnected system.) Tj ET
+BT /F2 12 Tf 50 516 Td (Integrated Planning) Tj ET
+BT /F1 10 Tf 50 494 Td (PM GatiShakti's National Master Plan is a GIS-based, data-supported platform for integrated) Tj ET
+BT /F1 10 Tf 50 480 Td (infrastructure planning, coordinated implementation and project monitoring across) Tj ET
+BT /F1 10 Tf 50 466 Td (ministries, departments and States [GOV-GATISHAKTI]. DPIIT describes its use in identifying) Tj ET
+BT /F1 10 Tf 50 452 Td (first- and last-mile connectivity gaps and planning multimodal links for people, goods and) Tj ET
+BT /F1 10 Tf 50 438 Td (services. A mapped proposal or an identified gap is not a completed transport connection. In) Tj ET
+BT /F1 10 Tf 50 424 Td (corpus reporting exercises, retain the location, transport mode, responsible agency,) Tj ET
+BT /F1 10 Tf 50 410 Td (dependencies and project stage separately; those reporting distinctions are editorial) Tj ET
+BT /F1 10 Tf 50 396 Td (guidance.) Tj ET
+BT /F2 12 Tf 50 368 Td (National Logistics Policy) Tj ET
+BT /F1 10 Tf 50 346 Td (The National Logistics Policy focuses on improving the efficiency of moving goods. Logistics) Tj ET
+BT /F1 10 Tf 50 332 Td (performance is affected by infrastructure, regulation, warehousing, digital systems,) Tj ET
+BT /F1 10 Tf 50 318 Td (last-mile connectivity and coordination among agencies.) Tj ET
+BT /F2 12 Tf 50 290 Td (ULIP: Logistics Data Exchange [GOV-ULIP]) Tj ET
+BT /F1 10 Tf 50 268 Td (DPIIT describes the Unified Logistics Interface Platform \(ULIP\), launched under the National) Tj ET
+BT /F1 10 Tf 50 254 Td (Logistics Policy in September 2022, as integrating logistics systems of government) Tj ET
+BT /F1 10 Tf 50 240 Td (departments through Application Programming Interfaces \(APIs\). Published use cases include) Tj ET
+BT /F1 10 Tf 50 226 Td (cargo tracking, gate automation and verification. Digital integration is different from) Tj ET
+BT /F1 10 Tf 50 212 Td (physical road, rail, port or warehouse capacity. In corpus reviews, API transactions,) Tj ET
+BT /F1 10 Tf 50 198 Td (shipments handled, transit time and logistics cost are separate indicators; no single) Tj ET
+BT /F1 10 Tf 50 184 Td (integration count establishes an actual cost reduction. The measurement distinctions are) Tj ET
+BT /F1 10 Tf 50 170 Td (editorial guidance.) Tj ET
+BT /F2 12 Tf 50 142 Td (Roads and Highways) Tj ET
+BT /F1 10 Tf 50 120 Td (Highway development can reduce travel times and improve market access. Policy must also) Tj ET
+BT /F1 10 Tf 50 106 Td (address maintenance, road safety, land acquisition, environmental impacts and the connection) Tj ET
+BT /F1 10 Tf 50 92 Td (of highways to local roads.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Length 3905 >>
+stream
+BT /F2 12 Tf 50 737 Td (Railways and Public Transport) Tj ET
+BT /F1 10 Tf 50 715 Td (Railways support both passenger and freight movement. Urban transport policies also address) Tj ET
+BT /F1 10 Tf 50 701 Td (metros, buses and multimodal systems. Investment decisions must consider demand,) Tj ET
+BT /F1 10 Tf 50 687 Td (affordability and long-term operating requirements.) Tj ET
+BT /F2 12 Tf 50 659 Td (Ports and Aviation) Tj ET
+BT /F1 10 Tf 50 637 Td (Ports and airports connect domestic and international markets. Their effectiveness depends) Tj ET
+BT /F1 10 Tf 50 623 Td (not only on terminals but also on surrounding roads, rail links, customs processes,) Tj ET
+BT /F1 10 Tf 50 609 Td (warehousing and other supporting infrastructure.) Tj ET
+BT /F2 12 Tf 50 581 Td (Aviation Security Applications [GOV-ESAHAJ]) Tj ET
+BT /F1 10 Tf 50 559 Td (The Ministry of Civil Aviation's e-Sahaj portal provides online security-clearance) Tj ET
+BT /F1 10 Tf 50 545 Td (applications for aviation-sector organisations and individuals. Its guidance directs) Tj ET
+BT /F1 10 Tf 50 531 Td (applicants to the relevant clearance type and user manual. A submitted form is not an issued) Tj ET
+BT /F1 10 Tf 50 517 Td (security clearance, and security clearance should not be treated as the entire set of) Tj ET
+BT /F1 10 Tf 50 503 Td (operating permissions for an airport or air operator. In corpus reporting exercises,) Tj ET
+BT /F1 10 Tf 50 489 Td (distinguish application submission, document scrutiny, security decision and the applicable) Tj ET
+BT /F1 10 Tf 50 475 Td (operating authorisation. These stage distinctions are editorial guidance; check the current) Tj ET
+BT /F1 10 Tf 50 461 Td (authority-specific process for an individual case.) Tj ET
+BT /F2 12 Tf 50 433 Td (Project Progress and Performance) Tj ET
+BT /F1 10 Tf 50 411 Td (Transport projects pass through approval, land acquisition, contracting,) Tj ET
+BT /F1 10 Tf 50 397 Td (construction and commissioning stages. A length awarded to a contractor is not) Tj ET
+BT /F1 10 Tf 50 383 Td (the same as a length completed or opened to traffic. Similarly, reduced travel) Tj ET
+BT /F1 10 Tf 50 369 Td (time, lower freight cost, fewer accidents and higher passenger volume are) Tj ET
+BT /F1 10 Tf 50 355 Td (different outcomes. A logistics corridor can improve freight movement while a) Tj ET
+BT /F1 10 Tf 50 341 Td (nearby village still lacks a last-mile connection. Claims about project success) Tj ET
+BT /F1 10 Tf 50 327 Td (should name the stage, route, mode and measurement period.) Tj ET
+BT /F2 12 Tf 50 299 Td (Government Policies: Food Security, Public Distribution and Local Nutrition) Tj ET
+BT /F2 12 Tf 50 263 Td (Policy Purpose) Tj ET
+BT /F1 10 Tf 50 241 Td (Food-security policy combines entitlement delivery, local storage, nutrition support, price) Tj ET
+BT /F1 10 Tf 50 227 Td (resilience and accessible grievance channels. It should distinguish an eligible household,) Tj ET
+BT /F1 10 Tf 50 213 Td (an allocated entitlement, an authenticated transaction, a collected ration and a nutrition) Tj ET
+BT /F1 10 Tf 50 199 Td (or health outcome.) Tj ET
+BT /F2 12 Tf 50 171 Td (Entitlement and Transaction States) Tj ET
+BT /F1 10 Tf 50 149 Td (A household may be present in a ration registry before its identity or household composition) Tj ET
+BT /F1 10 Tf 50 135 Td (is corrected. A Fair Price Shop transaction can be authorised, attempted, completed or) Tj ET
+BT /F1 10 Tf 50 121 Td (reversed; these are not interchangeable. The Fair Price Shop Exception Log \(FPS-21\) records) Tj ET
+BT /F1 10 Tf 50 107 Td (failed authentication, stock variance, portability requests, transaction reversals and) Tj ET
+BT /F1 10 Tf 50 93 Td (correction ownership. An FPS-21 closure requires either a confirmed replacement transaction) Tj ET
+BT /F1 10 Tf 50 79 Td (or a documented reason the entitlement was not due.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Length 3937 >>
+stream
+BT /F2 12 Tf 50 728 Td (Official Food-Safety Service Supplement \(checked 14 October 2026\)) Tj ET
+BT /F1 10 Tf 50 706 Td (FSSAI's Food Safety Connect grievance portal accepts consumer concerns about packaged food,) Tj ET
+BT /F1 10 Tf 50 692 Td (food premises and online food aggregators or delivery platforms [GOV-FSSAI-GRIEVANCE]. Its) Tj ET
+BT /F1 10 Tf 50 678 Td (FAQ describes submitting complaints, attaching supporting evidence such as a product) Tj ET
+BT /F1 10 Tf 50 664 Td (photograph or bill, and tracking complaint status online. The portal routes complaints to) Tj ET
+BT /F1 10 Tf 50 650 Td (the relevant food business and authorities for action. A food-safety complaint is different) Tj ET
+BT /F1 10 Tf 50 636 Td (from a public-distribution entitlement dispute or a clinical nutrition referral. For corpus) Tj ET
+BT /F1 10 Tf 50 622 Td (reporting exercises, keep complaint submission, investigation, corrective action and) Tj ET
+BT /F1 10 Tf 50 608 Td (verification separate; submission alone does not prove contamination, illness causation or) Tj ET
+BT /F1 10 Tf 50 594 Td (resolution. This distinction is editorial guidance. Official URLs are in) Tj ET
+BT /F1 10 Tf 50 580 Td (docs/corpus_sources.json.) Tj ET
+BT /F2 12 Tf 50 552 Td (Nutrition Convergence) Tj ET
+BT /F1 10 Tf 50 530 Td (Commodity distribution can support food access but does not establish dietary adequacy,) Tj ET
+BT /F1 10 Tf 50 516 Td (child growth improvement or completed clinical care. When a nutrition worker identifies a) Tj ET
+BT /F1 10 Tf 50 502 Td (child requiring follow-up, the NTR-7 referral pathway tracks coordination with a health) Tj ET
+BT /F1 10 Tf 50 488 Td (facility. Food-distribution reporting should not merge household ration collection with) Tj ET
+BT /F1 10 Tf 50 474 Td (children screened, referrals accepted or treatment completed.) Tj ET
+BT /F2 12 Tf 50 446 Td (Digital and Local Safeguards) Tj ET
+BT /F1 10 Tf 50 424 Td (Offline registers and assisted authentication must remain available during connectivity) Tj ET
+BT /F1 10 Tf 50 410 Td (failures. Once service resumes, the system should reconcile the original transaction, the) Tj ET
+BT /F1 10 Tf 50 396 Td (correction action and any duplicate risk without overwriting the audit trail. A dashboard) Tj ET
+BT /F1 10 Tf 50 382 Td (must state whether it reports allocation, attempted authentication, completed collection, or) Tj ET
+BT /F1 10 Tf 50 368 Td (resolved exception.) Tj ET
+BT /F2 12 Tf 50 340 Td (Storage, Shocks and Accountability) Tj ET
+BT /F1 10 Tf 50 318 Td (Local plans should record stock condition, last-mile access constraints, community notice) Tj ET
+BT /F1 10 Tf 50 304 Td (arrangements and escalation contacts before a disruption. During a flood, heat event or) Tj ET
+BT /F1 10 Tf 50 290 Td (transport interruption, an emergency issue may protect immediate access but should not be) Tj ET
+BT /F1 10 Tf 50 276 Td (reported as normal monthly collection. Social audit and grievance review should test whether) Tj ET
+BT /F1 10 Tf 50 262 Td (a reported transaction corresponds to an accessible entitlement for the household.) Tj ET
+BT /F2 12 Tf 50 234 Td (Common Administration and Evidence Standards) Tj ET
+BT /F1 10 Tf 50 212 Td (Use a written procedure with a named responsible authority, intended users, required) Tj ET
+BT /F1 10 Tf 50 198 Td (records, completion criteria and routes for exceptions or clarification. Coordinate policy) Tj ET
+BT /F1 10 Tf 50 184 Td (authorities, field offices, local institutions and delivery partners, retaining visible) Tj ET
+BT /F1 10 Tf 50 170 Td (pending dependencies. Address distance, documentation, language, disability, connectivity) Tj ET
+BT /F1 10 Tf 50 156 Td (and cost through outreach and assisted access. Distinguish administrative activity from) Tj ET
+BT /F1 10 Tf 50 142 Td (actual outcomes, and record the unit, date, source, status and unresolved cases.) Tj ET
+BT /F1 8 Tf 500 25 Td (Page 3 of 3) Tj ET
 endstream
 endobj
 xref
-0 9
+0 11
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000121 00000 n 
-0000000218 00000 n 
-0000000320 00000 n 
-0000000456 00000 n 
-0000000592 00000 n 
-0000003905 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000000462 00000 n 
+0000000598 00000 n 
+0000000735 00000 n 
+0000004547 00000 n 
+0000008504 00000 n 
 trailer
-<< /Size 9 /Root 1 0 R >>
+<< /Size 11 /Root 1 0 R >>
 startxref
-7888
+12494
 %%EOF
