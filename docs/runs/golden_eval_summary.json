@@ -4,38 +4,76 @@
   "unanswerable": 28,
   "retrieval_hits": 95,
   "retrieval_hit_rate": 0.9693877551020408,
-  "abstentions": 3,
-  "abstention_rate": 0.023809523809523808,
-  "passed": 114,
-  "pass_rate": 0.9047619047619048,
-  "answerable_passed": 86,
-  "answerable_pass_rate": 0.8775510204081632,
+  "abstentions": 31,
+  "abstention_rate": 0.24603174603174602,
+  "passed": 112,
+  "pass_rate": 0.8888888888888888,
+  "answerable_passed": 84,
+  "answerable_pass_rate": 0.8571428571428571,
   "unanswerable_passed": 28,
   "unanswerable_pass_rate": 1.0,
-  "total_cost_usd": 0.040410300000000024,
-  "total_elapsed_seconds": 1087.1326009999764,
-  "total_retrieval_seconds": 1030.8477702000237,
-  "total_generation_seconds": 942.5046540000476,
-  "total_judge_seconds": 35.7254707999964,
+  "total_cost_usd": 0.03999254999999998,
+  "total_elapsed_seconds": 121.42361569999768,
+  "total_retrieval_seconds": 89.80342459998792,
+  "total_generation_seconds": 48.05002720002085,
+  "total_judge_seconds": 29.056565499995486,
   "by_eval_type": {
     "numerical and eligibility reasoning": 6,
     "retrieval": 16,
     "hallucination / abstention": 28,
     "unsupported-inference correction": 3,
     "service-boundary reasoning": 3,
-    "measurement reasoning": 2,
+    "indicator distinction": 1,
     "scope and timeline reasoning": 1,
+    "measurement reasoning": 1,
     "service-stage reasoning": 1,
     "numerical and target/outcome reasoning": 1,
     "planning/outcome reasoning": 1,
     "eligibility reasoning": 1,
     "cross-document reasoning": 63
   },
-  "judge_accuracy_avg": 3.6984126984126986,
-  "judge_groundedness_avg": 3.7301587301587302,
-  "judge_format_avg": 3.8968253968253967,
-  "judge_overall_avg": 3.7746825396825376,
-  "judge_passed": 114,
-  "judge_pass_rate": 0.9047619047619048,
-  "judge_log_path": "docs\\runs\\judge_logs\\golden_eval_20261016_002905_922895.jsonl"
+  "judge_accuracy_avg": 3.626984126984127,
+  "judge_groundedness_avg": 3.6666666666666665,
+  "judge_format_avg": 3.865079365079365,
+  "judge_overall_avg": 3.7190476190476165,
+  "judge_passed": 112,
+  "judge_pass_rate": 0.8888888888888888,
+  "judge_log_path": "C:\\code-repo\\iitm-pravarthak-handson\\iitm-pravarthak-handson\\docs\\runs\\judge_logs\\golden_20261017_094724_099673.jsonl",
+  "rag_metrics": {},
+  "kpis": {
+    "task_success": {
+      "numerator": 112,
+      "denominator": 126,
+      "rate": 0.8888888888888888
+    },
+    "citation_validity": {
+      "numerator": 95,
+      "denominator": 95,
+      "rate": 1.0
+    },
+    "correct_abstention": {
+      "numerator": 28,
+      "denominator": 28,
+      "rate": 1.0
+    },
+    "false_abstention": {
+      "numerator": 3,
+      "denominator": 98,
+      "rate": 0.030612244897959183
+    },
+    "grounded_response": {
+      "numerator": 88,
+      "denominator": 95,
+      "rate": 0.9263157894736842
+    },
+    "hallucination": {
+      "numerator": 7,
+      "denominator": 95,
+      "rate": 0.07368421052631578
+    },
+    "latency_p50_seconds": 6.369574450007349,
+    "latency_p95_seconds": 11.353582050000114,
+    "latency_measure": "rag_wall_seconds",
+    "mean_generation_cost_usd": 0.00031740119047619046
+  }
 }

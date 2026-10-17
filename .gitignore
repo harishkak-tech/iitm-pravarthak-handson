@@ -16,3 +16,4 @@ results.json
 
 # OS
 .DS_Store
+tmp/runtime/

@@ -59,6 +59,17 @@ class GoldenEvalRow(BaseModel):
     judge_reasoning: str | None = None
     judge_overall: float | None = Field(default=None, ge=1.0, le=4.0)
     judge_pass: bool | None = None
+    contexts: list[str] = Field(default_factory=list)
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    citation_validation: dict[str, Any] = Field(default_factory=dict)
+    kb_version: str = ""
+    answer_reason: str = ""
+    prompt_tokens_by_section: dict[str, Any] = Field(default_factory=dict)
+    metric_scores: dict[str, float] = Field(default_factory=dict)
+    raw_answer: str = ""
+    retrieved: list[dict[str, Any]] = Field(default_factory=list)
+    discarded_ids: list[str] = Field(default_factory=list)
+    rag_seconds: float = Field(default=0.0, ge=0)
 
 
 class GoldenEvalSummary(BaseModel):
@@ -90,6 +101,8 @@ class GoldenEvalSummary(BaseModel):
     judge_passed: int
     judge_pass_rate: float
     judge_log_path: str
+    rag_metrics: dict[str, Any] = Field(default_factory=dict)
+    kpis: dict[str, Any] = Field(default_factory=dict)
 
 
 def load_golden_set(path: str | Path) -> list[GoldenEntry]:
@@ -224,6 +237,7 @@ async def evaluate_golden_set(
     judge_log_path: str | Path | None = None,
     batch_answer_fn: Callable[[list[str]], Awaitable[list[Any]]] | None = None,
     batch_size: int = 5,
+    citation_grounding_enabled: bool = False,
 ) -> tuple[list[GoldenEvalRow], GoldenEvalSummary]:
     """Run a golden-set evaluation loop against an async question-answer function."""
     if batch_size < 1:
@@ -256,7 +270,10 @@ async def evaluate_golden_set(
 
     async def judge_one(entry: GoldenEntry, answer: Any) -> tuple[JudgeScore, float]:
         started = time.perf_counter()
-        retrieved = getattr(answer, "retrieved", [])
+        retrieved = getattr(answer, "evidence", getattr(answer, "retrieved", []))
+        cited_ids = getattr(answer, "citation_validation", {}).get("cited_ids", [])
+        if citation_grounding_enabled and cited_ids:
+            retrieved = [hit for hit in retrieved if hit["chunk_id"] in cited_ids]
         score = await judge_answer(
             question=entry.question,
             expected_behavior=entry.expected_behavior,
@@ -266,6 +283,7 @@ async def evaluate_golden_set(
             candidate_answer=getattr(answer, "content", getattr(answer, "text", str(answer))),
             answerability=entry.answerability,
             evaluation_type=entry.evaluation_type,
+            citation_grounding_enabled=citation_grounding_enabled,
         )
         finished = time.perf_counter()
         stage_intervals["judge"].append((started, finished))
@@ -361,6 +379,16 @@ async def evaluate_golden_set(
                     judge_reasoning=judge.reasoning,
                     judge_overall=judge.overall,
                     judge_pass=judge.passed,
+                    contexts=[h["text"] for h in getattr(answer, "evidence", retrieved)],
+                    evidence=getattr(answer, "evidence", retrieved),
+                    citation_validation=getattr(answer, "citation_validation", {}),
+                    kb_version=getattr(answer, "kb_version", ""),
+                    answer_reason=getattr(answer, "reason", ""),
+                    prompt_tokens_by_section=getattr(answer, "prompt_tokens_by_section", {}),
+                    raw_answer=getattr(answer, "raw_answer", answer_text),
+                    retrieved=retrieved,
+                    discarded_ids=getattr(answer, "discarded_ids", []),
+                    rag_seconds=getattr(answer, "rag_seconds", 0.0),
                 )
             )
             total_elapsed += elapsed

@@ -81,6 +81,12 @@ def golden_view(path, runs):
     ))
     run = next(r for r in runs if r["id"] == selected)
     summary = run["summary"]
+    if summary.get("rag_metrics") or summary.get("kpis"):
+        with st.expander("RAG metrics and evaluation KPIs", expanded=True):
+            metrics = summary.get("rag_metrics", {})
+            st.caption(f"Metric mode: {metrics.get('mode', 'off')}. Latency measure: {summary.get('kpis', {}).get('latency_measure', 'unavailable')}.")
+            st.json({"metrics": {k: v for k, v in metrics.items() if k != "per_row"},
+                     "kpis": summary.get("kpis", {})})
     with st.container(horizontal=True):
         st.metric("Pass rate", f"{summary.get('pass_rate', 0):.1%}", border=True)
         st.metric("Passed / total", f"{summary.get('passed', 0)} / {summary.get('total', 0)}", border=True)

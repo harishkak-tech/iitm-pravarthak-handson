@@ -50,9 +50,9 @@ def test_history_snapshots_and_atomic_results(tmp_path, monkeypatch):
         results = con.execute("SELECT run_id, result_json FROM golden_results ORDER BY id").fetchall()
     assert len(runs) == len(results) == 2
     assert runs[0][0] == "gpt-4.1"
-    assert json.loads(runs[0][1])["rag"]["retrieval"]["top_k"] == 8
+    assert json.loads(runs[0][1])["rag"]["retrieval"]["top_k"] == Settings().rag.retrieval.top_k
     assert json.loads(runs[1][1])["rag"]["retrieval"]["top_k"] == 2
-    assert json.loads(runs[0][1])["rag"]["retrieval"]["rerank_candidate_k"] == 50
+    assert json.loads(runs[0][1])["rag"]["retrieval"]["rerank_candidate_k"] == Settings().rag.retrieval.rerank_candidate_k
     assert json.loads(runs[1][1])["rag"]["retrieval"]["rerank_candidate_k"] == 10
     assert json.loads(runs[0][2]) == summary.model_dump(mode="json")
     assert json.loads(results[0][1]) == rows[0].model_dump(mode="json")

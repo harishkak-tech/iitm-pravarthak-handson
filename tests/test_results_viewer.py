@@ -55,7 +55,7 @@ class ResultsViewerTests(unittest.TestCase):
             self.skipTest("Streamlit is not installed in this environment")
         app = Path(__file__).resolve().parents[1] / "api/results_viewer.py"
         at = AppTest.from_file(str(app), default_timeout=30).run()
-        at.sidebar.text_input[0].set_value(str(self.path)).run()
+        next(w for w in at.sidebar.text_input if w.label == "Database path").set_value(str(self.path)).run()
         self.assertFalse(at.exception)
         self.assertFalse(at.error)
         self.assertEqual(at.selectbox[1].options, ["Q001"])
@@ -66,7 +66,7 @@ class ResultsViewerTests(unittest.TestCase):
         next(widget for widget in at.text_input if widget.label.startswith("Search questions")).set_value("no matching question").run()
         self.assertFalse(at.exception)
         self.assertTrue(any("No questions match" in info.value for info in at.info))
-        at.sidebar.text_input[0].set_value(str(self.path.parent / "missing.db")).run()
+        next(w for w in at.sidebar.text_input if w.label == "Database path").set_value(str(self.path.parent / "missing.db")).run()
         self.assertFalse(at.exception)
         self.assertTrue(at.error)
 

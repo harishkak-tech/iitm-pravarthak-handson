@@ -14,6 +14,7 @@ Hit with curl:
          -d '{"questions": ["What is RAG?", "Who is eligible for PM-KISAN?"]}'
 """
 import asyncio
+from contextlib import asynccontextmanager
 import logging
 import os
 from pathlib import Path
@@ -31,6 +32,7 @@ from pydantic import BaseModel, Field, field_validator
 # RAG pipeline â€” the underlying engine
 from src.pipeline.pipeline import RagAnswer as _RagAnswer
 from src.pipeline.pipeline import ask_rag as _ask_rag
+from src.pipeline.pipeline import close_qdrant_clients
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")
@@ -74,13 +76,29 @@ class BatchAnswer(Answer):
 class SingleAnswer(Answer):
     question: str
     retrieved: list[dict[str, Any]] = Field(default_factory=list)
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    citation_validation: dict[str, Any] = Field(default_factory=dict)
+    abstained: bool = False
+    reason: str = "answered"
+    kb_version: str = ""
+    discarded_ids: list[str] = Field(default_factory=list)
+    prompt_tokens_by_section: dict[str, Any] = Field(default_factory=dict)
 
 
 class BatchResponse(BaseModel):
     answers: list[BatchAnswer]
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    try:
+        yield
+    finally:
+        close_qdrant_clients()
+
+
 app = FastAPI(
+    lifespan=lifespan,
     title="Capstone API",
     description="Wraps the W2 async pipeline. Contract locked in ADR 0002 (W3); internals upgraded W4+.",
     version="1.0.0",
@@ -119,6 +137,13 @@ async def ask_single_rag(q: Question) -> SingleAnswer:
         cost_usd=pipeline_ans.cost_usd,
         retries=pipeline_ans.retries,
         retrieved=pipeline_ans.retrieved,
+        evidence=getattr(pipeline_ans, "evidence", []),
+        citation_validation=getattr(pipeline_ans, "citation_validation", {}),
+        abstained=getattr(pipeline_ans, "abstained", False),
+        reason=getattr(pipeline_ans, "reason", "answered"),
+        kb_version=getattr(pipeline_ans, "kb_version", ""),
+        discarded_ids=getattr(pipeline_ans, "discarded_ids", []),
+        prompt_tokens_by_section=getattr(pipeline_ans, "prompt_tokens_by_section", {}),
     )
 
 

@@ -1,0 +1,4 @@
+# Optional live Week 11 metrics; core application does not import these packages.
+ragas==0.2.15
+langchain-openai>=0.2,<0.4
+tiktoken>=0.7

@@ -21,6 +21,9 @@ def fake_openai_response(text:str):
     fake_answer = MagicMock()
     #resp.choices[0].message.content
     fake_answer.choices = [MagicMock(message=MagicMock(content=text))]
+    fake_answer.choices[0].finish_reason = "stop"
+    from openai.types import CompletionUsage
+    fake_answer.usage = CompletionUsage(prompt_tokens=5, completion_tokens=3, total_tokens=8)
     return fake_answer
 
 

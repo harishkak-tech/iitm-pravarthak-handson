@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class FixedCharacterChunkingSettings(BaseModel):
@@ -97,10 +97,16 @@ class GenerationSettings(BaseModel):
 class QdrantSettings(BaseModel):
     """Remote Qdrant connection and collection lifecycle settings."""
 
+    provider: Literal["oci", "remote"] = "oci"
     url_env_var: str = "QDRANT_URL"
     api_key_env_var: str = "QDRANT_API_KEY"
+    oci_url_env_var: str = "OCI_QDRANT_URL"
+    oci_api_key_env_var: str = "OCI_QDRANT_API_KEY"
+    timeout_seconds: int = Field(30, gt=0)
+    read_retries: int = Field(1, ge=0, le=3)
     collection_prefix: str = "rag"
     upsert_batch_size: int = Field(128, gt=0)
+    versioned_ingestion_enabled: bool = True
 
 
 class RetrievalSettings(BaseModel):
@@ -109,10 +115,13 @@ class RetrievalSettings(BaseModel):
     # Possible values: "semantic", "hybrid".
     strategy: Literal["semantic", "hybrid"] = "hybrid"
     use_qdrant: bool = True
-    top_k: int = Field(8   , gt=0)
+    top_k: int = Field(8, gt=0)
     # Used only when hybrid retrieval or multi-query rewriting is enabled.
     rrf_k: int = Field(20, gt=0)
     max_context_chars: int = Field(5000, gt=0)
+    context_budget_enabled: bool = True
+    max_context_tokens: int | None = Field(None, gt=0)
+    rerank_score_threshold: float | None = Field(None, allow_inf_nan=False)
     # Optional hard filters applied before retrieval/ranking, using Qdrant payload fields
     # and local chunk metadata. Examples: {"doc_type": "pdf"}, {"page": {"gte": 2}}.
     metadata_filters: dict[str, Any] = Field(default_factory=dict)
@@ -130,6 +139,12 @@ class RetrievalSettings(BaseModel):
     rerank_model: str = "cross-encoder/ms-marco-MiniLM-L-12-v2"
     rerank_candidate_k: int = Field(15, gt=0)
 
+    @model_validator(mode="after")
+    def validate_score_gate(self):
+        if self.rerank_score_threshold is not None and not self.rerank_enabled:
+            raise ValueError("rerank_score_threshold requires rerank_enabled=True")
+        return self
+
 
 class RagSettings(BaseModel):
     """All RAG strategy settings, grouped in one place."""
@@ -141,6 +156,12 @@ class RagSettings(BaseModel):
     retrieval: RetrievalSettings = Field(default_factory=RetrievalSettings)
     generation: GenerationSettings = Field(default_factory=GenerationSettings)
     qdrant: QdrantSettings = Field(default_factory=QdrantSettings)
+    validate_answer_citations: bool = True
+    normalize_answer_citations: bool = True
+    corpus_change_detection_enabled: bool = True
+    citation_prompt_enabled: bool = True
+    empty_evidence_abstention_enabled: bool = True
+    trace_enabled: bool = True
 
     def indexing_settings(self) -> dict[str, object]:
         """Return only settings that change chunk text or vector dimensions."""
@@ -167,7 +188,18 @@ class RagSettings(BaseModel):
         payload = json.dumps(indexing, sort_keys=True, separators=(",", ":"))
         fingerprint = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
         corpus_name = re.sub(r"[^a-z0-9_]+", "_", self.corpus.directory.name.lower()).strip("_")
-        return f"{self.qdrant.collection_prefix}_{corpus_name}_{self.chunking.strategy}_{fingerprint}"
+        name = f"{self.qdrant.collection_prefix}_{corpus_name}_{self.chunking.strategy}_{fingerprint}"
+        return name if self.qdrant.versioned_ingestion_enabled else f"{name}_unversioned"
+
+
+class EvaluationSettings(BaseModel):
+    """Evaluation switches; CLI options override these defaults."""
+
+    kpis_enabled: bool = True
+    metrics_mode: Literal["off", "offline-proxy", "live"] = "off"
+    thresholds_enabled: bool = True
+    # Opt in explicitly: this changes the rubric versus historical golden runs.
+    citation_grounding_enabled: bool = False
 
 
 class Settings(BaseModel):
@@ -181,6 +213,7 @@ class Settings(BaseModel):
     model:         str   = "gpt-4o-mini"
     use_fake:      bool  = False
     rag:           RagSettings = Field(default_factory=RagSettings)
+    evaluation: EvaluationSettings = Field(default_factory=EvaluationSettings)
 
 
 class RunSummary(BaseModel):

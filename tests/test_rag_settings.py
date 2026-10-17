@@ -34,7 +34,7 @@ def test_semantic_retrieval_does_not_add_bm25_score(monkeypatch) -> None:
         Chunk("one", "policy.txt", "SRR-12 contains required fields.", vector=[1.0, 0.0]),
         Chunk("two", "policy.txt", "A general policy statement.", vector=[0.0, 1.0]),
     ]
-    monkeypatch.setattr(pipeline, "embed", lambda _text: [1.0, 0.0])
+    monkeypatch.setattr(pipeline, "embed", lambda _text, **kwargs: [1.0, 0.0])
 
     results = retrieve("SRR-12", index, k=1, strategy="semantic")
 

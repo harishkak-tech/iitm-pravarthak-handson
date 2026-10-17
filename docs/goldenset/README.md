@@ -1,5 +1,10 @@
 # Golden set for the current policy corpus
 
+On 16 October 2026, a joined JSONL line was separated and missing source,
+answerability, evaluation-type and evidence metadata was restored for
+`GS3-05-03`. Its question, expected answer and required facets were preserved;
+the manifest hash was refreshed. The set remains 126 questions.
+
 `golden_set.jsonl` replaces the old 60/84/104-question files and uses fresh `GS3-...` identifiers. The default evaluation and validation commands load this file.
 
 The set was authored against the 14 documents in `docs/corpus_txt` and their matching styled PDFs on 14 October 2026. It contains 126 questions:

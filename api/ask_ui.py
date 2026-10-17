@@ -58,7 +58,7 @@ def ask_view():
         st.caption(f"Generation cost: ${answer.get('cost_usd', 0):.6f}")
         chunks = answer.get("retrieved", [])
         st.subheader(f"Retrieved chunks ({len(chunks)})")
-        st.caption("Full retrieved passages in ranking order. The generation context may be truncated by its character limit.")
+        st.caption("Retrieved passages in ranking order. Only chunks listed under Answer evidence were sent to the model.")
         for rank, chunk in enumerate(chunks, start=1):
             with st.expander(f"{rank}. {chunk.get('chunk_id', 'Unknown chunk')}"):
                 st.caption(f"Source: {chunk.get('source', 'Unknown source')}")
@@ -69,3 +69,12 @@ def ask_view():
                     st.json(chunk["metadata"])
         if not chunks:
             st.caption("No chunk text returned. Submit a new question after restarting the API.")
+        if "evidence" in answer:
+            with st.expander("Answer evidence and citations"):
+                st.caption(f"Knowledge-base version: {answer.get('kb_version', '')}")
+                st.json({"reason": answer.get("reason"),
+                         "citations": answer.get("citation_validation", {}),
+                         "discarded_ids": answer.get("discarded_ids", []),
+                         "prompt_tokens": answer.get("prompt_tokens_by_section", {})})
+                for hit in answer["evidence"]:
+                    st.text(f"[{hit['chunk_id']}]\n{hit['text']}")

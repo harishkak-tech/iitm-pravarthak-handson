@@ -1,5 +1,17 @@
 # Knowledge Assistant — Capstone
 
+Weeks 10–12 now add versioned KB ingestion, citation-ID validation, optional
+reranker score filtering, and evaluation KPIs. See
+[the implementation and migration notes](docs/adr/0003-versioned-evidence-and-evaluation.md).
+Run `python scripts/ingest_qdrant.py` once to publish the new snapshot payloads.
+No answer or embedding caching is added.
+All new features have configurable switches; see the
+[feature flags and re-ingestion table](docs/feature-flags.md).
+
+Use `python scripts/run_golden_set.py --metrics offline-proxy` for explicitly
+labeled wiring checks, or install `requirements-eval.txt` and use `--metrics live`
+for the four RAGAS metrics. Evaluation evidence and KPIs appear in the results UI.
+
 A 30-week build of a Q&A assistant over a small document corpus (Agentic AI & RAG Engineering).
 This repo has **two tracks**. Knowing which track a file belongs to is the whole discipline.
 
@@ -178,6 +190,20 @@ This replaces the old single-question `/ask_batched` format. `/ask` still accept
 `{"question": "..."}` for a single streamed answer.
 
 ## Setup (once)
+
+Choose the Qdrant server in `src/pipeline/settings.py`, under `QdrantSettings`:
+set `provider` to `"oci"` (current default) or `"remote"`, then restart the app.
+OCI reads `OCI_QDRANT_URL` and optional `OCI_QDRANT_API_KEY` from the environment
+or `.env`; the local SSH tunnel uses `http://127.0.0.1:6335` and must stay open.
+Remote reads the existing `QDRANT_URL` and `QDRANT_API_KEY` instead.
+Clients and HTTP connections are reused within each app process, including for
+the localhost SSH tunnel. They close at API shutdown or normal process exit.
+`QdrantSettings.timeout_seconds` defaults to 30 seconds per request;
+`read_retries` defaults to 1 additional attempt for transient read timeouts or
+network failures. A failed read can therefore take roughly 60 seconds before
+surfacing an error. Ingestion writes are not automatically retried.
+The selection applies to both ingestion and retrieval. Each server needs its own
+corpus ingestion; changing providers does not copy collections.
 
 ```bash
 python -m venv .venv && source .venv/bin/activate     # optional but recommended

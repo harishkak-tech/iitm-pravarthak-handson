@@ -1,4 +1,5 @@
 import asyncio
+import pytest
 from types import SimpleNamespace
 from unittest.mock import AsyncMock
 
@@ -55,4 +56,4 @@ def test_golden_batches_five_with_limit_and_preserves_alignment(tmp_path, monkey
     single.assert_not_awaited()
     assert summary.total == 12
     assert abs(summary.total_cost_usd - 0.12) < 1e-9
-    assert summary.total_elapsed_seconds == sum(row.elapsed_seconds for row in rows)
+    assert summary.total_elapsed_seconds == pytest.approx(sum(row.elapsed_seconds for row in rows))

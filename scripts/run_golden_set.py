@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 from datetime import datetime, timezone
 import os
 from pathlib import Path
@@ -30,8 +31,9 @@ from src.eval.golden import (
     write_eval_artifacts,
 )
 from src.pipeline.settings import Settings
-from src.eval.judge import JUDGE_MODEL, RUBRIC, JUDGE_TOOL
+from src.eval.judge import JUDGE_MODEL, RUBRIC, JUDGE_TOOL, judge_rubric
 from src.eval.store import save_golden_run
+from src.eval.rag_metrics import check_thresholds, compute_kpis, score_rows
 
 
 DEFAULT_GOLDEN = ROOT / "docs" / "goldenset" / "golden_set.jsonl"
@@ -49,9 +51,13 @@ async def _run(
     rows_out: Path,
     summary_out: Path,
     db_path: Path = DEFAULT_DB,
+    metrics_mode: str | None = None,
+    thresholds_path: Path | None = None,
 ) -> None:
     started_at = datetime.now(timezone.utc).isoformat()
     settings = Settings()
+    metrics_mode = metrics_mode if metrics_mode is not None else settings.evaluation.metrics_mode
+    settings.evaluation.metrics_mode = metrics_mode
     settings.rag.corpus.directory = corpus_dir.resolve()
     golden_entries = load_golden_set(golden_path)
     corpus_docs = load_corpus_documents(corpus_dir)
@@ -61,7 +67,8 @@ async def _run(
     judge_settings = {
         "model": JUDGE_MODEL,
         "use_fake": os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"},
-        "rubric": RUBRIC,
+        "rubric": judge_rubric(settings.evaluation.citation_grounding_enabled),
+        "citation_grounding_enabled": settings.evaluation.citation_grounding_enabled,
         "tool": JUDGE_TOOL,
     }
 
@@ -78,8 +85,22 @@ async def _run(
         max_entries=limit,
         batch_answer_fn=batch_answer_fn,
         batch_size=10,
+        citation_grounding_enabled=settings.evaluation.citation_grounding_enabled,
+        judge_log_path=rows_out.parent / "judge_logs" / f"golden_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S_%f')}.jsonl",
     )
 
+    eval_rows = [row.model_dump() for row in rows]
+    summary.kpis = compute_kpis(eval_rows) if settings.evaluation.kpis_enabled else {}
+    if metrics_mode != "off":
+        summary.rag_metrics = await asyncio.to_thread(score_rows, eval_rows, metrics_mode)
+        for row in rows:
+            row.metric_scores = summary.rag_metrics["per_row"].get(row.id, {})
+    threshold_failures = []
+    if thresholds_path and settings.evaluation.thresholds_enabled:
+        thresholds = json.loads(thresholds_path.read_text(encoding="utf-8"))
+        report = {**summary.kpis, **summary.rag_metrics.get("aggregates", {})}
+        threshold_failures = check_thresholds(report, thresholds)
+        summary.kpis["threshold_failures"] = threshold_failures
     run_id = save_golden_run(
         db_path, rows, summary, settings=settings, judge_settings=judge_settings,
         started_at=started_at, completed_at=datetime.now(timezone.utc).isoformat(),
@@ -108,6 +129,11 @@ async def _run(
     print(f"Wrote rows to:      {rows_out}")
     print(f"Wrote summary to:   {summary_out}")
     print(f"Saved database run: {run_id} in {db_path}")
+    print("KPIs:", json.dumps(summary.kpis, indent=2))
+    if summary.rag_metrics:
+        print("RAG metrics:", json.dumps({k: v for k, v in summary.rag_metrics.items() if k != "per_row"}, indent=2))
+    if threshold_failures:
+        raise SystemExit("Evaluation thresholds failed: " + ", ".join(threshold_failures))
 
     failed = [row for row in rows if not row.pass_fail]
     if failed:
@@ -125,6 +151,8 @@ def main() -> None:
     parser.add_argument("--summary-out", type=Path, default=DEFAULT_SUMMARY_OUT)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB)
+    parser.add_argument("--metrics", choices=["off", "offline-proxy", "live"], default=None)
+    parser.add_argument("--thresholds", type=Path, help="JSON metric -> {min/max: threshold}; fails after saving evidence")
     args = parser.parse_args()
 
     asyncio.run(
@@ -135,6 +163,8 @@ def main() -> None:
             rows_out=args.rows_out,
             summary_out=args.summary_out,
             db_path=args.db_path,
+            metrics_mode=args.metrics,
+            thresholds_path=args.thresholds,
         )
     )
 
