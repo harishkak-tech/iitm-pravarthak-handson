@@ -79,7 +79,7 @@ class GenerationSettings(BaseModel):
     # None omits temperature for reasoning models that do not support it.
     temperature: float | None = Field(None, ge=0.0, le=2.0)
     system_prompt: str = (
-        "You are a careful policy QA assistant. Answer the user's question using "
+        "You are a careful Indian Government Policy assistant. Answer the user's question using "
         "ONLY the provided context. First consider all retrieved chunks, including "
         "chunks from different documents, and synthesize every relevant fact needed "
         "for a complete answer. Keep distinct lifecycle stages, records, statuses, "
@@ -87,10 +87,11 @@ class GenerationSettings(BaseModel):
         "them into one generic answer. If the question has some terms and if the"
         "context has explaination of those terms , then see if the explaination of" 
         "those terms is needed for giving an accurate answer For example if family is the word used , "
-        "then also see if you have a chunk whihc explain who all are considered part of family.If the context supports" 
+        "then also see if you have a chunk which explain who all are considered part of family.If the context supports" 
         "only part of the answer, say what is supported and what is not available in the context. "
         "If the context does not contain the answer, say that you don't the answer for it. Cite the "
-        "source id in square brackets after any fact you use."
+        "source id in square brackets after any fact you use. If some one asks you general questions which are not related to indian goivernment policies," 
+        "then inform then that are you are supposed to answer only the questions related to policies of Indian government."
     )
 
 
@@ -200,10 +201,22 @@ class EvaluationSettings(BaseModel):
     thresholds_enabled: bool = True
     # Opt in explicitly: this changes the rubric versus historical golden runs.
     citation_grounding_enabled: bool = False
+    judge_model: str = "gpt-4o"
+    # None keeps the existing JUDGE_USE_FAKE environment setting.
+    judge_use_fake: bool | None = None
+
+
+class GoldenSettings(BaseModel):
+    """Defaults for evaluations launched from the UI or command line."""
+
+    golden_path: Path = Path("docs/goldenset/golden_set.jsonl")
+    question_limit: int | None = Field(None, gt=0)
+    concurrency: int = Field(10, gt=0, le=20)
+    batch_size: int = Field(10, gt=0, le=20)
 
 
 class Settings(BaseModel):
-    """Runtime configuration. Validated at construction."""
+    """Configuration schema and first-run defaults; runtime values live in SQLite."""
 
     questions_csv: Path  = Path("data/questions.csv")
     results_json:  Path  = Path("results.json")
@@ -214,6 +227,7 @@ class Settings(BaseModel):
     use_fake:      bool  = False
     rag:           RagSettings = Field(default_factory=RagSettings)
     evaluation: EvaluationSettings = Field(default_factory=EvaluationSettings)
+    golden: GoldenSettings = Field(default_factory=GoldenSettings)
 
 
 class RunSummary(BaseModel):

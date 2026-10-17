@@ -238,6 +238,8 @@ async def evaluate_golden_set(
     batch_answer_fn: Callable[[list[str]], Awaitable[list[Any]]] | None = None,
     batch_size: int = 5,
     citation_grounding_enabled: bool = False,
+    judge_options: dict[str, Any] | None = None,
+    progress_callback: Callable[[int, int], None] | None = None,
 ) -> tuple[list[GoldenEvalRow], GoldenEvalSummary]:
     """Run a golden-set evaluation loop against an async question-answer function."""
     if batch_size < 1:
@@ -284,6 +286,7 @@ async def evaluate_golden_set(
             answerability=entry.answerability,
             evaluation_type=entry.evaluation_type,
             citation_grounding_enabled=citation_grounding_enabled,
+            **(judge_options or {}),
         )
         finished = time.perf_counter()
         stage_intervals["judge"].append((started, finished))
@@ -393,6 +396,8 @@ async def evaluate_golden_set(
             )
             total_elapsed += elapsed
             total_cost += cost_usd
+            if progress_callback is not None:
+                progress_callback(position + 1, len(entries))
 
     answerable = sum(1 for row in rows if row.answerability == "answerable")
     unanswerable = len(rows) - answerable

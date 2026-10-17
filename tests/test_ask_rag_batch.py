@@ -15,7 +15,7 @@ def test_single_question_keeps_single_result_and_forwards_options(monkeypatch):
     assert result.rag_seconds >= 0
     single.assert_awaited_once_with(
         "question", corpus_dir=None, top_k=3, model=None,
-        rag_settings=None, use_qdrant=False,
+        rag_settings=pipeline.load_settings().rag, use_qdrant=False,
     )
 
 

@@ -17,6 +17,7 @@ import asyncio
 import atexit
 import csv
 from collections import Counter
+from contextvars import ContextVar
 import json
 import math
 import os
@@ -44,6 +45,7 @@ from .settings import (
     RunSummary,
     Settings,
 )
+from ..settings_store import load_settings
 
 
 log = get_logger()
@@ -56,6 +58,7 @@ RATES = {
 
 _settings_for_import = Settings()
 _default_rag_settings = _settings_for_import.rag
+_active_settings: ContextVar[Settings | None] = ContextVar("active_rag_settings", default=None)
 
 # Compatibility aliases derived from the single source of truth in settings.py.
 DEFAULT_CORPUS_DIR = _default_rag_settings.corpus.directory
@@ -481,7 +484,7 @@ def _chunk_semantically(
 
 def _use_fake_rag() -> bool:
     """Use the configured offline mode for RAG generation."""
-    return _settings_for_import.use_fake
+    return (_active_settings.get() or load_settings()).use_fake
 
 
 def _tokenize(text: str) -> list[str]:
@@ -557,7 +560,7 @@ def build_index(
     embedding: EmbeddingSettings | None = None,
 ) -> list[Chunk]:
     """Chunk the corpus and attach embeddings to every chunk."""
-    rag = _settings_for_import.rag
+    rag = load_settings().rag
     corpus_settings = corpus_settings or rag.corpus
     embedding = embedding or rag.embedding
     chunks = chunk_corpus(
@@ -603,7 +606,7 @@ def get_index(
 ) -> list[Chunk]:
     """Return the cached chunk index for the corpus."""
     corpus_dir = str(Path(corpus_dir).resolve())
-    rag = _settings_for_import.rag
+    rag = load_settings().rag
     corpus_settings = corpus_settings or rag.corpus
     embedding = embedding or rag.embedding
     settings_json = json.dumps(
@@ -647,7 +650,7 @@ def get_qdrant_client(rag_settings: RagSettings | None = None) -> Any:
             "Qdrant support requires qdrant-client. Install dependencies before indexing."
         ) from exc
 
-    qdrant_settings = (rag_settings or _default_rag_settings).qdrant
+    qdrant_settings = (rag_settings or load_settings().rag).qdrant
     url_env_var = (qdrant_settings.oci_url_env_var if qdrant_settings.provider == "oci"
                    else qdrant_settings.url_env_var)
     api_key_env_var = (qdrant_settings.oci_api_key_env_var if qdrant_settings.provider == "oci"
@@ -795,7 +798,7 @@ def persist_chunks_to_qdrant(
     """Publish a versioned snapshot without deleting historical chunks."""
     if not chunks:
         return 0
-    rag = rag_settings or _default_rag_settings
+    rag = rag_settings or load_settings().rag
     upsert_batch_size = rag.qdrant.upsert_batch_size
 
     vectors = [
@@ -819,7 +822,7 @@ def index_corpus_in_qdrant(
     rag_settings: RagSettings | None = None,
 ) -> int:
     """Build the configured PDF chunk index, then persist it to Qdrant."""
-    rag = rag_settings or _settings_for_import.rag
+    rag = rag_settings or load_settings().rag
     resolved_collection_name = collection_name or rag.collection_name()
     return persist_chunks_to_qdrant(
         get_index(
@@ -847,7 +850,7 @@ def retrieve_from_qdrant(
     if k <= 0:
         raise ValueError("k must be positive")
 
-    rag = rag_settings or _default_rag_settings
+    rag = rag_settings or load_settings().rag
     client = get_qdrant_client(rag)
     query_kwargs: dict[str, Any] = {
         "collection_name": collection_name,
@@ -978,7 +981,7 @@ def retrieve(
         raise ValueError("strategy must be 'semantic' or 'hybrid'")
     if rrf_k <= 0:
         raise ValueError("rrf_k must be positive")
-    rag = rag_settings or _default_rag_settings
+    rag = rag_settings or load_settings().rag
     metadata_filters = metadata_filters or None
     if use_qdrant:
         if strategy == "semantic":
@@ -1317,13 +1320,18 @@ async def ask_rag(
         raise TypeError("question must be a string or a list of strings")
     if any(not q.strip() for q in questions):
         raise ValueError("Questions must not be blank")
+    runtime_settings = load_settings()
     options = dict(
         corpus_dir=corpus_dir, top_k=top_k, model=model,
-        rag_settings=rag_settings, use_qdrant=use_qdrant,
+        rag_settings=rag_settings or runtime_settings.rag, use_qdrant=use_qdrant,
     )
     async def timed_answer(text: str) -> RagAnswer:
         started = time.perf_counter()
-        answer = await _ask_rag_single(text, **options)
+        token = _active_settings.set(runtime_settings)
+        try:
+            answer = await _ask_rag_single(text, **options)
+        finally:
+            _active_settings.reset(token)
         answer.rag_seconds = time.perf_counter() - started
         return answer
 
@@ -1349,7 +1357,7 @@ async def _ask_rag_single(
 ) -> RagAnswer:
     """Run RAG using the selected chunking and retrieval settings."""
     retrieval_started = time.perf_counter()
-    rag = rag_settings or _settings_for_import.rag
+    rag = rag_settings or load_settings().rag
     if corpus_dir is not None:
         rag = rag.model_copy(deep=True)
         rag.corpus.directory = Path(corpus_dir)
@@ -1497,21 +1505,23 @@ def load_questions(path: str | Path = "data/questions.csv") -> list[Question]:
 
 async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
     """One LLM call. Branches on ``Settings.use_fake``."""
-    if _settings_for_import.use_fake:
+    runtime = load_settings()
+    if runtime.use_fake:
+        from .fake_llm import fake_ask_llm
         ans = await fake_ask_llm(q, fail_rate=fail_rate)
     else:
         resp = await _client.chat.completions.create(
-            model=_settings_for_import.model,
+            model=runtime.model,
             messages=[{"role": "user", "content": q.text}],
         )
         content = resp.choices[0].message.content or ""
         usage = resp.usage
-        prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or count_tokens(q.text, _settings_for_import.model))
-        completion_tokens = int(getattr(usage, "completion_tokens", 0) or count_tokens(content, _settings_for_import.model))
+        prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or count_tokens(q.text, runtime.model))
+        completion_tokens = int(getattr(usage, "completion_tokens", 0) or count_tokens(content, runtime.model))
         ans = Answer(
             question=q.text,
             text=content,
-            cost_usd=compute_cost(_settings_for_import.model, prompt_tokens, completion_tokens),
+            cost_usd=compute_cost(runtime.model, prompt_tokens, completion_tokens),
             finish_reason=resp.choices[0].finish_reason or "stop",
             usage=usage,
         )
@@ -1613,7 +1623,7 @@ def _build_results_payload(summary: RunSummary, answers: list[Answer]) -> dict[s
 
 def main() -> None:
     """CLI entrypoint used by ``python -m src.pipeline.pipeline``."""
-    settings = Settings()
+    settings = load_settings()
     log.info("config: %s", settings.model_dump(mode="json"))
 
     questions = load_questions(settings.questions_csv)

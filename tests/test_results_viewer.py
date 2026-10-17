@@ -6,8 +6,10 @@ from pathlib import Path
 import sqlite3
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 from src.eval.results_reader import read_history, read_results
+from src.admin_auth import create_admin
 
 
 class ResultsViewerTests(unittest.TestCase):
@@ -33,6 +35,7 @@ class ResultsViewerTests(unittest.TestCase):
                            expected_behavior="Supported facts", judge_reasoning="Review evidence",
                            pass_fail=passed, evaluation_type="retrieval", document="source.txt")
                 con.execute("INSERT INTO golden_results VALUES (?, ?, ?)", (index, 1, json.dumps(row)))
+        create_admin(self.path, "test-admin-password")
 
     def test_loading_does_not_modify_database(self):
         before = self.path.read_bytes()
@@ -54,15 +57,21 @@ class ResultsViewerTests(unittest.TestCase):
         except ImportError:
             self.skipTest("Streamlit is not installed in this environment")
         app = Path(__file__).resolve().parents[1] / "api/results_viewer.py"
+        env = patch.dict("os.environ", {"APP_AUTH_DB": str(self.path), "APP_RESULTS_DB": str(self.path)})
+        env.start()
+        self.addCleanup(env.stop)
         at = AppTest.from_file(str(app), default_timeout=30).run()
+        next(w for w in at.button if w.label == "Admin login").click().run()
+        next(w for w in at.text_input if w.label == "Password").set_value("test-admin-password")
+        next(w for w in at.button if w.label == "Log in").click().run()
         next(w for w in at.sidebar.text_input if w.label == "Database path").set_value(str(self.path)).run()
         self.assertFalse(at.exception)
         self.assertFalse(at.error)
-        self.assertEqual(at.selectbox[1].options, ["Q001"])
+        self.assertEqual(next(w for w in at.selectbox if w.label == "Inspect question").options, ["Q001"])
         at.radio[0].set_value("All").run()
-        self.assertEqual(at.selectbox[1].options, ["Q001", "Q002"])
+        self.assertEqual(next(w for w in at.selectbox if w.label == "Inspect question").options, ["Q001", "Q002"])
         at.radio[0].set_value("Passed").run()
-        self.assertEqual(at.selectbox[1].options, ["Q002"])
+        self.assertEqual(next(w for w in at.selectbox if w.label == "Inspect question").options, ["Q002"])
         next(widget for widget in at.text_input if widget.label.startswith("Search questions")).set_value("no matching question").run()
         self.assertFalse(at.exception)
         self.assertTrue(any("No questions match" in info.value for info in at.info))

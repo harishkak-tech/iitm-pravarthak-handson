@@ -1,20 +1,39 @@
 """Question form backed by the RAG HTTP API; no pipeline imports required."""
 
 import os
+import re
 
 import requests
 import streamlit as st
 
 
+def public_answer_text(answer):
+    """Hide known citation markers for display without changing the saved answer."""
+    known = set(answer.get("sources") or [])
+    known.update(answer.get("citation_validation", {}).get("cited_ids") or [])
+    for hit in [*(answer.get("evidence") or []), *(answer.get("retrieved") or [])]:
+        if hit.get("chunk_id"):
+            known.add(hit["chunk_id"])
+
+    def remove_citation(match):
+        marker = match.group(1).strip()
+        if marker.lower().startswith("sources:"):
+            marker = marker[len("sources:"):].strip()
+        parts = [part.strip() for part in re.split(r"[,;]", marker)]
+        if marker in known or (parts and all(part in known for part in parts)):
+            return ""
+        return match.group(0)
+
+    # Preserve normal bracketed text and Markdown links, rather than deleting
+    # every bracketed expression in the model's prose.
+    return re.sub(r"[ \t]*\[([^\[\]\n]+)\](?!\()", remove_citation, answer["content"]).strip()
+
+
 def ask_view():
-    st.header("Ask the knowledge assistant")
-    st.caption("Ask about the document corpus. Each question is answered independently.")
-    api_base = st.sidebar.text_input(
-        "RAG API URL", value=os.getenv("RAG_API_BASE_URL", "http://localhost:8000")
-    ).rstrip("/")
+    api_base = os.getenv("RAG_API_BASE_URL", "http://localhost:8000").rstrip("/")
     with st.form("rag_question"):
         question = st.text_area(
-            "Your question", placeholder="Who is eligible for PM-KISAN?", height=120
+            "Ask a question", placeholder="What would you like to know?", height=150
         )
         submitted = st.form_submit_button("Ask", type="primary")
 
@@ -22,6 +41,7 @@ def ask_view():
         if not question.strip():
             st.warning("Enter a question first.")
         else:
+            st.session_state.pop("rag_last_answer", None)
             try:
                 with st.spinner("Searching the corpus and preparing your answer..."):
                     response = requests.post(
@@ -31,24 +51,32 @@ def ask_view():
                     )
                     response.raise_for_status()
                     answer = response.json()
-                    if not isinstance(answer.get("content"), str):
+                    if not isinstance(answer, dict) or not isinstance(answer.get("content"), str):
                         raise ValueError("Missing answer content")
                     st.session_state["rag_last_answer"] = answer
             except requests.ConnectionError:
-                st.error("Cannot reach the RAG API. Start it on port 8000 or update the API URL.")
+                st.error("The assistant is unavailable right now. Please try again shortly.")
             except requests.Timeout:
                 st.error("The API timed out. Try again once the service is ready.")
-            except requests.HTTPError as exc:
-                st.error(f"The API returned HTTP {exc.response.status_code}. Check the API logs.")
+            except requests.HTTPError:
+                st.error("The assistant could not answer right now. Please try again shortly.")
             except (ValueError, KeyError, IndexError, TypeError):
-                st.error("The API returned an unexpected answer format.")
+                st.error("The assistant returned an incomplete response. Please try again.")
             except requests.RequestException:
-                st.error("Could not send the question. Check the API URL and connection.")
+                st.error("Could not send your question. Please try again shortly.")
 
     answer = st.session_state.get("rag_last_answer")
     if answer:
-        st.subheader("Latest answer")
-        st.caption(answer.get("question", ""))
+        with st.container(border=True):
+            st.subheader("Answer")
+            st.markdown(public_answer_text(answer))
+
+
+def answer_details_view():
+    """Technical answer details, rendered only in the authenticated admin view."""
+    answer = st.session_state.get("rag_last_answer")
+    if answer:
+        st.markdown("**Original answer with citations**")
         st.markdown(answer["content"])
         with st.expander("Sources", expanded=True):
             for source in answer.get("sources", []):

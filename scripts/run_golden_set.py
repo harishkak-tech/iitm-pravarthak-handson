@@ -31,6 +31,7 @@ from src.eval.golden import (
     write_eval_artifacts,
 )
 from src.pipeline.settings import Settings
+from src.settings_store import load_settings
 from src.eval.judge import JUDGE_MODEL, RUBRIC, JUDGE_TOOL, judge_rubric
 from src.eval.store import save_golden_run
 from src.eval.rag_metrics import check_thresholds, compute_kpis, score_rows
@@ -53,20 +54,26 @@ async def _run(
     db_path: Path = DEFAULT_DB,
     metrics_mode: str | None = None,
     thresholds_path: Path | None = None,
-) -> None:
+    settings: Settings | None = None,
+    progress_callback=None,
+) -> int:
     started_at = datetime.now(timezone.utc).isoformat()
-    settings = Settings()
+    settings = (settings or load_settings()).model_copy(deep=True)
     metrics_mode = metrics_mode if metrics_mode is not None else settings.evaluation.metrics_mode
     settings.evaluation.metrics_mode = metrics_mode
     settings.rag.corpus.directory = corpus_dir.resolve()
+    settings.golden.golden_path = golden_path.resolve()
+    settings.golden.question_limit = limit
+    settings.results_db = db_path.resolve()
     golden_entries = load_golden_set(golden_path)
     corpus_docs = load_corpus_documents(corpus_dir)
 
     from src.pipeline.pipeline import ask_rag
 
     judge_settings = {
-        "model": JUDGE_MODEL,
-        "use_fake": os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"},
+        "model": settings.evaluation.judge_model,
+        "use_fake": (settings.evaluation.judge_use_fake if settings.evaluation.judge_use_fake is not None else
+                     os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"}),
         "rubric": judge_rubric(settings.evaluation.citation_grounding_enabled),
         "citation_grounding_enabled": settings.evaluation.citation_grounding_enabled,
         "tool": JUDGE_TOOL,
@@ -76,7 +83,7 @@ async def _run(
         return await ask_rag(question, rag_settings=settings.rag)
 
     async def batch_answer_fn(questions: list[str]):
-        return await ask_rag(questions, rag_settings=settings.rag, concurrency=10)
+        return await ask_rag(questions, rag_settings=settings.rag, concurrency=settings.golden.concurrency)
 
     rows, summary = await evaluate_golden_set(
         golden_entries,
@@ -84,7 +91,9 @@ async def _run(
         answer_fn,
         max_entries=limit,
         batch_answer_fn=batch_answer_fn,
-        batch_size=10,
+        batch_size=settings.golden.batch_size,
+        judge_options={"model": judge_settings["model"], "use_fake": judge_settings["use_fake"]},
+        progress_callback=progress_callback,
         citation_grounding_enabled=settings.evaluation.citation_grounding_enabled,
         judge_log_path=rows_out.parent / "judge_logs" / f"golden_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S_%f')}.jsonl",
     )
@@ -141,30 +150,33 @@ async def _run(
         print("First failures:")
         for row in failed[:5]:
             print(f"  {row.id} | expected={row.answerability} | selected={row.selected_document}")
+    return run_id
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--golden-path", type=Path, default=DEFAULT_GOLDEN)
-    parser.add_argument("--corpus-dir", type=Path, default=DEFAULT_CORPUS)
+    parser.add_argument("--golden-path", type=Path, default=None)
+    parser.add_argument("--corpus-dir", type=Path, default=None)
     parser.add_argument("--rows-out", type=Path, default=DEFAULT_ROWS_OUT)
     parser.add_argument("--summary-out", type=Path, default=DEFAULT_SUMMARY_OUT)
     parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--db-path", type=Path, default=DEFAULT_DB)
+    parser.add_argument("--db-path", type=Path, default=None)
     parser.add_argument("--metrics", choices=["off", "offline-proxy", "live"], default=None)
     parser.add_argument("--thresholds", type=Path, help="JSON metric -> {min/max: threshold}; fails after saving evidence")
     args = parser.parse_args()
+    settings = load_settings()
 
     asyncio.run(
         _run(
-            golden_path=args.golden_path,
-            corpus_dir=args.corpus_dir,
-            limit=args.limit,
+            golden_path=args.golden_path or ROOT / settings.golden.golden_path,
+            corpus_dir=args.corpus_dir or ROOT / settings.rag.corpus.directory,
+            limit=args.limit if args.limit is not None else settings.golden.question_limit,
             rows_out=args.rows_out,
             summary_out=args.summary_out,
-            db_path=args.db_path,
+            db_path=args.db_path or ROOT / settings.results_db,
             metrics_mode=args.metrics,
             thresholds_path=args.thresholds,
+            settings=settings,
         )
     )
 

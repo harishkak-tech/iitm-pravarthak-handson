@@ -11,6 +11,7 @@ venv/
 
 # Generated artifacts (not source — safe to regenerate)
 logs/
+docs/runs/admin_jobs/
 *.db
 results.json
 

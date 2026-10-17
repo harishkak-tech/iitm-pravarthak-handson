@@ -16,7 +16,6 @@ Hit with curl:
 import asyncio
 from contextlib import asynccontextmanager
 import logging
-import os
 from pathlib import Path
 import sys
 from typing import Any
@@ -194,54 +193,10 @@ def _is_streamlit_runtime() -> bool:
 
 
 def run_streamlit_app() -> None:
-    """Render the Streamlit chat UI for the /ask endpoint."""
-    import httpx
-    import streamlit as st
+    """Use the same public/admin UI from either supported Streamlit entrypoint."""
+    from api.results_viewer import main
 
-    default_api_url = "http://localhost:8000/ask"
-    api_url = os.getenv("CAPSTONE_API_URL", default_api_url)
-    try:
-        api_url = st.secrets.get("CAPSTONE_API_URL", api_url)
-    except Exception:
-        pass
-
-    st.set_page_config(page_title="Capstone Q&A", page_icon="Q", layout="centered")
-    st.title("Capstone Q&A")
-    st.caption("Ask a question and stream the API response token by token.")
-
-    with st.sidebar:
-        st.subheader("Connection")
-        api_url = st.text_input("API endpoint", value=api_url)
-        st.caption("Start uvicorn separately, then point the UI at the /ask endpoint.")
-
-    with st.form(key="ask_form", clear_on_submit=False):
-        question = st.text_area(
-            "Your question",
-            placeholder="e.g. What is the leave policy?",
-            height=120,
-        )
-        submitted = st.form_submit_button("Ask")
-
-    if submitted and question.strip():
-        placeholder = st.empty()
-        answer = ""
-
-        try:
-            with httpx.Client(timeout=60.0) as client:
-                with client.stream("POST", api_url, json={"question": question.strip()}) as response:
-                    response.raise_for_status()
-                    for chunk in response.iter_text():
-                        if chunk:
-                            answer += chunk
-                            placeholder.markdown(answer)
-        except httpx.ConnectError:
-            st.error("Cannot reach the API. Is uvicorn running on port 8000?")
-        except httpx.HTTPStatusError as exc:
-            st.error(f"API error: {exc.response.status_code} {exc.response.reason_phrase}")
-        except httpx.TimeoutException:
-            st.error("Request timed out after 60 seconds.")
-        except Exception as exc:
-            st.error(f"Unexpected error: {type(exc).__name__}: {exc}")
+    main()
 
 
 if _is_streamlit_runtime():

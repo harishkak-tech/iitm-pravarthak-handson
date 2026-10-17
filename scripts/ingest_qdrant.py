@@ -19,6 +19,7 @@ if str(ROOT) not in sys.path:
 from src.pipeline.pipeline import get_index, index_corpus_in_qdrant
 from src.pipeline.lifecycle import snapshot_version
 from src.pipeline.settings import Settings
+from src.settings_store import load_settings
 
 
 def main() -> None:
@@ -26,7 +27,7 @@ def main() -> None:
     parser.add_argument("--corpus-dir", type=Path, default=None, help="Override rag.corpus.directory")
     parser.add_argument("--collection", default=None)
     args = parser.parse_args()
-    rag_settings = Settings().rag
+    rag_settings = load_settings().rag
     if args.corpus_dir:
         rag_settings = rag_settings.model_copy(deep=True)
         rag_settings.corpus.directory = args.corpus_dir

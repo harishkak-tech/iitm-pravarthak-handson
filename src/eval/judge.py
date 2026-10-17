@@ -232,13 +232,16 @@ async def judge_answer(
     answerability: Literal["answerable", "unanswerable"],
     evaluation_type: str,
     citation_grounding_enabled: bool = True,
+    model: str | None = None,
+    use_fake: bool | None = None,
 ) -> JudgeScore:
     """Judge one answer.
 
     Uses the live tool-calling judge by default. Set ``JUDGE_USE_FAKE=1`` to
     use the deterministic local judge instead.
     """
-    use_fake = os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"}
+    if use_fake is None:
+        use_fake = os.getenv("JUDGE_USE_FAKE", "0").lower() not in {"0", "false", "no"}
     if use_fake:
         return _fake_judge(
             question,
@@ -253,7 +256,7 @@ async def judge_answer(
 
     client = AsyncOpenAI()
     resp = await client.chat.completions.create(
-        model=JUDGE_MODEL,
+        model=model or JUDGE_MODEL,
         temperature=0,
         messages=_build_messages(question, expected_behavior, source_context, candidate_answer, citation_grounding_enabled),
         tools=[JUDGE_TOOL],

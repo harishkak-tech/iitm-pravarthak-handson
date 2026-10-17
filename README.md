@@ -122,10 +122,45 @@ To browse saved results locally, run:
 python -m streamlit run api/results_viewer.py --server.port 8502
 ```
 
-Open `http://localhost:8502`. The read-only viewer shows golden-run settings,
-model and score history, searchable failed answers and judge reasoning, plus
-older batch runs. Use **Refresh results** after a golden run finishes. It does
-not need an OpenAI API key or Qdrant connection.
+Open `http://localhost:8502`. The public page contains the application name,
+question form and answer. Use **Admin login** in the top-right corner to sign in
+as `admin` with the configured password. The admin dashboard contains golden-run
+settings, score history, failed answers, judge reasoning and answer diagnostics.
+Use **Refresh results** after a golden run finishes. Browsing saved evaluations
+does not need an OpenAI API key or Qdrant connection.
+
+In **Settings and runs**, the editor shows the configuration saved in the
+`app_settings` table. Change values and select **Save settings**, or **Save and
+run golden set** to save and launch a background evaluation. Controls include
+retrieval k, reranking, query rewriting, answer generation, Qdrant provider and
+timeouts, corpus/chunking/embedding options, judge model, question limit and
+concurrency. Invalid settings are rejected; stale edits from another session
+cannot overwrite newer saved values.
+
+The API reads saved settings for each new question; ingestion and the CLI golden
+runner read them too. Code defaults only initialize the database once. Credentials
+remain in environment variables or `.env`, not in the settings table.
+`APP_SETTINGS_DB` overrides the configuration database; otherwise it follows
+`APP_RESULTS_DB`, or defaults to the project's `results.db`.
+
+Each background job keeps an immutable configuration snapshot and revision in
+`admin_golden_jobs`. The admin UI polls progress every five seconds and displays
+completion/failure details. Jobs continue when the browser disconnects; only one
+UI evaluation can be active at a time. A stopped worker is marked failed after
+five minutes without a heartbeat. Completed evaluations appear in **Golden
+evaluations** with their original settings and question results. Per-job logs
+and JSON exports are written under `docs/runs/admin_jobs/<job-id>/`.
+Runs use the dashboard's Python environment, so install the project dependencies
+there. Changing indexing settings requires ingesting the matching corpus before
+evaluating; saving settings does not trigger ingestion automatically.
+
+The single admin account is stored in `results.db` as a salted PBKDF2 password
+hash. There is no registration, password reset or forgot-password page. On a new
+deployment, provision it once with `python scripts/create_admin.py`; the password
+prompt does not echo, and an existing account is never overwritten. Back up the
+database to preserve both the account and evaluation history. `APP_AUTH_DB` can
+select a different authentication database; `APP_RESULTS_DB` selects the initial
+database shown in the admin dashboard. Both default to the project's `results.db`.
 
 ## Batch RAG API
 
@@ -140,12 +175,13 @@ python -m uvicorn api.main:app --reload --port 8000
 python -m streamlit run api/results_viewer.py --server.port 8502
 ```
 
-Open `http://localhost:8502` and choose the **Ask questions** tab. Enter a
-question and select **Ask** to see the answer, source chunk IDs, and generation
-cost, plus expandable retrieved chunk text. The UI calls `/ask_rag` with
+Open `http://localhost:8502`. Enter a question and select **Ask** to see the
+answer. Retrieval details, generation costs and evaluation results are available
+only in the authenticated admin view. The UI calls `/ask_rag` with
 `{"question": "..."}` and uses the current RAG
-settings. The Q&A view works independently of the results database. Set the API
-base URL in the sidebar if the API runs elsewhere.
+settings from the configuration database. The public page requires no login. Set the API
+base URL through the `RAG_API_BASE_URL` environment variable if the API runs
+elsewhere. Running Streamlit with `api/main.py` opens the same public/admin UI.
 
 Golden summaries include run totals: `total_retrieval_seconds` (index loading,
 retrieval and reranking), `total_generation_seconds` (prompt preparation and LLM
@@ -191,8 +227,8 @@ This replaces the old single-question `/ask_batched` format. `/ask` still accept
 
 ## Setup (once)
 
-Choose the Qdrant server in `src/pipeline/settings.py`, under `QdrantSettings`:
-set `provider` to `"oci"` (current default) or `"remote"`, then restart the app.
+Choose the Qdrant server from **Admin → Settings and runs → Qdrant connection**:
+set `provider` to `"oci"` (current default) or `"remote"`, then save settings.
 OCI reads `OCI_QDRANT_URL` and optional `OCI_QDRANT_API_KEY` from the environment
 or `.env`; the local SSH tunnel uses `http://127.0.0.1:6335` and must stay open.
 Remote reads the existing `QDRANT_URL` and `QDRANT_API_KEY` instead.

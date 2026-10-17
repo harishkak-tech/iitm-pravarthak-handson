@@ -299,7 +299,7 @@ def test_runner_honors_evaluation_switches_and_persists_mode(tmp_path, monkeypat
     hit = {"chunk_id": "a", "source": "a", "text": "Approved"}
     answer = pipeline.RagAnswer(question=entry.question, content="Approved [a].",
                                retrieved=[hit], evidence=[hit])
-    monkeypatch.setattr(run_golden_set, "Settings", lambda: settings)
+    monkeypatch.setattr(run_golden_set, "load_settings", lambda: settings)
     monkeypatch.setattr(run_golden_set, "load_golden_set", lambda p: [entry])
     monkeypatch.setattr(run_golden_set, "load_corpus_documents", lambda p: {})
     monkeypatch.setitem(sys.modules, "src.pipeline.pipeline", SimpleNamespace(ask_rag=AsyncMock(return_value=[answer])))

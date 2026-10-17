@@ -1,7 +1,8 @@
-"""Read-only evaluation dashboard. Run: streamlit run api/results_viewer.py."""
+"""Public question page and authenticated admin evaluation dashboard."""
 
 from datetime import datetime
 import json
+import os
 from pathlib import Path
 import sqlite3
 import sys
@@ -14,7 +15,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.eval.results_reader import read_history, read_results
-from api.ask_ui import ask_view
+from api.ask_ui import ask_view, answer_details_view
+from src.admin_auth import authenticate_admin
+from api.admin_settings import settings_view
 
 
 def local_time(value):
@@ -159,20 +162,47 @@ def batch_view(path, runs):
         st.info("No answers stored for this batch run.")
 
 
-def main():
-    st.set_page_config(page_title="Government Policy Knowledge Assistant", page_icon=":material/assessment:", layout="wide")
-    st.title("Government Policy Knowledge Assistant")
-    ask_tab, golden_tab = st.tabs(["Ask questions", "Golden evaluations"])
-    with ask_tab:
-        ask_view()
-    supplied = st.sidebar.text_input("Database path", value=str(ROOT / "results.db"))
+def navigate(view):
+    st.query_params["view"] = view
+
+
+def logout():
+    st.session_state.pop("admin_authenticated", None)
+    navigate("home")
+
+
+def login_view(auth_path):
+    st.subheader("Admin login")
+    with st.form("admin_login", clear_on_submit=True):
+        username = st.text_input("Username", value="admin")
+        password = st.text_input("Password", type="password")
+        submitted = st.form_submit_button("Log in", type="primary")
+    if submitted:
+        if authenticate_admin(auth_path, username, password):
+            st.session_state["admin_authenticated"] = True
+            st.rerun()
+        else:
+            st.error("Invalid username or password.")
+
+
+def admin_view():
+    # Keep the authorization check here as well as in the page router.
+    if not st.session_state.get("admin_authenticated", False):
+        return
+    st.subheader("Administration")
+    st.sidebar.caption("Signed in as admin")
+    st.sidebar.button("Log out", on_click=logout)
+    supplied = st.sidebar.text_input("Database path", value=os.getenv("APP_RESULTS_DB", str(ROOT / "results.db")))
     if st.sidebar.button("Refresh results", icon=":material/refresh:"):
         history_snapshot.clear()
         result_snapshot.clear()
     path = Path(supplied).expanduser()
     if not path.is_absolute():
         path = ROOT / path
-    st.sidebar.caption("Read-only viewer · Times shown in IST")
+    st.sidebar.caption("Times shown in IST")
+    settings_tab, golden_tab, diagnostics_tab = st.tabs(["Settings and runs", "Golden evaluations", "Answer diagnostics"])
+    with settings_tab:
+        settings_view()
     with golden_tab:
         st.caption("Browse saved runs, their settings and the answers behind each score.")
         try:
@@ -182,6 +212,42 @@ def main():
                 batch_view(str(path.resolve()), history["runs"])
         except (OSError, sqlite3.Error, ValueError, KeyError) as exc:
             st.error(f"Could not read results: {exc}")
+    with diagnostics_tab:
+        if st.session_state.get("rag_last_answer"):
+            answer_details_view()
+        else:
+            st.info("Ask a question to inspect its answer details here.")
+
+
+def main():
+    st.set_page_config(page_title="Government Policy Knowledge Assistant", page_icon=":material/chat:",
+                       layout="wide", initial_sidebar_state="collapsed")
+    st.markdown("""<style>
+        .block-container { max-width: 1120px; padding-top: 2.5rem; padding-bottom: 3rem; }
+        h1 { font-size: 2.15rem !important; letter-spacing: -0.045em; line-height: 1.2 !important; }
+        div[data-testid="stForm"] { border-radius: 16px; padding: 1.5rem; }
+        div[data-testid="stTextArea"] textarea { border-radius: 10px; }
+        div[data-testid="stBaseButton-primaryFormSubmit"] button,
+        button[kind="primaryFormSubmit"] { background-color: #0f766e; border-color: #0f766e; }
+        </style>""", unsafe_allow_html=True)
+    admin_route = st.query_params.get("view") == "admin"
+    heading, navigation = st.columns([5, 1], vertical_alignment="center")
+    with heading:
+        st.title("Government Policy Knowledge Assistant")
+    with navigation:
+        if admin_route:
+            st.button("Back to questions", type="tertiary", on_click=navigate, args=("home",))
+        else:
+            st.button("Admin login" if not st.session_state.get("admin_authenticated") else "Admin",
+                      type="tertiary", on_click=navigate, args=("admin",))
+    st.divider()
+    if not admin_route:
+        ask_view()
+    elif not st.session_state.get("admin_authenticated", False):
+        auth_path = Path(os.getenv("APP_AUTH_DB", str(ROOT / "results.db")))
+        login_view(auth_path)
+    else:
+        admin_view()
 
 
 if __name__ == "__main__":
