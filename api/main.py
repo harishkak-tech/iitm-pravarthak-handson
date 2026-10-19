@@ -6,7 +6,7 @@ to the RAG pipeline internally.
 
 Run with:
     uvicorn api.main:app --reload --port 8000
-    streamlit run api/main.py --server.port 8501
+    # React development server: cd frontend && npm install && npm run dev
 
 Hit with curl:
     curl -X POST http://localhost:8000/ask_batched \
@@ -45,7 +45,14 @@ log = logging.getLogger(__name__)
 # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class Question(BaseModel):
     """Public request shape â€” locked in ADR 0002."""
-    question: str
+    question: str = Field(min_length=1, max_length=10000)
+
+    @field_validator("question")
+    @classmethod
+    def reject_blank_question(cls, question: str) -> str:
+        if not question.strip():
+            raise ValueError("Question must not be blank")
+        return question.strip()
 
 
 class Answer(BaseModel):
@@ -201,5 +208,25 @@ def run_streamlit_app() -> None:
 
 if _is_streamlit_runtime():
     run_streamlit_app()
+
+
+# Keep the original API contract, with a same-origin namespace for React.
+from api.web_admin import router as admin_router
+from fastapi.staticfiles import StaticFiles
+
+app.include_router(admin_router)
+app.include_router(admin_router, prefix="/api")
+for route, endpoint, methods in [
+    ("/health", health, ["GET"]),
+    ("/ask_rag", ask_single_rag, ["POST"]),
+    ("/ask_batched", ask_batched, ["POST"]),
+    ("/ask", ask, ["POST"]),
+]:
+    app.add_api_route("/api" + route, endpoint, methods=methods)
+
+# Build with `npm run build` before starting Uvicorn to serve React directly.
+frontend_dist = ROOT / "frontend" / "dist"
+if frontend_dist.is_dir():
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
 
 

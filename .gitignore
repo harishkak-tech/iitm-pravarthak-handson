@@ -18,3 +18,7 @@ results.json
 # OS
 .DS_Store
 tmp/runtime/
+
+# React build and dependencies
+frontend/node_modules/
+frontend/dist/

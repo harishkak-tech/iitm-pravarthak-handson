@@ -89,8 +89,13 @@ python practice_examples/week02/pydantic_demo.py bad
 # The application (fake mode — no API key needed):
 python -m src.pipeline.pipeline
 
-# The Streamlit UI:
-streamlit run api/main.py --server.port 8501
+# React UI (Node.js 22.12+; start the API in a separate terminal):
+python -m uvicorn api.main:app --reload --port 8000
+# In the other terminal:
+cd frontend
+npm install
+npm run dev
+# Open http://localhost:5173
 
 # Run the local golden-set evaluation:
 python scripts/run_golden_set.py
@@ -116,13 +121,20 @@ Existing JSON outputs are still written. Use
 to choose a different database. Historical JSON files are not automatically
 imported because their original settings are not recorded.
 
-To browse saved results locally, run:
+To browse saved results locally, start the FastAPI backend and React frontend
+using the commands above. The React frontend replaces Streamlit as the default UI.
+For production, build once and start FastAPI from the project directory:
 
 ```powershell
-python -m streamlit run api/results_viewer.py --server.port 8502
+cd frontend
+npm install
+npm run build
+cd ..
+python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://localhost:8502`. The public page contains the application name,
+Open `http://localhost:8000` (production) or `http://localhost:5173` (development).
+The public page contains the application name,
 question form and answer. Use **Admin login** in the top-right corner to sign in
 as `admin` with the configured password. The admin dashboard contains golden-run
 settings, score history, failed answers, judge reasoning and answer diagnostics.
@@ -160,7 +172,17 @@ deployment, provision it once with `python scripts/create_admin.py`; the passwor
 prompt does not echo, and an existing account is never overwritten. Back up the
 database to preserve both the account and evaluation history. `APP_AUTH_DB` can
 select a different authentication database; `APP_RESULTS_DB` selects the initial
-database shown in the admin dashboard. Both default to the project's `results.db`.
+database used for evaluation history. Both default to the project's `results.db`.
+The React UI does not expose arbitrary server database paths to the browser.
+
+Admin requests use an eight-hour bearer session held in browser memory. Reloading
+the page requires signing in again; signing out revokes the session. Sessions are
+kept in the API process, so run a single Uvicorn worker. Restarting it invalidates
+all sessions. Use HTTPS when deploying beyond localhost.
+
+The old Streamlit entrypoints remain available for migration and their existing
+tests. They are not needed to run React. `streamlit` remains in the Python
+requirements only for these legacy screens.
 
 ## Batch RAG API
 
@@ -172,16 +194,26 @@ python -m uvicorn api.main:app --reload --port 8000
 ```
 
 ```powershell
-python -m streamlit run api/results_viewer.py --server.port 8502
+cd frontend
+npm install
+npm run dev
 ```
 
-Open `http://localhost:8502`. Enter a question and select **Ask** to see the
+Open `http://localhost:5173`. Enter a question and select **Ask assistant** to see the
 answer. Retrieval details, generation costs and evaluation results are available
-only in the authenticated admin view. The UI calls `/ask_rag` with
+only in the authenticated admin view. The UI calls `/api/ask_rag` with
 `{"question": "..."}` and uses the current RAG
 settings from the configuration database. The public page requires no login. Set the API
-base URL through the `RAG_API_BASE_URL` environment variable if the API runs
-elsewhere. Running Streamlit with `api/main.py` opens the same public/admin UI.
+base URL through the `RAG_API_BASE_URL` environment variable in the Vite terminal
+if the API runs elsewhere. Vite proxies `/api` requests to the backend, which
+defaults to `http://127.0.0.1:8000`. For example, in PowerShell:
+`$env:RAG_API_BASE_URL = "http://127.0.0.1:9000"` before `npm run dev`.
+The production build is served directly by FastAPI with same-origin API requests;
+no CORS configuration is required. Existing `/ask_rag`, `/ask_batched`, `/ask` and
+`/health` routes remain available for scripts and existing clients.
+
+Frontend checks: `cd frontend`, then `npm test` and `npm run build`.
+Backend HTTP checks: `python -m pytest tests/test_web_admin.py tests/test_api.py tests/test_api_batch.py`.
 
 Golden summaries include run totals: `total_retrieval_seconds` (index loading,
 retrieval and reranking), `total_generation_seconds` (prompt preparation and LLM

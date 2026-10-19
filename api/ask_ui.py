@@ -2,9 +2,56 @@
 
 import os
 import re
+import logging
+from pathlib import Path
+import time
+from urllib.parse import urlsplit
 
 import requests
 import streamlit as st
+from dotenv import load_dotenv
+
+from src.pipeline.logging_config import get_logger
+
+
+ROOT = Path(__file__).resolve().parents[1]
+log = get_logger("ask_ui", ROOT / "logs/ui.log")
+log.propagate = False
+if not any(type(handler) is logging.StreamHandler for handler in log.handlers):
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+    log.addHandler(handler)
+
+
+def api_base_url():
+    load_dotenv(ROOT / ".env")
+    return os.getenv("RAG_API_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
+
+
+def post_question(question, api_base):
+    """Send to the backend and log routing/status without question text or secrets."""
+    url = f"{api_base}/ask_rag"
+    parsed = urlsplit(url)
+    host = parsed.hostname or "unknown"
+    # Do not log userinfo, URL query parameters, response bodies or question text.
+    destination = f"{parsed.scheme}://{host}:{parsed.port or (443 if parsed.scheme == 'https' else 80)}"
+    started = time.perf_counter()
+    log.info("Sending question to API %s", destination)
+    try:
+        with requests.Session() as session:
+            # Streamlit and FastAPI share this VM. A proxy must not intercept
+            # loopback requests; keep environment proxy support for remote APIs.
+            if host in {"localhost", "127.0.0.1", "::1"}:
+                session.trust_env = False
+            response = session.post(url, json={"question": question}, timeout=(10, 300))
+        log.log(logging.ERROR if response.status_code >= 400 else logging.INFO,
+                "API %s returned HTTP %s after %.2fs", destination, response.status_code,
+                time.perf_counter() - started)
+        return response
+    except requests.RequestException as exc:
+        log.error("API %s request failed: %s after %.2fs", destination,
+                  type(exc).__name__, time.perf_counter() - started)
+        raise
 
 
 def public_answer_text(answer):
@@ -30,7 +77,7 @@ def public_answer_text(answer):
 
 
 def ask_view():
-    api_base = os.getenv("RAG_API_BASE_URL", "http://localhost:8000").rstrip("/")
+    api_base = api_base_url()
     with st.form("rag_question"):
         question = st.text_area(
             "Ask a question", placeholder="What would you like to know?", height=150
@@ -44,11 +91,7 @@ def ask_view():
             st.session_state.pop("rag_last_answer", None)
             try:
                 with st.spinner("Searching the corpus and preparing your answer..."):
-                    response = requests.post(
-                        f"{api_base}/ask_rag",
-                        json={"question": question.strip()},
-                        timeout=(10, 300),
-                    )
+                    response = post_question(question.strip(), api_base)
                     response.raise_for_status()
                     answer = response.json()
                     if not isinstance(answer, dict) or not isinstance(answer.get("content"), str):

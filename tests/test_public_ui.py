@@ -29,18 +29,19 @@ def test_home_only_shows_question_answer_and_admin_link(ui, monkeypatch):
     assert not ui.sidebar.text_input and not ui.tabs and not ui.dataframe
     assert [w.label for w in ui.button] == ["Admin login", "Ask"]
     response = Mock()
+    response.status_code = 200
     response.json.return_value = {"content": "A supported answer [source#1].", "sources": ["source#1"],
                                   "retrieved": [{"chunk_id": "secret-debug", "text": "private diagnostic"}],
                                   "cost_usd": 1.0}
     post = Mock(return_value=response)
-    monkeypatch.setattr("requests.post", post)
+    monkeypatch.setattr("api.ask_ui.post_question", post)
     ui.text_area[0].set_value("My policy question")
     button(ui, "Ask").click().run()
     assert not ui.exception
     assert any(w.value == "A supported answer." for w in ui.markdown)
     assert not ui.expander and not ui.json
     assert not any("cost" in w.value.lower() for w in ui.caption)
-    assert post.call_args.kwargs["json"] == {"question": "My policy question"}
+    assert post.call_args.args[0] == "My policy question"
     assert ui.session_state["rag_last_answer"]["content"] == "A supported answer [source#1]."
 
 
@@ -68,7 +69,7 @@ def test_admin_route_requires_valid_login_and_logout_revokes_access(ui):
 
 def test_blank_question_does_not_call_api(ui, monkeypatch):
     post = Mock()
-    monkeypatch.setattr("requests.post", post)
+    monkeypatch.setattr("api.ask_ui.post_question", post)
     button(ui, "Ask").click().run()
     post.assert_not_called()
     assert ui.warning
