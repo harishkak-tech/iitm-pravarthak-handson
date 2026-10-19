@@ -155,6 +155,33 @@ function JsonField({ id, value, onChange }) {
   }} />{error && <p role="alert" className="error">{error}</p>}</>;
 }
 
+function SavedRunDetails({ run }) {
+  const kpis = run.summary?.kpis || {};
+  const number = (value, suffix = '', digits = 2) => Number.isFinite(value) ? `${value.toFixed(digits)}${suffix}` : 'Not recorded';
+  const rates = [ ['Task success', 'task_success'], ['Citation validity', 'citation_validity'],
+    ['Correct abstention', 'correct_abstention'], ['False abstention', 'false_abstention'],
+    ['Grounded responses', 'grounded_response'], ['Hallucination', 'hallucination'] ];
+  const flatten = (value, prefix = '') => Object.entries(value || {}).flatMap(([key, item]) => {
+    const name = prefix ? `${prefix}.${key}` : key;
+    return item && typeof item === 'object' && !Array.isArray(item) && Object.keys(item).length
+      ? flatten(item, name) : [[name, JSON.stringify(item)]];
+  });
+  return <section aria-label="Saved run details"><h3>Eight evaluation KPIs · Run {run.id}</h3>
+    <div className="kpi-grid">{rates.map(([label, key]) => <div className="kpi" key={key}><span>{label}</span>
+      <strong>{number(kpis[key]?.rate == null ? null : kpis[key].rate * 100, '%', 1)}</strong>
+      {kpis[key] && <small>{kpis[key].numerator} / {kpis[key].denominator}</small>}</div>)}
+      <div className="kpi"><span>Response latency</span><strong>p50 {number(kpis.latency_p50_seconds, ' s')}</strong><small>p95 {number(kpis.latency_p95_seconds, ' s')}</small></div>
+      <div className="kpi"><span>Mean generation cost</span><strong>{Number.isFinite(kpis.mean_generation_cost_usd) ? `$${kpis.mean_generation_cost_usd.toFixed(6)}` : 'Not recorded'}</strong><small>USD per question</small></div>
+    </div><p>Latency measure: {kpis.latency_measure || 'Not recorded'}. Missing metrics were not recorded for this run.</p>
+    <h3>Settings used · Run {run.id}</h3><p>Saved snapshot from this evaluation.</p>
+    <p>Golden set: {run.golden_path} · Corpus: {run.corpus_dir} · Question limit: {run.entry_limit ?? 'All'}</p>
+    <div className="table-wrap"><table><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody>
+      {flatten({ settings: run.settings, judge: run.judge_settings }).map(([key, value]) => <tr key={key}><td>{key}</td><td>{value}</td></tr>)}
+    </tbody></table></div>
+    {run.summary?.rag_metrics?.mode && <details><summary>RAGAS metrics · {run.summary.rag_metrics.mode}</summary><Json value={run.summary.rag_metrics} /></details>}
+  </section>;
+}
+
 function RunBrowser({ runs, golden, token, onError }) {
   const [selected, setSelected] = useState('');
   const [rows, setRows] = useState([]);
@@ -174,7 +201,8 @@ function RunBrowser({ runs, golden, token, onError }) {
   const filtered = rows.filter(row => JSON.stringify(row).toLowerCase().includes(search.toLowerCase()) && (!golden || status === 'All' || Boolean(row.pass_fail) === (status === 'Passed')));
   return <div className="card"><h3>Run history</h3><div className="table-wrap"><table><thead><tr><th>Run</th><th>Started</th><th>Model</th><th>Pass rate</th></tr></thead><tbody>{runs.map(item => <tr key={item.id}><td>{item.id}</td><td>{item.started_at}</td><td>{item.model}</td><td>{item.summary ? `${((item.summary.pass_rate || 0) * 100).toFixed(1)}%` : '—'}</td></tr>)}</tbody></table></div>
     <label htmlFor={`run-${golden}`}>Inspect run</label><select id={`run-${golden}`} value={runId} onChange={e => setSelected(e.target.value)}>{runs.map(item => <option key={item.id} value={item.id}>Run {item.id} · {item.model} · {item.started_at}</option>)}</select>
-    <details><summary>Saved settings, judge configuration, metrics and summary</summary><Json value={run} /></details>
+    {golden && run && <SavedRunDetails key={run.id} run={run} />}
+    <details><summary>Full saved run JSON</summary><Json value={run} /></details>
     <label htmlFor={`search-${golden}`}>Search questions, answers or judge reasoning</label><input id={`search-${golden}`} value={search} onChange={e => setSearch(e.target.value)} />
     {golden && <><label htmlFor="result-status">Result status</label><select id="result-status" value={status} onChange={e => setStatus(e.target.value)}>{['All', 'Failed', 'Passed'].map(item => <option key={item}>{item}</option>)}</select></>}
     <p aria-live="polite">{loading ? 'Loading results…' : `Showing ${filtered.length} of ${rows.length} results`}</p>{filtered.map((row, index) => <details key={row.id ?? index}><summary>{golden ? (row.pass_fail ? 'Passed · ' : 'Failed · ') : ''}{row.question || row.text || row.id}</summary><Markdown>{row.answer_text || row.content || ''}</Markdown><Json value={row} /></details>)}

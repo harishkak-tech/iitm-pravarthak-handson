@@ -84,6 +84,39 @@ def golden_view(path, runs):
     ))
     run = next(r for r in runs if r["id"] == selected)
     summary = run["summary"]
+    st.subheader(f"Eight evaluation KPIs · Run {selected}")
+    kpis = summary.get("kpis", {})
+    def metric_number(value, suffix="", digits=2):
+        return f"{value:.{digits}f}{suffix}" if isinstance(value, (int, float)) else "Not recorded"
+    cards = []
+    for label, key in [("Task success", "task_success"), ("Citation validity", "citation_validity"),
+                       ("Correct abstention", "correct_abstention"), ("False abstention", "false_abstention"),
+                       ("Grounded responses", "grounded_response"), ("Hallucination", "hallucination")]:
+        rate = kpis.get(key, {})
+        value = rate.get("rate")
+        cards.append((label, metric_number(value * 100 if value is not None else None, "%", 1),
+                      f"{rate.get('numerator')} / {rate.get('denominator')}" if rate else "Not recorded"))
+    cards.append(("Response latency (p50)", metric_number(kpis.get("latency_p50_seconds"), " s"),
+                  "p95: " + metric_number(kpis.get("latency_p95_seconds"), " s")))
+    cost = kpis.get("mean_generation_cost_usd")
+    cards.append(("Mean generation cost", "$" + metric_number(cost, "", 6) if cost is not None else "Not recorded", "USD per question"))
+    for offset in (0, 4):
+        for column, (label, value, help_text) in zip(st.columns(4), cards[offset:offset + 4]):
+            column.metric(label, value, help=help_text, border=True)
+    st.caption(f"Latency measure: {kpis.get('latency_measure', 'Not recorded')}. Missing metrics were not recorded for this run.")
+    st.subheader(f"Settings used · Run {selected}")
+    st.caption("Saved snapshot from this evaluation.")
+    def settings_rows(value, prefix=""):
+        result = []
+        for key, item in value.items():
+            name = f"{prefix}.{key}" if prefix else key
+            if isinstance(item, dict) and item:
+                result.extend(settings_rows(item, name))
+            else:
+                result.append({"Setting": name, "Value": json.dumps(item)})
+        return result
+    st.caption(f"Golden set: {run['golden_path']} · Corpus: {run['corpus_dir']} · Question limit: {run.get('entry_limit') or 'All'}")
+    st.dataframe(settings_rows({"settings": run["settings"], "judge": run["judge_settings"]}), hide_index=True, width="stretch")
     if summary.get("rag_metrics") or summary.get("kpis"):
         with st.expander("RAG metrics and evaluation KPIs", expanded=True):
             metrics = summary.get("rag_metrics", {})
