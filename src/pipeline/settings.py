@@ -147,6 +147,16 @@ class RetrievalSettings(BaseModel):
         return self
 
 
+class SemanticCacheSettings(BaseModel):
+    """Persistent answer reuse across runs, bounded by TTL and capacity."""
+
+    enabled: bool = True
+    db_path: Path = Path("data/semantic_cache.db")
+    similarity_threshold: float = Field(0.95, gt=0, le=1)
+    ttl_seconds: float = Field(3600, gt=0)
+    max_entries: int = Field(500, gt=0)
+
+
 class RagSettings(BaseModel):
     """All RAG strategy settings, grouped in one place."""
 
@@ -157,6 +167,7 @@ class RagSettings(BaseModel):
     retrieval: RetrievalSettings = Field(default_factory=RetrievalSettings)
     generation: GenerationSettings = Field(default_factory=GenerationSettings)
     qdrant: QdrantSettings = Field(default_factory=QdrantSettings)
+    semantic_cache: SemanticCacheSettings = Field(default_factory=SemanticCacheSettings)
     validate_answer_citations: bool = True
     normalize_answer_citations: bool = True
     corpus_change_detection_enabled: bool = True

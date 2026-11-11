@@ -63,6 +63,8 @@ class GoldenEvalRow(BaseModel):
     evidence: list[dict[str, Any]] = Field(default_factory=list)
     citation_validation: dict[str, Any] = Field(default_factory=dict)
     kb_version: str = ""
+    cache_hit: bool = False
+    cache_similarity: float | None = None
     answer_reason: str = ""
     prompt_tokens_by_section: dict[str, Any] = Field(default_factory=dict)
     metric_scores: dict[str, float] = Field(default_factory=dict)
@@ -386,6 +388,8 @@ async def evaluate_golden_set(
                     evidence=getattr(answer, "evidence", retrieved),
                     citation_validation=getattr(answer, "citation_validation", {}),
                     kb_version=getattr(answer, "kb_version", ""),
+                    cache_hit=getattr(answer, "cache_hit", False),
+                    cache_similarity=getattr(answer, "cache_similarity", None),
                     answer_reason=getattr(answer, "reason", ""),
                     prompt_tokens_by_section=getattr(answer, "prompt_tokens_by_section", {}),
                     raw_answer=getattr(answer, "raw_answer", answer_text),

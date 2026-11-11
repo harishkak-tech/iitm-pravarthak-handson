@@ -34,6 +34,7 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from .logging_config import get_logger
+from .semantic_cache import SemanticCache
 from .evidence import ABSTENTION, filter_evidence, normalize_citations, select_context, token_accounting, validate_citations
 from .lifecycle import corpus_fingerprint, live_filter, publish_snapshot, publish_unversioned, snapshot_version
 from .settings import (
@@ -106,6 +107,8 @@ class RagAnswer(BaseModel):
     stage_intervals: dict[str, tuple[float, float]] = Field(default_factory=dict, exclude=True)
 
     question: str
+    cache_hit: bool = False
+    cache_similarity: float | None = None
     content: str
     sources: list[str] = Field(default_factory=list)
     cost_usd: float = 0.0
@@ -1380,6 +1383,32 @@ async def _ask_rag_single(
     )
     # Copy metadata: never mutate shared cached Chunk instances during concurrent queries.
     kb_version = snapshot_version(index)
+    cache_vector = None
+    cache = SemanticCache(rag.semantic_cache.db_path)
+    cache_scope = json.dumps({
+        "kb": kb_version, "rag": rag.model_dump(mode="json"),
+        "top_k": result_count, "model": model or rag.generation.model,
+        "use_qdrant": use_qdrant, "fake": _use_fake_rag(),
+        "directory": str(rag.corpus.directory.resolve()),
+    }, sort_keys=True)
+    if rag.semantic_cache.enabled:
+        try:
+            cache_vector = await asyncio.to_thread(embed, question, model_name=rag.embedding.model_name)
+            cached, similarity = cache.lookup(
+                cache_scope, question, cache_vector,
+                threshold=rag.semantic_cache.similarity_threshold,
+                ttl=rag.semantic_cache.ttl_seconds,
+            )
+            if cached is not None:
+                cached = RagAnswer.model_validate(cached)
+                return cached.model_copy(update={
+                    "question": question, "cache_hit": True, "cache_similarity": similarity,
+                    "cost_usd": 0.0, "retries": 0, "retrieval_seconds": 0.0,
+                    "rerank_seconds": 0.0, "generation_seconds": 0.0,
+                    "stage_intervals": {}, "prompt_tokens_by_section": {},
+                })
+        except Exception:
+            log.warning("Semantic cache unavailable; continuing with RAG", exc_info=True)
     index = [Chunk(c.chunk_id, c.source, c.text, c.vector,
                    {**c.metadata, "kb_version": kb_version}) for c in index]
     metadata_filters = dict(retrieval.metadata_filters)
@@ -1483,7 +1512,7 @@ async def _ask_rag_single(
     elif rag.validate_answer_citations and not validation["valid"]:
         content, reason = ABSTENTION, "citation_rejected"
     sources = validation["cited_ids"] if content != ABSTENTION else []
-    return RagAnswer(
+    answer = RagAnswer(
         stage_intervals={"retrieval": (retrieval_started, generation_started),
                          "generation": (generation_started, time.perf_counter())},
         retrieval_seconds=retrieval_seconds, rerank_seconds=rerank_seconds,
@@ -1494,6 +1523,13 @@ async def _ask_rag_single(
         discarded_ids=discarded_ids if rag.trace_enabled else [], kb_version=kb_version,
         prompt_tokens_by_section=counts,
     )
+    if cache_vector is not None and not answer.abstained and validation["valid"]:
+        try:
+            cache.store(cache_scope, question, cache_vector, answer,
+                        max_entries=rag.semantic_cache.max_entries)
+        except Exception:
+            log.warning("Semantic cache write failed; returning RAG answer", exc_info=True)
+    return answer
 
 
 def load_questions(path: str | Path = "data/questions.csv") -> list[Question]:
